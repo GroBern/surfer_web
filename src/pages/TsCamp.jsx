@@ -9,7 +9,7 @@ import ComfortableStays from '../components/ts_camp/ComfortableStays'
 import ImageSlider from '../components/beach_camp/ImageSlider'
 import {Footer} from '../components/Footer'
 import Map from '../components/contact/Map'
-import Package from '../components/beach_camp/Package'
+import Package from '../components/ts_camp/Package'
 
 const TsCamp = () => {
   return (

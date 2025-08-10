@@ -102,7 +102,7 @@ const SurfStyle = () => {
 
             <Motion.button
               onClick={prevSlide}
-              className="absolute left-4 top-1/2 transform -translate-y-1/2 bg-white/20 backdrop-blur-sm hover:bg-white/30 text-white p-3 rounded-full transition-all duration-300 z-10 border border-white/20"
+              className="absolute left-4 top-1/2 transform -translate-y-1/2 bg-white/20 backdrop-blur-sm hover:bg-white/30 text-white p-3 rounded-full transition-all duration-300 z-10 border border-white/20 cursor-pointer"
               whileHover={{ scale: 1.1, x: -2 }}
               whileTap={{ scale: 0.95 }}
               initial={{ opacity: 0, x: -20 }}
@@ -114,7 +114,7 @@ const SurfStyle = () => {
 
             <Motion.button
               onClick={nextSlide}
-              className="absolute right-4 top-1/2 transform -translate-y-1/2 bg-white/20 backdrop-blur-sm hover:bg-white/30 text-white p-3 rounded-full transition-all duration-300 z-10 border border-white/20"
+              className="absolute right-4 top-1/2 transform -translate-y-1/2 bg-white/20 backdrop-blur-sm hover:bg-white/30 text-white p-3 rounded-full transition-all duration-300 z-10 border border-white/20 cursor-pointer"
               whileHover={{ scale: 1.1, x: 2 }}
               whileTap={{ scale: 0.95 }}
               initial={{ opacity: 0, x: 20 }}

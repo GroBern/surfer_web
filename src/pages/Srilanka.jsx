@@ -23,7 +23,7 @@ const Srilanka = () => {
         <ChooseSurfCamp />
         <BeachCamp />
         <TS2Camp />
-        <SurferCamp />
+        {/* <SurferCamp /> */}
         {/* <SurferWay /> */}
         <SurfPackageCard />
         <Reviews />

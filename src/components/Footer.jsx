@@ -27,8 +27,8 @@ const Footer = () => (
       <div className="flex flex-col items-center md:items-start mb-8 mr-10 pr-10 md:mb-0">
         <img src="/logo1.png" alt="The Surfer Logo" className="h-20 w-auto mb-6" />
         <div className="flex gap-4">
-          <a href="#" className="bg-white rounded-full p-2 hover:bg-cyan-200 transition"><Facebook className="h-6 w-6 text-[#0a67b3]" /></a>
-          <a href="#" className="bg-white rounded-full p-2 hover:bg-cyan-200 transition"><Instagram className="h-6 w-6 text-[#0a67b3]" /></a>
+          <a href="https://www.facebook.com/Thesurferweligama/" target='_blank' rel="noopener noreferrer" className="bg-white rounded-full p-2 hover:bg-cyan-200 transition"><Facebook className="h-6 w-6 text-[#0a67b3]" /></a>
+          <a href="https://www.instagram.com/thesurfer_srilanka/" target='_blank' rel="noopener noreferrer" className="bg-white rounded-full p-2 hover:bg-cyan-200 transition"><Instagram className="h-6 w-6 text-[#0a67b3]" /></a>
         </div>
       </div>
       <div className="flex-1 grid grid-cols-1 sm:grid-cols-3 gap-25">
@@ -39,8 +39,8 @@ const Footer = () => (
         <div className="pl-16 ml-16 mr-6 pr-6">
           <h3 className="font-semibold mb-3 text-lg">The Surfer</h3>
           <ul className="space-y-2">
-            <li><a href="#" className="hover:underline">Blog</a></li>
-            <li><a href="#" className="hover:underline">Contact us</a></li>
+            <li><a href="/blogs" className="hover:underline">Blog</a></li>
+            <li><a href="/contact" className="hover:underline">Contact us</a></li>
           </ul>
         </div>
         <div className="pl-10">

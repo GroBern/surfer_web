@@ -37,9 +37,9 @@ const Activities = () => {
             {/* Second Video */}
             <div className="max-w-7xl mx-auto px-4 pb-10">
                 <div className="w-full h-72 md:h-96 overflow-hidden shadow-md">
-                    <img
-                        src="/activities/305.jpg"
-                        alt=""
+                    <video
+                        src="/videos/boat-party.mp4"
+                        controls
                         className="w-full h-full object-cover"
                     />
                 </div>
@@ -97,7 +97,7 @@ const Activities = () => {
                 </div>
                 <div className="w-full h-100 overflow-hidden shadow-md">
                     <img
-                        src="/activities/main2.jpg"
+                        src="/activities/main3.jpg"
                         alt=""
                         className="w-full h-full object-cover"
                     />

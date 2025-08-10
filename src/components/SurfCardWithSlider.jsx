@@ -10,7 +10,7 @@ const SurfCardWithSlider = ({ images, topic, body1, body2, link, index }) => {
         setCurrentImageIndex((prevIndex) => 
           prevIndex === images.length - 1 ? 0 : prevIndex + 1
         );
-      }, 4000); 
+      }, 2000); 
 
       return () => clearInterval(interval);
     }
@@ -61,7 +61,7 @@ const SurfCardWithSlider = ({ images, topic, body1, body2, link, index }) => {
               e.stopPropagation();
               goToPrevious();
             }}
-            className="absolute left-2 top-1/2 transform -translate-y-1/2 bg-white bg-opacity-60 hover:bg-opacity-80 text-white p-1 rounded-full transition-all duration-300 z-20"
+            className="absolute left-2 top-1/2 transform -translate-y-1/2 bg-white bg-opacity-60 hover:bg-opacity-80 text-white p-1 rounded-full transition-all duration-300 z-20 cursor-pointer"
             aria-label="Previous image"
           >
             <svg className="w-4 h-4" fill="none" stroke="black" viewBox="0 0 24 24">
@@ -74,7 +74,7 @@ const SurfCardWithSlider = ({ images, topic, body1, body2, link, index }) => {
               e.stopPropagation();
               goToNext();
             }}
-            className="absolute right-2 top-1/2 transform -translate-y-1/2 bg-white bg-opacity-60 hover:bg-opacity-80 text-white p-1 rounded-full transition-all duration-300 z-20"
+            className="absolute right-2 top-1/2 transform -translate-y-1/2 bg-white bg-opacity-60 hover:bg-opacity-80 text-white p-1 rounded-full transition-all duration-300 z-20 cursor-pointer"
             aria-label="Next image"
           >
             <svg className="w-4 h-4" fill="none" stroke="black" viewBox="0 0 24 24">

@@ -83,7 +83,7 @@ const Home = () => {
       <SurfingJourney />
 
       <div className="max-w-7xl mx-auto py-10">
-        <div className="max-w-xl mx-auto mb-16">
+        <div className="max-w-5xl mx-auto mb-16">
           <div className="grid grid-cols-1 gap-8">
             <ImageCard
               image="image.png"
@@ -148,7 +148,7 @@ const Home = () => {
           </div>
         </div>
 
-        <div className="grid grid-cols-1 gap-6 max-w-md mx-auto">
+        <div className="grid grid-cols-1 gap-6 max-w-2xl mx-auto">
           <motion.div
             className="transform transition-transform duration-300 hover:scale-105"
             initial={{ opacity: 0, y: 50 }}

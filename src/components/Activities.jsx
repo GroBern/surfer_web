@@ -10,7 +10,7 @@ const Activities = () => {
   ];
 
   return (
-    <div className="py-16 px-4 bg-gray-50">
+    <div className="py-16 px-4">
       <div className="max-w-6xl mx-auto">
         <div className="text-center mb-12">
           <motion.h1

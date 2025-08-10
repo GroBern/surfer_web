@@ -12,13 +12,13 @@ const Navbar = () => {
     {
       id: 'srilanka',
       name: 'Surf Camps Sri Lanka',
-      image: 'beach_camp/package_2.jpg',
+      image: '/image.png',
       link: '/srilanka'
     },
     {
       id: 'morocco',
       name: 'Surf Camps Morocco',
-      image: '/blogs/blog12.jpg',
+      image: '/morocco.jpg',
       link: '/morocco'
     }
   ]

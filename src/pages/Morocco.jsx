@@ -11,7 +11,7 @@ import SurferWay from '../components/country/SurferWay'
 import SurfPackageCard from '../components/morocco/Packages'
 import Reviews from '../components/country/Reviews'
 import StayInStyle from '../components/morocco/StayInStyle'
-import Activities from '../components/country/Activities'
+import Activities from '../components/morocco/Activities'
 import Follow from '../components/country/Follow'
 import {Footer} from '../components/Footer'
 
@@ -27,6 +27,7 @@ const Morocco = () => {
         <SurfPackageCard />
         <Reviews />
         <StayInStyle />
+        <Activities />
         <Footer />
     </div>
   )

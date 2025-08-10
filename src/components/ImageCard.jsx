@@ -8,10 +8,10 @@ const ImageCard = ({ image, title, subtitle, link, index }) => (
     whileInView={{ opacity: 1, y: 0 }}
     transition={{ duration: 0.8, delay: index * 0.2 }}
     viewport={{ once: true, amount: 0.3 }}
-    className="relative overflow-hidden shadow-2xl group cursor-pointer mb-10 w-full max-w-5xl mx-auto"
+    className="relative overflow-hidden shadow-2xl group cursor-pointer mb-10 w-full max-w-7xl mx-auto"
   >
     <div 
-      className="aspect-[4/3] bg-cover bg-center transform transition-transform duration-700 group-hover:scale-110"
+      className="aspect-[16/9] bg-cover bg-center transform transition-transform duration-700 group-hover:scale-110"
       style={{
         backgroundImage: `url(/${image})`,
       }}
