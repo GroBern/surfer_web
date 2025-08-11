@@ -8,22 +8,22 @@ const SurfStyle = () => {
   const slides = [
     {
       id: 1,
-      image: 'morocco/surfstyle_1.jpg',
+      image: '/morocco/morocco1.jpg',
       alt: 'Surfers on beach'
     },
     {
       id: 2,
-      image: 'morocco/surfstyle_2.jpg',
+      image: '/morocco/morocco2.jpg',
       alt: 'Surf training'
     },
     {
       id: 3,
-      image: 'morocco/surfstyle_3.jpg',
+      image: '/morocco/morocco3.jpg',
       alt: 'Beach activities'
     },
     {
       id: 4,
-      image: 'morocco/surfstyle_4.jpg',
+      image: '/morocco/morocco4.jpg',
       alt: 'Surf lesson'
     }
   ];
@@ -38,7 +38,7 @@ const SurfStyle = () => {
 
   return (
     <Motion.div 
-      className="bg-gray-50 py-16"
+      className="bg-white py-16"
       initial={{ opacity: 0, y: 50 }}
       whileInView={{ opacity: 1, y: 0 }}
       transition={{ duration: 0.6, ease: "easeOut" }}
@@ -91,7 +91,7 @@ const SurfStyle = () => {
                   whileHover={{ scale: 1.05, y: -5 }}
                 >
                   <img
-                    src={`/${slide.image}`}
+                    src={`${slide.image}`}
                     alt={slide.alt}
                     className="w-full h-full object-cover transition-transform duration-500 group-hover:scale-110"
                   />

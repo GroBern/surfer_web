@@ -8,22 +8,22 @@ const BeachCamp = () => {
   const slides = [
     {
       id: 1,
-      image: 'country/I4.jpg',
+      image: '/beach_camp/surfcard4.jpg',
       alt: 'Surfers on beach'
     },
     {
       id: 2,
-      image: 'country/I5.jpg',
+      image: '/beach_camp/I3.jpg',
       alt: 'Surf training'
     },
     {
       id: 3,
-      image: 'country/I8.jpg',
+      image: '/beach_camp/image_1.jpg',
       alt: 'Beach activities'
     },
     {
       id: 4,
-      image: 'country/act2.jpg',
+      image: '/country/I4.jpg',
       alt: 'Surf lesson'
     }
   ];
@@ -38,7 +38,7 @@ const BeachCamp = () => {
 
   return (
     <Motion.div 
-      className="bg-gray-50 py-16"
+      className="bg-white py-16"
       initial={{ opacity: 0, y: 50 }}
       whileInView={{ opacity: 1, y: 0 }}
       transition={{ duration: 0.6, ease: "easeOut" }}
@@ -91,7 +91,7 @@ const BeachCamp = () => {
                   whileHover={{ scale: 1.05, y: -5 }}
                 >
                   <img
-                    src={`/${slide.image}`}
+                    src={`${slide.image}`}
                     alt={slide.alt}
                     className="w-full h-full object-cover transition-transform duration-500 group-hover:scale-110"
                   />

@@ -71,7 +71,7 @@ const Reviews = () => {
     ];
 
     return (
-        <div className='py-8 flex flex-col items-center justify-center md:px-25 px-5'>
+        <div className='py-8 flex flex-col items-center justify-center px-5'>
             <motion.h1 
                 className='text-3xl md:text-4xl lg:text-5xl font-bold text-neutral-400 text-center'
                 initial={{ opacity: 0, y: 30 }}
@@ -82,7 +82,7 @@ const Reviews = () => {
                 Google Reviews
             </motion.h1>
             {/* Testimonials */}
-            <div className='flex flex-col md:flex-row gap-5 mt-5'>
+            <div className='flex flex-col md:flex-row gap-5 mt-5 max-w-6xl mx-auto'>
                 {reviewsData.map((review) => (
                     <ReviewsCard 
                         key={review.id}
@@ -96,7 +96,7 @@ const Reviews = () => {
 
 
             {/* Awards and review badges section - single row on large screens, stacked on mobile */}
-            <div className="w-full flex flex-col lg:flex-row items-center justify-between gap-6 mt-18 px-2 sm:px-4 md:px-6 lg:px-8 xl:px-2">
+            <div className="w-full flex flex-col lg:flex-row items-center justify-between gap-6 mt-18 px-2 sm:px-4 md:px-6 lg:px-8 xl:px-2 max-w-6xl mx-auto">
                 {/* TripAdvisor badges row */}
                 <div className="flex flex-col items-center justify-center pb-3 lg:pb-0 px-4 py-1">
                     <div className="flex flex-row gap-2 items-end justify-center whitespace-nowrap">

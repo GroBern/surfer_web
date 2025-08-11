@@ -98,7 +98,7 @@ const Home = () => {
       </motion.div>
 
       <div className="max-w-7xl mx-auto py-10">
-        <div className="max-w-5xl mx-auto mb-16">
+        <div className="max-w-7xl mx-auto mb-16">
           <div className="grid grid-cols-1 gap-8">
             <ImageCard
               image="image.png"
@@ -152,7 +152,7 @@ const Home = () => {
       </div>
 
       <div className="max-w-7xl mx-auto py-10">
-        <div className="max-w-5xl mx-auto mb-16">
+        <div className="max-w-7xl mx-auto mb-16">
           <div className="grid grid-cols-1 gap-8">
             <ImageCard
               image="morocco.jpg"
@@ -163,9 +163,9 @@ const Home = () => {
           </div>
         </div>
 
-       <div className="flex justify-center">
+       <div className="grid grid-cols-1 gap-6 mb-10 place-items-center">
           <motion.div
-            className="transform transition-transform duration-300 hover:scale-105"
+            className="transform transition-transform duration-300 hover:scale-105 w-[700px]"
             initial={{ opacity: 0, y: 50 }}
             whileInView={{ opacity: 1, y: 0 }}
             transition={{ duration: 0.6, delay: 0.1 }}

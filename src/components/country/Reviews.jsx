@@ -70,7 +70,7 @@ const Reviews = () => {
     ];
 
     return (
-        <div className='py-8 flex flex-col items-center justify-center md:px-25 px-5'>
+        <div className='py-8 flex flex-col items-center justify-center px-5'>
             <motion.h1
                 className='text-3xl md:text-4xl lg:text-5xl mb-8 font-bold text-neutral-400 text-center'
                 initial={{ opacity: 0, y: 30 }}
@@ -80,7 +80,7 @@ const Reviews = () => {
             >
                 Reviews
             </motion.h1>
-            <div className='flex flex-col md:flex-row gap-5 mt-5'>
+            <div className='flex flex-col md:flex-row gap-5 mt-5 max-w-6xl mx-auto'>
                 {reviewsData.map((review) => (
                     <ReviewsCard
                         key={review.id}

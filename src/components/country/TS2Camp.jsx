@@ -8,22 +8,22 @@ const BeachCamp = () => {
   const slides = [
     {
       id: 1,
-      image: 'country/I1.jpg',
+      image: '/ts2_camp/restaurant.jpg',
       alt: 'Surfers on beach'
     },
     {
       id: 2,
-      image: 'country/I2.jpg',
+      image: '/ts2_camp/IMG_0593.JPG',
       alt: 'Surf training'
     },
     {
       id: 3,
-      image: 'country/I3.jpg',
+      image: '/ts2_camp/building.jpg',
       alt: 'Beach activities'
     },
     {
       id: 4,
-      image: 'country/I4.jpg',
+      image: '/country/I3.jpg',
       alt: 'Surf lesson'
     }
   ];
@@ -90,7 +90,7 @@ const BeachCamp = () => {
                   whileHover={{ scale: 1.05, y: -5 }}
                 >
                   <img
-                    src={`/${slide.image}`}
+                    src={`${slide.image}`}
                     alt={slide.alt}
                     className="w-full h-full object-cover transition-transform duration-500 group-hover:scale-110"
                   />

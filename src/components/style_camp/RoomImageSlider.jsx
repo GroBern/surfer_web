@@ -47,7 +47,7 @@ const RoomImageSlider = ({ images, altText, className }) => {
           e.stopPropagation();
           goToPrevious();
         }}
-        className="absolute left-2 top-1/2 transform -translate-y-1/2 bg-white bg-opacity-30 hover:bg-opacity-50 text-white p-1 rounded-full transition-all duration-300 z-20 cursor-pointer hover:bg-gray-400"
+        className="absolute left-2 top-1/2 transform -translate-y-1/2 bg-gray-400 bg-opacity-30 hover:bg-opacity-50 text-white p-1 rounded-full transition-all duration-300 z-20 cursor-pointer"
         aria-label="Previous image"
       >
         <svg className="w-4 h-4" fill="none" stroke="black" viewBox="0 0 24 24">
@@ -60,7 +60,7 @@ const RoomImageSlider = ({ images, altText, className }) => {
           e.stopPropagation();
           goToNext();
         }}
-        className="absolute right-2 top-1/2 transform -translate-y-1/2 bg-white bg-opacity-30 hover:bg-opacity-50 text-white p-1 rounded-full transition-all duration-300 z-20 cursor-pointer hover:bg-gray-400"
+        className="absolute right-2 top-1/2 transform -translate-y-1/2 bg-gray-400 bg-opacity-30 hover:bg-opacity-50 text-white p-1 rounded-full transition-all duration-300 z-20 cursor-pointer"
         aria-label="Next image"
       >
         <svg className="w-4 h-4" fill="none" stroke="black" viewBox="0 0 24 24">
@@ -68,7 +68,7 @@ const RoomImageSlider = ({ images, altText, className }) => {
         </svg>
       </button>
 
-      <div className="absolute bottom-2 left-1/2 transform -translate-x-1/2 flex space-x-1 z-20">
+      <div className="absolute top-2 right-2 flex space-x-1 z-20">
         {images.map((_, idx) => (
           <button
             key={idx}

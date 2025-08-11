@@ -36,7 +36,7 @@ const Navbar = () => {
     morocco: {
       originals: [],
       partner: [
-        { name: 'The Surfer SurfStyle', link: '#' },
+        { name: 'The Surfer SurfStyle', link: '/style-camp' },
       ]
     }
   }

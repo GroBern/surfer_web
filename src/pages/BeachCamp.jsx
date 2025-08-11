@@ -28,7 +28,7 @@ const BeachCamp = () => {
         viewport={{ once: true, amount: 0.2 }}
       >
         <Motion.div
-          className='max-w-4xl w-full overflow-hidden shadow-lg hover:shadow-xl transition-shadow duration-300'
+          className='max-w-6xl w-full overflow-hidden shadow-lg hover:shadow-xl transition-shadow duration-300'
           initial={{ opacity: 0, scale: 0.95 }}
           whileInView={{ opacity: 1, scale: 1 }}
           transition={{ duration: 0.6, delay: 0.4 }}
