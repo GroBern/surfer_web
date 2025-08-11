@@ -1,7 +1,8 @@
 import React from "react";
-import { motion } from "framer-motion"; 
+import { motion } from "framer-motion";
 import Header from "../components/Header";
 import SurfingJourney from "../components/SurfingJourney";
+import SurfingJourneyIcons from "../components/SurfingJourneyIcons";
 import SurfCampCard from "../components/SurfCard";
 import SurfCardWithSlider from "../components/SurfCardWithSlider";
 import ChooseSurfCamp from "../components/ChooseSurf";
@@ -25,7 +26,7 @@ const Home = () => {
     card1: {
       images: [
         "beach_camp/11.jpg",
-        "beach_camp/bathroom01.jpg", 
+        "beach_camp/bathroom01.jpg",
         "beach_camp/bathroom02.jpg",
         "beach_camp/BATHROOM.jpg"
       ],
@@ -49,7 +50,12 @@ const Home = () => {
     },
 
     card4: {
-      pic: "surfstyle.jpg",
+      images: [
+        "surfstyle.jpg",
+        "ts2_camp/surfdays_2.jpg",
+        "ts2_camp/surfdays_3.jpg",
+        "ts2_camp/surfdays_4.jpg"
+      ],
       topic: "The Surfer Surf Style - Morocco",
       body1:
         "Take your skills to the next level with our advanced surf training camp. Designed for serious surfers seeking to improve technique and form.",
@@ -81,6 +87,15 @@ const Home = () => {
 
 
       <SurfingJourney />
+
+      <motion.div
+        initial={{ opacity: 0, y: 50 }}
+        whileInView={{ opacity: 1, y: 0 }}
+        transition={{ duration: 0.6, delay: 0.4 }}
+        viewport={{ once: true, amount: 0.3 }}
+      >
+        <SurfingJourneyIcons />
+      </motion.div>
 
       <div className="max-w-7xl mx-auto py-10">
         <div className="max-w-5xl mx-auto mb-16">
@@ -137,38 +152,38 @@ const Home = () => {
       </div>
 
       <div className="max-w-7xl mx-auto py-10">
-        <div className="max-w-xl mx-auto mb-16">
+        <div className="max-w-5xl mx-auto mb-16">
           <div className="grid grid-cols-1 gap-8">
             <ImageCard
               image="morocco.jpg"
               title="Morocco"
               link="/morocco"
-              index={1}
+              index={0}
             />
           </div>
         </div>
 
-        <div className="grid grid-cols-1 gap-6 max-w-2xl mx-auto">
+       <div className="flex justify-center">
           <motion.div
             className="transform transition-transform duration-300 hover:scale-105"
             initial={{ opacity: 0, y: 50 }}
             whileInView={{ opacity: 1, y: 0 }}
-            transition={{ duration: 0.6 }}
+            transition={{ duration: 0.6, delay: 0.1 }}
             viewport={{ once: true, amount: 0.3 }}
           >
-            <SurfCampCard
-              pic={cards.card4.pic}
+            <SurfCardWithSlider
+              images={cards.card4.images}
               topic={cards.card4.topic}
               body1={cards.card4.body1}
               body2={cards.card4.body2}
               link={cards.card4.link}
-              index={3}
+              index={2}
             />
           </motion.div>
         </div>
 
-      
-        <div className="flex justify-center w-full mt-4 sm:mt-6 mb-3 sm:mb-4">
+
+        {/* <div className="flex justify-center w-full mt-4 sm:mt-6 mb-3 sm:mb-4">
           <motion.div
             className="transform transition-transform duration-300 hover:scale-105"
             initial={{ opacity: 0, y: 20 }}
@@ -183,7 +198,7 @@ const Home = () => {
               Book Now
             </a>
           </motion.div>
-        </div>
+        </div> */}
       </div>
 
       <motion.div

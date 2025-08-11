@@ -2,7 +2,7 @@ import React from 'react'
 import { motion as Motion } from 'framer-motion'
 import Header from '../components/ts_camp/Header'
 import LifeAtSurfCamp from '../components/ts_camp/Life'
-import ImageCard from '../components/beach_camp/ImageCard'
+import ImageCard from '../components/ts_camp/ImageCard'
 import Packages from '../components/beach_camp/Packages'
 import SurfDays from '../components/ts_camp/SurfDays'
 import ComfortableStays from '../components/ts_camp/ComfortableStays'
@@ -29,7 +29,7 @@ const TsCamp = () => {
         viewport={{ once: true, amount: 0.2 }}
       >
         <Motion.div
-          className='max-w-4xl w-full overflow-hidden shadow-lg hover:shadow-xl transition-shadow duration-300'
+          className='max-w-6xl w-full overflow-hidden shadow-lg hover:shadow-xl transition-shadow duration-300'
           initial={{ opacity: 0, scale: 0.95 }}
           whileInView={{ opacity: 1, scale: 1 }}
           transition={{ duration: 0.6, delay: 0.4 }}

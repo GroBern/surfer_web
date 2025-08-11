@@ -32,7 +32,7 @@ const LifeAtSurfCamp = () => {
       </Motion.p>
 
       <Motion.h3
-        className='text-base sm:text-sm md:text-md lg:text-lg font-bold mt-2 mb-4 text-center text-neutral-400 px-1'
+        className='text-base sm:text-sm md:text-md lg:text-lg font-bold mt-5 mb-4 text-center text-neutral-400 px-1'
         initial={{ opacity: 0, y: 20 }}
         whileInView={{ opacity: 1, y: 0 }}
         transition={{ duration: 0.4, delay: 0.4, ease: "easeOut" }}
@@ -48,12 +48,14 @@ const LifeAtSurfCamp = () => {
         transition={{ duration: 0.4, delay: 0.6, ease: "easeOut" }}
         viewport={{ once: true, amount: 0.5 }}
       >
-        <p className="mb-1">1) Main difference is the location and the room standard</p>
-        <p className="mb-1">2) Beach camp is located right next to the beach with a swim pool.</p>
-        <p className="mb-1">3) TS2 camp rooms are of basic standard, simple private rooms with a fan and a hot water ensuite bathroom.</p>
-        <p className="mb-1">4) Beach camp rooms are Standard private rooms with air conditioning, an ensuite bathroom, and hot water</p>
-        <p className="mb-1">5) TS2 camp is located 05 minutes' ride away from the beach camp. Even though you book TS2 Weligama, all your surf lessons, yoga, Breakfast, dinner, and all events will take place at the beach camp</p>
-        <p className="mb-1">6) Transport will be paid at 1000 rupees per day per bed and per room to travel between the two camps as a travel compensation! No other surf camp in the area beats our TS2 package rates! You pay less, but still get the full beach camp experience. Sleep comfortably at TS2, best of both worlds, without the high price tag!</p>
+        <ul className='list-disc list-inside space-y-2 text-left'>
+          <li>Main difference is the location and the room standard</li>
+          <li>Beach camp is located right next to the beach with a swim pool.</li>
+          <li>TS2 camp rooms are of basic standard, simple private rooms with a fan and a hot water ensuite bathroom.</li>
+          <li>Beach camp rooms are Standard private rooms with air conditioning, an ensuite bathroom, and hot water</li>
+          <li>TS2 camp is located 05 minutes' ride away from the beach camp. Even though you book TS2 Weligama, all your surf lessons, yoga, Breakfast, dinner, and all events will take place at the beach camp</li>
+          <li>Transport will be paid at 1000 rupees per day per bed and per room to travel between the two camps as a travel compensation! No other surf camp in the area beats our TS2 package rates! You pay less, but still get the full beach camp experience. Sleep comfortably at TS2, best of both worlds, without the high price tag!</li>
+        </ul>
       </Motion.div>
     </Motion.div>
   )
