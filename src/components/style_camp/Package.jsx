@@ -26,13 +26,13 @@ const Package = () => {
               <tr className="bg-gray-50">
                 <th className="px-6 py-4 text-left text-sm font-medium text-gray-900 border-b-3 border-black-300"></th>
                 <th className="px-6 py-4 text-center text-sm font-semibold text-gray-900 border-b-3 border-black-300">
-                  Surf And Yoga Package
+                  Yoga & Surf in Tamraght
                 </th>
                 <th className="px-6 py-4 text-center text-sm font-semibold text-gray-900 border-b-3 border-black-300">
-                  Full Surf Package Package
+                  Surf Coaching (Full Surf)
                 </th>
                 <th className="px-6 py-4 text-center text-sm font-semibold text-gray-900 border-b-3 border-black-300">
-                  Moderate Surf Package
+                  Surf Guiding (Moderate)
                 </th>
               </tr>
             </thead>
@@ -40,29 +40,34 @@ const Package = () => {
                <tr className="border-b border-gray-300">
                 <td className="px-6 py-4 text-sm text-gray-900 font-medium">Surf Lessons</td>
                 <td className="px-6 py-4 text-center text-sm text-gray-900">
-                  06 Surf Lessons or Guiding / Week
+                  6 days surf <br/> 1 lesson/day (1hour yoga + surf session) 
+                  <br/> Equipment included (Neoprene wetsuit & board) <br/> Qualified local instructors
+                  <br/> Daily transport to surf spots adapted to your level
                 </td>
                 <td className="px-6 py-4 text-center text-sm text-gray-900">
-                  11 Surf Lessons
+                   6 days surf <br/> 2 surf sessions/day 
+                  <br/> Equipment included (Neoprene wetsuit & board) <br/> Qualified local instructors
+                  <br/> Daily transport to surf spots adapted to your level
                 </td>
                 <td className="px-6 py-4 text-center text-sm text-gray-900">
-                  06 Surf Lessons or Guiding
+                   6 days guiding <br/> Professional and competent surf guides 
+                  <br/> Daily transport to surf spots adapted to your level
                 </td>
               </tr>
               <tr>
                 <td className="px-6 py-4 text-sm text-gray-900 font-medium">Yoga</td>
                 <td className="px-6 py-4 text-center text-sm text-gray-900">
-                  Sunrise or Sunset Everyday
+                  Sunrise or sunset yoga every day (1 hour/session)
                 </td>
                 <td className="px-6 py-4 text-center text-sm text-gray-900">
-                  02 Sessions / Week
+                  Not included
                 </td>
                 <td className="px-6 py-4 text-center text-sm text-gray-900">
-                  02 Sessions / Week
+                  Not included
                 </td>
               </tr>
               <tr className="border-b border-gray-300">
-                <td className="px-6 py-4 text-sm text-gray-900 font-medium">07 nights accommodation</td>
+                <td className="px-6 py-4 text-sm text-gray-900 font-medium">Accommodation</td>
                 <td className="px-6 py-4 text-center">
                   <span className="text-green-600 text-xl">✓</span>
                 </td>
@@ -97,8 +102,44 @@ const Package = () => {
                   <span className="text-green-600 text-xl">✓</span>
                 </td>
               </tr>
+              <tr className="border-b border-gray-300">
+                <td className="px-6 py-4 text-sm text-gray-900 font-medium">BBQ Night - 1 per week outside</td>
+                <td className="px-6 py-4 text-center">
+                  <span className="text-green-600 text-xl">✓</span>
+                </td>
+                <td className="px-6 py-4 text-center">
+                  <span className="text-green-600 text-xl">✓</span>
+                </td>
+                <td className="px-6 py-4 text-center">
+                  <span className="text-green-600 text-xl">✓</span>
+                </td>
+              </tr>
               <tr className="border-b bg-gray-50 border-gray-300">
                 <td className="px-6 py-4 text-sm text-gray-900 font-medium">Surf Theory Classes</td>
+                <td className="px-6 py-4 text-center">
+                  <span className="text-green-600 text-xl">✓</span>
+                </td>
+                <td className="px-6 py-4 text-center">
+                  <span className="text-green-600 text-xl">✓</span>
+                </td>
+                <td className="px-6 py-4 text-center text-sm text-gray-900">
+                  Not included
+                </td>
+              </tr>
+              <tr className="border-b border-gray-300">
+                <td className="px-6 py-4 text-sm text-gray-900 font-medium">Video Analysis</td>
+                <td className="px-6 py-4 text-center">
+                  <span className="text-green-600 text-xl">✓</span>
+                </td>
+                <td className="px-6 py-4 text-center">
+                  <span className="text-green-600 text-xl">✓</span>
+                </td>
+                <td className="px-6 py-4 text-center text-sm text-gray-900">
+                  Not included
+                </td>
+              </tr>
+              <tr className="border-b border-gray-300">
+                <td className="px-6 py-4 text-sm text-gray-900 font-medium">Free Wi-Fi</td>
                 <td className="px-6 py-4 text-center">
                   <span className="text-green-600 text-xl">✓</span>
                 </td>
@@ -110,7 +151,19 @@ const Package = () => {
                 </td>
               </tr>
               <tr className="border-b border-gray-300">
-                <td className="px-6 py-4 text-sm text-gray-900 font-medium">Video Analysis</td>
+                <td className="px-6 py-4 text-sm text-gray-900 font-medium">Drinking Water</td>
+                <td className="px-6 py-4 text-center">
+                  <span className="text-green-600 text-xl">✓</span>
+                </td>
+                <td className="px-6 py-4 text-center">
+                  <span className="text-green-600 text-xl">✓</span>
+                </td>
+                <td className="px-6 py-4 text-center">
+                  <span className="text-green-600 text-xl">✓</span>
+                </td>
+              </tr>
+              <tr className="border-b border-gray-300">
+                <td className="px-6 py-4 text-sm text-gray-900 font-medium">Daily Cleaning of Rooms</td>
                 <td className="px-6 py-4 text-center">
                   <span className="text-green-600 text-xl">✓</span>
                 </td>
@@ -122,15 +175,15 @@ const Package = () => {
                 </td>
               </tr>
               <tr className="border-b border-gray-300 bg-gray-50">
-                <td className="px-6 py-4 text-sm text-gray-900 font-medium">Daily Social Activities</td>
-                <td className="px-6 py-4 text-center">
-                  <span className="text-green-600 text-xl">✓</span>
+                <td className="px-6 py-4 text-sm text-gray-900 font-medium">Day Trip</td>
+                <td className="px-6 py-4 text-center text-sm text-gray-900">
+                  <span className="text-green-600 text-xl">✓ </span> (1 day Imsouane Morocco magic bay trip) 
                 </td>
-                <td className="px-6 py-4 text-center">
-                  <span className="text-green-600 text-xl">✓</span>
+                <td className="px-6 py-4 text-center text-sm text-gray-900">
+                  <span className="text-green-600 text-xl">✓ </span> (1 day Imsouane magic bay trip)  
                 </td>
-                <td className="px-6 py-4 text-center">
-                  <span className="text-green-600 text-xl">✓</span>
+                <td className="px-6 py-4 text-center text-sm text-gray-900">
+                  <span className="text-green-600 text-xl">✓ </span> (1 day Imsouane magic bay trip) 
                 </td>
               </tr>
              
@@ -152,52 +205,52 @@ const Package = () => {
               <tr className="bg-gray-50 border-b-3 border-black-300">
                 <th className="px-6 py-4 text-left text-sm font-medium text-gray-900 border-b"></th>
                 <th className="px-6 py-4 text-center text-sm font-semibold text-gray-900 border-b">
-                  Surf And Yoga Package
+                  Yoga & Surf in Tamraght 
                 </th>
                 <th className="px-6 py-4 text-center text-sm font-semibold text-gray-900 border-b">
-                  Full Surf Package Package
+                  Surf Coaching (Full Surf)
                 </th>
                 <th className="px-6 py-4 text-center text-sm font-semibold text-gray-900 border-b">
-                  Moderate Surf Package
+                  Surf Guiding (Moderate)
                 </th>
               </tr>
             </thead>
             <tbody>
               <tr className="border-b border-gray-300">
                 <td className="px-6 py-4 text-sm text-gray-900 font-medium">
-                  Mixed Dormitory Bed
-                  <div className="text-xs text-gray-500">Max ( 05 people )</div>
+                  Shared Room
+                  <div className="text-xs text-gray-500">Per Person / Per Week</div>
                 </td>
-                <td className="px-6 py-4 text-center text-sm font-semibold text-blue-600">400 €</td>
-                <td className="px-6 py-4 text-center text-sm font-semibold text-blue-600">450 €</td>
-                <td className="px-6 py-4 text-center text-sm font-semibold text-blue-600">350 €</td>
+                <td className="px-6 py-4 text-center text-sm font-semibold text-blue-600">99 € daily / 598 € weekly</td>
+                <td className="px-6 py-4 text-center text-sm font-semibold text-blue-600">83 € daily / 510 € weekly</td>
+                <td className="px-6 py-4 text-center text-sm font-semibold text-blue-600">80 € daily / 480 € weekly</td>
               </tr>
               <tr className="border-b bg-gray-50 border-gray-300">
                 <td className="px-6 py-4 text-sm text-gray-900 font-medium">
-                  Private Single Room
-                  <div className="text-xs text-gray-500">Per Week</div>
+                  Double Room
+                  <div className="text-xs text-gray-500">Per Person / Per Week</div>
                 </td>
-                <td className="px-6 py-4 text-center text-sm font-semibold text-blue-600">650 €</td>
-                <td className="px-6 py-4 text-center text-sm font-semibold text-blue-600">700 €</td>
-                <td className="px-6 py-4 text-center text-sm font-semibold text-blue-600">600 €</td>
+                <td className="px-6 py-4 text-center text-sm font-semibold text-blue-600">100 € daily / 600 € weekly</td>
+                <td className="px-6 py-4 text-center text-sm font-semibold text-blue-600">85 € daily / 510 € weekly</td>
+                <td className="px-6 py-4 text-center text-sm font-semibold text-blue-600">83 € daily / 490 € weekly</td>
               </tr>
               <tr className="border-b border-gray-300">
                 <td className="px-6 py-4 text-sm text-gray-900 font-medium">
-                  Private Double / Twin Room
+                  Double with Terrace
                   <div className="text-xs text-gray-500">Per Person / Per Week</div>
                 </td>
-                <td className="px-6 py-4 text-center text-sm font-semibold text-blue-600">520 €</td>
-                <td className="px-6 py-4 text-center text-sm font-semibold text-blue-600">550 €</td>
-                <td className="px-6 py-4 text-center text-sm font-semibold text-blue-600">490 €</td>
+                <td className="px-6 py-4 text-center text-sm font-semibold text-blue-600">103 € daily / 618 € weekly</td>
+                <td className="px-6 py-4 text-center text-sm font-semibold text-blue-600">87 € daily / 522 € weekly</td>
+                <td className="px-6 py-4 text-center text-sm font-semibold text-blue-600">87 € daily / 522 € weekly</td>
               </tr>
               <tr>
                 <td className="px-6 py-4 text-sm text-gray-900 font-medium">
-                  Private Triple Room
+                  Double Suite
                   <div className="text-xs text-gray-500">Per Person / Per Week</div>
                 </td>
-                <td className="px-6 py-4 text-center text-sm font-semibold text-blue-600">490 €</td>
-                <td className="px-6 py-4 text-center text-sm font-semibold text-blue-600">500 €</td>
-                <td className="px-6 py-4 text-center text-sm font-semibold text-blue-600">450 €</td>
+                <td className="px-6 py-4 text-center text-sm font-semibold text-blue-600">106 € daily / 636 € weekly</td>
+                <td className="px-6 py-4 text-center text-sm font-semibold text-blue-600">90 € daily / 540 € weekly</td>
+                <td className="px-6 py-4 text-center text-sm font-semibold text-blue-600">90 € daily / 540 € weekly</td>
               </tr>
             </tbody>
           </table>

@@ -13,7 +13,7 @@ const BeachCamp = () => {
     },
     {
       id: 2,
-      image: '/ts2_camp/IMG_0593.JPG',
+      image: '/ts2_camp/carrom.jpg',
       alt: 'Surf training'
     },
     {

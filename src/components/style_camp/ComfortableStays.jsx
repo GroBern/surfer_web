@@ -5,35 +5,35 @@ import RoomImageSlider from './RoomImageSlider'
 const ComfortableStays = () => {
   const roomImages = {
     dormitory: [
-      "/beach_camp/DORMROOM.jpg",
-      "/beach_camp/bathroom01.jpg", 
-      "/beach_camp/bathroom02.jpg",
-      "/beach_camp/BATHROOM.jpg"
+      "/morocco/3-bed-1.jpg",
+      "/morocco/3-bed-2.jpg", 
+      "/morocco/3-bed-3.jpg",
+      "/morocco/3-bed-4.jpg"
     ],
     singleRoom: [
-      "/beach_camp/s5.jpg",
-      "/beach_camp/bathroom01.jpg", 
-      "/beach_camp/bathroom02.jpg",
-      "/beach_camp/BATHROOM.jpg"
+      "/morocco/2-bed-1.jpg",
+      "/morocco/2-bed-2.jpg", 
+      "/morocco/2-bed-3.jpg",
+      "/morocco/2-bed-4.jpg"
     ],
     doubleRoom: [
-      "/beach_camp/DOUBLER.jpg",
-      "/beach_camp/bathroom01.jpg", 
-      "/beach_camp/bathroom02.jpg",
-      "/beach_camp/BATHROOM.jpg"
+      "/morocco/private-double-1.jpg",
+      "/morocco/private-double-2.jpg", 
+      "/morocco/private-double-3.jpg",
+      "/morocco/private-double-4.jpg"
     ],
     tripleRoom: [
-      "/beach_camp/room_2.jpg",
-      "/beach_camp/bathroom01.jpg", 
-      "/beach_camp/bathroom02.jpg",
-      "/beach_camp/BATHROOM.jpg"
+      "/morocco/balcony-1.jpg",
+      "/morocco/balcony-2.jpg", 
+      "/morocco/balcony-3.jpg",
+      "/morocco/balcony-4.jpg"
     ]
   };
 
   return (
     <Motion.div
       className='flex flex-col items-center justify-center container mx-auto w-full overflow-hidden mt-16 mb-16 px-4'
-      id='ComfortableStays'
+      id='StayInStyle'
       initial={{ opacity: 0, y: 30 }}
       whileInView={{ opacity: 1, y: 0 }}
       transition={{ duration: 0.4, ease: "easeOut" }}
@@ -95,7 +95,7 @@ const ComfortableStays = () => {
               viewport={{ once: true, amount: 0.2 }}
             >
               <p className='text-xs sm:text-sm text-neutral-600 leading-relaxed text-center'>
-                <strong>Mixed Dormitory</strong> – Great for solo travelers who love meeting people.
+                <strong>3 Bed Shared Room</strong> – Surf Style Morocco Guest House offers a cozy shared room for surf lovers to enjoy Morocco’s vibrant culture and excellent surfing experiences.
               </p>
             </Motion.div>
           </Motion.div>
@@ -131,7 +131,7 @@ const ComfortableStays = () => {
               viewport={{ once: true, amount: 0.2 }}
             >
               <p className='text-xs sm:text-sm text-neutral-600 leading-relaxed text-center'>
-                <strong>Private Single Room Ensuite</strong> – Your Personal Surf Haven Perfect for solo travelers craving privacy and comfort, for a peaceful night’s rest after a day riding the waves and soaking up the sun.
+                <strong>2 Bed Shared Room</strong> – Surf Style Morocco Guest House’s shared room combines comfort, Moroccan culture, and great surfing for an unforgettable camp experience.
               </p>
             </Motion.div>
           </Motion.div>
@@ -167,7 +167,7 @@ const ComfortableStays = () => {
               viewport={{ once: true, amount: 0.2 }}
             >
               <p className='text-xs sm:text-sm text-neutral-600 leading-relaxed text-center'>
-                <strong>Private Double / Twin Room Ensuite</strong> – For Solo, Couple or Friends want privacy with style for a good night sleep.
+                <strong>Private Double Room</strong> – Surf Style Morocco Guest House’s double room blends comfort, Moroccan culture, and great surfing for an unforgettable camp experience.
               </p>
             </Motion.div>
           </Motion.div>
@@ -203,7 +203,7 @@ const ComfortableStays = () => {
               viewport={{ once: true, amount: 0.2 }}
             >
               <p className='text-xs sm:text-sm text-neutral-600 leading-relaxed text-center'>
-                <strong>Private Triple  Room Ensuite</strong> – for a group of friends or a small family, our triple rooms are all about shared moments and smooth comfort. With plenty of space.
+                <strong>Private Double Room With Balcony</strong> – Surf Camp Morocco Guest House’s double room with terrace combines comfort, Moroccan culture, and excellent surfing for a memorable stay.
               </p>
             </Motion.div>
           </Motion.div>

@@ -39,7 +39,7 @@ const Home = () => {
     card2: {
       images: [
         "/ts2_camp/restaurant.jpg",
-        "/ts2_camp/IMG_0593.JPG",
+        "/ts2_camp/carrom.jpg",
         "/ts2_camp/building.jpg",
         "/ts2_camp/surfdays_4.jpg"
       ],

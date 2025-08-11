@@ -18,7 +18,7 @@ const LifeAtSurfCamp = () => {
         transition={{ duration: 0.4, delay: 0.2, ease: "easeOut" }}
         viewport={{ once: true, amount: 0.5 }}
       >
-        Life At The Surfer Beach Camp
+        Life At The Surfer Style Camp
       </Motion.h1>
 
       <Motion.p
@@ -28,16 +28,16 @@ const LifeAtSurfCamp = () => {
         transition={{ duration: 0.4, delay: 0.2, ease: "easeOut" }}
         viewport={{ once: true, amount: 0.5 }}
       >
-        Located right on the golden shores of Weligama, The Surfer Beach Camp blends epic waves, tropical living, and good energy
-        into one unforgettable experience. With over ten years of surf hospitality and six consecutive Tripadvisor Travelers’ Choice Awards,
-        this is more than just a surf camp—it’s a home away from home.
+        Lorem ipsum dolor sit amet, consectetur adipiscing elit. Sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.
+        Lorem ipsum dolor sit amet, consectetur adipiscing elit. Sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.
         <br />  <br />
-        Every day is shaped by the rhythm of the ocean. Wake up to the sound of waves, join like-minded travelers for surf sessions led by
-         International Surfing Association (ISA) certified local and foreign surf instructors, and unwind with sunset yoga or live music nights on the rooftop. Whether you’re here to catch your first wave or take your skills
-          to the next level, you’ll find the perfect balance of adventure, relaxation, and community.
+        Lorem ipsum dolor sit amet, consectetur adipiscing elit. Sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.
+        Lorem ipsum dolor sit amet, consectetur adipiscing elit. Sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.
+        Lorem ipsum dolor sit amet, consectetur adipiscing elit. Sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.
         <br />  <br />
-        From the warm staff and oceanfront views to the strong surf culture and social vibe, The Surfer Beach Camp is where new surfers are made and 
-        lifelong memories are born. <br />
+        Lorem ipsum dolor sit amet, consectetur adipiscing elit. Sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.
+                Lorem ipsum dolor sit amet, consectetur adipiscing elit. Sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.
+ <br />
         
       </Motion.p>
     </Motion.div>

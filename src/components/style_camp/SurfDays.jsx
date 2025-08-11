@@ -40,7 +40,7 @@ const SurfDays = () => {
             whileHover={{ scale: 1.02, transition: { duration: 0.3 } }}
           >
             <img
-              src="/beach_camp/sunrise.jpg"
+              src="/morocco/moro-1.jpg"
               alt="Surf Day Image"
               className='w-full h-40 lg:h-48 object-cover shadow-md'
             />
@@ -54,13 +54,12 @@ const SurfDays = () => {
             viewport={{ once: true, amount: 0.3 }}
           >
             <h2 className='text-lg sm:text-xl lg:text-2xl font-semibold text-neutral-700 mb-4'>
-              Sunrise to Soul – Mornings That Move You
+              Sunrise to Soul – Energizing Mornings by the Ocean
             </h2>
             <p className='text-xs sm:text-sm lg:text-base text-neutral-600 leading-relaxed text-justify lg:text-left'>
-              Your day starts with the sound of waves and the glow of the rising sun over Weligama Bay. You can
-              join a <strong>gentle morning yoga session</strong> on our rooftop or garden deck to stretch
-              and awaken your body before heading to breakfast. Our meals are freshly prepared, nutritious, and ideal
-              for fueling up before hitting the water.
+              Start your day with the gentle sound of Atlantic waves and the golden Moroccan sunrise. Enjoy a fresh, 
+              healthy breakfast prepared to energize you for the adventures ahead. Some mornings begin with 
+              relaxing yoga or gentle stretching, awakening your body and mind before heading to the surf.
             </p>
           </Motion.div>
         </Motion.div>
@@ -81,7 +80,7 @@ const SurfDays = () => {
             whileHover={{ scale: 1.02, transition: { duration: 0.3 } }}
           >
             <img
-              src="/beach_camp/surf_lesson.jpg"
+              src="/morocco/moro-2.jpg"
               alt="Surf Day Image"
               className='w-full h-40 lg:h-48 object-cover shadow-md'
             />
@@ -95,13 +94,13 @@ const SurfDays = () => {
             viewport={{ once: true, amount: 0.3 }}
           >
             <h2 className='text-lg sm:text-xl lg:text-2xl font-semibold text-neutral-700 mb-4'>
-              Surf Lessons with Heart – Mid-Morning Action
+              Surf Lessons with Heart – Catch the Waves in Tamraght
             </h2>
             <p className='text-xs sm:text-sm lg:text-base text-neutral-600 leading-relaxed text-justify lg:text-left'>
-              After breakfast, it’s time to grab your board and walk straight to the beach. You'll join your
-              small-group surf lesson led by our experienced, certified instructors. Whether you’re a complete
-              beginner or progressing through intermediate skills, every session is personalized. We teach with
-              patience, local knowledge, and the belief that anyone can surf with the right mindset and guidance.
+              Fuelled and ready, step onto the warm sand and meet our experienced surf instructors. Each lesson 
+              is tailored to your skill level — whether you’re taking your very first lesson or refining advanced 
+              techniques. With patient guidance, local knowledge, and world-class surf spots, every session 
+              brings you closer to your surfing goals.
             </p>
           </Motion.div>
         </Motion.div>
@@ -122,7 +121,7 @@ const SurfDays = () => {
             whileHover={{ scale: 1.02, transition: { duration: 0.3 } }}
           >
             <img
-              src="/beach_camp/free_time.jpg"
+              src="/morocco/moro-3.jpg"
               alt="Surf Day Image"
               className='w-full h-40 lg:h-48 object-cover shadow-md'
             />
@@ -136,20 +135,18 @@ const SurfDays = () => {
             viewport={{ once: true, amount: 0.3 }}
           >
             <h2 className='text-lg sm:text-xl lg:text-2xl font-semibold text-neutral-700 mb-4'>
-              Free Time = Your Time – Afternoons to Explore or Chill
+              Free Time = Your Time – Explore Morocco or Unwind
             </h2>
             <p className='text-xs sm:text-sm lg:text-base text-neutral-600 leading-relaxed text-justify lg:text-left'>
-              After your session, rinse off, refresh, and settle into your afternoon however you choose.
-              Want to relax? Chill at the pool, sunbathe with your new friends, or nap in a hammock. Want
-              to explore? Walk through the colorful streets of Weligama, try out a local curry spot, or
-              grab a coconut by the beach.
+              When the surf session ends, the rest of the day is yours. Relax on the terrace, sip mint 
+              tea by the ocean, or wander through Tamraght’s charming streets. Feeling adventurous? 
               <br /> <br />
-              <span className='font-semibold'>We also organize optional activities like: </span>
+              <span className='font-semibold'>Join optional activities such as: </span>
               <ul className='list-disc list-inside'>
-                <li>Tuk-tuk tours to secret beaches</li>
-                <li>Cooking classes</li>
-                <li>Excursions to Midigama and Mirissa</li>
-                <li>Wildlife watching or stilt fisherman photo tours</li>
+                <li>Surf spot explorations along Morocco’s coastline</li>
+                <li>Visits to local souks, villages, and cultural landmarks</li>
+                <li>Excursions to hidden beaches and scenic viewpoints</li>
+                <li>Authentic Moroccan cooking experiences</li>
               </ul>
             </p>
           </Motion.div>
@@ -171,7 +168,7 @@ const SurfDays = () => {
             whileHover={{ scale: 1.02, transition: { duration: 0.3 } }}
           >
             <img
-              src="/beach_camp/food_friends.jpg"
+              src="/morocco/morocco2.jpg"
               alt="Surf Day Image"
               className='w-full h-40 lg:h-48 object-cover shadow-md'
             />
@@ -185,17 +182,12 @@ const SurfDays = () => {
             viewport={{ once: true, amount: 0.3 }}
           >
             <h2 className='text-lg sm:text-xl lg:text-2xl font-semibold text-neutral-700 mb-4'>
-              Food, Friends & Firelight – Evenings to Remember
+              Food, Friends & Firelight – Evenings Under Moroccan Skies
             </h2>
             <p className='text-xs sm:text-sm lg:text-base text-neutral-600 leading-relaxed text-justify lg:text-left'>
-              When the sun begins to set, the vibe at camp comes alive. We're bringing the fun with game nights, drinking games,
-              quiz battles, karaoke sessions, theme dinners, movie nights, and epic night outs.
-              Plus, enjoy soulful tunes from local acoustic artists and loads of daily social activities that’ll keep
-              the good times rolling every evening. Whether you're here to chill, connect, or just vibe out – there’s
-              always something happening!
-              <br /> <br />
-              This is where you bond with people from all over the world. Solo travelers become friends
-              for life. Surf buddies become family. And every sunset feels a little more special than the last.
+              As night falls, our surf camp transforms into a hub of laughter and connection. Share stories 
+              over a delicious Moroccan dinner, enjoy BBQ nights, and join in lively games or music sessions. 
+              Under the glow of the stars, strangers become friends, and every evening feels unforgettable.
             </p>
           </Motion.div>
         </Motion.div>
@@ -216,7 +208,7 @@ const SurfDays = () => {
             whileHover={{ scale: 1.02, transition: { duration: 0.3 } }}
           >
             <img
-              src="/beach_camp/DSC_5817.jpg"
+              src="/morocco/morocco5.jpg"
               alt="Surf Day Image"
               className='w-full h-40 lg:h-48 object-cover shadow-md'
             />
@@ -230,12 +222,11 @@ const SurfDays = () => {
             viewport={{ once: true, amount: 0.3 }}
           >
             <h2 className='text-lg sm:text-xl lg:text-2xl font-semibold text-neutral-700 mb-4'>
-              Sleep Well. Surf Again.
+              Rest, Recharge & Repeat – Sleep by the Sea
             </h2>
             <p className='text-xs sm:text-sm lg:text-base text-neutral-600 leading-relaxed text-justify lg:text-left'>
-              When you return to your clean, cozy room, you’ll fall asleep to the distant sound of waves. No traffic.
-              No stress. Just rest — because tomorrow is another day to surf, connect, and explore paradise.
-
+              Drift off in a clean, comfortable room with the ocean breeze as your lullaby. Wake up 
+              refreshed and ready for another day of surfing, adventure, and unforgettable moments in Morocco.
             </p>
           </Motion.div>
         </Motion.div>

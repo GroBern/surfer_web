@@ -28,9 +28,9 @@ const Activities = () => {
                     #BOATPARTY! If you’ve ever attended our legendary boat party, you’ll never forget it!
                 </p>
                 <div className="grid grid-cols-1 sm:grid-cols-3 gap-4">
-                    <img src="/activities/300.JPG" alt="" className="w-full h-80 object-cover shadow-md" />
-                    <img src="/activities/301.JPG" alt="" className="w-full h-80 object-cover shadow-md" />
-                    <img src="/activities/302.JPG" alt="" className="w-full h-80 object-cover shadow-md" />
+                    <img src="/activities/acti-1.jpg" alt="" className="w-full h-80 object-cover shadow-md" />
+                    <img src="/activities/acti-2.jpg" alt="" className="w-full h-80 object-cover shadow-md" />
+                    <img src="/activities/acti-3.jpg" alt="" className="w-full h-80 object-cover shadow-md" />
                 </div>
             </div>
 
@@ -71,7 +71,7 @@ const Activities = () => {
                 </p>
                 <div className="grid grid-cols-1 sm:grid-cols-3 gap-4">
                     <img src="/activities/friends1.jpg" alt="" className="w-full h-80 object-cover shadow-md" />
-                    <img src="/activities/101.JPG" alt="" className="w-full h-80 object-cover shadow-md" />
+                    <img src="/activities/acti-5.jpg" alt="" className="w-full h-80 object-cover shadow-md" />
                     <img src="/activities/people2.jpg" alt="" className="w-full h-80 object-cover shadow-md" />
                 </div>
             </div>

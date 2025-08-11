@@ -41,7 +41,7 @@ const ImageCard = () => {
           whileHover={{ scale: 1.02, transition: { duration: 0.2 } }}
         >
           <img 
-            src="/ts2_camp/IMG_0593.JPG" 
+            src="/ts2_camp/carrom.jpg" 
             alt="Pool Area"
             className='w-full h-48 md:h-60 object-cover'
           />
