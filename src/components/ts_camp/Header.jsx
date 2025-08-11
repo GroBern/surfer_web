@@ -10,7 +10,7 @@ const Header = () => {
         <h2 className='font-[montserrat] text-3xl sm:text-5xl md:text-6xl lg:text-7xl xl:text-[80px] inline-block max-w-full sm:max-w-3xl font-bold pt-18 mt-16 sm:mt-8 md:-mt-2'>
           The Surfer TS2 Camp
         </h2>
-        <p className='text-lg sm:text-xl font-normal md:text-2xl lg:text-4xl mt-4 tracking-tight'>
+        <p className='text-lg sm:text-xl font-normal md:text-2xl lg:text-3xl mt-4'>
           Your ultimate surf camp experience
         </p>
       </div>

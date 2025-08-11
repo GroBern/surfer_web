@@ -25,10 +25,10 @@ const Home = () => {
   const cards = {
     card1: {
       images: [
-        "beach_camp/11.jpg",
-        "beach_camp/bathroom01.jpg",
-        "beach_camp/bathroom02.jpg",
-        "beach_camp/BATHROOM.jpg"
+        "/beach_camp/11.jpg",
+        "/beach_camp/bathroom01.jpg",
+        "/beach_camp/bathroom02.jpg",
+        "/beach_camp/BATHROOM.jpg"
       ],
       topic: "The Surfer Beach Surf Camp",
       body1:
@@ -38,10 +38,10 @@ const Home = () => {
 
     card2: {
       images: [
-        "ts2_camp/surfdays_1.jpg",
-        "ts2_camp/surfdays_2.jpg",
-        "ts2_camp/surfdays_3.jpg",
-        "ts2_camp/surfdays_4.jpg"
+        "/ts2_camp/restaurant.jpg",
+        "/ts2_camp/IMG_0593.JPG",
+        "/ts2_camp/building.jpg",
+        "/ts2_camp/surfdays_4.jpg"
       ],
       topic: "TS2 Surf Camp",
       body1:
@@ -51,10 +51,10 @@ const Home = () => {
 
     card4: {
       images: [
-        "surfstyle.jpg",
-        "ts2_camp/surfdays_2.jpg",
-        "ts2_camp/surfdays_3.jpg",
-        "ts2_camp/surfdays_4.jpg"
+        "/surfstyle.jpg",
+        "/ts2_camp/surfdays_2.jpg",
+        "/ts2_camp/surfdays_3.jpg",
+        "/ts2_camp/surfdays_4.jpg"
       ],
       topic: "The Surfer Surf Style - Morocco",
       body1:
@@ -98,7 +98,7 @@ const Home = () => {
       </motion.div>
 
       <div className="max-w-7xl mx-auto py-10">
-        <div className="max-w-7xl mx-auto mb-16">
+        <div className="max-w-7xl mx-auto mb-6">
           <div className="grid grid-cols-1 gap-8">
             <ImageCard
               image="image.png"
@@ -165,7 +165,7 @@ const Home = () => {
 
        <div className="grid grid-cols-1 gap-6 mb-10 place-items-center">
           <motion.div
-            className="transform transition-transform duration-300 hover:scale-105 w-[700px]"
+            className="transform transition-transform duration-300 hover:scale-105 w-[650px]"
             initial={{ opacity: 0, y: 50 }}
             whileInView={{ opacity: 1, y: 0 }}
             transition={{ duration: 0.6, delay: 0.1 }}

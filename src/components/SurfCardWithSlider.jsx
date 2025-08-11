@@ -4,17 +4,17 @@ import { motion } from "framer-motion";
 const SurfCardWithSlider = ({ images, topic, body1, body2, link, index }) => {
   const [currentImageIndex, setCurrentImageIndex] = useState(0);
 
-  useEffect(() => {
-    if (images && images.length > 1) {
-      const interval = setInterval(() => {
-        setCurrentImageIndex((prevIndex) => 
-          prevIndex === images.length - 1 ? 0 : prevIndex + 1
-        );
-      }, 2000); 
+  // useEffect(() => {
+  //   if (images && images.length > 1) {
+  //     const interval = setInterval(() => {
+  //       setCurrentImageIndex((prevIndex) => 
+  //         prevIndex === images.length - 1 ? 0 : prevIndex + 1
+  //       );
+  //     }, 2000); 
 
-      return () => clearInterval(interval);
-    }
-  }, [images]);
+  //     return () => clearInterval(interval);
+  //   }
+  // }, [images]);
 
   const goToImage = (index) => {
     setCurrentImageIndex(index);
@@ -34,7 +34,7 @@ const SurfCardWithSlider = ({ images, topic, body1, body2, link, index }) => {
 
   return (
     <div
-      className={`${index === 0 || index === 1 ? 'relative bg-cover bg-center h-[360px] flex items-end justify-center shadow-lg cursor-pointer overflow-hidden' : 'relative bg-cover bg-center h-[420px] flex items-end justify-center shadow-lg cursor-pointer overflow-hidden'}`}
+      className={`${index === 0 || index === 1 ? 'relative bg-cover bg-center h-[360px] flex items-end justify-center shadow-lg cursor-pointer overflow-hidden' : 'relative bg-cover bg-center h-[360px] flex items-end justify-center shadow-lg cursor-pointer overflow-hidden'}`}
       onClick={handleCardClick}
     >
       <div className="absolute inset-0">
@@ -43,7 +43,7 @@ const SurfCardWithSlider = ({ images, topic, body1, body2, link, index }) => {
             key={idx}
             className="absolute inset-0 bg-cover bg-center"
             style={{
-              backgroundImage: `url(/${image})`,
+              backgroundImage: `url(${image})`,
             }}
             initial={{ opacity: 0 }}
             animate={{ 

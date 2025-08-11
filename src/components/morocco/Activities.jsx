@@ -54,7 +54,7 @@ const ActivityCard = ({ pic, title }) => {
         <div className="absolute inset-0 bg-black/40"></div>
 
         <div className="relative z-10 text-white p-4 text-center w-full">
-          <h3 className="text-lg md:text-xl lg:text-2xl font-semibold leading-6.5">{title}</h3>
+          <h3 className="text-lg md:text-xl lg:text-xl font-semibold leading-6.5">{title}</h3>
         </div>
     </motion.div>
   );

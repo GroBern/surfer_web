@@ -8,17 +8,17 @@ const SurfStyle = () => {
   const slides = [
     {
       id: 1,
-      image: '/morocco/morocco1.jpg',
+      image: '/morocco/moro-1.jpg',
       alt: 'Surfers on beach'
     },
     {
       id: 2,
-      image: '/morocco/morocco2.jpg',
+      image: '/morocco/moro-2.jpg',
       alt: 'Surf training'
     },
     {
       id: 3,
-      image: '/morocco/morocco3.jpg',
+      image: '/morocco/moro-3.jpg',
       alt: 'Beach activities'
     },
     {
