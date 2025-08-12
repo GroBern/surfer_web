@@ -28,17 +28,22 @@ const LifeAtSurfCamp = () => {
         transition={{ duration: 0.4, delay: 0.2, ease: "easeOut" }}
         viewport={{ once: true, amount: 0.5 }}
       >
-        Lorem ipsum dolor sit amet, consectetur adipiscing elit. Sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.
-        Lorem ipsum dolor sit amet, consectetur adipiscing elit. Sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.
+        Perched on the sun-kissed shores of Tamraght, The Surfer Style Camp blends world-class waves,
+        laid-back coastal living, and vibrant community spirit into an unforgettable Moroccan escape.
+        With years of surf hospitality and countless happy guests from around the globe, our
+        camp isn’t just a place to stay — it’s your home by the ocean.
         <br />  <br />
-        Lorem ipsum dolor sit amet, consectetur adipiscing elit. Sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.
-        Lorem ipsum dolor sit amet, consectetur adipiscing elit. Sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.
-        Lorem ipsum dolor sit amet, consectetur adipiscing elit. Sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.
+        Each day flows with the rhythm of the tides. Begin your mornings with the scent of sea air and
+        the call of the waves, then head out for surf sessions guided by experienced local and
+        international instructors. Between surfs, stretch into a relaxing yoga session, soak up
+        the sun on our rooftop, or explore the charm of Tamraght’s coastal paths and bustling
+        markets. Evenings come alive with rooftop sunsets, shared meals, music, and the laughter of newfound friends.
         <br />  <br />
-        Lorem ipsum dolor sit amet, consectetur adipiscing elit. Sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.
-                Lorem ipsum dolor sit amet, consectetur adipiscing elit. Sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.
- <br />
-        
+        From our welcoming team and panoramic sea views to the unique blend of surf culture and
+        Moroccan hospitality, The Surfer Style Camp is where adventures are shared, skills are s
+        harpened, and stories are written in the sand.
+        <br />
+
       </Motion.p>
     </Motion.div>
   )

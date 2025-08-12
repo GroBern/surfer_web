@@ -8,7 +8,7 @@ const ImageCard = ({ image, title, subtitle, link, index }) => (
     whileInView={{ opacity: 1, y: 0 }}
     transition={{ duration: 0.8, delay: index * 0.2 }}
     viewport={{ once: true, amount: 0.3 }}
-    className="relative overflow-hidden shadow-2xl group cursor-pointer mb-10 w-full max-w-7xl mx-auto h-[500px]"
+    className="relative overflow-hidden shadow-2xl group cursor-pointer mb-10 w-full max-w-7xl mx-auto md:h-[500px]"
   >
     <div 
       className="aspect-[16/9] bg-cover bg-center transform transition-transform duration-700 group-hover:scale-110"
@@ -17,7 +17,7 @@ const ImageCard = ({ image, title, subtitle, link, index }) => (
       }}
     >
       <a href={link}>
-      <div className="absolute inset-0 bg-black/20 group-hover:bg-opacity-30 transition-all duration-500 h-[500px]">
+      <div className="absolute inset-0 bg-black/20 group-hover:bg-opacity-30 transition-all duration-500 md:h-[500px]">
         <div className="absolute inset-0 flex flex-col justify-center items-center text-white">
           <motion.h2 
             className="text-4xl md:text-5xl lg:text-6xl font-bold mb-2 text-center"

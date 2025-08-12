@@ -26,7 +26,7 @@ const Morocco = () => {
         {/* <SurferWay /> */}
         <SurfPackageCard />
         <Reviews />
-        <StayInStyle />
+        {/* <StayInStyle /> */}
         <Activities />
         <Footer />
     </div>

@@ -51,10 +51,10 @@ const Home = () => {
 
     card4: {
       images: [
-        "/surfstyle.jpg",
-        "/ts2_camp/surfdays_2.jpg",
-        "/ts2_camp/surfdays_3.jpg",
-        "/ts2_camp/surfdays_4.jpg"
+        "/morocco/moro-1.jpg",
+        "/morocco/moro-2.jpg",
+        "/morocco/moro-3.jpg",
+        "/morocco/morocco6.jpg"
       ],
       topic: "The Surfer Surf Style - Morocco",
       body1:
@@ -163,9 +163,9 @@ const Home = () => {
           </div>
         </div>
 
-       <div className="grid grid-cols-1 gap-6 mb-10 place-items-center">
+       <div className="flex flex-col sm:grid grid-cols-2 gap-6 mb-10 place-items-center">
           <motion.div
-            className="transform transition-transform duration-300 hover:scale-105 w-[650px]"
+            className="transform transition-transform duration-300 hover:scale-105"
             initial={{ opacity: 0, y: 50 }}
             whileInView={{ opacity: 1, y: 0 }}
             transition={{ duration: 0.6, delay: 0.1 }}
@@ -177,13 +177,19 @@ const Home = () => {
               body1={cards.card4.body1}
               body2={cards.card4.body2}
               link={cards.card4.link}
-              index={2}
+              index={3}
             />
           </motion.div>
+          <p>Our trusted partner camp in Tamraght offers the perfect mix of consistent waves, 
+            laid-back Moroccan living, and a friendly community vibe. Guests enjoy expert-led 
+            surf sessions, optional yoga, cozy beachfront accommodation, and a warm, welcoming 
+            atmosphere. Whether you’re chasing your first wave or refining your skills, 
+            The Surfer Style Camp delivers an unforgettable surf experience — all with the same 
+            quality and passion you know from The Surfer.</p>
         </div>
 
 
-        {/* <div className="flex justify-center w-full mt-4 sm:mt-6 mb-3 sm:mb-4">
+        <div className="flex justify-center w-full mt-4 sm:mt-6 mb-3 sm:mb-4">
           <motion.div
             className="transform transition-transform duration-300 hover:scale-105"
             initial={{ opacity: 0, y: 20 }}
@@ -198,7 +204,7 @@ const Home = () => {
               Book Now
             </a>
           </motion.div>
-        </div> */}
+        </div>
       </div>
 
       <motion.div

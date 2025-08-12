@@ -8,7 +8,7 @@ const BeachCamp = () => {
   const slides = [
     {
       id: 1,
-      image: '/beach_camp/surfcard4.jpg',
+      image: '/beach_camp/image_1.jpg',
       alt: 'Surfers on beach'
     },
     {
@@ -18,7 +18,7 @@ const BeachCamp = () => {
     },
     {
       id: 3,
-      image: '/beach_camp/image_1.jpg',
+      image: '/beach_camp/surfcard4.jpg',
       alt: 'Beach activities'
     },
     {

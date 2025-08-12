@@ -29,7 +29,7 @@ const Package = () => {
                   Surf And Yoga Package
                 </th>
                 <th className="px-6 py-4 text-center text-sm font-semibold text-gray-900 border-b-3 border-black-300">
-                  Full Surf Package Package
+                  Full Surf Package
                 </th>
                 <th className="px-6 py-4 text-center text-sm font-semibold text-gray-900 border-b-3 border-black-300">
                   Moderate Surf Package
@@ -155,7 +155,7 @@ const Package = () => {
                   Surf And Yoga Package
                 </th>
                 <th className="px-6 py-4 text-center text-sm font-semibold text-gray-900 border-b">
-                  Full Surf Package Package
+                  Full Surf Package
                 </th>
                 <th className="px-6 py-4 text-center text-sm font-semibold text-gray-900 border-b">
                   Moderate Surf Package
