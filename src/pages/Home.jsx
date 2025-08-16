@@ -26,9 +26,9 @@ const Home = () => {
     card1: {
       images: [
         "/beach_camp/11.jpg",
-        "/beach_camp/bathroom01.jpg",
-        "/beach_camp/bathroom02.jpg",
-        "/beach_camp/BATHROOM.jpg"
+        "/beach_camp/I3.jpg",
+        "/beach_camp/image_1.jpg",
+        "/beach_camp/act1.jpg"
       ],
       topic: "The Surfer Beach Surf Camp",
       body1:

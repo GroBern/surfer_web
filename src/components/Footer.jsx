@@ -36,7 +36,7 @@ const Footer = () => (
           <h3 className="font-semibold mb-3 text-lg">About us</h3>
           <p className="text-sm text-white/90 leading-relaxed">The Surfer Surf Camps in Sri Lanka Fully Owned By Local Surfer Who born and grow up in Weligama, Sri Lanka. Located Heart of Surfing Area in Weligama, not just that there are nine to ten surf spots where you can reach within five to ten minutes Tuk Tuk ride.</p>
         </div>
-        <div className="pl-16 ml-16 mr-6 pr-6">
+        <div className="pl-10">
           <h3 className="font-semibold mb-3 text-lg">The Surfer</h3>
           <ul className="space-y-2">
             <li><a href="/blogs" className="hover:underline">Blog</a></li>
