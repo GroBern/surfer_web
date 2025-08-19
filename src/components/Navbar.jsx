@@ -253,14 +253,13 @@ const Navbar = () => {
             <ul className='flex flex-col gap-3 text-center'>
               <div className='w-full'>
                 <button
-                  className={`w-full py-3 px-4 text-left cursor-pointer transition-all duration-300 hover:-translate-y-1 rounded-xl text-sm font-medium flex items-center justify-between ${isScrolled
-                    ? 'text-gray-800 hover:text-cyan-600 hover:bg-gray-100'
-                    : 'text-white hover:text-cyan-300 hover:bg-white/20'
-                    }`}
+                  className={`w-full py-3 px-4 cursor-pointer transition-all duration-300 hover:transform hover:-translate-y-1 rounded-xl text-sm font-medium ${isScrolled
+                  ? 'text-gray-800 hover:text-cyan-600 hover:drop-shadow-[0_4px_8px_rgba(8,145,178,0.4)] hover:bg-gray-100'
+                  : 'text-white hover:text-cyan-300 hover:drop-shadow-[0_4px_8px_rgba(34,211,238,0.4)] hover:bg-white/20'
+                  }`}
                   onClick={() => setIsMobileDestinationOpen(!isMobileDestinationOpen)}
                 >
                   DESTINATION
-                  <span>{isMobileDestinationOpen ? '▲' : '▼'}</span>
                 </button>
 
                 {isMobileDestinationOpen && (
