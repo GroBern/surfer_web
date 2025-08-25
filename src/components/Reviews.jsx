@@ -116,6 +116,9 @@ const Reviews = () => {
                         <div className="bg-white border-white-300 shadow-md flex flex-col items-center justify-center hover:border-white-500 transition-all duration-300">
                             <img src="/2024.png" alt="2024 TripAdvisor" className="w-38 h-38 object-contain hover:scale-105 transition-transform duration-300" />
                         </div>
+                        <div className="bg-white border-white-300 shadow-md flex flex-col items-center justify-center hover:border-white-500 transition-all duration-300">
+                            <img src="/2025.png" alt="2025 TripAdvisor" className="w-38 h-38 object-contain hover:scale-105 transition-transform duration-300" />
+                        </div>
                     </div>
                     <h2 className="font-bold text-base xs:text-lg sm:text-xl md:text-2xl mt-3 mb-2 text-center text-neutral-400 leading-tight max-w-xs sm:max-w-md md:max-w-lg">5-TIME TRAVELER’S CHOICE AWARD</h2>
                 </div>
