@@ -1,4 +1,4 @@
-import React from 'react'
+import React, { useEffect } from 'react'
 import { motion as Motion } from 'framer-motion'
 import Header from '../components/ts_camp/Header'
 import LifeAtSurfCamp from '../components/ts_camp/Life'
@@ -7,11 +7,16 @@ import Packages from '../components/beach_camp/Packages'
 import SurfDays from '../components/ts_camp/SurfDays'
 import ComfortableStays from '../components/ts_camp/ComfortableStays'
 import ImageSlider from '../components/beach_camp/ImageSlider'
-import {Footer} from '../components/Footer'
+import { Footer } from '../components/Footer'
 import Map from '../components/contact/Map'
 import Package from '../components/ts_camp/Package'
 
 const TsCamp = () => {
+
+  useEffect(() => {
+    document.title = "TS2 Camp - The Surfer";
+  }, []);
+
   return (
     <div>
       <Header />
@@ -21,7 +26,7 @@ const TsCamp = () => {
       <ComfortableStays />
       {/* <SurfDays /> */}
       {/* <ImageSlider /> */}
-      <Motion.div 
+      <Motion.div
         className='flex flex-col items-center justify-center mt-16 mb-16 px-4 py-12 bg-gradient-to-b from-blue-50 to-white'
         initial={{ opacity: 0, y: 50 }}
         whileInView={{ opacity: 1, y: 0 }}
@@ -36,9 +41,9 @@ const TsCamp = () => {
           viewport={{ once: true }}
           whileHover={{ scale: 1.02, transition: { duration: 0.3 } }}
         >
-          <img 
-            src="ts2_camp/map.jpg" 
-            alt="TS2 Camp Location Map" 
+          <img
+            src="ts2_camp/map.jpg"
+            alt="TS2 Camp Location Map"
             className='w-full h-auto object-cover'
           />
         </Motion.div>

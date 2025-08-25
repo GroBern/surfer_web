@@ -1,11 +1,13 @@
-import React, { useState } from "react";
+import React, { useEffect } from "react";
 import Navbar from '../components/Navbar';
 import { Footer } from "../components/Footer";
 
 
-
 const Activities = () => {
 
+    useEffect(() => {
+        document.title = "Activities - The Surfer";
+    }, []);
 
     return (
         <div>
@@ -20,7 +22,7 @@ const Activities = () => {
                 </div>
             </div>
 
-             <div className="max-w-7xl mx-auto px-4 py-15 text-center mb-10">
+            <div className="max-w-7xl mx-auto px-4 py-15 text-center mb-10">
                 <h2 className="text-xl md:text-2xl font-bold text-neutral-600 mb-4">
                     BOAT PARTY
                 </h2>
@@ -61,7 +63,7 @@ const Activities = () => {
                     Book Now
                 </button>
             </div>
-            
+
             <div className="max-w-7xl mx-auto px-4 py-15 text-center">
                 <h2 className="text-xl md:text-2xl font-bold text-neutral-600 mb-4">
                     MEET NEW PEOPLE FROM ALL AROUND THE WORLD
@@ -116,7 +118,7 @@ const Activities = () => {
             </div>
 
             {/* Info Section 1 */}
-            
+
 
             {/* Info Section 2 */}
             <div className="max-w-7xl mx-auto px-4 py-15 text-center">
@@ -131,7 +133,7 @@ const Activities = () => {
                     <img src="/activities/info_5.jpg" alt="" className="w-full h-80 object-cover shadow-md" />
                     <img src="/activities/info_6.jpg" alt="" className="w-full h-80 object-cover shadow-md" />
                 </div>
-            </div>           
+            </div>
 
             <Footer />
         </div>

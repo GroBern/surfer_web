@@ -1,7 +1,9 @@
 import { link } from 'framer-motion/client'
 import React, { useState, useEffect } from 'react'
+import { useLocation } from 'react-router-dom';
 
 const Navbar = () => {
+  const location = useLocation();
   const [isMenuOpen, setIsMenuOpen] = useState(false)
   const [isScrolled, setIsScrolled] = useState(false)
   const [isDestinationHovered, setIsDestinationHovered] = useState(false)
@@ -205,22 +207,42 @@ const Navbar = () => {
               </div>
             )}
           </div>
-          <a href="/activities" className={`cursor-pointer transition-all duration-300 hover:transform hover:-translate-y-1 ${isScrolled
-            ? 'text-gray-800 hover:text-cyan-600 hover:drop-shadow-[0_4px_8px_rgba(8,145,178,0.4)]'
-            : 'text-white hover:text-cyan-300 hover:drop-shadow-[0_4px_8px_rgba(34,211,238,0.4)]'
-            }`}>ACTIVITIES</a>
-          <a href="/faq" className={`cursor-pointer transition-all duration-300 hover:transform hover:-translate-y-1 ${isScrolled
-            ? 'text-gray-800 hover:text-cyan-600 hover:drop-shadow-[0_4px_8px_rgba(8,145,178,0.4)]'
-            : 'text-white hover:text-cyan-300 hover:drop-shadow-[0_4px_8px_rgba(34,211,238,0.4)]'
-            }`}>FAQ</a>
-          <a href="/blogs" className={`cursor-pointer transition-all duration-300 hover:transform hover:-translate-y-1 ${isScrolled
-            ? 'text-gray-800 hover:text-cyan-600 hover:drop-shadow-[0_4px_8px_rgba(8,145,178,0.4)]'
-            : 'text-white hover:text-cyan-300 hover:drop-shadow-[0_4px_8px_rgba(34,211,238,0.4)]'
-            }`}>BLOGS</a>
-          <a href="/contact" className={`cursor-pointer transition-all duration-300 hover:transform hover:-translate-y-1 ${isScrolled
-            ? 'text-gray-800 hover:text-cyan-600 hover:drop-shadow-[0_4px_8px_rgba(8,145,178,0.4)]'
-            : 'text-white hover:text-cyan-300 hover:drop-shadow-[0_4px_8px_rgba(34,211,238,0.4)]'
-            }`}>CONTACT</a>
+          
+          <a href="/activities" className={`cursor-pointer transition-all duration-300 hover:transform hover:-translate-y-1 ${
+            location.pathname === '/activities'
+              ? 'text-cyan-500 font-bold underline underline-offset-4'
+              : isScrolled
+                ? 'text-gray-800 hover:text-cyan-600 hover:drop-shadow-[0_4px_8px_rgba(8,145,178,0.4)]'
+                : 'text-white hover:text-cyan-300 hover:drop-shadow-[0_4px_8px_rgba(34,211,238,0.4)]'
+          }`}>ACTIVITIES</a>
+          <a href="/rates" className={`cursor-pointer transition-all duration-300 hover:transform hover:-translate-y-1 ${
+            location.pathname === '/rates'
+              ? 'text-cyan-500 font-bold underline underline-offset-4'
+              : isScrolled
+                ? 'text-gray-800 hover:text-cyan-600 hover:drop-shadow-[0_4px_8px_rgba(8,145,178,0.4)]'
+                : 'text-white hover:text-cyan-300 hover:drop-shadow-[0_4px_8px_rgba(34,211,238,0.4)]'
+          }`}>RATES</a>
+          <a href="/faq" className={`cursor-pointer transition-all duration-300 hover:transform hover:-translate-y-1 ${
+            location.pathname === '/faq'
+              ? 'text-cyan-500 font-bold underline underline-offset-4'
+              : isScrolled
+                ? 'text-gray-800 hover:text-cyan-600 hover:drop-shadow-[0_4px_8px_rgba(8,145,178,0.4)]'
+                : 'text-white hover:text-cyan-300 hover:drop-shadow-[0_4px_8px_rgba(34,211,238,0.4)]'
+          }`}>FAQ</a>
+          <a href="/blogs" className={`cursor-pointer transition-all duration-300 hover:transform hover:-translate-y-1 ${
+            location.pathname === '/blogs'
+              ? 'text-cyan-500 font-bold underline underline-offset-4'
+              : isScrolled
+                ? 'text-gray-800 hover:text-cyan-600 hover:drop-shadow-[0_4px_8px_rgba(8,145,178,0.4)]'
+                : 'text-white hover:text-cyan-300 hover:drop-shadow-[0_4px_8px_rgba(34,211,238,0.4)]'
+          }`}>BLOGS</a>
+          <a href="/contact" className={`cursor-pointer transition-all duration-300 hover:transform hover:-translate-y-1 ${
+            location.pathname === '/contact'
+              ? 'text-cyan-500 font-bold underline underline-offset-4'
+              : isScrolled
+                ? 'text-gray-800 hover:text-cyan-600 hover:drop-shadow-[0_4px_8px_rgba(8,145,178,0.4)]'
+                : 'text-white hover:text-cyan-300 hover:drop-shadow-[0_4px_8px_rgba(34,211,238,0.4)]'
+          }`}>CONTACT</a>
         </ul>
 
         <button
@@ -271,7 +293,7 @@ const Navbar = () => {
                           className={`block px-3 py-2 text-sm rounded-lg transition-all ${isScrolled
                             ? 'text-gray-700 hover:bg-gray-100'
                             : 'text-white hover:bg-white/20'
-                            }`}
+                            } hover:text-blue-500`}
                         >
                           {country.name}
                         </a>
@@ -281,10 +303,10 @@ const Navbar = () => {
                           <a
                             key={idx}
                             href={camp.link}
-                            className={`block ml-4 px-3 py-1 text-xs rounded-lg ${isScrolled
+                            className={`block ml-4 px-3 py-1 text-xs rounded-lg transition-all ${isScrolled
                               ? 'text-gray-500 hover:bg-gray-100'
                               : 'text-white/70 hover:bg-white/10'
-                              }`}
+                              } hover:text-blue-500`}
                           >
                             - {camp.name}
                           </a>
@@ -294,10 +316,10 @@ const Navbar = () => {
                           <a
                             key={idx}
                             href={camp.link}
-                            className={`block ml-4 px-3 py-1 text-xs rounded-lg ${isScrolled
+                            className={`block ml-4 px-3 py-1 text-xs rounded-lg transition-all ${isScrolled
                               ? 'text-gray-500 hover:bg-gray-100'
                               : 'text-white/70 hover:bg-white/10'
-                              }`}
+                              } hover:text-blue-500`}
                           >
                             - {camp.name}
                           </a>
@@ -308,16 +330,29 @@ const Navbar = () => {
                 )}
               </div>
 
+             
               <a
                 href="/activities"
                 className={`py-3 px-4 cursor-pointer transition-all duration-300 hover:transform hover:-translate-y-1 rounded-xl text-sm font-medium ${isScrolled
                   ? 'text-gray-800 hover:text-cyan-600 hover:drop-shadow-[0_4px_8px_rgba(8,145,178,0.4)] hover:bg-gray-100'
                   : 'text-white hover:text-cyan-300 hover:drop-shadow-[0_4px_8px_rgba(34,211,238,0.4)] hover:bg-white/20'
-                  }`}
+                  }${location.pathname === '/activities' ? ' text-cyan-500 font-bold underline underline-offset-4' : ''}`}
                 onClick={() => setIsMenuOpen(false)}
               >
                 ACTIVITIES
               </a>
+
+                   <a
+                href="/rates"
+                className={`py-3 px-4 cursor-pointer transition-all duration-300 hover:transform hover:-translate-y-1 rounded-xl text-sm font-medium ${isScrolled
+                  ? 'text-gray-800 hover:text-cyan-600 hover:drop-shadow-[0_4px_8px_rgba(8,145,178,0.4)] hover:bg-gray-100'
+                  : 'text-white hover:text-cyan-300 hover:drop-shadow-[0_4px_8px_rgba(34,211,238,0.4)] hover:bg-white/20'
+                  }${location.pathname === '/rates' ? ' text-cyan-500 font-bold underline underline-offset-4' : ''}`}
+                onClick={() => setIsMenuOpen(false)}
+              >
+                RATES
+              </a>
+
               <a
                 href="/faq"
                 className={`py-3 px-4 cursor-pointer transition-all duration-300 hover:transform hover:-translate-y-1 rounded-xl text-sm font-medium ${isScrolled

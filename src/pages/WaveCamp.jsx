@@ -1,4 +1,4 @@
-import React from 'react'
+import React, { useEffect } from 'react'
 import Header from '../components/Header'
 import LifeAtSurfCamp from '../components/beach_camp/Life'
 import ImageCard from '../components/beach_camp/ImageCard'
@@ -9,6 +9,11 @@ import ImageSlider from '../components/beach_camp/ImageSlider'
 import {Footer} from '../components/Footer'
 
 const WaveCamp = () => {
+
+   useEffect(() => {
+    document.title = "Wave Camp - The Surfer";
+  }, []);
+
   return (
     <div>
       <Header />

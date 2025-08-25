@@ -1,4 +1,4 @@
-import React from 'react'
+import React, { useEffect } from 'react'
 import Header from '../components/morocco/Header'
 import Perfect from '../components/morocco/Perfect'
 import ImageCard from '../components/country/ImageCard'
@@ -13,22 +13,27 @@ import Reviews from '../components/country/Reviews'
 import StayInStyle from '../components/morocco/StayInStyle'
 import Activities from '../components/morocco/Activities'
 import Follow from '../components/country/Follow'
-import {Footer} from '../components/Footer'
+import { Footer } from '../components/Footer'
 
 const Morocco = () => {
+
+  useEffect(() => {
+    document.title = "Morocco - The Surfer";
+  }, []);
+
   return (
     <div>
-        <Header />
-        <Perfect />
-        {/* <ImageCard /> */}
-        <ChooseSurfCamp />
-        <SurfStyle />
-        {/* <SurferWay /> */}
-        <SurfPackageCard />
-        <Reviews />
-        {/* <StayInStyle /> */}
-        <Activities />
-        <Footer />
+      <Header />
+      <Perfect />
+      {/* <ImageCard /> */}
+      <ChooseSurfCamp />
+      <SurfStyle />
+      {/* <SurferWay /> */}
+      <SurfPackageCard />
+      <Reviews />
+      {/* <StayInStyle /> */}
+      <Activities />
+      <Footer />
     </div>
   )
 }

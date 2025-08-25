@@ -4,7 +4,7 @@ import { motion } from "framer-motion";
 const Activities = () => {
   const activities = [
     { pic: "act1.jpg", title: "Have An Unforgettable Surf Holiday" },
-    { pic: "friends.jpg", title: "Meet New People From All Around The World" },
+    { pic: "activities/acti-5.jpg", title: "Meet New People From All Around The World" },
     { pic: "act3.jpg", title: "Make New Friends For Life" },
     { pic: "boat.jpg", title: "Boat Party" },
   ];

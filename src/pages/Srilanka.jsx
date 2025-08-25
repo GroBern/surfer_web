@@ -1,4 +1,4 @@
-import React from 'react'
+import React, { useEffect } from 'react'
 import Header from '../components/srilanka/Header'
 import Perfect from '../components/country/Perfect'
 import ImageCard from '../components/country/ImageCard'
@@ -12,24 +12,29 @@ import SurfPackageCard from '../components/country/Packages'
 import Reviews from '../components/country/Reviews'
 import Activities from '../components/country/Activities'
 import Follow from '../components/country/Follow'
-import {Footer} from '../components/Footer'
+import { Footer } from '../components/Footer'
 
 const Srilanka = () => {
+
+  useEffect(() => {
+    document.title = "Sri Lanka - The Surfer";
+  }, []);
+
   return (
     <div>
-        <Header />
-        <Perfect />
-        <ImageCard />
-        <ChooseSurfCamp />
-        <BeachCamp />
-        <TS2Camp />
-        {/* <SurferCamp /> */}
-        {/* <SurferWay /> */}
-        <SurfPackageCard />
-        <Reviews />
-        <Activities />
-        <Follow />
-        <Footer />
+      <Header />
+      <Perfect />
+      <ImageCard />
+      <ChooseSurfCamp />
+      <BeachCamp />
+      <TS2Camp />
+      {/* <SurferCamp /> */}
+      {/* <SurferWay /> */}
+      <SurfPackageCard />
+      <Reviews />
+      <Activities />
+      <Follow />
+      <Footer />
     </div>
   )
 }

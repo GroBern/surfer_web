@@ -1,4 +1,4 @@
-import React, { useState } from "react";
+import React, { useState, useEffect } from "react";
 import Navbar from '../components/Navbar';
 import { Footer } from "../components/Footer";
 import { motion } from "framer-motion";
@@ -113,6 +113,10 @@ const blogsData = [
 ];
 
 const Blog = () => {
+
+    useEffect(() => {
+        document.title = "Blogs - The Surfer";
+    }, []);
 
     const [currentPage, setCurrentPage] = useState(1);
     const blogsPerPage = 9;

@@ -1,4 +1,4 @@
-import React from "react";
+import React, { useEffect } from "react";
 import { motion } from "framer-motion";
 import Header from "../components/Header";
 import SurfingJourney from "../components/SurfingJourney";
@@ -20,8 +20,12 @@ import { FooterStats } from "../components/Footer";
 import { link } from "framer-motion/client";
 import Navbar from "../components/Navbar";
 
-
 const Home = () => {
+
+  useEffect(() => {
+    document.title = "The Surfer - Surf Camps & Lessons";
+  }, []);
+
   const cards = {
     card1: {
       images: [
@@ -163,7 +167,7 @@ const Home = () => {
           </div>
         </div>
 
-       <div className="flex flex-col sm:grid grid-cols-2 gap-6 mb-10 place-items-center">
+        <div className="flex flex-col sm:grid grid-cols-2 gap-6 mb-10 place-items-center">
           <motion.div
             className="transform transition-transform duration-300 hover:scale-105"
             initial={{ opacity: 0, y: 50 }}
@@ -180,11 +184,11 @@ const Home = () => {
               index={3}
             />
           </motion.div>
-          <p>Our trusted partner camp in Tamraght offers the perfect mix of consistent waves, 
-            laid-back Moroccan living, and a friendly community vibe. Guests enjoy expert-led 
-            surf sessions, optional yoga, cozy beachfront accommodation, and a warm, welcoming 
-            atmosphere. Whether you’re chasing your first wave or refining your skills, 
-            The Surfer Style Camp delivers an unforgettable surf experience — all with the same 
+          <p>Our trusted partner camp in Tamraght offers the perfect mix of consistent waves,
+            laid-back Moroccan living, and a friendly community vibe. Guests enjoy expert-led
+            surf sessions, optional yoga, cozy beachfront accommodation, and a warm, welcoming
+            atmosphere. Whether you’re chasing your first wave or refining your skills,
+            The Surfer Style Camp delivers an unforgettable surf experience — all with the same
             quality and passion you know from The Surfer.</p>
         </div>
 
