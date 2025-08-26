@@ -3,169 +3,421 @@ import { motion } from 'framer-motion';
 import Navbar from '../components/Navbar';
 import { Footer } from '../components/Footer';
 
-const PackageCard = ({ image, title, subtitle, description, features, index }) => {
-
-  useEffect(() => {
-    document.title = "Rates - The Surfer";
-  }, []);
-
+const PackageSection = () => {
   return (
-
-    <motion.div
-      className="bg-white shadow-lg overflow-hidden mb-4 sm:mb-6 md:mb-8 w-full max-w-sm sm:max-w-md md:max-w-2xl lg:max-w-4xl xl:max-w-6xl mx-auto transform transition-all duration-500 hover:scale-102 hover:shadow-xl border border-gray-100"
-      initial={{ opacity: 0, y: 40 }}
-      whileInView={{ opacity: 1, y: 0 }}
-      transition={{ duration: 0.6, delay: index * 0.2, ease: "easeOut" }}
-      viewport={{ once: true, amount: 0.2 }}
-      whileHover={{
-        boxShadow: "0 20px 40px -12px rgba(0, 0, 0, 0.15)",
-        transition: { duration: 0.3 }
-      }}
-    >
-      <div className="flex flex-col lg:flex-row">
-        <motion.div
-          className="w-full lg:w-2/5 relative overflow-hidden"
-          whileHover={{ scale: 1.03 }}
-          transition={{ duration: 0.4 }}
-        >
-          <img
-            src={image}
-            alt={title}
-            className="w-full h-48 sm:h-56 md:h-64 lg:h-full object-cover transform transition-transform duration-500 hover:scale-105"
-          />
-        </motion.div>
-
-        <div className="w-full lg:w-4/5 p-4 sm:p-5 md:p-6 bg-gradient-to-br from-gray-50 to-white">
-          <motion.div
-            className="mb-3 sm:mb-4"
-            initial={{ opacity: 0, x: 20 }}
-            whileInView={{ opacity: 1, x: 0 }}
-            transition={{ duration: 0.5, delay: index * 0.2 + 0.1 }}
-            viewport={{ once: true }}
-          >
-            <h3 className="text-lg sm:text-xl md:text-2xl font-bold bg-gradient-to-r from-gray-800 to-gray-600 bg-clip-text text-transparent mb-2 leading-tight">
-              {title}
-            </h3>
-            <div className="space-y-1">
-              <p className="text-xs sm:text-sm text-gray-500 font-semibold uppercase tracking-wide">{subtitle}</p>
-              {description && (
-                <p className="text-xs sm:text-sm text-gray-500 italic">{description}</p>
-              )}
-            </div>
-          </motion.div>
-
-          <motion.div
-            className="mb-4 sm:mb-5"
-            initial={{ opacity: 0, x: 20 }}
-            whileInView={{ opacity: 1, x: 0 }}
-            transition={{ duration: 0.5, delay: index * 0.2 + 0.2 }}
-            viewport={{ once: true }}
-          >
-            <h4 className="text-sm sm:text-base font-bold text-gray-800 mb-2 sm:mb-3 border-b border-cyan-200 pb-1">
-              Following Included in the package
-            </h4>
-            <div className="grid grid-cols-1 sm:grid-cols-2 gap-1">
-              {features.map((feature, featureIndex) => (
-                <motion.li
-                  key={featureIndex}
-                  className="text-xs sm:text-sm text-gray-700 flex items-start py-1 px-2 hover:bg-cyan-50 transition-colors duration-200"
-                  initial={{ opacity: 0, x: 15 }}
-                  whileInView={{ opacity: 1, x: 0 }}
-                  transition={{
-                    duration: 0.3,
-                    delay: index * 0.2 + 0.3 + featureIndex * 0.05
-                  }}
-                  viewport={{ once: true }}
-                >
-                  <span className="text-cyan-500 mr-2 font-bold text-sm sm:text-base">•</span>
-                  <span className="leading-relaxed">{feature}</span>
-                </motion.li>
-              ))}
-            </div>
-          </motion.div>
-
-          <motion.div
-            initial={{ opacity: 0, y: 15 }}
-            whileInView={{ opacity: 1, y: 0 }}
-            transition={{ duration: 0.5, delay: index * 0.2 + 0.4 }}
-            viewport={{ once: true }}
-          >
-            <button className="group border-2 border-cyan-500 hover:border-cyan-600 text-cyan-500 hover:text-cyan-600 px-4 sm:px-6 py-2 font-bold text-xs sm:text-sm uppercase tracking-wide transition-all duration-300 transform hover:scale-105 focus:outline-none focus:ring-2 focus:ring-cyan-300 focus:ring-opacity-50 w-full sm:w-auto">
-              <span className="relative z-10">BOOK NOW</span>
-            </button>
-          </motion.div>
+    <div className="max-w-7xl mx-auto px-4 py-12">
+      <motion.div
+        className="bg-white rounded-lg shadow-lg mb-12 overflow-hidden"
+        initial={{ opacity: 0, y: 50 }}
+        whileInView={{ opacity: 1, y: 0 }}
+        transition={{ duration: 0.6 }}
+        viewport={{ once: true, amount: 0.3 }}
+      >
+        <div className="px-6 py-6">
+          <motion.h1 className="text-center text-3xl text-neutral-400 font-bold mb-4">
+            The Surfer Beach Camp - Surf Packages & Weekly Rates
+          </motion.h1>
         </div>
-      </div>
-    </motion.div>
+
+        <div className="overflow-x-auto">
+          <table className="w-full">
+            <thead>
+              <tr className="bg-gray-50">
+                <th className="px-6 py-4 text-left text-sm font-medium text-gray-900 border-b-3 border-black-300"></th>
+                <th className="px-6 py-4 text-center text-sm font-semibold text-gray-900 border-b-3 border-black-300">
+                  Surf And Yoga Package
+                </th>
+                <th className="px-6 py-4 text-center text-sm font-semibold text-gray-900 border-b-3 border-black-300">
+                  Full Surf Package
+                </th>
+                <th className="px-6 py-4 text-center text-sm font-semibold text-gray-900 border-b-3 border-black-300">
+                  Moderate Surf Package
+                </th>
+              </tr>
+            </thead>
+            <tbody>
+               <tr className="border-b border-gray-300">
+                <td className="px-6 py-4 text-sm text-gray-900 font-medium">Surf Lessons</td>
+                <td className="px-6 py-4 text-center text-sm text-gray-900">
+                  06 Surf Lessons or Guiding / Week
+                </td>
+                <td className="px-6 py-4 text-center text-sm text-gray-900">
+                  11 Surf Lessons
+                </td>
+                <td className="px-6 py-4 text-center text-sm text-gray-900">
+                  06 Surf Lessons or Guiding
+                </td>
+              </tr>
+              <tr>
+                <td className="px-6 py-4 text-sm text-gray-900 font-medium">Yoga</td>
+                <td className="px-6 py-4 text-center text-sm text-gray-900">
+                  Sunrise or Sunset Everyday
+                </td>
+                <td className="px-6 py-4 text-center text-sm text-gray-900">
+                  02 Sessions / Week
+                </td>
+                <td className="px-6 py-4 text-center text-sm text-gray-900">
+                  02 Sessions / Week
+                </td>
+              </tr>
+              <tr className="border-b border-gray-300">
+                <td className="px-6 py-4 text-sm text-gray-900 font-medium">07 nights accommodation</td>
+                <td className="px-6 py-4 text-center">
+                  <span className="text-green-600 text-xl">✓</span>
+                </td>
+                <td className="px-6 py-4 text-center">
+                  <span className="text-green-600 text-xl">✓</span>
+                </td>
+                <td className="px-6 py-4 text-center">
+                  <span className="text-green-600 text-xl">✓</span>
+                </td>
+              </tr>
+              <tr className="border-b bg-gray-50 border-gray-300">
+                <td className="px-6 py-4 text-sm text-gray-900 font-medium">Breakfast Everyday</td>
+                <td className="px-6 py-4 text-center">
+                  <span className="text-green-600 text-xl">✓</span>
+                </td>
+                <td className="px-6 py-4 text-center">
+                  <span className="text-green-600 text-xl">✓</span>
+                </td>
+                <td className="px-6 py-4 text-center">
+                  <span className="text-green-600 text-xl">✓</span>
+                </td>
+              </tr>
+              <tr className="border-b border-gray-300">
+                <td className="px-6 py-4 text-sm text-gray-900 font-medium">Dinner - Everyday except Sunday</td>
+                <td className="px-6 py-4 text-center">
+                  <span className="text-green-600 text-xl">✓</span>
+                </td>
+                <td className="px-6 py-4 text-center">
+                  <span className="text-green-600 text-xl">✓</span>
+                </td>
+                <td className="px-6 py-4 text-center">
+                  <span className="text-green-600 text-xl">✓</span>
+                </td>
+              </tr>
+              <tr className="border-b bg-gray-50 border-gray-300">
+                <td className="px-6 py-4 text-sm text-gray-900 font-medium">Surf Theory Classes</td>
+                <td className="px-6 py-4 text-center">
+                  <span className="text-green-600 text-xl">✓</span>
+                </td>
+                <td className="px-6 py-4 text-center">
+                  <span className="text-green-600 text-xl">✓</span>
+                </td>
+                <td className="px-6 py-4 text-center">
+                  <span className="text-green-600 text-xl">✓</span>
+                </td>
+              </tr>
+              <tr className="border-b border-gray-300">
+                <td className="px-6 py-4 text-sm text-gray-900 font-medium">Video Analysis</td>
+                <td className="px-6 py-4 text-center">
+                  <span className="text-green-600 text-xl">✓</span>
+                </td>
+                <td className="px-6 py-4 text-center">
+                  <span className="text-green-600 text-xl">✓</span>
+                </td>
+                <td className="px-6 py-4 text-center">
+                  <span className="text-green-600 text-xl">✓</span>
+                </td>
+              </tr>
+              <tr className="border-b border-gray-300 bg-gray-50">
+                <td className="px-6 py-4 text-sm text-gray-900 font-medium">Daily Social Activities</td>
+                <td className="px-6 py-4 text-center">
+                  <span className="text-green-600 text-xl">✓</span>
+                </td>
+                <td className="px-6 py-4 text-center">
+                  <span className="text-green-600 text-xl">✓</span>
+                </td>
+                <td className="px-6 py-4 text-center">
+                  <span className="text-green-600 text-xl">✓</span>
+                </td>
+              </tr>
+            </tbody>
+          </table>
+        </div>
+      </motion.div>
+
+      <motion.div
+        className="bg-white rounded-lg shadow-lg overflow-hidden"
+        initial={{ opacity: 0, y: 50 }}
+        whileInView={{ opacity: 1, y: 0 }}
+        transition={{ duration: 0.6, delay: 0.3 }}
+        viewport={{ once: true, amount: 0.3 }}
+      >
+        <div className="overflow-x-auto">
+          <table className="w-full">
+            <thead>
+              <tr className="bg-gray-50 border-b-3 border-black-300">
+                <th className="px-6 py-4 text-left text-sm font-medium text-gray-900 border-b"></th>
+                <th className="px-6 py-4 text-center text-sm font-semibold text-gray-900 border-b">
+                  Surf And Yoga Package
+                </th>
+                <th className="px-6 py-4 text-center text-sm font-semibold text-gray-900 border-b">
+                  Full Surf Package
+                </th>
+                <th className="px-6 py-4 text-center text-sm font-semibold text-gray-900 border-b">
+                  Moderate Surf Package
+                </th>
+              </tr>
+            </thead>
+            <tbody>
+              <tr className="border-b border-gray-300">
+                <td className="px-6 py-4 text-sm text-gray-900 font-medium">
+                  Mixed Dormitory Bed
+                  <div className="text-xs text-gray-500">Max ( 05 people )</div>
+                </td>
+                <td className="px-6 py-4 text-center text-sm font-semibold text-blue-600">300 €</td>
+                <td className="px-6 py-4 text-center text-sm font-semibold text-blue-600">350 €</td>
+                <td className="px-6 py-4 text-center text-sm font-semibold text-blue-600">250 €</td>
+              </tr>
+              <tr className="border-b bg-gray-50 border-gray-300">
+                <td className="px-6 py-4 text-sm text-gray-900 font-medium">
+                  Private Single Room
+                  <div className="text-xs text-gray-500">Per Week</div>
+                </td>
+                <td className="px-6 py-4 text-center text-sm font-semibold text-blue-600">400 €</td>
+                <td className="px-6 py-4 text-center text-sm font-semibold text-blue-600">450 €</td>
+                <td className="px-6 py-4 text-center text-sm font-semibold text-blue-600">350 €</td>
+              </tr>
+              <tr className="border-b border-gray-300">
+                <td className="px-6 py-4 text-sm text-gray-900 font-medium">
+                  Private Double / Twin Room
+                  <div className="text-xs text-gray-500">Per Person / Per Week</div>
+                </td>
+                <td className="px-6 py-4 text-center text-sm font-semibold text-blue-600">300 €</td>
+                <td className="px-6 py-4 text-center text-sm font-semibold text-blue-600">350 €</td>
+                <td className="px-6 py-4 text-center text-sm font-semibold text-blue-600">250 €</td>
+              </tr>
+              <tr>
+                <td className="px-6 py-4 text-sm text-gray-900 font-medium">
+                  Private Triple Room
+                  <div className="text-xs text-gray-500">Per Person / Per Week</div>
+                </td>
+                <td className="px-6 py-4 text-center text-sm font-semibold text-blue-600">320 €</td>
+                <td className="px-6 py-4 text-center text-sm font-semibold text-blue-600">350 €</td>
+                <td className="px-6 py-4 text-center text-sm font-semibold text-blue-600">250 €</td>
+              </tr>
+            </tbody>
+          </table>
+        </div>
+      </motion.div>
+    </div>
   );
 };
+
+const Package = () => {
+  return (
+    <div className="max-w-7xl mx-auto px-4 py-12">
+      <motion.div
+        className="bg-white rounded-lg shadow-lg mb-12 overflow-hidden"
+        initial={{ opacity: 0, y: 50 }}
+        whileInView={{ opacity: 1, y: 0 }}
+        transition={{ duration: 0.6 }}
+        viewport={{ once: true, amount: 0.3 }}
+      >
+        <div className="px-6 py-6">
+          <h1 className="text-center text-3xl text-neutral-400 font-bold mb-4">
+            The Surfer TS2 Camp - Surf Packages & Weekly Rates
+          </h1>
+        
+        </div>
+
+        <div className="overflow-x-auto">
+          <table className="w-full">
+            <thead>
+              <tr className="bg-gray-50">
+                <th className="px-6 py-4 text-left text-sm font-medium text-gray-900 border-b-3 border-black-300"></th>
+                <th className="px-6 py-4 text-center text-sm font-semibold text-gray-900 border-b-3 border-black-300">
+                  Surf And Yoga Package
+                </th>
+                <th className="px-6 py-4 text-center text-sm font-semibold text-gray-900 border-b-3 border-black-300">
+                  Full Surf Package
+                </th>
+                <th className="px-6 py-4 text-center text-sm font-semibold text-gray-900 border-b-3 border-black-300">
+                  Moderate Surf Package
+                </th>
+              </tr>
+            </thead>
+            <tbody>
+               <tr className="border-b border-gray-300">
+                <td className="px-6 py-4 text-sm text-gray-900 font-medium">Surf Lessons</td>
+                <td className="px-6 py-4 text-center text-sm text-gray-900">
+                  06 Surf Lessons or Guiding / Week
+                </td>
+                <td className="px-6 py-4 text-center text-sm text-gray-900">
+                  11 Surf Lessons
+                </td>
+                <td className="px-6 py-4 text-center text-sm text-gray-900">
+                  06 Surf Lessons or Guiding
+                </td>
+              </tr>
+              <tr>
+                <td className="px-6 py-4 text-sm text-gray-900 font-medium">Yoga</td>
+                <td className="px-6 py-4 text-center text-sm text-gray-900">
+                  Sunrise or Sunset Everyday
+                </td>
+                <td className="px-6 py-4 text-center text-sm text-gray-900">
+                  02 Sessions / Week
+                </td>
+                <td className="px-6 py-4 text-center text-sm text-gray-900">
+                  02 Sessions / Week
+                </td>
+              </tr>
+              <tr className="border-b border-gray-300">
+                <td className="px-6 py-4 text-sm text-gray-900 font-medium">07 nights accommodation</td>
+                <td className="px-6 py-4 text-center">
+                  <span className="text-green-600 text-xl">✓</span>
+                </td>
+                <td className="px-6 py-4 text-center">
+                  <span className="text-green-600 text-xl">✓</span>
+                </td>
+                <td className="px-6 py-4 text-center">
+                  <span className="text-green-600 text-xl">✓</span>
+                </td>
+              </tr>
+              <tr className="border-b bg-gray-50 border-gray-300">
+                <td className="px-6 py-4 text-sm text-gray-900 font-medium">Breakfast Everyday</td>
+                <td className="px-6 py-4 text-center">
+                  <span className="text-green-600 text-xl">✓</span>
+                </td>
+                <td className="px-6 py-4 text-center">
+                  <span className="text-green-600 text-xl">✓</span>
+                </td>
+                <td className="px-6 py-4 text-center">
+                  <span className="text-green-600 text-xl">✓</span>
+                </td>
+              </tr>
+              <tr className="border-b border-gray-300">
+                <td className="px-6 py-4 text-sm text-gray-900 font-medium">Dinner - Everyday except Sunday</td>
+                <td className="px-6 py-4 text-center">
+                  <span className="text-green-600 text-xl">✓</span>
+                </td>
+                <td className="px-6 py-4 text-center">
+                  <span className="text-green-600 text-xl">✓</span>
+                </td>
+                <td className="px-6 py-4 text-center">
+                  <span className="text-green-600 text-xl">✓</span>
+                </td>
+              </tr>
+              <tr className="border-b bg-gray-50 border-gray-300">
+                <td className="px-6 py-4 text-sm text-gray-900 font-medium">Surf Theory Classes</td>
+                <td className="px-6 py-4 text-center">
+                  <span className="text-green-600 text-xl">✓</span>
+                </td>
+                <td className="px-6 py-4 text-center">
+                  <span className="text-green-600 text-xl">✓</span>
+                </td>
+                <td className="px-6 py-4 text-center">
+                  <span className="text-green-600 text-xl">✓</span>
+                </td>
+              </tr>
+              <tr className="border-b border-gray-300">
+                <td className="px-6 py-4 text-sm text-gray-900 font-medium">Video Analysis</td>
+                <td className="px-6 py-4 text-center">
+                  <span className="text-green-600 text-xl">✓</span>
+                </td>
+                <td className="px-6 py-4 text-center">
+                  <span className="text-green-600 text-xl">✓</span>
+                </td>
+                <td className="px-6 py-4 text-center">
+                  <span className="text-green-600 text-xl">✓</span>
+                </td>
+              </tr>
+              <tr className="border-b border-gray-300 bg-gray-50">
+                <td className="px-6 py-4 text-sm text-gray-900 font-medium">Daily Social Activities</td>
+                <td className="px-6 py-4 text-center">
+                  <span className="text-green-600 text-xl">✓</span>
+                </td>
+                <td className="px-6 py-4 text-center">
+                  <span className="text-green-600 text-xl">✓</span>
+                </td>
+                <td className="px-6 py-4 text-center">
+                  <span className="text-green-600 text-xl">✓</span>
+                </td>
+              </tr>
+             
+            </tbody>
+          </table>
+        </div>
+      </motion.div>
+
+      <motion.div
+        className="bg-white rounded-lg shadow-lg overflow-hidden"
+        initial={{ opacity: 0, y: 50 }}
+        whileInView={{ opacity: 1, y: 0 }}
+        transition={{ duration: 0.6, delay: 0.3 }}
+        viewport={{ once: true, amount: 0.3 }}
+      >
+        <div className="overflow-x-auto">
+          <table className="w-full">
+            <thead>
+              <tr className="bg-gray-50 border-b-3 border-black-300">
+                <th className="px-6 py-4 text-left text-sm font-medium text-gray-900 border-b"></th>
+                <th className="px-6 py-4 text-center text-sm font-semibold text-gray-900 border-b">
+                  Surf And Yoga Package
+                </th>
+                <th className="px-6 py-4 text-center text-sm font-semibold text-gray-900 border-b">
+                  Full Surf Package
+                </th>
+                <th className="px-6 py-4 text-center text-sm font-semibold text-gray-900 border-b">
+                  Moderate Surf Package
+                </th>
+              </tr>
+            </thead>
+            <tbody>
+              <tr className="border-b border-gray-300">
+                <td className="px-6 py-4 text-sm text-gray-900 font-medium">
+                  Mixed Dormitory Bed
+                  <div className="text-xs text-gray-500">Max ( 05 people )</div>
+                </td>
+                <td className="px-6 py-4 text-center text-sm font-semibold text-blue-600">300 €</td>
+                <td className="px-6 py-4 text-center text-sm font-semibold text-blue-600">350 €</td>
+                <td className="px-6 py-4 text-center text-sm font-semibold text-blue-600">250 €</td>
+              </tr>
+              <tr className="border-b bg-gray-50 border-gray-300">
+                <td className="px-6 py-4 text-sm text-gray-900 font-medium">
+                  Private Single Room
+                  <div className="text-xs text-gray-500">Per Week</div>
+                </td>
+                <td className="px-6 py-4 text-center text-sm font-semibold text-blue-600">400 €</td>
+                <td className="px-6 py-4 text-center text-sm font-semibold text-blue-600">450 €</td>
+                <td className="px-6 py-4 text-center text-sm font-semibold text-blue-600">350 €</td>
+              </tr>
+              <tr className="border-b border-gray-300">
+                <td className="px-6 py-4 text-sm text-gray-900 font-medium">
+                  Private Double / Twin Room
+                  <div className="text-xs text-gray-500">Per Person / Per Week</div>
+                </td>
+                <td className="px-6 py-4 text-center text-sm font-semibold text-blue-600">300 €</td>
+                <td className="px-6 py-4 text-center text-sm font-semibold text-blue-600">350 €</td>
+                <td className="px-6 py-4 text-center text-sm font-semibold text-blue-600">250 €</td>
+              </tr>
+              <tr>
+                <td className="px-6 py-4 text-sm text-gray-900 font-medium">
+                  Private Triple Room
+                  <div className="text-xs text-gray-500">Per Person / Per Week</div>
+                </td>
+                <td className="px-6 py-4 text-center text-sm font-semibold text-blue-600">320 €</td>
+                <td className="px-6 py-4 text-center text-sm font-semibold text-blue-600">350 €</td>
+                <td className="px-6 py-4 text-center text-sm font-semibold text-blue-600">250 €</td>
+              </tr>
+            </tbody>
+          </table>
+        </div>
+      </motion.div>
+    </div>
+  )
+}
 
 const SurfLessonPackages = () => {
   useEffect(() => {
     document.title = "Rates - The Surfer";
   }, []);
 
-  const packages = [
-    {
-      image: "/pkg1.jpg",
-      title: "Moderate Surf Lesson Package",
-      subtitle: "Beginners, Level 01 / Level 02 / Intermediate",
-      description: "OR MODERATE SURF GUIDING Advanced",
-      features: [
-        "07 nights accommodation",
-        "06 surf lessons or guiding sessions",
-        "Surf Theory",
-        "Everyday Breakfast",
-        "06 Dinners Including Special Buffet Dinners",
-        "02 Complimentary Yoga Sessions",
-        "Free Transport To Different Surf Spots",
-        "Free Use Of Surf Boards During Surf Sessions",
-        "Small Groups Surf Teaching 6ppl Max per Group",
-        "Daily Social Fun Activities"
-      ]
-    },
-    {
-      image: "/pkg2.jpg",
-      title: "Full Surf Lesson Package",
-      subtitle: "Beginners, Level 01 / Level 02 / Intermediate",
-      description: "OR FULL SURF GUIDING PACKAGE Advanced Surfers",
-      features: [
-        "07 nights accommodation",
-        "11 surf lessons or guiding sessions",
-        "Surf Theory",
-        "Everyday Breakfast",
-        "06 Dinners Including Special Buffet Dinners",
-        "02 Complimentary Yoga Sessions",
-        "Free Transport To Different Surf Spots",
-        "Free Use Of Surf Boards During Surf Sessions",
-        "Small Groups Surf Teaching 6ppl Max per Group",
-        "Daily Social Fun Activities"
-      ]
-    },
-    {
-      image: "/pkg3.jpg",
-      title: "Surf and Yoga Package",
-      subtitle: "Surf Lessons OR Surf Guiding with Yoga",
-      description: "",
-      features: [
-        "07 nights accommodation",
-        "Morning or evening everyday yoga",
-        "06 surf lessons or guiding sessions",
-        "Surf Theory",
-        "Everyday Breakfast",
-        "06 Dinners Including Special Buffet Dinners",
-        "Free Transport To Different Surf Spots",
-        "Free Use Of Surf Boards During Surf Sessions",
-        "Small Groups Surf Teaching 6ppl Max per Group",
-        "Daily Social Fun Activities"
-      ]
-    }
-  ];
-
   return (
     <div>
       <div className='h-150 mb-4 bg-cover bg-center flex items-center w-full overflow-hidden'
-        style={{ backgroundImage: "url('/pkg1.jpg')" }} id='Header'>
+        style={{ backgroundImage: "url('/SAMI7559.JPG')" }} id='Header'>
         <Navbar />
         <div className='container text-center mx-auto py-4 px-4 sm:px-6 md:px-20 lg:px-32 text-white'>
           <h2 className='font-[montserrat] text-2xl sm:text-3xl md:text-4xl lg:text-5xl xl:text-6xl inline-block max-w-full sm:max-w-3xl font-bold pt-18 mt-16 sm:mt-8 md:-mt-2'>
@@ -174,23 +426,9 @@ const SurfLessonPackages = () => {
         </div>
       </div>
 
-      <div className="py-8 sm:py-12 md:py-16 lg:py-20 px-2 sm:px-4 md:px-6 lg:px-8 bg-gradient-to-br from-gray-50 via-white to-cyan-50">
-        <div className="w-full max-w-7xl mx-auto">
-          <div className="space-y-4 sm:space-y-6 md:space-y-8">
-            {packages.map((pkg, index) => (
-              <PackageCard
-                key={index}
-                index={index}
-                image={pkg.image}
-                title={pkg.title}
-                subtitle={pkg.subtitle}
-                description={pkg.description}
-                features={pkg.features}
-              />
-            ))}
-          </div>
-        </div>
-      </div>
+      <PackageSection />
+
+      <Package />
 
       <Footer />
     </div>

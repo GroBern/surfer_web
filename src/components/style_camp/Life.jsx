@@ -18,7 +18,7 @@ const LifeAtSurfCamp = () => {
         transition={{ duration: 0.4, delay: 0.2, ease: "easeOut" }}
         viewport={{ once: true, amount: 0.5 }}
       >
-        Life At The Surfer Style Camp
+        Life At The Surfer SurfStyle Camp
       </Motion.h1>
 
       <Motion.p
