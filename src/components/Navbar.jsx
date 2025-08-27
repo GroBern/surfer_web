@@ -267,19 +267,30 @@ const Navbar = () => {
       </div>
 
       {/* Mobile Menu with Animation */}
-      <div className={`md:hidden transition-all duration-500 ease-in-out overflow-hidden ${isMenuOpen ? 'max-h-96 opacity-100' : 'max-h-0 opacity-0'}`}>
+      <div className={`md:hidden transition-all duration-500 ease-in-out overflow-hidden ${isMenuOpen ? 'max-h-[80vh] opacity-100' : 'max-h-0 opacity-0'}`}>
         <div className={`w-72 mx-auto rounded-3xl mt-0 transform transition-all duration-500 ease-in-out ${isScrolled
           ? 'bg-white/95 backdrop-blur-xl border border-gray-200 shadow-2xl'
           : 'bg-white/10 backdrop-blur-xl border border-white/20 shadow-2xl'
           }`}>
-          <div className='px-4 py-6'>
-            <ul className='flex flex-col gap-3 text-center'>
+          <div className='px-4 py-8 max-h-[75vh] overflow-y-auto'>
+            <ul className='flex flex-col gap-4 text-center'>
+              <a
+                href="/"
+                className={`py-3 px-4 cursor-pointer transition-all duration-300 hover:transform hover:-translate-y-1 rounded-xl text-sm font-medium ${isScrolled
+                  ? 'text-gray-800 hover:text-cyan-600 hover:drop-shadow-[0_4px_8px_rgba(8,145,178,0.4)] hover:bg-gray-100'
+                  : 'text-white hover:text-cyan-300 hover:drop-shadow-[0_4px_8px_rgba(34,211,238,0.4)] hover:bg-white/20'
+                  }${location.pathname === '/' ? ' text-cyan-500 font-bold underline underline-offset-4' : ''}`}
+                onClick={() => setIsMenuOpen(false)}
+              >
+                HOME
+              </a>
+
               <div className='w-full'>
                 <button
                   className={`w-full py-3 px-4 cursor-pointer transition-all duration-300 hover:transform hover:-translate-y-1 rounded-xl text-sm font-medium ${isScrolled
-                    ? 'text-gray-800 hover:text-cyan-600 hover:drop-shadow-[0_4px_8px_rgba(8,145,178,0.4)] hover:bg-gray-100'
-                    : 'text-white hover:text-cyan-300 hover:drop-shadow-[0_4px_8px_rgba(34,211,238,0.4)] hover:bg-white/20'
-                    }`}
+                  ? 'text-gray-800 hover:text-cyan-600 hover:drop-shadow-[0_4px_8px_rgba(8,145,178,0.4)] hover:bg-gray-100'
+                  : 'text-white hover:text-cyan-300 hover:drop-shadow-[0_4px_8px_rgba(34,211,238,0.4)] hover:bg-white/20'
+                  }`}
                   onClick={() => setIsMobileDestinationOpen(!isMobileDestinationOpen)}
                 >
                   DESTINATION
@@ -331,7 +342,6 @@ const Navbar = () => {
                 )}
               </div>
 
-
               <a
                 href="/activities"
                 className={`py-3 px-4 cursor-pointer transition-all duration-300 hover:transform hover:-translate-y-1 rounded-xl text-sm font-medium ${isScrolled
@@ -364,6 +374,7 @@ const Navbar = () => {
               >
                 FAQ
               </a>
+
               <a
                 href="/blogs"
                 className={`py-3 px-4 cursor-pointer transition-all duration-300 hover:transform hover:-translate-y-1 rounded-xl text-sm font-medium ${isScrolled
@@ -374,6 +385,7 @@ const Navbar = () => {
               >
                 BLOGS
               </a>
+
               <a
                 href="/contact"
                 className={`py-3 px-4 cursor-pointer transition-all duration-300 hover:transform hover:-translate-y-1 rounded-xl text-sm font-medium ${isScrolled
@@ -384,8 +396,9 @@ const Navbar = () => {
               >
                 CONTACT
               </a>
+
               <a href='https://main.d7z80586kqd0r.amplifyapp.com/' target='_blank'
-                className={`mt-2 mx-auto px-6 py-3 rounded-full border transition-all duration-300 hover:scale-105 hover:shadow-lg transform text-sm font-semibold ${isScrolled
+                className={`mt-2 mx-auto w-full max-w-xs px-4 sm:px-6 py-2 sm:py-3 rounded-full border transition-all duration-300 hover:scale-105 hover:shadow-lg transform text-xs sm:text-sm font-semibold text-center block ${isScrolled
                   ? 'border-gray-800 text-gray-800 hover:bg-gray-800 hover:text-white'
                   : 'border-white/50 text-white hover:bg-white hover:text-gray-800'
                   }`}
