@@ -417,7 +417,7 @@ const SurfLessonPackages = () => {
   return (
     <div>
       <div className='h-150 mb-4 bg-cover bg-center flex items-center w-full overflow-hidden'
-        style={{ backgroundImage: "url('/SAMI7559.JPG')" }} id='Header'>
+        style={{ backgroundImage: "url('/rates.jpg')" }} id='Header'>
         <Navbar />
         <div className='container text-center mx-auto py-4 px-4 sm:px-6 md:px-20 lg:px-32 text-white'>
           <h2 className='font-[montserrat] text-2xl sm:text-3xl md:text-4xl lg:text-5xl xl:text-6xl inline-block max-w-full sm:max-w-3xl font-bold pt-18 mt-16 sm:mt-8 md:-mt-2'>
