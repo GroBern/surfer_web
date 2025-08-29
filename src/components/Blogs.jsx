@@ -33,19 +33,20 @@ const Blogs = () => {
         className="text-3xl md:text-4xl font-bold text-neutral-400 text-center mb-10 tracking-wide"
         initial={{ opacity: 0, y: 30 }}
         whileInView={{ opacity: 1, y: 0 }}
-        transition={{ duration: 0.4, delay: 0.2, ease: "easeOut" }}
+        transition={{ duration: 0.4, delay: 0.2, ease: 'easeOut' }}
         viewport={{ once: true, amount: 0.5 }}
       >
         BLOGS
       </motion.h1>
-      <div className="w-full max-w-6xl flex gap-10 mb-10">
+      {/* First row: 3 blogs, responsive flex */}
+      <div className="w-full max-w-6xl flex flex-col md:flex-row gap-6 md:gap-10 mb-6 md:mb-10">
         {firstRow.map((blog, idx) => (
           <motion.div
             key={idx}
-            className="bg-white shadow-lg overflow-hidden flex flex-col group relative flex-1 min-w-0 h-[400px]"
+            className="bg-white shadow-lg overflow-hidden flex flex-col group relative flex-1 min-w-0 h-[260px] md:h-[400px]"
             initial={{ opacity: 0, y: 50 }}
             whileInView={{ opacity: 1, y: 0 }}
-            transition={{ duration: 0.6, delay: idx * 0.1, ease: "easeOut" }}
+            transition={{ duration: 0.6, delay: idx * 0.1, ease: 'easeOut' }}
             viewport={{ once: true, amount: 0.2 }}
           >
             <div className="w-full aspect-[4/3] bg-gray-200 relative overflow-hidden flex-shrink-0">
@@ -70,14 +71,15 @@ const Blogs = () => {
           </motion.div>
         ))}
       </div>
-      <div className="w-full max-w-4xl flex gap-10">
+      {/* Second row: 2 blogs, responsive flex */}
+      <div className="w-full max-w-4xl flex flex-col md:flex-row gap-6 md:gap-10">
         {secondRow.map((blog, idx) => (
           <motion.div
             key={idx}
-            className="bg-white shadow-lg overflow-hidden flex flex-col group relative flex-1 min-w-0 h-[400px]"
+            className="bg-white shadow-lg overflow-hidden flex flex-col group relative flex-1 min-w-0 h-[260px] md:h-[400px]"
             initial={{ opacity: 0, y: 50 }}
             whileInView={{ opacity: 1, y: 0 }}
-            transition={{ duration: 0.6, delay: idx * 0.1, ease: "easeOut" }}
+            transition={{ duration: 0.6, delay: idx * 0.1, ease: 'easeOut' }}
             viewport={{ once: true, amount: 0.2 }}
           >
             <div className="w-full aspect-[4/3] bg-gray-200 relative overflow-hidden flex-shrink-0">
