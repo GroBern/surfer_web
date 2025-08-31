@@ -168,26 +168,26 @@ const Package = () => {
                   Mixed Dormitory Bed
                   <div className="text-xs text-gray-500">Max ( 05 people )</div>
                 </td>
-                <td className="px-6 py-4 text-center text-sm font-semibold text-blue-600">400 €</td>
                 <td className="px-6 py-4 text-center text-sm font-semibold text-blue-600">450 €</td>
-                <td className="px-6 py-4 text-center text-sm font-semibold text-blue-600">350 €</td>
+                <td className="px-6 py-4 text-center text-sm font-semibold text-blue-600">490 €</td>
+                <td className="px-6 py-4 text-center text-sm font-semibold text-blue-600">390 €</td>
               </tr>
               <tr className="border-b bg-gray-50 border-gray-300">
                 <td className="px-6 py-4 text-sm text-gray-900 font-medium">
                   Private Single Room
                   <div className="text-xs text-gray-500">Per Week</div>
                 </td>
-                <td className="px-6 py-4 text-center text-sm font-semibold text-blue-600">650 €</td>
-                <td className="px-6 py-4 text-center text-sm font-semibold text-blue-600">700 €</td>
-                <td className="px-6 py-4 text-center text-sm font-semibold text-blue-600">600 €</td>
+                <td className="px-6 py-4 text-center text-sm font-semibold text-blue-600">750 €</td>
+                <td className="px-6 py-4 text-center text-sm font-semibold text-blue-600">790 €</td>
+                <td className="px-6 py-4 text-center text-sm font-semibold text-blue-600">690 €</td>
               </tr>
               <tr className="border-b border-gray-300">
                 <td className="px-6 py-4 text-sm text-gray-900 font-medium">
                   Private Double / Twin Room
                   <div className="text-xs text-gray-500">Per Person / Per Week</div>
                 </td>
-                <td className="px-6 py-4 text-center text-sm font-semibold text-blue-600">520 €</td>
                 <td className="px-6 py-4 text-center text-sm font-semibold text-blue-600">550 €</td>
+                <td className="px-6 py-4 text-center text-sm font-semibold text-blue-600">590 €</td>
                 <td className="px-6 py-4 text-center text-sm font-semibold text-blue-600">490 €</td>
               </tr>
               <tr>
@@ -195,8 +195,8 @@ const Package = () => {
                   Private Triple Room
                   <div className="text-xs text-gray-500">Per Person / Per Week</div>
                 </td>
-                <td className="px-6 py-4 text-center text-sm font-semibold text-blue-600">490 €</td>
                 <td className="px-6 py-4 text-center text-sm font-semibold text-blue-600">500 €</td>
+                <td className="px-6 py-4 text-center text-sm font-semibold text-blue-600">550 €</td>
                 <td className="px-6 py-4 text-center text-sm font-semibold text-blue-600">450 €</td>
               </tr>
             </tbody>
