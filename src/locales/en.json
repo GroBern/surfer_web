@@ -1,0 +1,29 @@
+{
+  "activities": {
+    "pageTitle": "Activities - The Surfer",
+    "header": "Activities",
+    "boatParty": {
+      "title": "BOAT PARTY",
+      "desc": "#BOATPARTY! If you’ve ever attended our legendary boat party, you’ll never forget it!"
+    },
+    "videoSection": {
+      "boatPartyVideo": "Boat Party Video"
+    },
+    "booking": {
+      "title": "Book your spot now",
+      "button": "Book Now"
+    },
+    "meetPeople": {
+      "title": "MEET NEW PEOPLE FROM ALL AROUND THE WORLD",
+      "desc": "We have plenty of activities for you and we have group events for you every day. No matter if you're with friends or traveling solo, you are never alone at The Surfer."
+    },
+    "surfHoliday": {
+      "title": "Have an unforgettable surf holiday",
+      "desc": "No matter if you ever surfed before or not. We at The Surfer take care of your unique surfing experience—from beginners to advanced surfers."
+    },
+    "friendsForLife": {
+      "title": "MAKE NEW FRIENDS FOR LIFE",
+      "desc": "Once you visit The Surfer Sri Lanka, you’ll always be part of our family."
+    }
+  }
+}

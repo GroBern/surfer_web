@@ -1,6 +1,7 @@
 import { link } from 'framer-motion/client'
 import React, { useState, useEffect } from 'react'
 import { useLocation } from 'react-router-dom';
+import { useTranslation } from 'react-i18next';
 
 const Navbar = () => {
   const location = useLocation();
@@ -9,6 +10,7 @@ const Navbar = () => {
   const [isDestinationHovered, setIsDestinationHovered] = useState(false)
   const [selectedCountry, setSelectedCountry] = useState('srilanka')
   const [isMobileDestinationOpen, setIsMobileDestinationOpen] = useState(false)
+  const { t, i18n } = useTranslation();
 
   const countries = [
     {
@@ -43,6 +45,10 @@ const Navbar = () => {
     }
   }
 
+  const changeLanguage = (lng) => {
+    i18n.changeLanguage(lng);
+  };
+
   useEffect(() => {
     const handleScroll = () => {
       const scrollTop = window.scrollY
@@ -69,10 +75,10 @@ const Navbar = () => {
         </a>
         <ul className='hidden md:flex gap-4 lg:gap-7 text-sm lg:text-base relative'>
           <a href="/" className={`cursor-pointer transition-all duration-300 hover:transform hover:-translate-y-1 ${location.pathname === '/'
-              ? 'text-cyan-500 font-bold underline underline-offset-4'
-              : isScrolled
-                ? 'text-gray-800 hover:text-cyan-600 hover:drop-shadow-[0_4px_8px_rgba(8,145,178,0.4)]'
-                : 'text-white hover:text-cyan-300 hover:drop-shadow-[0_4px_8px_rgba(34,211,238,0.4)]'
+            ? 'text-cyan-500 font-bold underline underline-offset-4'
+            : isScrolled
+              ? 'text-gray-800 hover:text-cyan-600 hover:drop-shadow-[0_4px_8px_rgba(8,145,178,0.4)]'
+              : 'text-white hover:text-cyan-300 hover:drop-shadow-[0_4px_8px_rgba(34,211,238,0.4)]'
             }`}>HOME</a>
           <div
             className="relative"
@@ -215,37 +221,37 @@ const Navbar = () => {
           </div>
 
           <a href="/activities" className={`cursor-pointer transition-all duration-300 hover:transform hover:-translate-y-1 ${location.pathname === '/activities'
-              ? 'text-cyan-500 font-bold underline underline-offset-4'
-              : isScrolled
-                ? 'text-gray-800 hover:text-cyan-600 hover:drop-shadow-[0_4px_8px_rgba(8,145,178,0.4)]'
-                : 'text-white hover:text-cyan-300 hover:drop-shadow-[0_4px_8px_rgba(34,211,238,0.4)]'
+            ? 'text-cyan-500 font-bold underline underline-offset-4'
+            : isScrolled
+              ? 'text-gray-800 hover:text-cyan-600 hover:drop-shadow-[0_4px_8px_rgba(8,145,178,0.4)]'
+              : 'text-white hover:text-cyan-300 hover:drop-shadow-[0_4px_8px_rgba(34,211,238,0.4)]'
             }`}>ACTIVITIES</a>
           <a href="/rates" className={`cursor-pointer transition-all duration-300 hover:transform hover:-translate-y-1 ${location.pathname === '/rates'
-              ? 'text-cyan-500 font-bold underline underline-offset-4'
-              : isScrolled
-                ? 'text-gray-800 hover:text-cyan-600 hover:drop-shadow-[0_4px_8px_rgba(8,145,178,0.4)]'
-                : 'text-white hover:text-cyan-300 hover:drop-shadow-[0_4px_8px_rgba(34,211,238,0.4)]'
+            ? 'text-cyan-500 font-bold underline underline-offset-4'
+            : isScrolled
+              ? 'text-gray-800 hover:text-cyan-600 hover:drop-shadow-[0_4px_8px_rgba(8,145,178,0.4)]'
+              : 'text-white hover:text-cyan-300 hover:drop-shadow-[0_4px_8px_rgba(34,211,238,0.4)]'
             }`}>RATES</a>
           <a href="/faq" className={`cursor-pointer transition-all duration-300 hover:transform hover:-translate-y-1 ${location.pathname === '/faq'
-              ? 'text-cyan-500 font-bold underline underline-offset-4'
-              : isScrolled
-                ? 'text-gray-800 hover:text-cyan-600 hover:drop-shadow-[0_4px_8px_rgba(8,145,178,0.4)]'
-                : 'text-white hover:text-cyan-300 hover:drop-shadow-[0_4px_8px_rgba(34,211,238,0.4)]'
+            ? 'text-cyan-500 font-bold underline underline-offset-4'
+            : isScrolled
+              ? 'text-gray-800 hover:text-cyan-600 hover:drop-shadow-[0_4px_8px_rgba(8,145,178,0.4)]'
+              : 'text-white hover:text-cyan-300 hover:drop-shadow-[0_4px_8px_rgba(34,211,238,0.4)]'
             }`}>FAQ</a>
           <a href="/blogs" className={`cursor-pointer transition-all duration-300 hover:transform hover:-translate-y-1 ${location.pathname === '/blogs'
-              ? 'text-cyan-500 font-bold underline underline-offset-4'
-              : isScrolled
-                ? 'text-gray-800 hover:text-cyan-600 hover:drop-shadow-[0_4px_8px_rgba(8,145,178,0.4)]'
-                : 'text-white hover:text-cyan-300 hover:drop-shadow-[0_4px_8px_rgba(34,211,238,0.4)]'
+            ? 'text-cyan-500 font-bold underline underline-offset-4'
+            : isScrolled
+              ? 'text-gray-800 hover:text-cyan-600 hover:drop-shadow-[0_4px_8px_rgba(8,145,178,0.4)]'
+              : 'text-white hover:text-cyan-300 hover:drop-shadow-[0_4px_8px_rgba(34,211,238,0.4)]'
             }`}>BLOGS</a>
           <a href="/contact" className={`cursor-pointer transition-all duration-300 hover:transform hover:-translate-y-1 ${location.pathname === '/contact'
-              ? 'text-cyan-500 font-bold underline underline-offset-4'
-              : isScrolled
-                ? 'text-gray-800 hover:text-cyan-600 hover:drop-shadow-[0_4px_8px_rgba(8,145,178,0.4)]'
-                : 'text-white hover:text-cyan-300 hover:drop-shadow-[0_4px_8px_rgba(34,211,238,0.4)]'
+            ? 'text-cyan-500 font-bold underline underline-offset-4'
+            : isScrolled
+              ? 'text-gray-800 hover:text-cyan-600 hover:drop-shadow-[0_4px_8px_rgba(8,145,178,0.4)]'
+              : 'text-white hover:text-cyan-300 hover:drop-shadow-[0_4px_8px_rgba(34,211,238,0.4)]'
             }`}>CONTACT</a>
         </ul>
-
+        
         <button
           className={`md:hidden text-2xl transition-all duration-300 ${isMenuOpen ? 'rotate-90' : 'rotate-0'
             } ${isScrolled
@@ -264,6 +270,13 @@ const Navbar = () => {
             }`}>
           BOOK NOW
         </a>
+
+        <div className={`hidden md:block`}>
+          <select onChange={(e) => changeLanguage(e.target.value)} value={i18n.language}>
+            <option value="en">English 🇬🇧</option>
+            <option value="de">Deutsch 🇩🇪</option>
+          </select>
+        </div>
       </div>
 
       {/* Mobile Menu with Animation */}
@@ -288,9 +301,9 @@ const Navbar = () => {
               <div className='w-full'>
                 <button
                   className={`w-full py-3 px-4 cursor-pointer transition-all duration-300 hover:transform hover:-translate-y-1 rounded-xl text-sm font-medium ${isScrolled
-                  ? 'text-gray-800 hover:text-cyan-600 hover:drop-shadow-[0_4px_8px_rgba(8,145,178,0.4)] hover:bg-gray-100'
-                  : 'text-white hover:text-cyan-300 hover:drop-shadow-[0_4px_8px_rgba(34,211,238,0.4)] hover:bg-white/20'
-                  }`}
+                    ? 'text-gray-800 hover:text-cyan-600 hover:drop-shadow-[0_4px_8px_rgba(8,145,178,0.4)] hover:bg-gray-100'
+                    : 'text-white hover:text-cyan-300 hover:drop-shadow-[0_4px_8px_rgba(34,211,238,0.4)] hover:bg-white/20'
+                    }`}
                   onClick={() => setIsMobileDestinationOpen(!isMobileDestinationOpen)}
                 >
                   DESTINATION

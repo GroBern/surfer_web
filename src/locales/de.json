@@ -1,0 +1,29 @@
+{
+  "activities": {
+    "pageTitle": "Aktivitäten - The Surfer",
+    "header": "Aktivitäten",
+    "boatParty": {
+      "title": "BOOTSPARTY",
+      "desc": "#BOOTSPARTY! Wenn du jemals an unserer legendären Bootsparty teilgenommen hast, wirst du sie niemals vergessen!"
+    },
+    "videoSection": {
+      "boatPartyVideo": "Bootsparty-Video"
+    },
+    "booking": {
+      "title": "Buche jetzt deinen Platz",
+      "button": "Jetzt buchen"
+    },
+    "meetPeople": {
+      "title": "LERNE NEUE LEUTE AUS DER GANZEN WELT KENNEN",
+      "desc": "Wir haben viele Aktivitäten und Gruppenevents für dich jeden Tag. Egal, ob du mit Freunden reist oder alleine – bei The Surfer bist du niemals allein."
+    },
+    "surfHoliday": {
+      "title": "Erlebe einen unvergesslichen Surfurlaub",
+      "desc": "Egal, ob du schon einmal gesurft bist oder nicht. Bei The Surfer kümmern wir uns um dein einzigartiges Surferlebnis – vom Anfänger bis zum Fortgeschrittenen."
+    },
+    "friendsForLife": {
+      "title": "FINDE FREUNDE FÜRS LEBEN",
+      "desc": "Sobald du The Surfer Sri Lanka besuchst, wirst du immer Teil unserer Familie sein."
+    }
+  }
+}
