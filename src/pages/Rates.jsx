@@ -2,10 +2,14 @@ import React, { useEffect } from 'react';
 import { motion } from 'framer-motion';
 import Navbar from '../components/Navbar';
 import { Footer } from '../components/Footer';
+import { useTranslation } from "react-i18next";
 
 const PackageSection = () => {
+  const { t } = useTranslation();
+
   return (
     <div className="max-w-7xl mx-auto px-4 py-12">
+      {/* Package Features Table */}
       <motion.div
         className="bg-white rounded-lg shadow-lg mb-12 overflow-hidden"
         initial={{ opacity: 0, y: 50 }}
@@ -15,7 +19,7 @@ const PackageSection = () => {
       >
         <div className="px-6 py-6">
           <motion.h1 className="text-center text-3xl text-neutral-400 font-bold mb-4">
-            The Surfer Beach Camp - Surf Packages & Weekly Rates
+            {t("beachPackages.title")}
           </motion.h1>
         </div>
 
@@ -23,120 +27,32 @@ const PackageSection = () => {
           <table className="w-full">
             <thead>
               <tr className="bg-gray-50">
-                <th className="px-6 py-4 text-left text-sm font-medium text-gray-900 border-b-3 border-black-300"></th>
-                <th className="px-6 py-4 text-center text-sm font-semibold text-gray-900 border-b-3 border-black-300">
-                  Surf And Yoga Package
-                </th>
-                <th className="px-6 py-4 text-center text-sm font-semibold text-gray-900 border-b-3 border-black-300">
-                  Full Surf Package
-                </th>
-                <th className="px-6 py-4 text-center text-sm font-semibold text-gray-900 border-b-3 border-black-300">
-                  Moderate Surf Package
-                </th>
+                <th></th>
+                <th className="text-center">{t("beachPackages.packages.surfAndYoga")}</th>
+                <th className="text-center">{t("beachPackages.packages.fullSurf")}</th>
+                <th className="text-center">{t("beachPackages.packages.moderateSurf")}</th>
               </tr>
             </thead>
             <tbody>
-               <tr className="border-b border-gray-300">
-                <td className="px-6 py-4 text-sm text-gray-900 font-medium">Surf Lessons</td>
-                <td className="px-6 py-4 text-center text-sm text-gray-900">
-                  06 Surf Lessons or Guiding / Week
-                </td>
-                <td className="px-6 py-4 text-center text-sm text-gray-900">
-                  11 Surf Lessons
-                </td>
-                <td className="px-6 py-4 text-center text-sm text-gray-900">
-                  06 Surf Lessons or Guiding
-                </td>
-              </tr>
-              <tr>
-                <td className="px-6 py-4 text-sm text-gray-900 font-medium">Yoga</td>
-                <td className="px-6 py-4 text-center text-sm text-gray-900">
-                  Sunrise or Sunset Everyday
-                </td>
-                <td className="px-6 py-4 text-center text-sm text-gray-900">
-                  02 Sessions / Week
-                </td>
-                <td className="px-6 py-4 text-center text-sm text-gray-900">
-                  02 Sessions / Week
-                </td>
-              </tr>
-              <tr className="border-b border-gray-300">
-                <td className="px-6 py-4 text-sm text-gray-900 font-medium">07 nights accommodation</td>
-                <td className="px-6 py-4 text-center">
-                  <span className="text-green-600 text-xl">✓</span>
-                </td>
-                <td className="px-6 py-4 text-center">
-                  <span className="text-green-600 text-xl">✓</span>
-                </td>
-                <td className="px-6 py-4 text-center">
-                  <span className="text-green-600 text-xl">✓</span>
-                </td>
-              </tr>
-              <tr className="border-b bg-gray-50 border-gray-300">
-                <td className="px-6 py-4 text-sm text-gray-900 font-medium">Breakfast Everyday</td>
-                <td className="px-6 py-4 text-center">
-                  <span className="text-green-600 text-xl">✓</span>
-                </td>
-                <td className="px-6 py-4 text-center">
-                  <span className="text-green-600 text-xl">✓</span>
-                </td>
-                <td className="px-6 py-4 text-center">
-                  <span className="text-green-600 text-xl">✓</span>
-                </td>
-              </tr>
-              <tr className="border-b border-gray-300">
-                <td className="px-6 py-4 text-sm text-gray-900 font-medium">Dinner - Everyday except Sunday</td>
-                <td className="px-6 py-4 text-center">
-                  <span className="text-green-600 text-xl">✓</span>
-                </td>
-                <td className="px-6 py-4 text-center">
-                  <span className="text-green-600 text-xl">✓</span>
-                </td>
-                <td className="px-6 py-4 text-center">
-                  <span className="text-green-600 text-xl">✓</span>
-                </td>
-              </tr>
-              <tr className="border-b bg-gray-50 border-gray-300">
-                <td className="px-6 py-4 text-sm text-gray-900 font-medium">Surf Theory Classes</td>
-                <td className="px-6 py-4 text-center">
-                  <span className="text-green-600 text-xl">✓</span>
-                </td>
-                <td className="px-6 py-4 text-center">
-                  <span className="text-green-600 text-xl">✓</span>
-                </td>
-                <td className="px-6 py-4 text-center">
-                  <span className="text-green-600 text-xl">✓</span>
-                </td>
-              </tr>
-              <tr className="border-b border-gray-300">
-                <td className="px-6 py-4 text-sm text-gray-900 font-medium">Video Analysis</td>
-                <td className="px-6 py-4 text-center">
-                  <span className="text-green-600 text-xl">✓</span>
-                </td>
-                <td className="px-6 py-4 text-center">
-                  <span className="text-green-600 text-xl">✓</span>
-                </td>
-                <td className="px-6 py-4 text-center">
-                  <span className="text-green-600 text-xl">✓</span>
-                </td>
-              </tr>
-              <tr className="border-b border-gray-300 bg-gray-50">
-                <td className="px-6 py-4 text-sm text-gray-900 font-medium">Daily Social Activities</td>
-                <td className="px-6 py-4 text-center">
-                  <span className="text-green-600 text-xl">✓</span>
-                </td>
-                <td className="px-6 py-4 text-center">
-                  <span className="text-green-600 text-xl">✓</span>
-                </td>
-                <td className="px-6 py-4 text-center">
-                  <span className="text-green-600 text-xl">✓</span>
-                </td>
-              </tr>
+              {t("beachPackages.features", { returnObjects: true }).map((row, idx) => (
+                <tr
+                  key={idx}
+                  className={`border-b border-gray-300 ${idx % 2 === 1 ? "bg-gray-50" : ""}`}
+                >
+                  <td className="px-6 py-4 text-sm text-gray-900 font-medium">
+                    {row.name}
+                  </td>
+                  <td className="px-6 py-4 text-center text-sm text-gray-900">{row.surfAndYoga}</td>
+                  <td className="px-6 py-4 text-center text-sm text-gray-900">{row.fullSurf}</td>
+                  <td className="px-6 py-4 text-center text-sm text-gray-900">{row.moderateSurf}</td>
+                </tr>
+              ))}
             </tbody>
           </table>
         </div>
       </motion.div>
 
+      {/* Accommodation Table */}
       <motion.div
         className="bg-white rounded-lg shadow-lg overflow-hidden"
         initial={{ opacity: 0, y: 50 }}
@@ -148,55 +64,24 @@ const PackageSection = () => {
           <table className="w-full">
             <thead>
               <tr className="bg-gray-50 border-b-3 border-black-300">
-                <th className="px-6 py-4 text-left text-sm font-medium text-gray-900 border-b"></th>
-                <th className="px-6 py-4 text-center text-sm font-semibold text-gray-900 border-b">
-                  Surf And Yoga Package
-                </th>
-                <th className="px-6 py-4 text-center text-sm font-semibold text-gray-900 border-b">
-                  Full Surf Package
-                </th>
-                <th className="px-6 py-4 text-center text-sm font-semibold text-gray-900 border-b">
-                  Moderate Surf Package
-                </th>
+                <th></th>
+                <th className="text-center">{t("beachPackages.packages.surfAndYoga")}</th>
+                <th className="text-center">{t("beachPackages.packages.fullSurf")}</th>
+                <th className="text-center">{t("beachPackages.packages.moderateSurf")}</th>
               </tr>
             </thead>
             <tbody>
-              <tr className="border-b border-gray-300">
-                <td className="px-6 py-4 text-sm text-gray-900 font-medium">
-                  Mixed Dormitory Bed
-                  <div className="text-xs text-gray-500">Max ( 05 people )</div>
-                </td>
-                <td className="px-6 py-4 text-center text-sm font-semibold text-blue-600">450 €</td>
-                <td className="px-6 py-4 text-center text-sm font-semibold text-blue-600">490 €</td>
-                <td className="px-6 py-4 text-center text-sm font-semibold text-blue-600">390 €</td>
-              </tr>
-              <tr className="border-b bg-gray-50 border-gray-300">
-                <td className="px-6 py-4 text-sm text-gray-900 font-medium">
-                  Private Single Room
-                  <div className="text-xs text-gray-500">Per Week</div>
-                </td>
-                <td className="px-6 py-4 text-center text-sm font-semibold text-blue-600">750 €</td>
-                <td className="px-6 py-4 text-center text-sm font-semibold text-blue-600">790 €</td>
-                <td className="px-6 py-4 text-center text-sm font-semibold text-blue-600">690 €</td>
-              </tr>
-              <tr className="border-b border-gray-300">
-                <td className="px-6 py-4 text-sm text-gray-900 font-medium">
-                  Private Double / Twin Room
-                  <div className="text-xs text-gray-500">Per Person / Per Week</div>
-                </td>
-                <td className="px-6 py-4 text-center text-sm font-semibold text-blue-600">550 €</td>
-                <td className="px-6 py-4 text-center text-sm font-semibold text-blue-600">590 €</td>
-                <td className="px-6 py-4 text-center text-sm font-semibold text-blue-600">490 €</td>
-              </tr>
-              <tr>
-                <td className="px-6 py-4 text-sm text-gray-900 font-medium">
-                  Private Triple Room
-                  <div className="text-xs text-gray-500">Per Person / Per Week</div>
-                </td>
-                <td className="px-6 py-4 text-center text-sm font-semibold text-blue-600">500 €</td>
-                <td className="px-6 py-4 text-center text-sm font-semibold text-blue-600">550 €</td>
-                <td className="px-6 py-4 text-center text-sm font-semibold text-blue-600">450 €</td>
-              </tr>
+              {t("beachPackages.accommodation", { returnObjects: true }).map((row, idx) => (
+                <tr key={idx} className={`border-b border-gray-300 ${idx % 2 === 1 ? "bg-gray-50" : ""}`}>
+                  <td className="px-6 py-4 text-sm text-gray-900 font-medium">
+                    {row.name}
+                    {row.note && <div className="text-xs text-gray-500">{row.note}</div>}
+                  </td>
+                  <td className="px-6 py-4 text-center text-sm font-semibold text-blue-600">{row.surfAndYoga}</td>
+                  <td className="px-6 py-4 text-center text-sm font-semibold text-blue-600">{row.fullSurf}</td>
+                  <td className="px-6 py-4 text-center text-sm font-semibold text-blue-600">{row.moderateSurf}</td>
+                </tr>
+              ))}
             </tbody>
           </table>
         </div>
@@ -206,8 +91,11 @@ const PackageSection = () => {
 };
 
 const Package = () => {
+  const { t } = useTranslation();
+
   return (
     <div className="max-w-7xl mx-auto px-4 py-12">
+      {/* Package Features Table */}
       <motion.div
         className="bg-white rounded-lg shadow-lg mb-12 overflow-hidden"
         initial={{ opacity: 0, y: 50 }}
@@ -217,130 +105,40 @@ const Package = () => {
       >
         <div className="px-6 py-6">
           <h1 className="text-center text-3xl text-neutral-400 font-bold mb-4">
-            The Surfer TS2 Camp - Surf Packages & Weekly Rates
+            {t("ts2Packages.title")}
           </h1>
-        
         </div>
 
         <div className="overflow-x-auto">
           <table className="w-full">
             <thead>
               <tr className="bg-gray-50">
-                <th className="px-6 py-4 text-left text-sm font-medium text-gray-900 border-b-3 border-black-300"></th>
-                <th className="px-6 py-4 text-center text-sm font-semibold text-gray-900 border-b-3 border-black-300">
-                  Surf And Yoga Package
-                </th>
-                <th className="px-6 py-4 text-center text-sm font-semibold text-gray-900 border-b-3 border-black-300">
-                  Full Surf Package
-                </th>
-                <th className="px-6 py-4 text-center text-sm font-semibold text-gray-900 border-b-3 border-black-300">
-                  Moderate Surf Package
-                </th>
+                <th></th>
+                <th className="text-center">{t("ts2Packages.packages.surfAndYoga")}</th>
+                <th className="text-center">{t("ts2Packages.packages.fullSurf")}</th>
+                <th className="text-center">{t("ts2Packages.packages.moderateSurf")}</th>
               </tr>
             </thead>
             <tbody>
-               <tr className="border-b border-gray-300">
-                <td className="px-6 py-4 text-sm text-gray-900 font-medium">Surf Lessons</td>
-                <td className="px-6 py-4 text-center text-sm text-gray-900">
-                  06 Surf Lessons or Guiding / Week
-                </td>
-                <td className="px-6 py-4 text-center text-sm text-gray-900">
-                  11 Surf Lessons
-                </td>
-                <td className="px-6 py-4 text-center text-sm text-gray-900">
-                  06 Surf Lessons or Guiding
-                </td>
-              </tr>
-              <tr>
-                <td className="px-6 py-4 text-sm text-gray-900 font-medium">Yoga</td>
-                <td className="px-6 py-4 text-center text-sm text-gray-900">
-                  Sunrise or Sunset Everyday
-                </td>
-                <td className="px-6 py-4 text-center text-sm text-gray-900">
-                  02 Sessions / Week
-                </td>
-                <td className="px-6 py-4 text-center text-sm text-gray-900">
-                  02 Sessions / Week
-                </td>
-              </tr>
-              <tr className="border-b border-gray-300">
-                <td className="px-6 py-4 text-sm text-gray-900 font-medium">07 nights accommodation</td>
-                <td className="px-6 py-4 text-center">
-                  <span className="text-green-600 text-xl">✓</span>
-                </td>
-                <td className="px-6 py-4 text-center">
-                  <span className="text-green-600 text-xl">✓</span>
-                </td>
-                <td className="px-6 py-4 text-center">
-                  <span className="text-green-600 text-xl">✓</span>
-                </td>
-              </tr>
-              <tr className="border-b bg-gray-50 border-gray-300">
-                <td className="px-6 py-4 text-sm text-gray-900 font-medium">Breakfast Everyday</td>
-                <td className="px-6 py-4 text-center">
-                  <span className="text-green-600 text-xl">✓</span>
-                </td>
-                <td className="px-6 py-4 text-center">
-                  <span className="text-green-600 text-xl">✓</span>
-                </td>
-                <td className="px-6 py-4 text-center">
-                  <span className="text-green-600 text-xl">✓</span>
-                </td>
-              </tr>
-              <tr className="border-b border-gray-300">
-                <td className="px-6 py-4 text-sm text-gray-900 font-medium">Dinner - Everyday except Sunday</td>
-                <td className="px-6 py-4 text-center">
-                  <span className="text-green-600 text-xl">✓</span>
-                </td>
-                <td className="px-6 py-4 text-center">
-                  <span className="text-green-600 text-xl">✓</span>
-                </td>
-                <td className="px-6 py-4 text-center">
-                  <span className="text-green-600 text-xl">✓</span>
-                </td>
-              </tr>
-              <tr className="border-b bg-gray-50 border-gray-300">
-                <td className="px-6 py-4 text-sm text-gray-900 font-medium">Surf Theory Classes</td>
-                <td className="px-6 py-4 text-center">
-                  <span className="text-green-600 text-xl">✓</span>
-                </td>
-                <td className="px-6 py-4 text-center">
-                  <span className="text-green-600 text-xl">✓</span>
-                </td>
-                <td className="px-6 py-4 text-center">
-                  <span className="text-green-600 text-xl">✓</span>
-                </td>
-              </tr>
-              <tr className="border-b border-gray-300">
-                <td className="px-6 py-4 text-sm text-gray-900 font-medium">Video Analysis</td>
-                <td className="px-6 py-4 text-center">
-                  <span className="text-green-600 text-xl">✓</span>
-                </td>
-                <td className="px-6 py-4 text-center">
-                  <span className="text-green-600 text-xl">✓</span>
-                </td>
-                <td className="px-6 py-4 text-center">
-                  <span className="text-green-600 text-xl">✓</span>
-                </td>
-              </tr>
-              <tr className="border-b border-gray-300 bg-gray-50">
-                <td className="px-6 py-4 text-sm text-gray-900 font-medium">Daily Social Activities</td>
-                <td className="px-6 py-4 text-center">
-                  <span className="text-green-600 text-xl">✓</span>
-                </td>
-                <td className="px-6 py-4 text-center">
-                  <span className="text-green-600 text-xl">✓</span>
-                </td>
-                <td className="px-6 py-4 text-center">
-                  <span className="text-green-600 text-xl">✓</span>
-                </td>
-              </tr>
-             
+              {t("ts2Packages.features", { returnObjects: true }).map((row, idx) => (
+                <tr
+                  key={idx}
+                  className={`border-b border-gray-300 ${idx % 2 === 1 ? "bg-gray-50" : ""}`}
+                >
+                  <td className="px-6 py-4 text-sm text-gray-900 font-medium">
+                    {row.name}
+                  </td>
+                  <td className="px-6 py-4 text-center text-sm text-gray-900">{row.surfAndYoga}</td>
+                  <td className="px-6 py-4 text-center text-sm text-gray-900">{row.fullSurf}</td>
+                  <td className="px-6 py-4 text-center text-sm text-gray-900">{row.moderateSurf}</td>
+                </tr>
+              ))}
             </tbody>
           </table>
         </div>
       </motion.div>
 
+      {/* Accommodation Table */}
       <motion.div
         className="bg-white rounded-lg shadow-lg overflow-hidden"
         initial={{ opacity: 0, y: 50 }}
@@ -352,62 +150,31 @@ const Package = () => {
           <table className="w-full">
             <thead>
               <tr className="bg-gray-50 border-b-3 border-black-300">
-                <th className="px-6 py-4 text-left text-sm font-medium text-gray-900 border-b"></th>
-                <th className="px-6 py-4 text-center text-sm font-semibold text-gray-900 border-b">
-                  Surf And Yoga Package
-                </th>
-                <th className="px-6 py-4 text-center text-sm font-semibold text-gray-900 border-b">
-                  Full Surf Package
-                </th>
-                <th className="px-6 py-4 text-center text-sm font-semibold text-gray-900 border-b">
-                  Moderate Surf Package
-                </th>
+                <th></th>
+                <th className="text-center">{t("ts2Packages.packages.surfAndYoga")}</th>
+                <th className="text-center">{t("ts2Packages.packages.fullSurf")}</th>
+                <th className="text-center">{t("ts2Packages.packages.moderateSurf")}</th>
               </tr>
             </thead>
             <tbody>
-              <tr className="border-b border-gray-300">
-                <td className="px-6 py-4 text-sm text-gray-900 font-medium">
-                  Mixed Dormitory Bed
-                  <div className="text-xs text-gray-500">Max ( 05 people )</div>
-                </td>
-                <td className="px-6 py-4 text-center text-sm font-semibold text-blue-600">350 €</td>
-                <td className="px-6 py-4 text-center text-sm font-semibold text-blue-600">390 €</td>
-                <td className="px-6 py-4 text-center text-sm font-semibold text-blue-600">290 €</td>
-              </tr>
-              <tr className="border-b bg-gray-50 border-gray-300">
-                <td className="px-6 py-4 text-sm text-gray-900 font-medium">
-                  Private Single Room
-                  <div className="text-xs text-gray-500">Per Week</div>
-                </td>
-                <td className="px-6 py-4 text-center text-sm font-semibold text-blue-600">450 €</td>
-                <td className="px-6 py-4 text-center text-sm font-semibold text-blue-600">490 €</td>
-                <td className="px-6 py-4 text-center text-sm font-semibold text-blue-600">390 €</td>
-              </tr>
-              <tr className="border-b border-gray-300">
-                <td className="px-6 py-4 text-sm text-gray-900 font-medium">
-                  Private Double / Twin Room
-                  <div className="text-xs text-gray-500">Per Person / Per Week</div>
-                </td>
-                <td className="px-6 py-4 text-center text-sm font-semibold text-blue-600">350 €</td>
-                <td className="px-6 py-4 text-center text-sm font-semibold text-blue-600">390 €</td>
-                <td className="px-6 py-4 text-center text-sm font-semibold text-blue-600">290 €</td>
-              </tr>
-              <tr>
-                <td className="px-6 py-4 text-sm text-gray-900 font-medium">
-                  Private Triple Room
-                  <div className="text-xs text-gray-500">Per Person / Per Week</div>
-                </td>
-                <td className="px-6 py-4 text-center text-sm font-semibold text-blue-600">350 €</td>
-                <td className="px-6 py-4 text-center text-sm font-semibold text-blue-600">390 €</td>
-                <td className="px-6 py-4 text-center text-sm font-semibold text-blue-600">290 €</td>
-              </tr>
+              {t("ts2Packages.accommodation", { returnObjects: true }).map((row, idx) => (
+                <tr key={idx} className={`border-b border-gray-300 ${idx % 2 === 1 ? "bg-gray-50" : ""}`}>
+                  <td className="px-6 py-4 text-sm text-gray-900 font-medium">
+                    {row.name}
+                    {row.note && <div className="text-xs text-gray-500">{row.note}</div>}
+                  </td>
+                  <td className="px-6 py-4 text-center text-sm font-semibold text-blue-600">{row.surfAndYoga}</td>
+                  <td className="px-6 py-4 text-center text-sm font-semibold text-blue-600">{row.fullSurf}</td>
+                  <td className="px-6 py-4 text-center text-sm font-semibold text-blue-600">{row.moderateSurf}</td>
+                </tr>
+              ))}
             </tbody>
           </table>
         </div>
       </motion.div>
     </div>
-  )
-}
+  );
+};
 
 const SurfLessonPackages = () => {
   useEffect(() => {

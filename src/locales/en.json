@@ -25,5 +25,208 @@
       "title": "MAKE NEW FRIENDS FOR LIFE",
       "desc": "Once you visit The Surfer Sri Lanka, you’ll always be part of our family."
     }
+  },
+  "footer": {
+    "stats": {
+      "instructors": "Surf Instructors Trained\nDeveloping local talent across borders.",
+      "sessions": "Surf Sessions Delivered\nFrom beginners to wave chasers.",
+      "countries": "Countries Represented by Our Guests\nJoin an international surf tribe."
+    },
+    "about": {
+      "title": "About us",
+      "desc": "The Surfer Surf Camps in Sri Lanka fully owned by a local surfer who was born and grew up in Weligama, Sri Lanka. Located in the heart of the surfing area in Weligama, with nine to ten surf spots within a five to ten minute Tuk Tuk ride."
+    },
+    "links": {
+      "title": "The Surfer",
+      "blog": "Blog",
+      "contact": "Contact us"
+    },
+    "support": {
+      "title": "Support",
+      "terms": "Terms of Conditions",
+      "imprint": "Imprint",
+      "privacy": "Privacy policy"
+    }
+  },
+  "faq": {
+    "items": [
+      {
+        "question": "01) Worth to try a surf camp?",
+        "answer": "Looking for an epic adventure? Look no further than Surf Camp Sri Lanka! This experience is totally worth it. Not only will you get to improve your surfing skills with video analysis and expert coaching, but you’ll also meet tons of like-minded travelers. Plus, you won’t have to worry about a thing – the camp takes care of everything from food to surfing, yoga to safety. So, if you’re traveling solo or just looking for a new challenge, Surfcamp is the perfect choice. Don’t miss out on this amazing opportunity to catch the best waves, surf conditions and make new friends!"
+      },
+      {
+        "question": "02) Does Sri Lanka has good surfing?",
+        "answer": "Are you a surfer looking for a new adventure? Well, let me tell you, Sri Lanka is the place to be! With its beautiful beaches and consistent waves, Sri Lanka is a surfer’s paradise. Whether you’re a beginner or a pro, there are plenty of spots to catch some waves. From the famous Southwest coast Weligama to East coast Arugambay, you’ll find a variety of breaks to suit your style. So grab your board and head to Sri Lanka for an unforgettable surfing experience in Sri Lanka."
+      },
+      {
+        "question": "03) Do you need a wet suit to surf in Sri Lanka?",
+        "answer": "If you’re planning a trip to Sri Lanka, you might be wondering if you need to pack a wet suit. Well, we’ve got some good news for you – you can leave it at home! The water temperature in Sri Lanka is warm, so you won’t need to worry about getting chilly while you catch some waves. Plus, who wants to deal with the hassle of putting on and taking off a wet suit anyway? So pack your board shorts and sunscreen, and get ready for some epic surf sessions in the warm waters of Sri Lanka."
+      },
+      {
+        "question": "04) Are Sri Lanka surfing spots crowded?",
+        "answer": "Looking for a chill surf vacation without the crowds? Look no further than Sri Lanka! Our surf camp in Weligama is run by a local who knows all the best spots. And the best part? We’ll take you to the hidden gems that not many people know about. No need to worry about fighting for waves or feeling like you’re in a surf competition. Just relax, catch some waves, and enjoy the beautiful scenery. Book with us and experience the uncrowded surfing spots of Sri Lanka."
+      },
+      {
+        "question": "05) Are you wondering if you're too old to learn to surf?",
+        "answer": "Let me tell you, age is just a number! Whether you’re 26 or 66, you can still catch some waves and have a blast. Don’t let anyone tell you otherwise. And if you’re looking for the perfect board to get started, we’ve got you covered. Our beginner-friendly surfboards are designed to help you learn quickly and easily. So, what are you waiting for? It’s never too late to learn something new. Book a surf trip with us in one of our surf camp Sri Lanka. We are also a yoga retreat and we offer daily breakfast all inclusive."
+      },
+      {
+        "question": "06) Which months are best to surfing in Sri Lanka south west coast?",
+        "answer": "If you’re a surfing enthusiast, you’ll definitely want to check out Sri Lanka’s south west coast. And if you’re wondering when the best time to go is, we’ve got you covered. The ideal months for surfing in this area are from October to the end of April. That’s right, you’ve got a solid six months to catch some waves and soak up the sun. So grab your board and get ready for an unforgettable experience. With warm waters and consistent swells, you won’t want to miss out on this surfing paradise."
+      },
+      {
+        "question": "07) Is Sri Lanka best for beginner surfers?",
+        "answer": "If you’re a beginner looking for the perfect place to catch some waves, look no further than surfing in Sri Lanka. Trust us, it’s 100% the best spot for newbies compared to anywhere else in the world. And The surf beach in Weligama is the ultimate place to learn to surf. With a 2-3 km long sandy coastline and gentle waves that won’t knock you off your board, you’ll be shredding in no time. Plus, there are no dangerous currents or reefs to worry about. So grab your board and head to Weligama for the ultimate surfing experience!"
+      }
+    ]
+  },
+  
+  "blog": {
+    "titlePage": "Blogs - The Surfer",
+    "title": "Blogs",
+    "headerImage": "/blog.jpg",
+    "readMore": "Read More",
+    "items": [
+      {
+        "id": 1,
+        "title": "Surf Ethics—5 rules that every beginner needs to know about",
+        "description": "Surfing is a challenging sport, it requires patience, commitment, and a lot of practice. However, there are some rules that every beginner surfer needs to know about before they hit the waves. Getting to know these rules will help you become...",
+        "image": "blogs/blog1.jpg",
+        "content": "Full blog content about Sri Lanka travels and experiences..."
+      },
+      {
+        "id": 2,
+        "title": "5 health benefits of surfing that are just out of this world",
+        "description": "When talking about the health benefits of an outdoor activity surfing seldom comes to mind. However, surfing is one of the most beneficial sports you can do for your body and mind. It offers a full-body workout, improves cardiovascular health...",
+        "image": "blogs/blog2.jpg",
+        "content": "There is always a price to pay, a compromise that needs to be done when"
+      },
+      {
+        "id": 3,
+        "title": "The Surfer—Brace Yourself for an Ultimate Surfing and Yoga Experience",
+        "description": "Does the idea of riding humongous waves with utmost precision amaze you? Do you love the idea of being one with the ocean? If yes, then you are in for a treat. The Surfer is here to provide you with the ultimate surfing and yoga experience...",
+        "image": "blogs/blog3.jpg",
+        "content": "Explore the authentic flavors of Sri Lanka..."
+      },
+      {
+        "id": 4,
+        "title": "5 BASIC SURFING TIPS FOR BEGINNERS",
+        "description": "Are you a beginner surfer learning how to masterfully surf the shores? Here are 5 basic surfing tips for beginners that will help you become a pro in no time. Whether you are a beginner or an experienced surfer, these tips...",
+        "image": "blogs/blog4.jpg",
+        "content": "Full blog content about adventure activities in Sri Lanka..."
+      },
+      {
+        "id": 5,
+        "title": "WHAT ARE SURFBOARD FINS?—HOW MANY TYPES ARE THERE?",
+        "description": "It doesn’t matter if you are a professional or a beginner level surfer because you need to understand the different types of surfboard fins available. There are several types of fins, each with its own unique...",
+        "image": "blogs/blog5.jpg",
+        "content": "Detailed guide on cultural heritage sites in Sri Lanka..."
+      },
+      {
+        "id": 6,
+        "title": "CURRENT SITUATION IN SRI LANKA",
+        "description": "All you need to know for hassle free and easy surf trip! THE LATEST UPDATE ON SRI LANKA. Despite the current economic crisis, Sri Lanka remains a safe and welcoming destination for travelers...",
+        "image": "blogs/blog6.jpg",
+        "content": "Full blog content about wildlife safaris in Yala National Park..."
+      },
+      {
+        "id": 7,
+        "title": "EVERYTHING YOU NEED TO KNOW ABOUT DIFFERENT SURFING STYLES",
+        "description": "Surfing is a complete sport as it engages every muscle in your body. You are using your arms, legs, and core to paddle out, balance on the board, and ride the waves with style. However, there are different surfing styles...",
+        "image": "blogs/blog7.jpg",
+        "content": "Detailed guide on beach hopping in Sri Lanka..."
+      },
+      {
+        "id": 8,
+        "title": "TEN TERMS FROM THE SURFING WORLD YOU MUST KNOW!",
+        "description": "Every sport out there has its own specific lingo and to be able to understand the sport you need to know the terms used in it. Surfing is no different, it has its own set of terms that you need to know to be able...",
+        "image": "blogs/blog8.jpg",
+        "content": "Full blog content about wellness retreats in Sri Lanka..."
+      },
+      {
+        "id": 9,
+        "title": "5 EXCEPTIONAL WAYS TO IMPROVE YOUR SURFING 2022",
+        "description": "There is always a price to pay, a compromise that needs to be done when it comes to improving your surfing skills. No matter how good you get, there is always room for improvement and here are 5 exceptional ways...",
+        "image": "blogs/blog9.jpg",
+        "content": "Detailed guide on Sigiriya Rock Fortress..."
+      },
+      {
+        "id": 10,
+        "title": "SIX COMMON SURFING BLUNDERS BEGINNERS MAKE",
+        "date": "25. October 2022 / Surfing",
+        "description": "Most beginners that come around surfing think that it would be an easy job, they quickly realize that it requires a lot of practice and dedication. However, there are some rules that every beginner surfer needs to know...",
+        "image": "blogs/blog10.jpg",
+        "content": "Full blog content about the best beaches in Sri Lanka..."
+      },
+      {
+        "id": 11,
+        "title": "WHAT SIZE OF SURFBOARD IS BEST FOR YOU?",
+        "description": "Regardless of the fact if you are a beginner, a professional, or just in between the two, choosing the right surfboard size is crucial for your surfing experience. A surfboard that is too big or too small can hinder your...",
+        "image": "blogs/blog11.jpg",
+        "content": "Detailed guide on Sri Lankan festivals and events..."
+      },
+      {
+        "id": 12,
+        "title": "THREE SURF SAFETY ESSENTIALS FOR THE BEGINNERS",
+        "description": "If you ever wanted to be free like truly liberated in every sense of the word, then surfing is the sport for you. However, before you hit the waves, there are a few safety essentials you need to keep in mind as a beginner...",
+        "image": "blogs/blog12.jpg",
+        "content": "Detailed guide on Sri Lankan festivals and events..."
+      },
+      {
+        "id": 13,
+        "title": "A QUICK GUIDE TO SURFING FOR BEGINNERS",
+        "description": "People are taking up surfing as a hobby right and left and unlike other sports, surfing has a unique culture and set of skills that can be challenging to master. However, with the right guidance and practice, anyone can learn to surf...",
+        "image": "blogs/blog13.jpg",
+        "content": "Detailed guide on Sri Lankan festivals and events..."
+      }
+    ]
+  },
+  "beachPackages": {
+    "title": "The Surfer Beach Camp - Surf Packages & Weekly Rates",
+    "packages": {
+      "surfAndYoga": "Surf And Yoga Package",
+      "fullSurf": "Full Surf Package",
+      "moderateSurf": "Moderate Surf Package"
+    },
+    "features": [
+      { "name": "Surf Lessons", "surfAndYoga": "06 Lessons / Week", "fullSurf": "11 Lessons", "moderateSurf": "06 Lessons / Week" },
+      { "name": "Yoga", "surfAndYoga": "Sunrise or Sunset Everyday", "fullSurf": "02 Sessions / Week", "moderateSurf": "02 Sessions / Week" },
+      { "name": "07 nights accommodation", "surfAndYoga": "✓", "fullSurf": "✓", "moderateSurf": "✓" },
+      { "name": "Breakfast Everyday", "surfAndYoga": "✓", "fullSurf": "✓", "moderateSurf": "✓" },
+      { "name": "Dinner - Everyday except Sunday", "surfAndYoga": "✓", "fullSurf": "✓", "moderateSurf": "✓" },
+      { "name": "Surf Theory Classes", "surfAndYoga": "✓", "fullSurf": "✓", "moderateSurf": "✓" },
+      { "name": "Video Analysis", "surfAndYoga": "✓", "fullSurf": "✓", "moderateSurf": "✓" },
+      { "name": "Daily Social Activities", "surfAndYoga": "✓", "fullSurf": "✓", "moderateSurf": "✓" }
+    ],
+    "accommodation": [
+      { "name": "Mixed Dormitory Bed", "note": "Max ( 05 people )", "surfAndYoga": "450 €", "fullSurf": "490 €", "moderateSurf": "390 €" },
+      { "name": "Private Single Room", "note": "Per Week", "surfAndYoga": "750 €", "fullSurf": "790 €", "moderateSurf": "690 €" },
+      { "name": "Private Double / Twin Room", "note": "Per Person / Per Week", "surfAndYoga": "550 €", "fullSurf": "590 €", "moderateSurf": "490 €" },
+      { "name": "Private Triple Room", "note": "Per Person / Per Week", "surfAndYoga": "500 €", "fullSurf": "550 €", "moderateSurf": "450 €" }
+    ]
+  },
+  "ts2Packages": {
+    "title": "The Surfer TS2 Camp - Surf Packages & Weekly Rates",
+    "packages": {
+      "surfAndYoga": "Surf And Yoga Package",
+      "fullSurf": "Full Surf Package",
+      "moderateSurf": "Moderate Surf Package"
+    },
+    "features": [
+      { "name": "Surf Lessons", "surfAndYoga": "06 Lessons / Week", "fullSurf": "11 Lessons", "moderateSurf": "06 Lessons / Week" },
+      { "name": "Yoga", "surfAndYoga": "Sunrise or Sunset Everyday", "fullSurf": "02 Sessions / Week", "moderateSurf": "02 Sessions / Week" },
+      { "name": "07 nights accommodation", "surfAndYoga": "✓", "fullSurf": "✓", "moderateSurf": "✓" },
+      { "name": "Breakfast Everyday", "surfAndYoga": "✓", "fullSurf": "✓", "moderateSurf": "✓" },
+      { "name": "Dinner - Everyday except Sunday", "surfAndYoga": "✓", "fullSurf": "✓", "moderateSurf": "✓" },
+      { "name": "Surf Theory Classes", "surfAndYoga": "✓", "fullSurf": "✓", "moderateSurf": "✓" },
+      { "name": "Video Analysis", "surfAndYoga": "✓", "fullSurf": "✓", "moderateSurf": "✓" },
+      { "name": "Daily Social Activities", "surfAndYoga": "✓", "fullSurf": "✓", "moderateSurf": "✓" }
+    ],
+    "accommodation": [
+      { "name": "Mixed Dormitory Bed", "note": "Max ( 05 people )", "surfAndYoga": "350 €", "fullSurf": "390 €", "moderateSurf": "290 €" },
+      { "name": "Private Single Room", "note": "Per Week", "surfAndYoga": "450 €", "fullSurf": "490 €", "moderateSurf": "390 €" },
+      { "name": "Private Double / Twin Room", "note": "Per Person / Per Week", "surfAndYoga": "350 €", "fullSurf": "390 €", "moderateSurf": "290 €" },
+      { "name": "Private Triple Room", "note": "Per Person / Per Week", "surfAndYoga": "350 €", "fullSurf": "390 €", "moderateSurf": "290 €" }
+    ]
   }
 }
