@@ -3,6 +3,9 @@ import { motion } from 'framer-motion';
 import Navbar from '../components/Navbar';
 import { Footer } from '../components/Footer';
 import { useTranslation } from "react-i18next";
+import Difference from "../components/Difference";
+import { motion as Motion } from 'framer-motion';
+import Rate_Difference from "../components/Rate_Difference";
 
 const PackageSection = () => {
   const { t } = useTranslation();
@@ -196,6 +199,35 @@ const SurfLessonPackages = () => {
       <PackageSection />
 
       <Package />
+
+    <div className="mt-15"> {/* mt-5 = 20px (5 × 4px) */}
+      <Rate_Difference />
+    </div>
+
+
+
+      <Motion.div
+              className='flex flex-col items-center justify-center mt-16 mb-16 px-4 py-12 bg-gradient-to-b from-blue-50 to-white'
+              initial={{ opacity: 0, y: 50 }}
+              whileInView={{ opacity: 1, y: 0 }}
+              transition={{ duration: 0.8, ease: "easeOut" }}
+              viewport={{ once: true, amount: 0.2 }}
+            >
+              <Motion.div
+                className='max-w-6xl w-full overflow-hidden shadow-lg hover:shadow-xl transition-shadow duration-300'
+                initial={{ opacity: 0, scale: 0.95 }}
+                whileInView={{ opacity: 1, scale: 1 }}
+                transition={{ duration: 0.6, delay: 0.4 }}
+                viewport={{ once: true }}
+                whileHover={{ scale: 1.02, transition: { duration: 0.3 } }}
+              >
+                <img
+                  src="ts2_camp/map.jpg"
+                  alt="TS2 Camp Location Map"
+                  className='w-full h-auto object-cover'
+                />
+              </Motion.div>
+            </Motion.div>
 
       <Footer />
     </div>

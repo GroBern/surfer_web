@@ -1,16 +1,19 @@
 import React from 'react';
 import { motion } from 'framer-motion';
+import { useTranslation } from 'react-i18next';
 
 const PackageCard = ({ image, title, subtitle, description, features, index }) => {
+  const { t } = useTranslation();
+
   return (
     <motion.div 
       className="bg-white shadow-lg overflow-hidden mb-4 sm:mb-6 md:mb-8 w-full max-w-sm sm:max-w-md md:max-w-2xl lg:max-w-4xl xl:max-w-6xl mx-auto transform transition-all duration-500 hover:scale-102 hover:shadow-xl border border-gray-100"
       initial={{ opacity: 0, y: 40 }}
       whileInView={{ opacity: 1, y: 0 }}
-      transition={{ duration: 0.6, delay: index * 0.2, ease: "easeOut" }}
+      transition={{ duration: 0.6, delay: index * 0.2, ease: 'easeOut' }}
       viewport={{ once: true, amount: 0.2 }}
       whileHover={{ 
-        boxShadow: "0 20px 40px -12px rgba(0, 0, 0, 0.15)",
+        boxShadow: '0 20px 40px -12px rgba(0, 0, 0, 0.15)',
         transition: { duration: 0.3 }
       }}
     >
@@ -54,7 +57,7 @@ const PackageCard = ({ image, title, subtitle, description, features, index }) =
             viewport={{ once: true }}
           >
             <h4 className="text-sm sm:text-base font-bold text-gray-800 mb-2 sm:mb-3 border-b border-cyan-200 pb-1">
-              Following Included in the package
+              {t('countryPackages.includedHeading')}
             </h4>
             <div className="grid grid-cols-1 sm:grid-cols-2 gap-1">
               {features.map((feature, featureIndex) => (
@@ -83,7 +86,7 @@ const PackageCard = ({ image, title, subtitle, description, features, index }) =
             viewport={{ once: true }}
           >
             <button className="group border-2 border-cyan-500 hover:border-cyan-600 text-cyan-500 hover:text-cyan-600 px-4 sm:px-6 py-2 font-bold text-xs sm:text-sm uppercase tracking-wide transition-all duration-300 transform hover:scale-105 focus:outline-none focus:ring-2 focus:ring-cyan-300 focus:ring-opacity-50 w-full sm:w-auto">
-              <span className="relative z-10">BOOK NOW</span>
+              <span className="relative z-10">{t('countryPackages.cta')}</span>
             </button>
           </motion.div>
         </div>
@@ -93,60 +96,29 @@ const PackageCard = ({ image, title, subtitle, description, features, index }) =
 };
 
 const SurfLessonPackages = () => {
+  const { t } = useTranslation();
+
   const packages = [
     {
-      image: "country/pkg1.jpg",
-      title: "Moderate Surf Lesson Package",
-      subtitle: "Beginners, Level 01 / Level 02 / Intermediate",
-      description: "OR MODERATE SURF GUIDING Advanced",
-      features: [
-        "07 nights accommodation",
-        "06 surf lessons or guiding sessions",
-        "Surf Theory",
-        "Everyday Breakfast",
-        "06 Dinners Including Special Buffet Dinners",
-        "02 Complimentary Yoga Sessions",
-        "Free Transport To Different Surf Spots",
-        "Free Use Of Surf Boards During Surf Sessions",
-        "Small Groups Surf Teaching 6ppl Max per Group",
-        "Daily Social Fun Activities"
-      ]
+      image: 'country/pkg1.jpg',
+      title: t('countryPackages.packages.moderate.title'),
+      subtitle: t('countryPackages.packages.moderate.subtitle'),
+      description: t('countryPackages.packages.moderate.description'),
+      features: t('countryPackages.packages.moderate.features', { returnObjects: true })
     },
     {
-      image: "country/pkg2.jpg",
-      title: "Full Surf Lesson Package",
-      subtitle: "Beginners, Level 01 / Level 02 / Intermediate",
-      description: "OR FULL SURF GUIDING PACKAGE Advanced Surfers",
-      features: [
-        "07 nights accommodation",
-        "11 surf lessons or guiding sessions",
-        "Surf Theory",
-        "Everyday Breakfast",
-        "06 Dinners Including Special Buffet Dinners",
-        "02 Complimentary Yoga Sessions",
-        "Free Transport To Different Surf Spots",
-        "Free Use Of Surf Boards During Surf Sessions",
-        "Small Groups Surf Teaching 6ppl Max per Group",
-        "Daily Social Fun Activities"
-      ]
+      image: 'country/pkg2.jpg',
+      title: t('countryPackages.packages.full.title'),
+      subtitle: t('countryPackages.packages.full.subtitle'),
+      description: t('countryPackages.packages.full.description'),
+      features: t('countryPackages.packages.full.features', { returnObjects: true })
     },
     {
-      image: "country/pkg3.jpg",
-      title: "Surf and Yoga Package",
-      subtitle: "Surf Lessons OR Surf Guiding with Yoga",
-      description: "",
-      features: [
-        "07 nights accommodation",
-        "Morning or evening everyday yoga",
-        "06 surf lessons or guiding sessions",
-        "Surf Theory",
-        "Everyday Breakfast",
-        "06 Dinners Including Special Buffet Dinners",
-        "Free Transport To Different Surf Spots",
-        "Free Use Of Surf Boards During Surf Sessions",
-        "Small Groups Surf Teaching 6ppl Max per Group",
-        "Daily Social Fun Activities"
-      ]
+      image: 'country/pkg3.jpg',
+      title: t('countryPackages.packages.surfYoga.title'),
+      subtitle: t('countryPackages.packages.surfYoga.subtitle'),
+      description: t('countryPackages.packages.surfYoga.description'),
+      features: t('countryPackages.packages.surfYoga.features', { returnObjects: true })
     }
   ];
 

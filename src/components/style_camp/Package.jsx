@@ -90,8 +90,20 @@ const Package = () => {
                   <span className="text-green-600 text-xl">✓</span>
                 </td>
               </tr>
+              <tr className="border-b bg-gray-50 border-gray-300">
+                <td className="px-6 py-4 text-sm text-gray-900 font-medium">Lunch Everyday</td>
+                <td className="px-6 py-4 text-center">
+                  <span className="text-green-600 text-xl">✓</span>
+                </td>
+                <td className="px-6 py-4 text-center">
+                  <span className="text-green-600 text-xl">✓</span>
+                </td>
+                <td className="px-6 py-4 text-center">
+                  <span className="text-green-600 text-xl">✓</span>
+                </td>
+              </tr>
               <tr className="border-b border-gray-300">
-                <td className="px-6 py-4 text-sm text-gray-900 font-medium">Dinner - Everyday except Sunday</td>
+                <td className="px-6 py-4 text-sm text-gray-900 font-medium">Dinner Everyday</td>
                 <td className="px-6 py-4 text-center">
                   <span className="text-green-600 text-xl">✓</span>
                 </td>
@@ -162,6 +174,7 @@ const Package = () => {
                   <span className="text-green-600 text-xl">✓</span>
                 </td>
               </tr>
+
               <tr className="border-b border-gray-300">
                 <td className="px-6 py-4 text-sm text-gray-900 font-medium">Daily Cleaning of Rooms</td>
                 <td className="px-6 py-4 text-center">
@@ -174,6 +187,20 @@ const Package = () => {
                   <span className="text-green-600 text-xl">✓</span>
                 </td>
               </tr>
+
+              <tr className="border-b border-gray-300">
+                <td className="px-6 py-4 text-sm text-gray-900 font-medium">Pick-up (from Agadir airport or bus station)</td>
+                <td className="px-6 py-4 text-center text-sm text-gray-900">
+                  included
+                </td>
+                <td className="px-6 py-4 text-center text-sm text-gray-900">
+                  included
+                </td>
+                <td className="px-6 py-4 text-center text-sm text-gray-900">
+                  included
+                </td>
+              </tr>
+
               <tr className="border-b border-gray-300 bg-gray-50">
                 <td className="px-6 py-4 text-sm text-gray-900 font-medium">Day Trip</td>
                 <td className="px-6 py-4 text-center text-sm text-gray-900">

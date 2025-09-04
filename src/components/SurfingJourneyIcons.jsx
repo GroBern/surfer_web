@@ -1,6 +1,7 @@
 import React from "react";
 import { BadgeCheck, Video, Waves, TrendingUp } from "lucide-react";
 import { motion } from "framer-motion";
+import { useTranslation } from "react-i18next";
 
 // Reusable Card
 const PillarCard = ({ icon: Icon, title }) => (
@@ -15,18 +16,27 @@ const PillarCard = ({ icon: Icon, title }) => (
 );
 
 export default function SurfingJourneyIcons() {
-  const pillars = [
-    { icon: BadgeCheck, title: "ISA Certified Surf Instructor" },
-    { icon: Video, title: "Video Analysis" },
-    { icon: Waves, title: "Surf Break Right in Front of the Camp" },
-    { icon: TrendingUp, title: "For Beginners to Advanced Level" },
+  const { t } = useTranslation();
+
+  // Titles from translations (keeps order aligned with icons)
+  const titles = t("surfingJourneyIcons.pillars", { returnObjects: true });
+  const safeTitles = Array.isArray(titles) ? titles : [];
+
+  const icons = [BadgeCheck, Video, Waves, TrendingUp];
+
+  // Fallbacks in case translations are missing
+  const fallbacks = [
+    "ISA Certified Surf Instructor",
+    "Video Analysis",
+    "Surf Break Right in Front of the Camp",
+    "For Beginners to Advanced Level",
   ];
 
   return (
     <div className="py-10">
       <div className="max-w-6xl mx-auto px-6">
         <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-8">
-          {pillars.map((pillar, index) => (
+          {icons.map((Icon, index) => (
             <motion.div
               key={index}
               whileHover={{ scale: 1.1 }}
@@ -34,7 +44,10 @@ export default function SurfingJourneyIcons() {
               transition={{ duration: 0.3, ease: "easeOut" }}
               className="transform-gpu"
             >
-              <PillarCard icon={pillar.icon} title={pillar.title} />
+              <PillarCard
+                icon={Icon}
+                title={safeTitles[index] ?? fallbacks[index]}
+              />
             </motion.div>
           ))}
         </div>

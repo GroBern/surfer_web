@@ -1,7 +1,10 @@
-import React from 'react'
-import { motion as Motion } from 'framer-motion'
+import React from 'react';
+import { motion as Motion } from 'framer-motion';
+import { useTranslation } from 'react-i18next';
 
 const ImageCard = () => {
+  const { t } = useTranslation();
+
   return (
     <Motion.div 
       className='flex flex-col items-center justify-center container mx-auto w-full overflow-hidden mt-12 px-4'
@@ -9,6 +12,7 @@ const ImageCard = () => {
       whileInView={{ opacity: 1, y: 0 }}
       transition={{ duration: 0.4, ease: "easeOut" }}
       viewport={{ once: true, amount: 0.3 }}
+      aria-label={t('ts2Gallery.aria.section')}
     >
       <Motion.div 
         className='grid grid-cols-1 md:grid-cols-3 gap-6 w-full w-8xl items-start'
@@ -27,7 +31,7 @@ const ImageCard = () => {
         >
           <img 
             src="/ts2_camp/restaurant.jpg" 
-            alt="Beach Camp Rooftop"
+            alt={t('ts2Gallery.alt.rooftop')}
             className='w-full h-48 md:h-60 object-cover'
           />
         </Motion.div>
@@ -42,7 +46,7 @@ const ImageCard = () => {
         >
           <img 
             src="/ts2_camp/carrom.jpg" 
-            alt="Pool Area"
+            alt={t('ts2Gallery.alt.pool')}
             className='w-full h-48 md:h-60 object-cover'
           />
         </Motion.div>
@@ -60,15 +64,14 @@ const ImageCard = () => {
           >
             <img 
               src="/ts2_camp/building.jpg" 
-              alt="Beach Camp Building"
+              alt={t('ts2Gallery.alt.building')}
               className='w-full h-48 md:h-60 object-cover'
             />
           </Motion.div>
-          
         </Motion.div>
       </Motion.div>
     </Motion.div>
-  )
-}
+  );
+};
 
-export default ImageCard
+export default ImageCard;

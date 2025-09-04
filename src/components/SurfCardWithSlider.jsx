@@ -4,17 +4,6 @@ import { motion } from "framer-motion";
 const SurfCardWithSlider = ({ images, topic, body1, body2, link, index }) => {
   const [currentImageIndex, setCurrentImageIndex] = useState(0);
 
-  // useEffect(() => {
-  //   if (images && images.length > 1) {
-  //     const interval = setInterval(() => {
-  //       setCurrentImageIndex((prevIndex) => 
-  //         prevIndex === images.length - 1 ? 0 : prevIndex + 1
-  //       );
-  //     }, 2000); 
-
-  //     return () => clearInterval(interval);
-  //   }
-  // }, [images]);
 
   const goToImage = (index) => {
     setCurrentImageIndex(index);

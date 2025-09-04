@@ -1,7 +1,10 @@
-import React from 'react'
-import { motion } from 'framer-motion'
+import React from 'react';
+import { motion } from 'framer-motion';
+import { useTranslation } from 'react-i18next';
 
 const Package = () => {
+  const { t } = useTranslation();
+
   return (
     <div className="max-w-7xl mx-auto px-4 py-12">
       <motion.div
@@ -13,10 +16,10 @@ const Package = () => {
       >
         <div className="px-6 py-6">
           <h1 className="text-center text-3xl text-neutral-400 font-bold mb-4">
-            BOOK YOUR SURF EXPERIENCE
+            {t('packageTable.title')}
           </h1>
           <h2 className="text-lg text-neutral-400 text-center font-semibold mb-6">
-            FOLLOWING INCLUDED IN OUR SURF PACKAGES
+            {t('packageTable.subtitle')}
           </h2>
         </div>
 
@@ -26,43 +29,51 @@ const Package = () => {
               <tr className="bg-gray-50">
                 <th className="px-6 py-4 text-left text-sm font-medium text-gray-900 border-b-3 border-black-300"></th>
                 <th className="px-6 py-4 text-center text-sm font-semibold text-gray-900 border-b-3 border-black-300">
-                  Surf And Yoga Package
+                  {t('packageTable.headers.surfAndYoga')}
                 </th>
                 <th className="px-6 py-4 text-center text-sm font-semibold text-gray-900 border-b-3 border-black-300">
-                  Full Surf Package
+                  {t('packageTable.headers.fullSurf')}
                 </th>
                 <th className="px-6 py-4 text-center text-sm font-semibold text-gray-900 border-b-3 border-black-300">
-                  Moderate Surf Package
+                  {t('packageTable.headers.moderateSurf')}
                 </th>
               </tr>
             </thead>
             <tbody>
-               <tr className="border-b border-gray-300">
-                <td className="px-6 py-4 text-sm text-gray-900 font-medium">Surf Lessons</td>
-                <td className="px-6 py-4 text-center text-sm text-gray-900">
-                  06 Surf Lessons or Guiding / Week
+              <tr className="border-b border-gray-300">
+                <td className="px-6 py-4 text-sm text-gray-900 font-medium">
+                  {t('packageTable.rows.surfLessons.name')}
                 </td>
                 <td className="px-6 py-4 text-center text-sm text-gray-900">
-                  11 Surf Lessons
+                  {t('packageTable.rows.surfLessons.surfAndYoga')}
                 </td>
                 <td className="px-6 py-4 text-center text-sm text-gray-900">
-                  06 Surf Lessons or Guiding
+                  {t('packageTable.rows.surfLessons.fullSurf')}
+                </td>
+                <td className="px-6 py-4 text-center text-sm text-gray-900">
+                  {t('packageTable.rows.surfLessons.moderateSurf')}
                 </td>
               </tr>
+
               <tr>
-                <td className="px-6 py-4 text-sm text-gray-900 font-medium">Yoga</td>
-                <td className="px-6 py-4 text-center text-sm text-gray-900">
-                  Sunrise or Sunset Everyday
+                <td className="px-6 py-4 text-sm text-gray-900 font-medium">
+                  {t('packageTable.rows.yoga.name')}
                 </td>
                 <td className="px-6 py-4 text-center text-sm text-gray-900">
-                  02 Sessions / Week
+                  {t('packageTable.rows.yoga.surfAndYoga')}
                 </td>
                 <td className="px-6 py-4 text-center text-sm text-gray-900">
-                  02 Sessions / Week
+                  {t('packageTable.rows.yoga.fullSurf')}
+                </td>
+                <td className="px-6 py-4 text-center text-sm text-gray-900">
+                  {t('packageTable.rows.yoga.moderateSurf')}
                 </td>
               </tr>
+
               <tr className="border-b border-gray-300">
-                <td className="px-6 py-4 text-sm text-gray-900 font-medium">07 nights accommodation</td>
+                <td className="px-6 py-4 text-sm text-gray-900 font-medium">
+                  {t('packageTable.rows.nights.name')}
+                </td>
                 <td className="px-6 py-4 text-center">
                   <span className="text-green-600 text-xl">✓</span>
                 </td>
@@ -73,8 +84,11 @@ const Package = () => {
                   <span className="text-green-600 text-xl">✓</span>
                 </td>
               </tr>
+
               <tr className="border-b bg-gray-50 border-gray-300">
-                <td className="px-6 py-4 text-sm text-gray-900 font-medium">Breakfast Everyday</td>
+                <td className="px-6 py-4 text-sm text-gray-900 font-medium">
+                  {t('packageTable.rows.breakfast.name')}
+                </td>
                 <td className="px-6 py-4 text-center">
                   <span className="text-green-600 text-xl">✓</span>
                 </td>
@@ -85,8 +99,11 @@ const Package = () => {
                   <span className="text-green-600 text-xl">✓</span>
                 </td>
               </tr>
+
               <tr className="border-b border-gray-300">
-                <td className="px-6 py-4 text-sm text-gray-900 font-medium">Dinner - Everyday except Sunday</td>
+                <td className="px-6 py-4 text-sm text-gray-900 font-medium">
+                  {t('packageTable.rows.dinner.name')}
+                </td>
                 <td className="px-6 py-4 text-center">
                   <span className="text-green-600 text-xl">✓</span>
                 </td>
@@ -97,8 +114,11 @@ const Package = () => {
                   <span className="text-green-600 text-xl">✓</span>
                 </td>
               </tr>
+
               <tr className="border-b bg-gray-50 border-gray-300">
-                <td className="px-6 py-4 text-sm text-gray-900 font-medium">Surf Theory Classes</td>
+                <td className="px-6 py-4 text-sm text-gray-900 font-medium">
+                  {t('packageTable.rows.surfTheory.name')}
+                </td>
                 <td className="px-6 py-4 text-center">
                   <span className="text-green-600 text-xl">✓</span>
                 </td>
@@ -109,8 +129,11 @@ const Package = () => {
                   <span className="text-green-600 text-xl">✓</span>
                 </td>
               </tr>
+
               <tr className="border-b border-gray-300">
-                <td className="px-6 py-4 text-sm text-gray-900 font-medium">Video Analysis</td>
+                <td className="px-6 py-4 text-sm text-gray-900 font-medium">
+                  {t('packageTable.rows.videoAnalysis.name')}
+                </td>
                 <td className="px-6 py-4 text-center">
                   <span className="text-green-600 text-xl">✓</span>
                 </td>
@@ -121,8 +144,11 @@ const Package = () => {
                   <span className="text-green-600 text-xl">✓</span>
                 </td>
               </tr>
+
               <tr className="border-b border-gray-300 bg-gray-50">
-                <td className="px-6 py-4 text-sm text-gray-900 font-medium">Daily Social Activities</td>
+                <td className="px-6 py-4 text-sm text-gray-900 font-medium">
+                  {t('packageTable.rows.dailySocial.name')}
+                </td>
                 <td className="px-6 py-4 text-center">
                   <span className="text-green-600 text-xl">✓</span>
                 </td>
@@ -133,7 +159,6 @@ const Package = () => {
                   <span className="text-green-600 text-xl">✓</span>
                 </td>
               </tr>
-             
             </tbody>
           </table>
         </div>
@@ -152,48 +177,59 @@ const Package = () => {
               <tr className="bg-gray-50 border-b-3 border-black-300">
                 <th className="px-6 py-4 text-left text-sm font-medium text-gray-900 border-b"></th>
                 <th className="px-6 py-4 text-center text-sm font-semibold text-gray-900 border-b">
-                  Surf And Yoga Package
+                  {t('packageTable.headers.surfAndYoga')}
                 </th>
                 <th className="px-6 py-4 text-center text-sm font-semibold text-gray-900 border-b">
-                  Full Surf Package
+                  {t('packageTable.headers.fullSurf')}
                 </th>
                 <th className="px-6 py-4 text-center text-sm font-semibold text-gray-900 border-b">
-                  Moderate Surf Package
+                  {t('packageTable.headers.moderateSurf')}
                 </th>
               </tr>
             </thead>
-           <tbody>
+            <tbody>
               <tr className="border-b border-gray-300">
                 <td className="px-6 py-4 text-sm text-gray-900 font-medium">
-                  Mixed Dormitory Bed
-                  <div className="text-xs text-gray-500">Max ( 05 people )</div>
+                  {t('packageTable.accommodation.dorm.name')}
+                  <div className="text-xs text-gray-500">
+                    {t('packageTable.accommodation.dorm.note')}
+                  </div>
                 </td>
                 <td className="px-6 py-4 text-center text-sm font-semibold text-blue-600">350 €</td>
                 <td className="px-6 py-4 text-center text-sm font-semibold text-blue-600">390 €</td>
                 <td className="px-6 py-4 text-center text-sm font-semibold text-blue-600">290 €</td>
               </tr>
+
               <tr className="border-b bg-gray-50 border-gray-300">
                 <td className="px-6 py-4 text-sm text-gray-900 font-medium">
-                  Private Single Room
-                  <div className="text-xs text-gray-500">Per Week</div>
+                  {t('packageTable.accommodation.single.name')}
+                  <div className="text-xs text-gray-500">
+                    {t('packageTable.accommodation.single.note')}
+                  </div>
                 </td>
                 <td className="px-6 py-4 text-center text-sm font-semibold text-blue-600">450 €</td>
                 <td className="px-6 py-4 text-center text-sm font-semibold text-blue-600">490 €</td>
                 <td className="px-6 py-4 text-center text-sm font-semibold text-blue-600">390 €</td>
               </tr>
+
               <tr className="border-b border-gray-300">
                 <td className="px-6 py-4 text-sm text-gray-900 font-medium">
-                  Private Double / Twin Room
-                  <div className="text-xs text-gray-500">Per Person / Per Week</div>
+                  {t('packageTable.accommodation.doubleTwin.name')}
+                  <div className="text-xs text-gray-500">
+                    {t('packageTable.accommodation.doubleTwin.note')}
+                  </div>
                 </td>
                 <td className="px-6 py-4 text-center text-sm font-semibold text-blue-600">350 €</td>
                 <td className="px-6 py-4 text-center text-sm font-semibold text-blue-600">390 €</td>
                 <td className="px-6 py-4 text-center text-sm font-semibold text-blue-600">290 €</td>
               </tr>
+
               <tr>
                 <td className="px-6 py-4 text-sm text-gray-900 font-medium">
-                  Private Triple Room
-                  <div className="text-xs text-gray-500">Per Person / Per Week</div>
+                  {t('packageTable.accommodation.triple.name')}
+                  <div className="text-xs text-gray-500">
+                    {t('packageTable.accommodation.triple.note')}
+                  </div>
                 </td>
                 <td className="px-6 py-4 text-center text-sm font-semibold text-blue-600">350 €</td>
                 <td className="px-6 py-4 text-center text-sm font-semibold text-blue-600">390 €</td>
@@ -204,7 +240,7 @@ const Package = () => {
         </div>
       </motion.div>
     </div>
-  )
-}
+  );
+};
 
-export default Package
+export default Package;

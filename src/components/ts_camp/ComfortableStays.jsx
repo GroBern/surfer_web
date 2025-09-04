@@ -1,8 +1,11 @@
-import React from 'react'
-import { motion as Motion } from 'framer-motion'
-import RoomImageSlider from './RoomImageSlider'
+import React from 'react';
+import { motion as Motion } from 'framer-motion';
+import RoomImageSlider from './RoomImageSlider';
+import { useTranslation } from 'react-i18next';
 
 const ComfortableStays = () => {
+  const { t } = useTranslation();
+
   // Define image arrays for each room type
   const roomImages = {
     dormitory: [
@@ -34,7 +37,7 @@ const ComfortableStays = () => {
   return (
     <Motion.div
       className='flex flex-col items-center justify-center container mx-auto w-full overflow-hidden mt-16 mb-16 px-4'
-      id='ComfortableStays'
+      id='ComfortableStays1'
       initial={{ opacity: 0, y: 30 }}
       whileInView={{ opacity: 1, y: 0 }}
       transition={{ duration: 0.4, ease: "easeOut" }}
@@ -47,7 +50,7 @@ const ComfortableStays = () => {
         transition={{ duration: 0.3, delay: 0.1, ease: "easeOut" }}
         viewport={{ once: true, amount: 0.3 }}
       >
-        Rooms at TS2 Surf Camp
+        {t('comfortableStays1.title')}
       </Motion.h1>
 
       <Motion.p
@@ -57,13 +60,12 @@ const ComfortableStays = () => {
         transition={{ duration: 0.4, delay: 0.2, ease: "easeOut" }}
         viewport={{ once: true, amount: 0.5 }}
       >
-        All rooms at TS2 are thoughtfully designed for comfort and simplicity.
-        Whether you’re sharing a dorm or relaxing in a private room,
-        you’ll have everything you need to feel rested and ready to surf.
+        {t('comfortableStays1.description')}
       </Motion.p>
 
       <div className='w-full max-w-6xl'>
         <div className='grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-6 lg:gap-8'>
+          {/* Mixed Dormitory */}
           <Motion.div
             className='flex flex-col overflow-hidden'
             initial={{ opacity: 0, y: 20 }}
@@ -82,7 +84,7 @@ const ComfortableStays = () => {
             >
               <RoomImageSlider
                 images={roomImages.dormitory}
-                altText="Mixed Dorm Room"
+                altText={t('comfortableStays1.alt.mixedDorm')}
                 className='w-full h-48 sm:h-52 lg:h-56 object-cover'
               />
             </Motion.div>
@@ -94,12 +96,13 @@ const ComfortableStays = () => {
               transition={{ duration: 0.25, delay: 0.04 }}
               viewport={{ once: true, amount: 0.2 }}
             >
-             <p className='text-xs sm:text-sm text-neutral-600 leading-relaxed text-center'>
-                <strong>Mixed Dormitory</strong> – Great for solo travelers who love meeting people.
+              <p className='text-xs sm:text-sm text-neutral-600 leading-relaxed text-center'>
+                <strong>{t('comfortableStays1.cards.mixed.title')}</strong> – {t('comfortableStays1.cards.mixed.body')}
               </p>
             </Motion.div>
           </Motion.div>
 
+          {/* Private Single */}
           <Motion.div
             className='flex flex-col overflow-hidden'
             initial={{ opacity: 0, y: 20 }}
@@ -118,7 +121,7 @@ const ComfortableStays = () => {
             >
               <RoomImageSlider
                 images={roomImages.singleRoom}
-                altText="Private Single Room"
+                altText={t('comfortableStays1.alt.single')}
                 className='w-full h-48 sm:h-52 lg:h-56 object-cover'
               />
             </Motion.div>
@@ -130,12 +133,13 @@ const ComfortableStays = () => {
               transition={{ duration: 0.25, delay: 0.04 }}
               viewport={{ once: true, amount: 0.2 }}
             >
-             <p className='text-xs sm:text-sm text-neutral-600 leading-relaxed text-center'>
-                <strong>Private Single Room Ensuite</strong> – Your Personal Surf Haven Perfect for solo travelers craving privacy and comfort, for a peaceful night’s rest after a day riding the waves and soaking up the sun.
+              <p className='text-xs sm:text-sm text-neutral-600 leading-relaxed text-center'>
+                <strong>{t('comfortableStays1.cards.single.title')}</strong> – {t('comfortableStays1.cards.single.body')}
               </p>
             </Motion.div>
           </Motion.div>
 
+          {/* Private Double / Twin */}
           <Motion.div
             className='flex flex-col overflow-hidden'
             initial={{ opacity: 0, y: 20 }}
@@ -154,7 +158,7 @@ const ComfortableStays = () => {
             >
               <RoomImageSlider
                 images={roomImages.doubleRoom}
-                altText="Private Double Room"
+                altText={t('comfortableStays1.alt.double')}
                 className='w-full h-48 sm:h-52 lg:h-56 object-cover'
               />
             </Motion.div>
@@ -166,12 +170,13 @@ const ComfortableStays = () => {
               transition={{ duration: 0.25, delay: 0.04 }}
               viewport={{ once: true, amount: 0.2 }}
             >
-               <p className='text-xs sm:text-sm text-neutral-600 leading-relaxed text-center'>
-                <strong>Private Double / Twin Room Ensuite</strong> – For Solo, Couple or Friends want privacy with style for a good night sleep.
+              <p className='text-xs sm:text-sm text-neutral-600 leading-relaxed text-center'>
+                <strong>{t('comfortableStays1.cards.double.title')}</strong> – {t('comfortableStays1.cards.double.body')}
               </p>
             </Motion.div>
           </Motion.div>
 
+          {/* Private Triple */}
           <Motion.div
             className='flex flex-col overflow-hidden'
             initial={{ opacity: 0, y: 20 }}
@@ -190,7 +195,7 @@ const ComfortableStays = () => {
             >
               <RoomImageSlider
                 images={roomImages.tripleRoom}
-                altText="Private Twin Room"
+                altText={t('comfortableStays1.alt.triple')}
                 className='w-full h-48 sm:h-52 lg:h-56 object-cover'
               />
             </Motion.div>
@@ -203,15 +208,14 @@ const ComfortableStays = () => {
               viewport={{ once: true, amount: 0.2 }}
             >
               <p className='text-xs sm:text-sm text-neutral-600 leading-relaxed text-center'>
-                <strong>Private Triple  Room Ensuite</strong> – for a group of friends or a small family, our triple rooms are all about shared moments and smooth comfort. With plenty of space.
+                <strong>{t('comfortableStays1.cards.triple.title')}</strong> – {t('comfortableStays1.cards.triple.body')}
               </p>
             </Motion.div>
           </Motion.div>
         </div>
-
       </div>
     </Motion.div>
-  )
-}
+  );
+};
 
-export default ComfortableStays
+export default ComfortableStays;

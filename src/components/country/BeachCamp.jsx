@@ -1,82 +1,66 @@
 import React, { useState } from 'react';
 import { motion as Motion } from 'framer-motion';
 import { ChevronLeft, ChevronRight } from 'lucide-react';
+import { useTranslation } from 'react-i18next';
 
 const BeachCamp = () => {
+  const { t, i18n } = useTranslation();
   const [currentSlide, setCurrentSlide] = useState(0);
 
+  // Images stay in code; alt text is localized
   const slides = [
-    {
-      id: 1,
-      image: '/beach_camp/image_1.jpg',
-      alt: 'Surfers on beach'
-    },
-    {
-      id: 2,
-      image: '/beach_camp/I3.jpg',
-      alt: 'Surf training'
-    },
-    {
-      id: 3,
-      image: '/beach_camp/surfcard4.jpg',
-      alt: 'Beach activities'
-    },
-    {
-      id: 4,
-      image: '/country/I4.jpg',
-      alt: 'Surf lesson'
-    }
+    { id: 1, image: '/beach_camp/image_1.jpg', alt: t('beachCamp.slides.0.alt') },
+    { id: 2, image: '/beach_camp/I3.jpg',       alt: t('beachCamp.slides.1.alt') },
+    { id: 3, image: '/beach_camp/surfcard4.jpg', alt: t('beachCamp.slides.2.alt') },
+    { id: 4, image: '/country/I4.jpg',           alt: t('beachCamp.slides.3.alt') }
   ];
 
-  const nextSlide = () => {
-    setCurrentSlide((prev) => (prev + 1) % slides.length);
-  };
-
-  const prevSlide = () => {
-    setCurrentSlide((prev) => (prev - 1 + slides.length) % slides.length);
-  };
+  const nextSlide = () => setCurrentSlide((p) => (p + 1) % slides.length);
+  const prevSlide = () => setCurrentSlide((p) => (p - 1 + slides.length) % slides.length);
 
   return (
-    <Motion.div 
+    <Motion.div
       className="bg-white py-16"
+      dir={i18n.dir()}
       initial={{ opacity: 0, y: 50 }}
       whileInView={{ opacity: 1, y: 0 }}
-      transition={{ duration: 0.6, ease: "easeOut" }}
+      transition={{ duration: 0.6, ease: 'easeOut' }}
       viewport={{ once: true, amount: 0.3 }}
     >
       <div className="max-w-7xl mx-auto">
-        <Motion.div 
+        <Motion.div
           className="text-center mb-12"
           initial={{ opacity: 0, y: 30 }}
           whileInView={{ opacity: 1, y: 0 }}
-          transition={{ duration: 0.5, delay: 0.2, ease: "easeOut" }}
+          transition={{ duration: 0.5, delay: 0.2, ease: 'easeOut' }}
           viewport={{ once: true, amount: 0.5 }}
         >
           <h2 className="text-3xl md:text-4xl font-bold text-neutral-400 mb-6">
-            The Surfer Beach Camp – Sri Lanka
+            {t('beachCamp.title')}
           </h2>
           <p className="text-neutral-400 text-base leading-relaxed max-w-4xl mx-auto mb-8">
-            Set right on Weligama Beach, this is our original surf camp with full oceanfront access and 6× Tripadvisor awards. 
-            Ideal for surfers looking for energy, social vibes, and direct beach access.
+            {t('beachCamp.desc')}
           </p>
-          <Motion.button
-            className="bg-blue-400 hover:bg-blue-500 text-white px-6 py-2 font-medium transition-colors duration-300"
+          <Motion.a
+            href="/beach-camp"
+            className="bg-blue-400 hover:bg-blue-500 text-white px-6 py-2 font-medium transition-colors duration-300 inline-block"
             whileHover={{ scale: 1.05 }}
             whileTap={{ scale: 0.95 }}
+            aria-label={t('beachCamp.cta')}
           >
-            BOOK NOW
-          </Motion.button>
+            {t('beachCamp.cta')}
+          </Motion.a>
         </Motion.div>
 
-        <Motion.div 
+        <Motion.div
           className="relative"
           initial={{ opacity: 0, y: 30 }}
           whileInView={{ opacity: 1, y: 0 }}
-          transition={{ duration: 0.6, delay: 0.4, ease: "easeOut" }}
+          transition={{ duration: 0.6, delay: 0.4, ease: 'easeOut' }}
           viewport={{ once: true, amount: 0.3 }}
         >
           <div className="relative overflow-hidden h-72 md:h-80">
-            <div 
+            <div
               className="flex transition-transform duration-700 ease-in-out h-full gap-4 bg-gray-50"
               style={{ transform: `translateX(-${currentSlide * 33.33}%)` }}
             >
@@ -91,11 +75,11 @@ const BeachCamp = () => {
                   whileHover={{ scale: 1.05, y: -5 }}
                 >
                   <img
-                    src={`${slide.image}`}
+                    src={slide.image}
                     alt={slide.alt}
                     className="w-full h-full object-cover transition-transform duration-500 group-hover:scale-110"
                   />
-                  <div className="absolute inset-0 bg-gradient-to-t from-black/20 to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-300"></div>
+                  <div className="absolute inset-0 bg-gradient-to-t from-black/20 to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-300" />
                 </Motion.div>
               ))}
             </div>
@@ -108,6 +92,8 @@ const BeachCamp = () => {
               initial={{ opacity: 0, x: -20 }}
               whileInView={{ opacity: 1, x: 0 }}
               transition={{ duration: 0.5, delay: 0.6 }}
+              aria-label={t('beachCamp.aria.prev')}
+              type="button"
             >
               <ChevronLeft size={20} />
             </Motion.button>
@@ -120,6 +106,8 @@ const BeachCamp = () => {
               initial={{ opacity: 0, x: 20 }}
               whileInView={{ opacity: 1, x: 0 }}
               transition={{ duration: 0.5, delay: 0.6 }}
+              aria-label={t('beachCamp.aria.next')}
+              type="button"
             >
               <ChevronRight size={20} />
             </Motion.button>

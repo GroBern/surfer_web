@@ -1,7 +1,10 @@
 import React from 'react'
 import { motion } from 'framer-motion' // eslint-disable-line no-unused-vars
+import { useTranslation } from 'react-i18next';
 
 const Perfect = () => {
+  const { t } = useTranslation();
+
   return (
     <motion.div
       className='flex flex-col items-center justify-center container mx-auto p-6 sm:p-8 md:p-14 md:px-20 lg:px-32 w-full overflow-hidden'
@@ -18,7 +21,7 @@ const Perfect = () => {
         transition={{ duration: 0.4, delay: 0.2, ease: "easeOut" }}
         viewport={{ once: true, amount: 0.5 }}
       >
-        Why Morocco Is Perfect for Surfers
+        {t('perfect.title')}
       </motion.h1>
       <motion.p
         className='text-xs sm:text-sm md:text-base leading-relaxed text-center max-w-8xl text-neutral-400 mt-4 px-1'
@@ -27,20 +30,9 @@ const Perfect = () => {
         transition={{ duration: 0.4, delay: 0.2, ease: "easeOut" }}
         viewport={{ once: true, amount: 0.5 }}
       >
-        Morocco is one of the most diverse surf destinations in the world,
-        offering consistent Atlantic swells, warm hospitality, and rich cultural
-        immersion. From world-class point breaks to beginner-friendly beach breaks,
-        this coast is a playground for surfers of all levels.<br /> <br />
-
-        Taghazout and its surrounding areas have become a surf haven thanks to perfect waves,
-        laid-back lifestyle, and breathtaking desert-meets-ocean views. You’ll enjoy sunny skies,
-        welcoming locals, vibrant souks, and that magical Moroccan energy that makes every surf
-        session feel like an adventure.<br /> <br />
-
-        Even though our camp is just a short walk from the beach, you’re never far from the action.
-        We believe the best surf journeys happen when you balance ocean time with exploration,
-        relaxation, and unforgettable cultural experiences.
-        <br /> <br />
+        {t('perfect.body.p1')}<br /> <br />
+        {t('perfect.body.p2')}<br /> <br />
+        {t('perfect.body.p3')}<br /> <br />
       </motion.p>
     </motion.div>
   )

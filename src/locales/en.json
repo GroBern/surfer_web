@@ -228,5 +228,1151 @@
       { "name": "Private Double / Twin Room", "note": "Per Person / Per Week", "surfAndYoga": "350 €", "fullSurf": "390 €", "moderateSurf": "290 €" },
       { "name": "Private Triple Room", "note": "Per Person / Per Week", "surfAndYoga": "350 €", "fullSurf": "390 €", "moderateSurf": "290 €" }
     ]
+  },
+  "home": {
+    "pageTitle": "The Surfer - Surf Camps & Lessons",
+
+    "hero": {
+      "heading": "The Surfer\nSurf Camps"
+    },
+
+    "sections": {
+      "sriLankaCardTitle": "Sri Lanka",
+      "moroccoCardTitle": "Morocco",
+      "styleCampNote": "Our trusted partner camp in Tamraght offers the perfect mix of consistent waves, laid-back Moroccan living, and a friendly community vibe. Guests enjoy expert-led surf sessions, optional yoga, cozy beachfront accommodation, and a warm, welcoming atmosphere. Whether you’re chasing your first wave or refining your skills, The Surfer Style Camp delivers an unforgettable surf experience — all with the same quality and passion you know from The Surfer."
+    },
+
+    "cta": {
+      "bookNow": "Book Now"
+    },
+
+    "cards": [
+      {
+        "images": ["/beach_camp/11.jpg", "/beach_camp/I3.jpg", "/beach_camp/image_1.jpg", "/beach_camp/act1.jpg"],
+        "topic": "The Surfer Beach Surf Camp",
+        "body1": "Join us at the ultimate destination for surf enthusiasts. Experience the thrill of riding the waves and enjoy the serene beauty of the ocean.",
+        "link": "/beach-camp"
+      },
+      {
+        "images": ["/ts2_camp/restaurant.jpg", "/ts2_camp/carrom.jpg", "/ts2_camp/building.jpg", "/ts2_camp/surfdays_4.jpg"],
+        "topic": "TS2 Surf Camp",
+        "body1": "Feel the magic of surfing as the sun sets over the horizon. Our guided sunset sessions are a perfect way to end your beach day.",
+        "link": "/ts2-camp"
+      },
+      {
+        "images": ["/morocco/moro-1.jpg", "/morocco/moro-2.jpg", "/morocco/moro-3.jpg", "/morocco/morocco6.jpg"],
+        "topic": "The Surfer Surf Style - Morocco",
+        "body1": "Take your skills to the next level with our advanced surf training camp. Designed for serious surfers seeking to improve technique and form.",
+        "link": "/style-camp"
+      }
+    ]
+  },
+  "comfortableStays": {
+    "title": "Stay in Style, the Island Way",
+    "intro": "Whether you're a solo surfer, a beach-loving couple, or a group of wave-chasers — we've got the perfect spot for you. Think breezy rooms, tropical touches, and all the essentials for a chill stay just steps from the sea. Laid-back comfort meets island style — because everyone deserves to sleep easy after a day in the surf.",
+    "rooms": [
+      {
+        "key": "dormitory",
+        "alt": "Mixed Dormitory",
+        "title": "Mixed Dormitory",
+        "desc": "Great for solo travelers who love meeting people."
+      },
+      {
+        "key": "singleRoom",
+        "alt": "Private Single Room Ensuite",
+        "title": "Private Single Room Ensuite",
+        "desc": "Your personal surf haven — privacy and comfort for a peaceful night’s rest after a day riding the waves."
+      },
+      {
+        "key": "doubleRoom",
+        "alt": "Private Double / Twin Room Ensuite",
+        "title": "Private Double / Twin Room Ensuite",
+        "desc": "For solo, couple, or friends who want privacy with style for a good night’s sleep."
+      },
+      {
+        "key": "tripleRoom",
+        "alt": "Private Triple Room Ensuite",
+        "title": "Private Triple Room Ensuite",
+        "desc": "Perfect for a group of friends or a small family — shared moments and smooth comfort with plenty of space."
+      }
+    ]
+  },
+  "headers": {
+    "beach": {
+      "title": "The Surfer Beach Camp",
+      "subtitle": "Your ultimate beach surf camp experience",
+      "bgImage": "/beachcamp.jpg"
+    }
+  },
+  "imageCard": {
+    "images": [
+      { "alt": "Beach Camp Rooftop" },
+      { "alt": "Pool Area" },
+      { "alt": "Beach Camp Building" }
+    ]
+  },
+  "imageSlider": {
+    "aria": {
+      "prev": "Previous images",
+      "next": "Next images"
+    },
+    "slider1Alts": [
+      "Bedroom 1",
+      "Bedroom 2",
+      "Bedroom 3",
+      "Bedroom 4",
+      "Bedroom 5",
+      "Bedroom 6"
+    ],
+    "slider2Alts": [
+      "Room 1",
+      "Room 2",
+      "Room 3",
+      "Room 4",
+      "Room 5",
+      "Room 6"
+    ]
+  },
+  "lifeAtSurfCamp": {
+    "title": "Life At The Surfer Beach Camp",
+    "paragraphs": [
+      "Located right on the golden shores of Weligama, The Surfer Beach Camp blends epic waves, tropical living, and good energy into one unforgettable experience. With over ten years of surf hospitality and six consecutive Tripadvisor Travelers’ Choice Awards, this is more than just a surf camp—it’s a home away from home.",
+      "Every day is shaped by the rhythm of the ocean. Wake up to the sound of waves, join like-minded travelers for surf sessions led by International Surfing Association (ISA) certified local and foreign surf instructors, and unwind with sunset yoga or live music nights on the rooftop. Whether you’re here to catch your first wave or take your skills to the next level, you’ll find the perfect balance of adventure, relaxation, and community.",
+      "From the warm staff and oceanfront views to the strong surf culture and social vibe, The Surfer Beach Camp is where new surfers are made and lifelong memories are born."
+    ]
+  },
+  "packagesPage": {
+    "bookTitle": "BOOK YOUR SURF EXPERIENCE",
+    "included": "FOLLOWING INCLUDED IN OUR SURF PACKAGES"
+  },
+  "packageCards": {
+    "title": "Book Your Surf Experience",
+    "includedHeading": "Following Included in the package",
+    "list": [
+      {
+        "id": 1,
+        "image": "/beach_camp/package_1.jpg",
+        "title": "Moderate Surf Lesson Package",
+        "subtitle": "Beginners, Level 01 / Expert 02 / Intermediate",
+        "des": "OR",
+        "description": "MODERATE SURF GUIDING",
+        "features": "Advanced Surfers",
+        "pricing": [
+          { "type": "MIXED DORMITORY BED - Max ( 05 people )", "price": "350 €" },
+          { "type": "PRIVATE SINGLE ROOM Per Week", "price": "600 €" },
+          { "type": "PRIVATE DOUBLE ROOM Per Person Per Week", "price": "490 €" },
+          { "type": "PRIVATE TRIPLE ROOM Per Person Per Week", "price": "450 €" }
+        ],
+        "included": [
+          "07 nights accommodation",
+          "Breakfast Everyday",
+          "Dinner - Everyday except Sunday",
+          "Surf Theory Classes",
+          "Video Analysis",
+          "Daily Social Activities",
+          "Surf Lessons - 06 surf lessons or guiding",
+          "Yoga - 02 sessions / week"
+        ]
+      },
+      {
+        "id": 2,
+        "image": "/beach_camp/package_2.jpg",
+        "title": "Full Surf Lesson Package",
+        "subtitle": "Beginners, Level 01 / Expert 02 / Intermediate",
+        "des": "OR",
+        "description": "FULL SURF GUIDING PACKAGE",
+        "features": "Advanced Surfers",
+        "pricing": [
+          { "type": "MIXED DORMITORY BED - Max ( 05 people )", "price": "450 €" },
+          { "type": "PRIVATE SINGLE ROOM Per Week", "price": "700 €" },
+          { "type": "PRIVATE DOUBLE ROOM Per Person Per Week", "price": "550 €" },
+          { "type": "PRIVATE TRIPLE ROOM Per Person Per Week", "price": "500 €" }
+        ],
+        "included": [
+          "07 nights accommodation",
+          "Breakfast Everyday",
+          "Dinner - Everyday except Sunday",
+          "Surf Theory Classes",
+          "Video Analysis",
+          "Daily Social Activities",
+          "Surf Lessons - 11 surf lessons",
+          "Yoga - 02 sessions / week"
+        ]
+      },
+      {
+        "id": 3,
+        "image": "/beach_camp/package_3.jpg",
+        "title": "Surf & Yoga Package",
+        "subtitle": "Surf Lessons",
+        "des": "OR",
+        "description": "Surf Guiding",
+        "features": "with Yoga",
+        "pricing": [
+          { "type": "MIXED DORMITORY BED - Max ( 05 people )", "price": "400 €" },
+          { "type": "PRIVATE SINGLE ROOM Per Week", "price": "650 €" },
+          { "type": "PRIVATE DOUBLE ROOM Per Person Per Week", "price": "520 €" },
+          { "type": "PRIVATE TRIPLE ROOM Per Person Per Week", "price": "490 €" }
+        ],
+        "included": [
+          "07 nights accommodation",
+          "Breakfast Everyday",
+          "Dinner - Everyday except Sunday",
+          "Surf Theory Classes",
+          "Video Analysis",
+          "Daily Social Activities",
+          "Surf Lessons - 06 surf lessons or guiding / week",
+          "Yoga - sunrise or sunset everyday"
+        ]
+      }
+    ]
+  },
+  "roomImageSlider": {
+    "aria": {
+      "prev": "Previous image",
+      "next": "Next image",
+      "goto": "Go to image {{n}}"
+    },
+    "altIndexed": "{{base}} - Image {{n}}",
+    "defaultAlt": "Room photo"
+  },
+  "surfDays": {
+    "title": "What Your Surf Days Look Like",
+    "sections": [
+      {
+        "alt": "Sunrise over Weligama Bay",
+        "heading": "Sunrise to Soul — Mornings That Move You",
+        "body": [
+          "Your day starts with the sound of waves and the glow of the rising sun over Weligama Bay.",
+          "Join a gentle morning yoga session on our rooftop or garden deck to stretch and awaken your body before heading to breakfast. Our meals are freshly prepared, nutritious, and ideal for fueling up before hitting the water."
+        ]
+      },
+      {
+        "alt": "Surf lesson on the beach",
+        "heading": "Surf Lessons with Heart — Mid-Morning Action",
+        "body": [
+          "After breakfast, it’s time to grab your board and walk straight to the beach.",
+          "You’ll join your small-group surf lesson led by our experienced, certified instructors. Whether you’re a complete beginner or progressing through intermediate skills, every session is personalized with patience, local knowledge, and the belief that anyone can surf with the right mindset and guidance."
+        ]
+      },
+      {
+        "alt": "Relaxing afternoon by the pool",
+        "heading": "Free Time = Your Time — Afternoons to Explore or Chill",
+        "body": [
+          "After your session, rinse off, refresh, and settle into your afternoon however you choose. Want to relax? Chill at the pool, sunbathe with your new friends, or nap in a hammock. Want to explore? Wander the colorful streets of Weligama, try a local curry spot, or grab a coconut by the beach.",
+          "We also organize optional activities like:"
+        ],
+        "list": [
+          "Tuk-tuk tours to secret beaches",
+          "Cooking classes",
+          "Excursions to Midigama and Mirissa",
+          "Wildlife watching or stilt fisherman photo tours"
+        ]
+      },
+      {
+        "alt": "Evening social vibes with music",
+        "heading": "Food, Friends & Firelight — Evenings to Remember",
+        "body": [
+          "When the sun begins to set, the vibe at camp comes alive: game nights, quiz battles, karaoke sessions, theme dinners, movie nights, and epic night outs. Enjoy soulful tunes from local acoustic artists and plenty of daily social activities — there’s always something happening!",
+          "This is where you bond with people from all over the world. Solo travelers become friends for life. Surf buddies become family. And every sunset feels a little more special than the last."
+        ]
+      },
+      {
+        "alt": "Cozy room at night",
+        "heading": "Sleep Well. Surf Again.",
+        "body": [
+          "Return to your clean, cozy room and fall asleep to the distant sound of waves. No traffic. No stress. Just rest — because tomorrow is another day to surf, connect, and explore paradise."
+        ]
+      }
+    ]
+  },
+  "contact": {
+    "aria": {
+      "locationIcon": "Location",
+      "emailIcon": "Email"
+    },
+    "cards": [
+      {
+        "title": "THE SURFER\nBEACH CAMP",
+        "lines": ["NO 65, Wadana Watta,", "Pelena, Weligama", "Sri Lanka. 81700"],
+        "icon": "location",
+        "mapUrl": "https://maps.google.com/?q=NO%2065%20Wadana%20Watta%20Pelena%20Weligama%2081700"
+      },
+      {
+        "title": "TS2 SURF CAMP",
+        "lines": ["NO 176/12, 3rd Lane,", "Main Street, Weligama", "Sri Lanka. 81700"],
+        "icon": "location",
+        "mapUrl": "https://maps.google.com/?q=Main%20Street%20Weligama%2081700"
+      },
+      {
+        "title": "THE WAVE SURF CAMP",
+        "lines": ["Coming Soon"],
+        "icon": "location"
+      },
+      {
+        "title": "THE SURFER STYLE - MOROCCO",
+        "lines": ["Tamraght,", "Agadir 80023"],
+        "icon": "location",
+        "mapUrl": "https://maps.google.com/?q=Tamraght%20Agadir%2080023"
+      },
+      {
+        "title": "EMAIL",
+        "lines": ["info@thesurferweligama.com"],
+        "icon": "email",
+        "mailto": "info@thesurferweligama.com",
+        "badge": "1"
+      }
+    ]
+  },
+  "form": {
+    "title": "Send Your Inquiries / Bookings",
+    "select": {
+      "placeholder": "Inquiry Reason:",
+      "options": [
+        { "value": "booking", "label": "Booking" },
+        { "value": "general-inquiry", "label": "General Inquiry" },
+        { "value": "support", "label": "Support" },
+        { "value": "partnership", "label": "Partnership" },
+        { "value": "other", "label": "Other" }
+      ]
+    },
+    "placeholders": {
+      "firstName": "First Name",
+      "lastName": "Last Name",
+      "email": "Your email",
+      "confirmEmail": "Confirm your email",
+      "phone": "Phone",
+      "country": "Country",
+      "message": "Message"
+    },
+    "button": "Submit",
+    "validation": {
+      "emailMismatch": "Email addresses do not match."
+    }
+  },
+  "getInTouch": {
+    "title": "Get In Touch",
+    "body": "Please fill out this form and we’ll get back to you shortly. Feel free to contact us with any questions you may have. Let us know any specific details or requirements—we’re keen to answer all your questions within 24 hours."
+  },
+  "contact1": {
+    "headerTitle": "Contact Us",
+    "pageTitle": "Contact - The Surfer"
+  },
+  "inquiries": {
+    "title": "Booking Inquiries",
+    "items": [
+      { "text": "We’ll get back to you within 24 hours for all inquiries." },
+      { "text": "Feel free to contact us with any specific requirements for your stay." },
+      { "text": "A 25% non-refundable deposit is required to confirm your reservation.", "second": "To stay with us!" }
+    ]
+  },
+  "map": {
+    "buttons": { "map": "Map", "satellite": "Satellite" },
+    "location": "Weligama, Sri Lanka",
+    "viewLabel": { "map": "Map View", "satellite": "Satellite View" },
+    "iframeTitle": "{{location}} – {{view}}",
+    "aria": {
+      "toggleMap": "Switch to Map view",
+      "toggleSatellite": "Switch to Satellite view",
+      "zoomIn": "Zoom in",
+      "zoomOut": "Zoom out"
+    }
+  },
+  "policy": {
+    "title": "Cancellation Policy",
+    "points": [
+      {
+        "strong": "Full refund or free modification up to 21 days before your arrival date.",
+        "note": "(Not applicable for stays between 20 December and 5 January.)"
+      }
+    ],
+    "contact": "Please feel free to contact us with any questions. Let us know any specific requests or requirements — we aim to answer all messages within 24 hours."
+  },
+  "beachCamp": {
+    "title": "The Surfer Beach Camp – Sri Lanka",
+    "desc": "Set right on Weligama Beach, this is our original surf camp with full oceanfront access and 6× Tripadvisor awards. Ideal for surfers looking for energy, social vibes, and direct beach access.",
+    "cta": "Book Now",
+    "slides": [
+      { "alt": "Surfers on beach" },
+      { "alt": "Surf training" },
+      { "alt": "Beach activities" },
+      { "alt": "Surf lesson" }
+    ],
+    "aria": {
+      "prev": "Previous slide",
+      "next": "Next slide"
+    }
+  },
+  "chooseSurfCamp": {
+    "heading": "Sri Lanka’s Surf Capital: Why We Chose Weligama",
+    "subheading": "Weligama is one of Sri Lanka’s top surf towns — ideal for beginners and intermediates. With consistent waves year-round, a fun local vibe, and easy access to neighboring beaches like Midigama and Mirissa, it’s the perfect base for a surf adventure.",
+    "pillars": [
+      {
+        "title": "8× consecutive Travelers’ Choice Awards on Tripadvisor. Most reviewed surf camp on Google.",
+        "description": "Recognized globally for excellence in surf experiences and service."
+      },
+      {
+        "title": "International ISA-certified instructors",
+        "description": "Trained surf coaches from the region who know the waves better than anyone."
+      },
+      {
+        "title": "Beachfront locations",
+        "description": "Wake up to the waves in both Sri Lanka and Morocco."
+      },
+      {
+        "title": "Make friends for life",
+        "description": "From sunset jams to surfy hangouts, our social vibes bring travelers together — good times, good crew, and friendships that ride beyond the waves."
+      }
+    ]
+  },
+  "countryCard": {
+    "destinations": [
+      { "slug": "sri-lanka", "title": "Sri Lanka", "subtitle": "Warm waters & mellow waves" },
+      { "slug": "morocco",   "title": "Morocco",   "subtitle": "Atlantic lines & winter sun" }
+    ],
+    "aria": {
+      "card": "Destination: {{title}}"
+    }
+  },
+  "campDifference": {
+    "title": "Difference between Beach Camp and TS2 Camp",
+    "body": "The main differences are location and room standard.\n\nBeach Camp — Right on the beach with a swimming pool. Rooms are standard private rooms with air-conditioning and an ensuite hot-water bathroom.\n\nTS2 Camp — Simple private rooms with a fan and an ensuite hot-water bathroom. Located about 5 minutes from the Beach Camp.\n\nAll surf lessons, yoga, dinners, and events take place at the Beach Camp.\n\nWe provide a transport compensation of LKR 1,000 per room/dorm per day to travel between the camps.\n\nSpend your day at the Beach Camp and head back to TS2 to sleep."
+  },
+  "follow": {
+    "title": "FOLLOW US",
+    "cta": "Follow us on Instagram",
+    "galleryAlt": "Gallery image {{num}}",
+    "aria": {
+      "instagram": "Open our Instagram profile"
+    }
+  },
+  "camps": {
+    "cards": {
+      "beach": {
+        "topic": "The Surfer Beach Surf Camp",
+        "body": "Join us at the ultimate destination for surf enthusiasts. Experience the thrill of riding the waves and enjoy the serene beauty of the ocean."
+      },
+      "ts2": {
+        "topic": "TS2 Surf Camp",
+        "body": "Feel the magic of surfing as the sun sets over the horizon. Our guided sunset sessions are a perfect way to end your beach day."
+      },
+      "wave": {
+        "topic": "Coming Soon: The Wave Surf Camp",
+        "body": "Our other Sri Lankan surf camp is coming online soon. Stay tuned!"
+      }
+    }
+  },
+  "surfLessonPackages": {
+    "includedTitle": "Following Included in the package",
+    "cta": "Book Now",
+
+    "moderate": {
+      "title": "Moderate Surf Lesson Package",
+      "subtitle": "Beginners, Level 01 / Level 02 / Intermediate",
+      "description": "OR MODERATE SURF GUIDING Advanced",
+      "features": [
+        "07 nights accommodation",
+        "06 surf lessons or guiding sessions",
+        "Surf Theory",
+        "Everyday Breakfast",
+        "06 Dinners Including Special Buffet Dinners",
+        "02 Complimentary Yoga Sessions",
+        "Free Transport To Different Surf Spots",
+        "Free Use Of Surf Boards During Surf Sessions",
+        "Small Groups Surf Teaching (max 6 people per group)",
+        "Daily Social Fun Activities"
+      ]
+    },
+
+    "full": {
+      "title": "Full Surf Lesson Package",
+      "subtitle": "Beginners, Level 01 / Level 02 / Intermediate",
+      "description": "OR FULL SURF GUIDING PACKAGE Advanced Surfers",
+      "features": [
+        "07 nights accommodation",
+        "11 surf lessons or guiding sessions",
+        "Surf Theory",
+        "Everyday Breakfast",
+        "06 Dinners Including Special Buffet Dinners",
+        "02 Complimentary Yoga Sessions",
+        "Free Transport To Different Surf Spots",
+        "Free Use Of Surf Boards During Surf Sessions",
+        "Small Groups Surf Teaching (max 6 people per group)",
+        "Daily Social Fun Activities"
+      ]
+    },
+
+    "yoga": {
+      "title": "Surf and Yoga Package",
+      "subtitle": "Surf Lessons OR Surf Guiding with Yoga",
+      "description": "",
+      "features": [
+        "07 nights accommodation",
+        "Morning or evening everyday yoga",
+        "06 surf lessons or guiding sessions",
+        "Surf Theory",
+        "Everyday Breakfast",
+        "06 Dinners Including Special Buffet Dinners",
+        "Free Transport To Different Surf Spots",
+        "Free Use Of Surf Boards During Surf Sessions",
+        "Small Groups Surf Teaching (max 6 people per group)",
+        "Daily Social Fun Activities"
+      ]
+    }
+  },
+  "beachCamp1": {
+    "life": {
+      "title": "Life at The Surfer Beach Camp",
+      "body": "The Surfer Beach Camp is our flagship location, set right on Weligama Beach with direct access to some of Sri Lanka’s best beginner-friendly waves. This is where surf energy, social connection, and laid-back island living meet.<br/><br/>From sunrise yoga and daily surf lessons to beachfront dinners and rooftop jam sessions, life at The Surfer Beach Camp moves to the rhythm of the ocean. With 6× Tripadvisor Travelers’ Choice Awards and a loyal global community, we’re proud to be one of Sri Lanka’s most trusted surf experiences.<br/><br/>Come as a solo traveler, a couple, or a crew of friends — and leave with salty skin, surf skills, and lifelong memories."
+    }
+  },
+  "reviews": {
+    "title": "Reviews",
+    "items": [
+      {
+        "img": "/review.png",
+        "name": "Koen Slinger",
+        "date": "2025-04-16",
+        "description": "We had a blast. Great atmosphere, friendly and helpful staff, great accommodation where everything is set up for a stay without any hassle..."
+      },
+      {
+        "img": "/review.png",
+        "name": "Brittany Jaide",
+        "date": "2025-03-21",
+        "description": "Loved my stay here! Great service and friendly staff. The surfing instructors were super knowledgeable and caring and loved the variety of night..."
+      },
+      {
+        "img": "/review.png",
+        "name": "Sanya Shah",
+        "date": "2024-02-03",
+        "description": "Truly amazing! I surfed for the first time in Weligama. The instructors here are incredible! Especially Emily, Nadiv, Maya, and Matty. They helped me..."
+      },
+      {
+        "img": "/review.png",
+        "name": "Rachel Rife",
+        "date": "2024-01-19",
+        "description": "We loved our stay! The staff and instructors were so kind and we improved a lot during the week. The price matches the quality of food/rooms and the..."
+      }
+    ]
+  },
+  "waveCamp": {
+    "heading": "Coming Soon: The Wave Surf Camp",
+    "description": "Our other Sri Lankan surf camp is coming online soon. Stay tuned!",
+    "cta": "BOOK NOW",
+    "slidesAlt": [
+      "Surfers on beach",
+      "Surf training",
+      "Beach activities",
+      "Surf lesson"
+    ],
+    "aria": {
+      "prev": "Previous slide",
+      "next": "Next slide"
+    }
+  },
+  "surferWay": {
+    "heading": "The Surfer Way",
+    "subheading": "4 Values We Live By",
+    "pillars": [
+      { "title": "Community First", "description": "We're more than a camp — we're a family." },
+      { "title": "Respect the Ocean", "description": "We teach with mindfulness for nature and local culture." },
+      { "title": "Progress with Purpose", "description": "Every level of surfer deserves coaching that moves them forward." },
+      { "title": "Fun is Part of the Lesson", "description": "We believe joy makes better surfers." }
+    ],
+    "aria": { "section": "The Surfer Way section" }
+  },
+  "ts2Camp": {
+    "hero": {
+      "title": "TS2 Camp – Sri Lanka",
+      "description": "A quieter, budget-friendly version of our main camp, just a few minutes from the surf. Great for solo travelers and those wanting a relaxed atmosphere.",
+      "cta": "BOOK NOW",
+      "slider": {
+        "alts": [
+          "TS2 Camp restaurant",
+          "TS2 Camp common area with carrom",
+          "TS2 Camp building",
+          "Sri Lanka coastline"
+        ],
+        "altFallback": "TS2 Camp image"
+      }
+    }
+  },
+  "common": { "prev": "Previous", "next": "Next" 
+},
+  "surfingJourney": {
+    "heading": "Our Ultimate Surf Journey Around the World",
+    "body": "From the sun-kissed beaches of Sri Lanka to the vibrant coastlines of Morocco, our surf camps in Sri Lanka and Morocco bring you world-class waves and unforgettable experiences. <br /> Located in two of the world's top surf spots, our surf camps in Sri Lanka and Morocco are all about good waves, <br /> good vibes, and good times. Whether you're chasing your first ride or looking to level up, <br /> we've got the perfect mix of adventure, chill, and surf progression. With epic beaches, world-class breaks, and a crew that feels like family, <br /> The Surfer surfcamp is your home on the water. Come ride with us and be part of a global surf tribe."
+  },
+  "surfingJourneyIcons": {
+    "pillars": [
+      "ISA Certified Surf Instructor",
+      "Video Analysis",
+      "Surf Break Right in Front of the Camp",
+      "For Beginners to Advanced Level"
+    ]
+  },
+  "chooseSurfCamp1": {
+    "heading": "Why Choose The Surfer Surf Camps?",
+    "subheading": "Four pillars we're proud of:",
+    "pillars": [
+      {
+        "title": "Award-Winning & Most-Reviewed",
+        "description": "8th consecutive Travelers’ Choice Awards on Tripadvisor. Most-reviewed surf camp on Google."
+      },
+      {
+        "title": "International ISA-Certified Instructors",
+        "description": "Experienced local and international coaches who know the waves better than anyone."
+      },
+      {
+        "title": "Beachfront Locations",
+        "description": "Wake up to the waves in both Sri Lanka and Morocco."
+      },
+      {
+        "title": "Make Friends for Life",
+        "description": "From sunset jams to surfy hangouts, our social vibe brings travelers together."
+      }
+    ],
+    "aria": {
+      "section": "Why choose The Surfer Surf Camps section"
+    }
+  },
+  
+  "ts2Diff": {
+    "heading": "Difference between Beach Camp and TS2 Camp",
+    "paragraphs": [
+      "The main differences are the location and the room standard.",
+      "Beach Camp: oceanfront location with a swimming pool. Standard private rooms with air conditioning and en-suite hot-water bathrooms.",
+      "TS2 Camp: a 5-minute ride from Beach Camp. Simple private rooms with a fan and en-suite hot-water bathrooms.",
+      "All surf lessons, yoga sessions, dinners, and events take place at Beach Camp. You’re welcome to spend the day there and sleep at TS2.",
+      "We provide LKR 1,000 per room or dorm bed per day as transport compensation between the camps."
+    ],
+    "cta": "Check Packages & Rates",
+    "aria": {
+      "section": "Difference between Beach Camp and TS2 Camp section",
+      "cta": "Go to Beach Camp packages and rates"
+    }
+  },
+  "activities1": {
+    "heading": "Activities",
+    "titles": [
+      "Have An Unforgettable Surf Holiday",
+      "Meet New People From All Around The World",
+      "Make New Friends For Life",
+      "Boat Party"
+    ],
+    "aria": {
+      "section": "Activities section"
+    }
+  },
+  "social": {
+    "heading": "FOLLOW US",
+    "linkText": "Follow us on Instagram",
+    "defaultAlt": "Gallery image {{index}}",
+    "galleryAlts": [
+      "Surfer cutting across a clean wave",
+      "Friends laughing on the beach at sunset",
+      "Board lineup by the shore",
+      "Rooftop chill at golden hour",
+      "Wide shot of Weligama bay",
+      "Camp vibes and palm trees"
+    ],
+    "aria": {
+      "section": "Instagram photo gallery"
+    }
+  },
+  "reviews1": {
+    "heading": "Google Reviews",
+    "items": [
+      {
+        "img": "/review.png",
+        "name": "Koen Slinger",
+        "date": "2025-04-16",
+        "description": "We had a blast. Great atmosphere, friendly and helpful staff, great accommodation where everything is set up for a stay without any hassle..."
+      },
+      {
+        "img": "/review.png",
+        "name": "Brittany Jaide",
+        "date": "2025-03-21",
+        "description": "Loved my stay here! Great service and friendly staff. The surfing instructors were super knowledgeable and caring and I loved the variety of night..."
+      },
+      {
+        "img": "/review.png",
+        "name": "Sanya Shah",
+        "date": "2024-02-03",
+        "description": "Truly amazing! I surfed for the first time in Weligama. The instructors here are incredible—especially Emily, Nadiv, Maya, and Matty. They helped me..."
+      },
+      {
+        "img": "/review.png",
+        "name": "Rachel Rife",
+        "date": "2024-01-19",
+        "description": "We loved our stay! The staff and instructors were so kind and we improved a lot over the week. The price matches the quality of food/rooms and the..."
+      }
+    ],
+    "badges": {
+      "years": [2018, 2021, 2022, 2023, 2024, 2025],
+      "heading": "5-TIME TRAVELERS’ CHOICE AWARD",
+      "alt": "Tripadvisor Travelers’ Choice {{year}}"
+    },
+    "kpis": {
+      "google": "Google Reviews 1000+",
+      "tripadvisor": "Tripadvisor No. 1"
+    },
+    "awardNote": "Proudly recognized by Tripadvisor for 5 consecutive years for outstanding service and guest satisfaction."
+  },
+  
+  
+  "navbar": {
+    "home": "HOME",
+    "destination": "DESTINATION",
+    "activities": "ACTIVITIES",
+    "rates": "RATES",
+    "faq": "FAQ",
+    "blogs": "BLOGS",
+    "contact": "CONTACT",
+    "bookNow": "BOOK NOW",
+    "countriesTitle": "COUNTRIES",
+    "originalsTitle": "THE SURFER ORIGINAL CAMPS",
+    "partnersTitle": "THE SURFER PARTNERED CAMP",
+    "countries": {
+      "srilanka": "Surf Camps Sri Lanka",
+      "morocco": "Surf Camps Morocco"
+    },
+    "camps": {
+      "beachCamp": "The Surfer Beach Camp",
+      "ts2Camp": "The Surfer TS2 Camp",
+      "waveCampComing": "Coming Soon: The Wave Surf Camp",
+      "styleCamp": "The Surfer SurfStyle"
+    }
+  },
+  
+  "blogs": {
+    "heading": "BLOGS",
+    "aria": {
+      "open": "Open blog post: {{title}}"
+    },
+    "items": [
+      {
+        "img": "/b1.jpg",
+        "title": "5 health benefits of surfing that are just out of this world",
+        "href": "/blogs/health-benefits-of-surfing",
+        "ariaLabel": "Open blog post: 5 health benefits of surfing that are just out of this world"
+      },
+      {
+        "img": "/blog-2.jpg",
+        "title": "Surf Ethics — 5 rules every beginner should know",
+        "href": "/blogs/surf-ethics-5-rules",
+        "ariaLabel": "Open blog post: Surf Ethics — 5 rules every beginner should know"
+      },
+      {
+        "img": "/blog-3.jpg",
+        "title": "The Surfer — Brace yourself for an ultimate Surf & Yoga experience",
+        "href": "/blogs/the-surfer-surf-and-yoga",
+        "ariaLabel": "Open blog post: The Surfer — Brace yourself for an ultimate Surf & Yoga experience"
+      },
+      {
+        "img": "/b4.jpg",
+        "title": "5 basic surfing tips for beginners",
+        "href": "/blogs/5-basic-surfing-tips",
+        "ariaLabel": "Open blog post: 5 basic surfing tips for beginners"
+      },
+      {
+        "img": "/b5.jpg",
+        "title": "What are surfboard fins — and how many types are there?",
+        "href": "/blogs/surfboard-fins-guide",
+        "ariaLabel": "Open blog post: What are surfboard fins — and how many types are there?"
+      }
+    ]
+  },
+
+  "faqPage": {
+    "metaTitle": "FAQ - The Surfer",
+    "heading": "FAQ"
+  },
+
+  "header": {
+    "title": "The Surfer Surf Camps Sri Lanka",
+    "aria": { "section": "Header section" }
+  },
+
+  "headerTs2": {
+    "title": "The Surfer TS2 Camp",
+    "tagline": "Your ultimate surf camp experience",
+    "aria": { "section": "TS2 header section" }
+  },
+
+  "lifeTs2": {
+    "aria": { "section": "Life at TS2 section" },
+    "title": "Life at TS2 Surf Camp",
+    "intro": "Our TS2 Weligama surf camp located just 200 meters away from the other side of the bay in Weligama beach and 10 minutes walking away from the city center.",
+    "diffTitle": "What is the Difference between Beach Camp and TS2 Camp?",
+    "points": [
+      "Main difference is the location and the room standard",
+      "Beach camp is located right next to the beach with a swim pool.",
+      "TS2 camp rooms are of basic standard, simple private rooms with a fan and a hot water ensuite bathroom.",
+      "Beach camp rooms are Standard private rooms with air conditioning, an ensuite bathroom, and hot water",
+      "TS2 camp is located 05 minutes' ride away from the beach camp. Even though you book TS2 Weligama, all your surf lessons, yoga, Breakfast, dinner, and all events will take place at the beach camp",
+      "Transport will be paid at 1000 rupees per day per bed and per room to travel between the two camps as a travel compensation! No other surf camp in the area beats our TS2 package rates! You pay less, but still get the full beach camp experience. Sleep comfortably at TS2, best of both worlds, without the high price tag!"
+    ]
+  },
+  
+  "ts2Gallery": {
+    "aria": { "section": "TS2 Camp image gallery" },
+    "alt": {
+      "rooftop": "Beach Camp Rooftop",
+      "playarea": "Play Area",
+      "building": "Beach Camp Building"
+    },
+     
+  "packageTable": {
+    "title": "BOOK YOUR SURF EXPERIENCE",
+    "subtitle": "FOLLOWING INCLUDED IN OUR SURF PACKAGES",
+    "headers": {
+      "surfAndYoga": "Surf And Yoga Package",
+      "fullSurf": "Full Surf Package",
+      "moderateSurf": "Moderate Surf Package"
+    },
+    "rows": {
+      "surfLessons": {
+        "name": "Surf Lessons",
+        "surfAndYoga": "06 Surf Lessons or Guiding / Week",
+        "fullSurf": "11 Surf Lessons",
+        "moderateSurf": "06 Surf Lessons or Guiding"
+      },
+      "yoga": {
+        "name": "Yoga",
+        "surfAndYoga": "Sunrise or Sunset Everyday",
+        "fullSurf": "02 Sessions / Week",
+        "moderateSurf": "02 Sessions / Week"
+      },
+      "nights": { "name": "07 nights accommodation" },
+      "breakfast": { "name": "Breakfast Everyday" },
+      "dinner": { "name": "Dinner - Everyday except Sunday" },
+      "surfTheory": { "name": "Surf Theory Classes" },
+      "videoAnalysis": { "name": "Video Analysis" },
+      "dailySocial": { "name": "Daily Social Activities" }
+    },
+    "accommodation": {
+      "dorm": {
+        "name": "Mixed Dormitory Bed",
+        "note": "Max ( 05 people )"
+      },
+      "single": {
+        "name": "Private Single Room",
+        "note": "Per Week"
+      },
+      "doubleTwin": {
+        "name": "Private Double / Twin Room",
+        "note": "Per Person / Per Week"
+      },
+      "triple": {
+        "name": "Private Triple Room",
+        "note": "Per Person / Per Week"
+      }
+    }
+  }
+  
+},
+
+  "comfortableStays1": {
+    "title": "Rooms at TS2 Surf Camp",
+    "description": "All rooms at TS2 are thoughtfully designed for comfort and simplicity. Whether you’re sharing a dorm or relaxing in a private room, you’ll have everything you need to feel rested and ready to surf.",
+    "alt": {
+      "mixedDorm": "Mixed Dorm Room",
+      "single": "Private Single Room",
+      "double": "Private Double / Twin Room",
+      "triple": "Private Triple Room"
+    },
+    "cards": {
+      "mixed": {
+        "title": "Mixed Dormitory",
+        "body": "Great for solo travelers who love meeting people."
+      },
+      "single": {
+        "title": "Private Single Room Ensuite",
+        "body": "Your personal surf haven — perfect for solo travelers craving privacy and comfort, for a peaceful night’s rest after a day riding the waves and soaking up the sun."
+      },
+      "double": {
+        "title": "Private Double / Twin Room Ensuite",
+        "body": "For solo travelers, couples or friends who want privacy with style for a good night’s sleep."
+      },
+      "triple": {
+        "title": "Private Triple Room Ensuite",
+        "body": "For a group of friends or a small family — shared moments and smooth comfort with plenty of space."
+      }
+    },
+    
+  "perfect": {
+    "title": "Why Morocco Is Perfect for Surfers",
+    "body": {
+      "p1": "Morocco is one of the most diverse surf destinations in the world, offering consistent Atlantic swells, warm hospitality, and rich cultural immersion. From world-class point breaks to beginner-friendly beach breaks, this coast is a playground for surfers of all levels.",
+      "p2": "Taghazout and its surrounding areas have become a surf haven thanks to perfect waves, laid-back lifestyle, and breathtaking desert-meets-ocean views. You’ll enjoy sunny skies, welcoming locals, vibrant souks, and that magical Moroccan energy that makes every surf session feel like an adventure.",
+      "p3": "Even though our camp is just a short walk from the beach, you’re never far from the action. We believe the best surf journeys happen when you balance ocean time with exploration, relaxation, and unforgettable cultural experiences."
+    }
+  }
+  },
+  "moroccoHeader": {
+    "title": "The Surfer Surf Camp Morocco"
+  },
+
+  "chooseSurfCamp2": {
+    "heading": "Why Choose The Surfer Surf Camps?",
+    "pillars": [
+      {
+        "title": "08th Consecutive Traveler Choise Awards on Tripadvisor. Most reviewd surf camp in Google ",
+        "description": "Recognized globally for excellence in surf experiences and service."
+      },
+      {
+        "title": "International ISA certified Instructors",
+        "description": "Trained surfing from the region who know the waves better than anyone."
+      },
+      {
+        "title": "Beachfront Locations",
+        "description": "Wake up to the waves in both Sri Lanka and Morocco."
+      },
+      {
+        "title": "Make Friends For Life",
+        "description": "From sunset jams to surfy hangouts, our social vibes bring travelers together — good times, good crew, and friendships that ride beyond the waves."
+      }
+    ]
+  },
+  
+  "common1": {
+    "bookNow": "BOOK NOW"
+  },
+  "surfStyle": {
+    "hero": {
+      "title": "The Surfer SurfStyle Camp – Morocco",
+      "description": "Located in a peaceful area just a short walk from the beach, this camp blends traditional Moroccan charm with surf, yoga, and comfort. Expect rooftop views, cultural meals, and a more grounded surf vibe.",
+      "slider": {
+        "alts": [
+          "Surfers on beach",
+          "Surf training",
+          "Beach activities",
+          "Surf lesson"
+        ]
+      }
+    }
+  },
+  
+  "common2": {
+    "bookNow": "BOOK NOW"
+  },
+  "moroccoPackages": {
+    "includedTitle": "Following Included in the package",
+    "package": {
+      "title": "Morocco Surf Package",
+      "subtitle": "Beginners, Level 01 / Level 02 / Intermediate",
+      "description": "Perfect for beginner to intermediate surfers looking for a full surf and cultural immersion on the Atlantic coast of Morocco.",
+      "features": [
+        "7 nights accommodation (shared or private rooms)",
+        "Daily breakfast, packed lunch with fresh fruits, afternoon snack & tea, and Moroccan dinner",
+        "1 weekly BBQ night (hosted outdoors)",
+        "6 days of surf coaching",
+        "Daily surf lessons with certified local instructors",
+        "Surfboard and wetsuit hire (included throughout stay)",
+        "Daily transport to surf spots tailored to your level",
+        "1 local day trip to discover the region (e.g., Paradise Valley)",
+        "Unlimited drinking water",
+        "Free WiFi across the camp",
+        "Daily room cleaning service",
+        "Airport or bus station transfers from Agadir",
+        "Friendly, dedicated team available 24/7"
+      ]
+    }
+  },
+  "moroccoActivities": {
+    "title": "ACTIVITIES",
+    "items": {
+      "camelRide": "Camel Ride in Tamraght Agadir",
+      "sandboarding": "Sandboarding in Taghazout Agadir",
+      "paradiseValley": "Paradise Valley Atlas Mountain & Berber Breakfast",
+      "horseback": "Horseback Riding in Tamraght",
+      "skateboarding": "Skateboarding in Tamraght"
+    }
+  },
+
+  "countryPackages": {
+    "includedHeading": "Following Included in the package",
+    "cta": "BOOK NOW",
+    "packages": {
+      "moderate": {
+        "title": "Moderate Surf Lesson Package",
+        "subtitle": "Beginners, Level 01 / Level 02 / Intermediate",
+        "description": "OR MODERATE SURF GUIDING Advanced",
+        "features": [
+          "07 nights accommodation",
+          "06 surf lessons or guiding sessions",
+          "Surf Theory",
+          "Everyday Breakfast",
+          "06 Dinners Including Special Buffet Dinners",
+          "02 Complimentary Yoga Sessions",
+          "Free Transport To Different Surf Spots",
+          "Free Use Of Surf Boards During Surf Sessions",
+          "Small Groups Surf Teaching 6ppl Max per Group",
+          "Daily Social Fun Activities"
+        ]
+      },
+      "full": {
+        "title": "Full Surf Lesson Package",
+        "subtitle": "Beginners, Level 01 / Level 02 / Intermediate",
+        "description": "OR FULL SURF GUIDING PACKAGE Advanced Surfers",
+        "features": [
+          "07 nights accommodation",
+          "11 surf lessons or guiding sessions",
+          "Surf Theory",
+          "Everyday Breakfast",
+          "06 Dinners Including Special Buffet Dinners",
+          "02 Complimentary Yoga Sessions",
+          "Free Transport To Different Surf Spots",
+          "Free Use Of Surf Boards During Surf Sessions",
+          "Small Groups Surf Teaching 6ppl Max per Group",
+          "Daily Social Fun Activities"
+        ]
+      },
+      "surfYoga": {
+        "title": "Surf and Yoga Package",
+        "subtitle": "Surf Lessons OR Surf Guiding with Yoga",
+        "description": "",
+        "features": [
+          "07 nights accommodation",
+          "Morning or evening everyday yoga",
+          "06 surf lessons or guiding sessions",
+          "Surf Theory",
+          "Everyday Breakfast",
+          "06 Dinners Including Special Buffet Dinners",
+          "Free Transport To Different Surf Spots",
+          "Free Use Of Surf Boards During Surf Sessions",
+          "Small Groups Surf Teaching 6ppl Max per Group",
+          "Daily Social Fun Activities"
+        ]
+      }
+    }
+  },
+
+  "surfingJourney1": {
+    "title": "Difference between Beach Camp And Ts2 Camp",
+    "body": {
+      "l1": "Main difference is the location and the room Standard !",
+      "l2": "Beach camp located right next to the beach With swim pool, TS2 camp rooms are With Basic standard simple private rooms With Fan and hot water ensuite bathroom Beach camp rooms are Standard private rooms with air conditioning, ensuite bathroom and hot water ! TS2 camp located 05 minutes ride away from the beach camp, even though you book TS2 weligama , all your surf lessons, Yoga, dinner and all events Will be taken place at the beach camp ! 1000 rupees per day will be paid per room and per dormitory as a transport compensation to travel between the camps! You can basically spend all ur day at the beach camp and just go for sleep at TS2 camp !"
+    },
+    "bookNow": "Book Now"
+  },
+  "lifeAtSurfStyle": {
+    "title": "Life At The Surfer SurfStyle Camp",
+    "body": {
+      "p1": "Perched on the sun-kissed shores of Tamraght, The Surfer Style Camp blends world-class waves, laid-back coastal living, and vibrant community spirit into an unforgettable Moroccan escape. With years of surf hospitality and countless happy guests from around the globe, our camp isn’t just a place to stay — it’s your home by the ocean.",
+      "p2": "Each day flows with the rhythm of the tides. Begin your mornings with the scent of sea air and the call of the waves, then head out for surf sessions guided by experienced local and international instructors. Between surfs, stretch into a relaxing yoga session, soak up the sun on our rooftop, or explore the charm of Tamraght’s coastal paths and bustling markets. Evenings come alive with rooftop sunsets, shared meals, music, and the laughter of newfound friends.",
+      "p3": "From our welcoming team and panoramic sea views to the unique blend of surf culture and Moroccan hospitality, The Surfer Style Camp is where adventures are shared, skills are sharpened, and stories are written in the sand."
+    }
+  },
+
+  "stayInStyle": {
+    "title": "Stay in Style, the Island Way",
+    "blurb": "Whether you're a solo surfer, a beach-loving couple, or a group of wave-chasers — we've got the perfect spot for you. Think breezy rooms, tropical touches, and all the essentials for a chill stay just steps from the sea. Laid-back comfort meets island style — because everyone deserves to sleep easy after a day in the surf.",
+    "cards": {
+      "dorm": {
+        "alt": "Mixed Dormitory",
+        "title": "3 Bed Shared Room",
+        "body": "Surf Style Morocco Guest House offers a cozy shared room for surf lovers to enjoy Morocco’s vibrant culture and excellent surfing experiences."
+      },
+      "single": {
+        "alt": "Private Single Room Ensuite",
+        "title": "2 Bed Shared Room",
+        "body": "Surf Style Morocco Guest House’s shared room combines comfort, Moroccan culture, and great surfing for an unforgettable camp experience."
+      },
+      "double": {
+        "alt": "Private Double/Twin Room Ensuite",
+        "title": "Private Double Room",
+        "body": "Surf Style Morocco Guest House’s double room blends comfort, Moroccan culture, and great surfing for an unforgettable camp experience."
+      },
+      "triple": {
+        "alt": "Private Triple Room Ensuite",
+        "title": "Private Double Room With Balcony",
+        "body": "Surf Camp Morocco Guest House’s double room with terrace combines comfort, Moroccan culture, and excellent surfing for a memorable stay."
+      }
+    }
+  },
+  
+  "common3": {
+    "included": "included",
+    "notIncluded": "Not included"
+  },
+  "moroccoPackage": {
+    "title": "BOOK YOUR SURF EXPERIENCE",
+    "subtitle": "FOLLOWING INCLUDED IN OUR SURF PACKAGES",
+    "columns": {
+      "yogaSurf": "Yoga & Surf in Tamraght",
+      "fullSurf": "Surf Coaching (Full Surf)",
+      "moderate": "Surf Guiding (Moderate)"
+    },
+    "rows": {
+      "surfLessons": {
+        "label": "Surf Lessons",
+        "yogaSurf": {
+          "line1": "6 days surf",
+          "line2": "1 lesson/day (1hour yoga + surf session)",
+          "line3": "Equipment included (Neoprene wetsuit & board)",
+          "line4": "Qualified local instructors",
+          "line5": "Daily transport to surf spots adapted to your level"
+        },
+        "fullSurf": {
+          "line1": "6 days surf",
+          "line2": "2 surf sessions/day",
+          "line3": "Equipment included (Neoprene wetsuit & board)",
+          "line4": "Qualified local instructors",
+          "line5": "Daily transport to surf spots adapted to your level"
+        },
+        "moderate": {
+          "line1": "6 days guiding",
+          "line2": "Professional and competent surf guides",
+          "line3": "Daily transport to surf spots adapted to your level"
+        }
+      },
+      "yoga": {
+        "label": "Yoga",
+        "yogaSurf": "Sunrise or sunset yoga every day (1 hour/session)"
+      },
+      "accommodation": "Accommodation",
+      "breakfast": "Breakfast Everyday",
+      "lunch": "Lunch Everyday",
+      "dinner": "Dinner Everyday",
+      "bbq": "BBQ Night - 1 per week outside",
+      "surfTheory": "Surf Theory Classes",
+      "videoAnalysis": "Video Analysis",
+      "wifi": "Free Wi-Fi",
+      "water": "Drinking Water",
+      "cleaning": "Daily Cleaning of Rooms",
+      "pickup": "Pick-up (from Agadir airport or bus station)",
+      "dayTrip": "Day Trip",
+      "dayTripNote1": "(1 day Imsouane Morocco magic bay trip)",
+      "dayTripNote2": "(1 day Imsouane magic bay trip)",
+      "dayTripNote3": "(1 day Imsouane magic bay trip)"
+    },
+    "prices": {
+      "perPersonPerWeek": "Per Person / Per Week",
+      "shared": {
+        "label": "Shared Room",
+        "yogaSurf": "99 € daily / 598 € weekly",
+        "fullSurf": "83 € daily / 510 € weekly",
+        "moderate": "80 € daily / 480 € weekly"
+      },
+      "double": {
+        "label": "Double Room",
+        "yogaSurf": "100 € daily / 600 € weekly",
+        "fullSurf": "85 € daily / 510 € weekly",
+        "moderate": "83 € daily / 490 € weekly"
+      },
+      "doubleTerrace": {
+        "label": "Double with Terrace",
+        "yogaSurf": "103 € daily / 618 € weekly",
+        "fullSurf": "87 € daily / 522 € weekly",
+        "moderate": "87 € daily / 522 € weekly"
+      },
+      "doubleSuite": {
+        "label": "Double Suite",
+        "yogaSurf": "106 € daily / 636 € weekly",
+        "fullSurf": "90 € daily / 540 € weekly",
+        "moderate": "90 € daily / 540 € weekly"
+      }
+    }
   }
 }

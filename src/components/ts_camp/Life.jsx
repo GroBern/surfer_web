@@ -1,64 +1,65 @@
-import React from 'react'
-import { motion as Motion } from 'framer-motion'
+import React from 'react';
+import { motion as Motion } from 'framer-motion';
+import { useTranslation } from 'react-i18next';
 
 const LifeAtSurfCamp = () => {
+  const { t } = useTranslation();
+
   return (
     <Motion.div
-      className='flex flex-col items-center justify-center container mx-auto w-full overflow-hidden mt-12'
-      id='Journey'
+      className="flex flex-col items-center justify-center container mx-auto w-full overflow-hidden mt-12"
+      id="Journey"
       initial={{ opacity: 0, y: 50 }}
       whileInView={{ opacity: 1, y: 0 }}
-      transition={{ duration: 0.6, ease: "easeOut" }}
+      transition={{ duration: 0.6, ease: 'easeOut' }}
       viewport={{ once: true, amount: 0.3 }}
+      aria-label={t('lifeTs2.aria.section')}
     >
       <Motion.h1
-        className='text-lg sm:text-xl md:text-2xl lg:text-3xl mt-4 mb-6 font-bold text-center text-neutral-400'
+        className="text-lg sm:text-xl md:text-2xl lg:text-3xl mt-4 mb-6 font-bold text-center text-neutral-400"
         initial={{ opacity: 0, y: 30 }}
         whileInView={{ opacity: 1, y: 0 }}
-        transition={{ duration: 0.4, delay: 0.2, ease: "easeOut" }}
+        transition={{ duration: 0.4, delay: 0.2, ease: 'easeOut' }}
         viewport={{ once: true, amount: 0.5 }}
       >
-        Life at TS2 Surf Camp
+        {t('lifeTs2.title')}
       </Motion.h1>
 
       <Motion.p
-        className='text-xs sm:text-sm md:text-base lg:text-lg leading-relaxed text-center max-w-5xl text-neutral-400 px-1'
+        className="text-xs sm:text-sm md:text-base lg:text-lg leading-relaxed text-center max-w-5xl text-neutral-400 px-1"
         initial={{ opacity: 0, y: 20 }}
         whileInView={{ opacity: 1, y: 0 }}
-        transition={{ duration: 0.4, delay: 0.2, ease: "easeOut" }}
+        transition={{ duration: 0.4, delay: 0.2, ease: 'easeOut' }}
         viewport={{ once: true, amount: 0.5 }}
       >
-       Our TS2 Weligama surf camp located just 200 meters away from the other side of the bay in Weligama beach and 10 minutes walking away from the city center.
+        {t('lifeTs2.intro')}
       </Motion.p>
 
       <Motion.h3
-        className='text-base sm:text-sm md:text-md lg:text-lg font-bold mt-5 mb-4 text-center text-neutral-400 px-1'
+        className="text-base sm:text-sm md:text-md lg:text-lg font-bold mt-5 mb-4 text-center text-neutral-400 px-1"
         initial={{ opacity: 0, y: 20 }}
         whileInView={{ opacity: 1, y: 0 }}
-        transition={{ duration: 0.4, delay: 0.4, ease: "easeOut" }}
+        transition={{ duration: 0.4, delay: 0.4, ease: 'easeOut' }}
         viewport={{ once: true, amount: 0.5 }}
       >
-        What is the Difference between Beach Camp and TS2 Camp?
+        {t('lifeTs2.diffTitle')}
       </Motion.h3>
 
       <Motion.div
-        className='text-xs sm:text-xs md:text-sm lg:text-md leading-relaxed text-center max-w-5xl text-neutral-400 px-4'
+        className="text-xs sm:text-xs md:text-sm lg:text-md leading-relaxed text-center max-w-5xl text-neutral-400 px-4"
         initial={{ opacity: 0, y: 20 }}
         whileInView={{ opacity: 1, y: 0 }}
-        transition={{ duration: 0.4, delay: 0.6, ease: "easeOut" }}
+        transition={{ duration: 0.4, delay: 0.6, ease: 'easeOut' }}
         viewport={{ once: true, amount: 0.5 }}
       >
-        <ul className='list-disc list-inside space-y-2 text-left'>
-          <li>Main difference is the location and the room standard</li>
-          <li>Beach camp is located right next to the beach with a swim pool.</li>
-          <li>TS2 camp rooms are of basic standard, simple private rooms with a fan and a hot water ensuite bathroom.</li>
-          <li>Beach camp rooms are Standard private rooms with air conditioning, an ensuite bathroom, and hot water</li>
-          <li>TS2 camp is located 05 minutes' ride away from the beach camp. Even though you book TS2 Weligama, all your surf lessons, yoga, Breakfast, dinner, and all events will take place at the beach camp</li>
-          <li>Transport will be paid at 1000 rupees per day per bed and per room to travel between the two camps as a travel compensation! No other surf camp in the area beats our TS2 package rates! You pay less, but still get the full beach camp experience. Sleep comfortably at TS2, best of both worlds, without the high price tag!</li>
+        <ul className="list-disc list-inside space-y-2 text-left">
+          {t('lifeTs2.points', { returnObjects: true }).map((item, i) => (
+            <li key={i}>{item}</li>
+          ))}
         </ul>
       </Motion.div>
     </Motion.div>
-  )
-}
+  );
+};
 
 export default LifeAtSurfCamp;

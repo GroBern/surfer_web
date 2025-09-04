@@ -1,31 +1,20 @@
 import React, { useState } from 'react';
 import { motion as Motion } from 'framer-motion';
 import { ChevronLeft, ChevronRight } from 'lucide-react';
+import { useTranslation } from 'react-i18next';
 
 const SurfStyle = () => {
+  const { t } = useTranslation();
   const [currentSlide, setCurrentSlide] = useState(0);
 
+  // Localized alt texts for the slider
+  const alts = t('surfStyle.hero.slider.alts', { returnObjects: true });
+
   const slides = [
-    {
-      id: 1,
-      image: '/morocco/moro-1.jpg',
-      alt: 'Surfers on beach'
-    },
-    {
-      id: 2,
-      image: '/morocco/moro-2.jpg',
-      alt: 'Surf training'
-    },
-    {
-      id: 3,
-      image: '/morocco/moro-3.jpg',
-      alt: 'Beach activities'
-    },
-    {
-      id: 4,
-      image: '/morocco/morocco4.jpg',
-      alt: 'Surf lesson'
-    }
+    { id: 1, image: '/morocco/moro-1.jpg', alt: alts?.[0] || 'Surfers on beach' },
+    { id: 2, image: '/morocco/moro-2.jpg', alt: alts?.[1] || 'Surf training' },
+    { id: 3, image: '/morocco/moro-3.jpg', alt: alts?.[2] || 'Beach activities' },
+    { id: 4, image: '/morocco/morocco4.jpg', alt: alts?.[3] || 'Surf lesson' }
   ];
 
   const nextSlide = () => {
@@ -53,18 +42,17 @@ const SurfStyle = () => {
           viewport={{ once: true, amount: 0.5 }}
         >
           <h2 className="text-3xl md:text-4xl font-bold text-neutral-400 mb-6">
-            The Surfer SurfStyle Camp – Morocco
+            {t('surfStyle.hero.title')}
           </h2>
           <p className="text-neutral-400 text-base leading-relaxed max-w-4xl mx-auto mb-8">
-            Located in a peaceful area just a short walk from the beach, this camp blends traditional Moroccan 
-            charm with surf, yoga, and comfort. Expect rooftop views, cultural meals, and a more grounded surf vibe.
+            {t('surfStyle.hero.description')}
           </p>
           <Motion.button
             className="bg-blue-400 hover:bg-blue-500 text-white px-6 py-2 font-medium transition-colors duration-300"
             whileHover={{ scale: 1.05 }}
             whileTap={{ scale: 0.95 }}
           >
-            BOOK NOW
+            {t('common1.bookNow')}
           </Motion.button>
         </Motion.div>
 
@@ -91,7 +79,7 @@ const SurfStyle = () => {
                   whileHover={{ scale: 1.05, y: -5 }}
                 >
                   <img
-                    src={`${slide.image}`}
+                    src={slide.image}
                     alt={slide.alt}
                     className="w-full h-full object-cover transition-transform duration-500 group-hover:scale-110"
                   />

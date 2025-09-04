@@ -15,13 +15,13 @@ const Navbar = () => {
   const countries = [
     {
       id: 'srilanka',
-      name: 'Surf Camps Sri Lanka',
+      name: t('navbar.countries.srilanka', 'Surf Camps Sri Lanka'),
       image: '/image.png',
       link: '/srilanka'
     },
     {
       id: 'morocco',
-      name: 'Surf Camps Morocco',
+      name: t('navbar.countries.morocco', 'Surf Camps Morocco'),
       image: '/morocco.jpg',
       link: '/morocco'
     }
@@ -30,17 +30,17 @@ const Navbar = () => {
   const surfCamps = {
     srilanka: {
       originals: [
-        { name: 'The Surfer Beach Camp', link: '/beach-camp' },
-        { name: 'The Surfer TS2 Camp', link: '/ts2-camp' },
+        { name: t('navbar.camps.beachCamp', 'The Surfer Beach Camp'), link: '/beach-camp' },
+        { name: t('navbar.camps.ts2Camp', 'The Surfer TS2 Camp'), link: '/ts2-camp' },
       ],
       partner: [
-        { name: 'Coming Soon: The Wave Surf Camp', link: '#' },
+        { name: t('navbar.camps.waveCampComing', 'Coming Soon: The Wave Surf Camp'), link: '#' },
       ],
     },
     morocco: {
       originals: [],
       partner: [
-        { name: 'The Surfer SurfStyle', link: '/style-camp' },
+        { name: t('navbar.camps.styleCamp', 'The Surfer SurfStyle'), link: '/style-camp' },
       ]
     }
   }
@@ -79,7 +79,7 @@ const Navbar = () => {
             : isScrolled
               ? 'text-gray-800 hover:text-cyan-600 hover:drop-shadow-[0_4px_8px_rgba(8,145,178,0.4)]'
               : 'text-white hover:text-cyan-300 hover:drop-shadow-[0_4px_8px_rgba(34,211,238,0.4)]'
-            }`}>HOME</a>
+            }`}>{t('navbar.home', 'HOME')}</a>
           <div
             className="relative"
             onClick={() => setIsDestinationHovered(!isDestinationHovered)}
@@ -87,7 +87,7 @@ const Navbar = () => {
             <p className={`cursor-pointer transition-all duration-300 hover:transform hover:-translate-y-1 ${isScrolled
               ? 'text-gray-800 hover:text-cyan-600 hover:drop-shadow-[0_4px_8px_rgba(8,145,178,0.4)]'
               : 'text-white hover:text-cyan-300 hover:drop-shadow-[0_4px_8px_rgba(34,211,238,0.4)]'
-              }`}>DESTINATION</p>
+              }`}>{t('navbar.destination', 'DESTINATION')}</p>
 
             {isDestinationHovered && (
               <div
@@ -109,7 +109,7 @@ const Navbar = () => {
                 <div className="flex h-96">
                   <div className="w-1/3 p-6 border-r border-gray-200/20">
                     <h3 className={`text-lg font-semibold mb-6 ${isScrolled ? 'text-gray-800' : 'text-white'
-                      }`}>COUNTRIES</h3>
+                      }`}>{t('navbar.countriesTitle', 'COUNTRIES')}</h3>
 
                     <div className="space-y-2">
                       {countries.map((country) => (
@@ -180,7 +180,7 @@ const Navbar = () => {
                                 <span className="text-xs font-bold text-black">★</span>
                               </div>
                               <h4 className={`text-sm font-semibold ${isScrolled ? 'text-gray-800' : 'text-white'
-                                }`}>THE SURFER ORIGINAL CAMPS</h4>
+                                }`}>{t('navbar.originalsTitle', 'THE SURFER ORIGINAL CAMPS')}</h4>
                             </div>
                           </div>
 
@@ -200,7 +200,7 @@ const Navbar = () => {
                       <div className={`${surfCamps[selectedCountry]?.originals.length > 0 ? 'border-t pt-4' : ''} ${isScrolled ? 'border-gray-200' : 'border-white/20'
                         }`}>
                         <h4 className={`text-sm font-semibold mb-3 ${isScrolled ? 'text-gray-800' : 'text-white'
-                          }`}>THE SURFER PARTNERED CAMP</h4>
+                          }`}>{t('navbar.partnersTitle', 'THE SURFER PARTNERED CAMP')}</h4>
 
                         <div className="space-y-2">
                           {surfCamps[selectedCountry]?.partner.map((camp, index) => (
@@ -225,31 +225,31 @@ const Navbar = () => {
             : isScrolled
               ? 'text-gray-800 hover:text-cyan-600 hover:drop-shadow-[0_4px_8px_rgba(8,145,178,0.4)]'
               : 'text-white hover:text-cyan-300 hover:drop-shadow-[0_4px_8px_rgba(34,211,238,0.4)]'
-            }`}>ACTIVITIES</a>
+            }`}>{t('navbar.activities', 'ACTIVITIES')}</a>
           <a href="/rates" className={`cursor-pointer transition-all duration-300 hover:transform hover:-translate-y-1 ${location.pathname === '/rates'
             ? 'text-cyan-500 font-bold underline underline-offset-4'
             : isScrolled
               ? 'text-gray-800 hover:text-cyan-600 hover:drop-shadow-[0_4px_8px_rgba(8,145,178,0.4)]'
               : 'text-white hover:text-cyan-300 hover:drop-shadow-[0_4px_8px_rgba(34,211,238,0.4)]'
-            }`}>RATES</a>
+            }`}>{t('navbar.rates', 'RATES')}</a>
           <a href="/faq" className={`cursor-pointer transition-all duration-300 hover:transform hover:-translate-y-1 ${location.pathname === '/faq'
             ? 'text-cyan-500 font-bold underline underline-offset-4'
             : isScrolled
               ? 'text-gray-800 hover:text-cyan-600 hover:drop-shadow-[0_4px_8px_rgba(8,145,178,0.4)]'
               : 'text-white hover:text-cyan-300 hover:drop-shadow-[0_4px_8px_rgba(34,211,238,0.4)]'
-            }`}>FAQ</a>
+            }`}>{t('navbar.faq', 'FAQ')}</a>
           <a href="/blogs" className={`cursor-pointer transition-all duration-300 hover:transform hover:-translate-y-1 ${location.pathname === '/blogs'
             ? 'text-cyan-500 font-bold underline underline-offset-4'
             : isScrolled
               ? 'text-gray-800 hover:text-cyan-600 hover:drop-shadow-[0_4px_8px_rgba(8,145,178,0.4)]'
               : 'text-white hover:text-cyan-300 hover:drop-shadow-[0_4px_8px_rgba(34,211,238,0.4)]'
-            }`}>BLOGS</a>
+            }`}>{t('navbar.blogs', 'BLOGS')}</a>
           <a href="/contact" className={`cursor-pointer transition-all duration-300 hover:transform hover:-translate-y-1 ${location.pathname === '/contact'
             ? 'text-cyan-500 font-bold underline underline-offset-4'
             : isScrolled
               ? 'text-gray-800 hover:text-cyan-600 hover:drop-shadow-[0_4px_8px_rgba(8,145,178,0.4)]'
               : 'text-white hover:text-cyan-300 hover:drop-shadow-[0_4px_8px_rgba(34,211,238,0.4)]'
-            }`}>CONTACT</a>
+            }`}>{t('navbar.contact', 'CONTACT')}</a>
         </ul>
         
         <button
@@ -268,13 +268,13 @@ const Navbar = () => {
             ? 'border-gray-800 text-gray-800 hover:bg-gray-800 hover:text-white'
             : 'border-white text-white hover:bg-white hover:text-gray-800'
             }`}>
-          BOOK NOW
+          {t('navbar.bookNow', 'BOOK NOW')}
         </a>
 
         <div className={`hidden md:block`}>
           <select onChange={(e) => changeLanguage(e.target.value)} value={i18n.language}>
-            <option value="en">English 🇬🇧</option>
-            <option value="de">Deutsch 🇩🇪</option>
+            <option value="en">English en</option>
+            <option value="de">Deutsch de</option>
           </select>
         </div>
       </div>
@@ -295,7 +295,7 @@ const Navbar = () => {
                   }${location.pathname === '/' ? ' text-cyan-500 font-bold underline underline-offset-4' : ''}`}
                 onClick={() => setIsMenuOpen(false)}
               >
-                HOME
+                {t('navbar.home', 'HOME')}
               </a>
 
               <div className='w-full'>
@@ -306,7 +306,7 @@ const Navbar = () => {
                     }`}
                   onClick={() => setIsMobileDestinationOpen(!isMobileDestinationOpen)}
                 >
-                  DESTINATION
+                  {t('navbar.destination', 'DESTINATION')}
                 </button>
 
                 {isMobileDestinationOpen && (
@@ -363,7 +363,7 @@ const Navbar = () => {
                   }${location.pathname === '/activities' ? ' text-cyan-500 font-bold underline underline-offset-4' : ''}`}
                 onClick={() => setIsMenuOpen(false)}
               >
-                ACTIVITIES
+                {t('navbar.activities', 'ACTIVITIES')}
               </a>
 
               <a
@@ -374,7 +374,7 @@ const Navbar = () => {
                   }${location.pathname === '/rates' ? ' text-cyan-500 font-bold underline underline-offset-4' : ''}`}
                 onClick={() => setIsMenuOpen(false)}
               >
-                RATES
+                {t('navbar.rates', 'RATES')}
               </a>
 
               <a
@@ -385,7 +385,7 @@ const Navbar = () => {
                   }`}
                 onClick={() => setIsMenuOpen(false)}
               >
-                FAQ
+                {t('navbar.faq', 'FAQ')}
               </a>
 
               <a
@@ -396,7 +396,7 @@ const Navbar = () => {
                   }`}
                 onClick={() => setIsMenuOpen(false)}
               >
-                BLOGS
+                {t('navbar.blogs', 'BLOGS')}
               </a>
 
               <a
@@ -407,7 +407,7 @@ const Navbar = () => {
                   }`}
                 onClick={() => setIsMenuOpen(false)}
               >
-                CONTACT
+                {t('navbar.contact', 'CONTACT')}
               </a>
 
               <a href='https://main.d7z80586kqd0r.amplifyapp.com/' target='_blank'
@@ -417,7 +417,7 @@ const Navbar = () => {
                   }`}
                 onClick={() => setIsMenuOpen(false)}
               >
-                BOOK NOW
+                {t('navbar.bookNow', 'BOOK NOW')}
               </a>
             </ul>
           </div>

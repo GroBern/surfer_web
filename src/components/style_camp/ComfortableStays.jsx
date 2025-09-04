@@ -1,8 +1,11 @@
 import React from 'react'
 import { motion as Motion } from 'framer-motion'
 import RoomImageSlider from './RoomImageSlider'
+import { useTranslation } from 'react-i18next'
 
 const ComfortableStays = () => {
+  const { t } = useTranslation()
+
   const roomImages = {
     dormitory: [
       "/morocco/3-bed-1.jpg",
@@ -46,7 +49,7 @@ const ComfortableStays = () => {
         transition={{ duration: 0.3, delay: 0.1, ease: "easeOut" }}
         viewport={{ once: true, amount: 0.3 }}
       >
-        Stay in Style, the Island Way
+        {t('stayInStyle.title')}
       </Motion.h1>
 
       <Motion.p
@@ -56,14 +59,12 @@ const ComfortableStays = () => {
         transition={{ duration: 0.4, delay: 0.2, ease: "easeOut" }}
         viewport={{ once: true, amount: 0.5 }}
       >
-        Whether you're a solo surfer, a beach-loving couple, or a group of wave-chasers — we've got
-         the perfect spot for you. Think breezy rooms, tropical touches, and all the essentials for
-          a chill stay just steps from the sea. Laid-back comfort meets island style — because everyone
-           deserves to sleep easy after a day in the surf.
+        {t('stayInStyle.blurb')}
       </Motion.p>
 
       <div className='w-full max-w-8xl'>
         <div className='grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-6 lg:gap-8'>
+          {/* 3-bed shared */}
           <Motion.div
             className='flex flex-col overflow-hidden'
             initial={{ opacity: 0, y: 20 }}
@@ -82,7 +83,7 @@ const ComfortableStays = () => {
             >
               <RoomImageSlider
                 images={roomImages.dormitory}
-                altText="Mixed Dormitory"
+                altText={t('stayInStyle.cards.dorm.alt')}
                 className='w-full h-48 sm:h-52 lg:h-56 object-cover'
               />
             </Motion.div>
@@ -95,11 +96,12 @@ const ComfortableStays = () => {
               viewport={{ once: true, amount: 0.2 }}
             >
               <p className='text-xs sm:text-sm text-neutral-600 leading-relaxed text-center'>
-                <strong>3 Bed Shared Room</strong> – Surf Style Morocco Guest House offers a cozy shared room for surf lovers to enjoy Morocco’s vibrant culture and excellent surfing experiences.
+                <strong>{t('stayInStyle.cards.dorm.title')}</strong> – {t('stayInStyle.cards.dorm.body')}
               </p>
             </Motion.div>
           </Motion.div>
 
+          {/* 2-bed shared */}
           <Motion.div
             className='flex flex-col overflow-hidden'
             initial={{ opacity: 0, y: 20 }}
@@ -118,7 +120,7 @@ const ComfortableStays = () => {
             >
               <RoomImageSlider
                 images={roomImages.singleRoom}
-                altText="Private Single Room Ensuite"
+                altText={t('stayInStyle.cards.single.alt')}
                 className='w-full h-48 sm:h-52 lg:h-56 object-cover'
               />
             </Motion.div>
@@ -131,11 +133,12 @@ const ComfortableStays = () => {
               viewport={{ once: true, amount: 0.2 }}
             >
               <p className='text-xs sm:text-sm text-neutral-600 leading-relaxed text-center'>
-                <strong>2 Bed Shared Room</strong> – Surf Style Morocco Guest House’s shared room combines comfort, Moroccan culture, and great surfing for an unforgettable camp experience.
+                <strong>{t('stayInStyle.cards.single.title')}</strong> – {t('stayInStyle.cards.single.body')}
               </p>
             </Motion.div>
           </Motion.div>
 
+          {/* private double */}
           <Motion.div
             className='flex flex-col overflow-hidden'
             initial={{ opacity: 0, y: 20 }}
@@ -154,7 +157,7 @@ const ComfortableStays = () => {
             >
               <RoomImageSlider
                 images={roomImages.doubleRoom}
-                altText="Private Double/Twin Room Ensuite"
+                altText={t('stayInStyle.cards.double.alt')}
                 className='w-full h-48 sm:h-52 lg:h-56 object-cover'
               />
             </Motion.div>
@@ -167,11 +170,12 @@ const ComfortableStays = () => {
               viewport={{ once: true, amount: 0.2 }}
             >
               <p className='text-xs sm:text-sm text-neutral-600 leading-relaxed text-center'>
-                <strong>Private Double Room</strong> – Surf Style Morocco Guest House’s double room blends comfort, Moroccan culture, and great surfing for an unforgettable camp experience.
+                <strong>{t('stayInStyle.cards.double.title')}</strong> – {t('stayInStyle.cards.double.body')}
               </p>
             </Motion.div>
           </Motion.div>
 
+          {/* private double with balcony */}
           <Motion.div
             className='flex flex-col overflow-hidden'
             initial={{ opacity: 0, y: 20 }}
@@ -190,7 +194,7 @@ const ComfortableStays = () => {
             >
               <RoomImageSlider
                 images={roomImages.tripleRoom}
-                altText="Private Triple Room Ensuite"
+                altText={t('stayInStyle.cards.triple.alt')}
                 className='w-full h-48 sm:h-52 lg:h-56 object-cover'
               />
             </Motion.div>
@@ -203,7 +207,7 @@ const ComfortableStays = () => {
               viewport={{ once: true, amount: 0.2 }}
             >
               <p className='text-xs sm:text-sm text-neutral-600 leading-relaxed text-center'>
-                <strong>Private Double Room With Balcony</strong> – Surf Camp Morocco Guest House’s double room with terrace combines comfort, Moroccan culture, and excellent surfing for a memorable stay.
+                <strong>{t('stayInStyle.cards.triple.title')}</strong> – {t('stayInStyle.cards.triple.body')}
               </p>
             </Motion.div>
           </Motion.div>
