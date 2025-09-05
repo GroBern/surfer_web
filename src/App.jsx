@@ -14,6 +14,7 @@ import Terms from './pages/Terms'
 import Imprint from './pages/Imprint'
 import Policy from './pages/Policy'
 import Rates from './pages/Rates'
+import SingleBlog from './pages/SingleBlog'
 
 const App = () => {
   return (
@@ -28,6 +29,7 @@ const App = () => {
         <Route path='/morocco' element={<Morocco />} />
         <Route path='/contact' element={<ContactUs />} />
         <Route path='/blogs' element={<Blogs />} />
+        <Route path='/blog/:id' element={<SingleBlog />} />
         <Route path='/faq' element={<Faq />} />
         <Route path='/activities' element={<Activities />} />
         <Route path='/terms' element={<Terms />} />
