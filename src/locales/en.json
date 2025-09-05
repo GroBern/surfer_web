@@ -1022,7 +1022,7 @@
       "building": "Beach Camp Building"
     },
      
-  "packageTable": {
+  "packageTable1": {
     "title": "BOOK YOUR SURF EXPERIENCE",
     "subtitle": "FOLLOWING INCLUDED IN OUR SURF PACKAGES",
     "headers": {
@@ -1088,7 +1088,7 @@
       },
       "single": {
         "title": "Private Single Room Ensuite",
-        "body": "Your personal surf haven — perfect for solo travelers craving privacy and comfort, for a peaceful night’s rest after a day riding the waves and soaking up the sun."
+        "body": "Your personal surf Heaven — perfect for solo travelers craving privacy and comfort, for a peaceful night’s rest after a day riding the waves and soaking up the sun."
       },
       "double": {
         "title": "Private Double / Twin Room Ensuite",
@@ -1502,6 +1502,54 @@
       "p1": "Morocco is one of the most diverse surf destinations in the world, offering consistent Atlantic swells, warm hospitality, and rich cultural immersion. From world-class point breaks to beginner-friendly beach breaks, this coast is a playground for surfers of all levels.",
       "p2": "Taghazout and its surrounding areas have become a surf haven thanks to perfect waves, laid-back lifestyle, and breathtaking desert-meets-ocean views. You’ll enjoy sunny skies, welcoming locals, vibrant souks, and that magical Moroccan energy that makes every surf session feel like an adventure.",
       "p3": "Even though our camp is just a short walk from the beach, you’re never far from the action. We believe the best surf journeys happen when you balance ocean time with exploration, relaxation, and unforgettable cultural experiences."
+    }
+  },
+    
+  "packageTable": {
+    "title": "BOOK YOUR SURF EXPERIENCE",
+    "subtitle": "FOLLOWING INCLUDED IN OUR SURF PACKAGES",
+    "headers": {
+      "surfAndYoga": "Surf And Yoga Package",
+      "fullSurf": "Full Surf Package",
+      "moderateSurf": "Moderate Surf Package"
+    },
+    "rows": {
+      "surfLessons": {
+        "name": "Surf Lessons",
+        "surfAndYoga": "06 Surf Lessons or Guiding / Week",
+        "fullSurf": "11 Surf Lessons",
+        "moderateSurf": "06 Surf Lessons or Guiding"
+      },
+      "yoga": {
+        "name": "Yoga",
+        "surfAndYoga": "Sunrise or Sunset Everyday",
+        "fullSurf": "02 Sessions / Week",
+        "moderateSurf": "02 Sessions / Week"
+      },
+      "nights": { "name": "07 nights accommodation" },
+      "breakfast": { "name": "Breakfast Everyday" },
+      "dinner": { "name": "Dinner - Everyday except Sunday" },
+      "surfTheory": { "name": "Surf Theory Classes" },
+      "videoAnalysis": { "name": "Video Analysis" },
+      "dailySocial": { "name": "Daily Social Activities" }
+    },
+    "accommodation": {
+      "dorm": {
+        "name": "Mixed Dormitory Bed",
+        "note": "Max ( 05 people )"
+      },
+      "single": {
+        "name": "Private Single Room",
+        "note": "Per Week"
+      },
+      "doubleTwin": {
+        "name": "Private Double / Twin Room",
+        "note": "Per Person / Per Week"
+      },
+      "triple": {
+        "name": "Private Triple Room",
+        "note": "Per Person / Per Week"
+      }
     }
   }
 

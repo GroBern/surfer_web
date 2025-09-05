@@ -1,72 +1,92 @@
-import React, { useState, useEffect, useRef } from 'react'
-import { NavLink, useLocation } from 'react-router-dom'
-import { useTranslation } from 'react-i18next'
+import React, { useState, useEffect, useRef } from 'react';
+import { NavLink, useLocation } from 'react-router-dom';
+import { useTranslation } from 'react-i18next';
 
 const Navbar = () => {
-  const location = useLocation()
-  const [isMenuOpen, setIsMenuOpen] = useState(false)
-  const [isScrolled, setIsScrolled] = useState(false)
-  const [isDestinationOpen, setIsDestinationOpen] = useState(false) // desktop: click-to-open
-  const [selectedCountry, setSelectedCountry] = useState('srilanka')
-  const [isMobileDestinationOpen, setIsMobileDestinationOpen] = useState(false)
-  const [navHeight, setNavHeight] = useState(0)
-  const navRef = useRef(null)
-  const destBtnRef = useRef(null)
-  const destPanelRef = useRef(null)
+  const location = useLocation();
+  const [isMenuOpen, setIsMenuOpen] = useState(false);
+  const [isScrolled, setIsScrolled] = useState(false);
+  const [isDestinationOpen, setIsDestinationOpen] = useState(false); // desktop: click-to-open
+  const [selectedCountry, setSelectedCountry] = useState('srilanka');
+  const [isMobileDestinationOpen, setIsMobileDestinationOpen] = useState(false);
+  const [navHeight, setNavHeight] = useState(0);
+  const navRef = useRef(null);
+  const destBtnRef = useRef(null);
+  const destPanelRef = useRef(null);
 
-  const { t, i18n } = useTranslation()
+  const { t, i18n } = useTranslation();
 
   const countries = [
-    { id: 'srilanka', name: t('navbar.countries.srilanka', 'Surf Camps Sri Lanka'), image: '/image.png', link: '/srilanka' },
-    { id: 'morocco', name: t('navbar.countries.morocco', 'Surf Camps Morocco'), image: '/morocco.jpg', link: '/morocco' }
-  ]
+    {
+      id: 'srilanka',
+      name: t('navbar.countries.srilanka', 'Surf Camps Sri Lanka'),
+      image: '/image.png',
+      link: '/srilanka',
+    },
+    {
+      id: 'morocco',
+      name: t('navbar.countries.morocco', 'Surf Camps Morocco'),
+      image: '/morocco.jpg',
+      link: '/morocco',
+    },
+  ];
 
+  // ✅ Wave Surf Camp removed (partners for Sri Lanka now empty)
   const surfCamps = {
     srilanka: {
       originals: [
         { name: t('navbar.camps.beachCamp', 'The Surfer Beach Camp'), link: '/beach-camp' },
         { name: t('navbar.camps.ts2Camp', 'The Surfer TS2 Camp'), link: '/ts2-camp' },
       ],
-      partner: [{ name: t('navbar.camps.waveCampComing', 'Coming Soon: The Wave Surf Camp'), link: '#' }],
+      partner: [
+        // { name: t('navbar.camps.waveCampComing', 'Coming Soon: The Wave Surf Camp'), link: '#' },
+      ],
     },
     morocco: {
       originals: [],
-      partner: [{ name: t('navbar.camps.styleCamp', 'The Surfer SurfStyle'), link: '/style-camp' }]
-    }
-  }
+      partner: [{ name: t('navbar.camps.styleCamp', 'The Surfer SurfStyle'), link: '/style-camp' }],
+    },
+  };
 
-  const changeLanguage = (lng) => i18n.changeLanguage(lng)
+  const changeLanguage = (lng) => i18n.changeLanguage(lng);
 
   // Scroll state
   useEffect(() => {
-    const handleScroll = () => setIsScrolled(window.scrollY > 50)
-    window.addEventListener('scroll', handleScroll)
-    return () => window.removeEventListener('scroll', handleScroll)
-  }, [])
+    const handleScroll = () => setIsScrolled(window.scrollY > 50);
+    window.addEventListener('scroll', handleScroll);
+    return () => window.removeEventListener('scroll', handleScroll);
+  }, []);
 
   // Update top offset based on real navbar height
   useEffect(() => {
-    if (navRef.current) setNavHeight(navRef.current.offsetHeight)
-  }, [isScrolled])
+    if (navRef.current) setNavHeight(navRef.current.offsetHeight);
+  }, [isScrolled]);
 
   // Close DESTINATION on outside click / Esc (desktop)
   useEffect(() => {
-    if (!isDestinationOpen) return
+    if (!isDestinationOpen) return;
     const handleClickOutside = (e) => {
-      const btn = destBtnRef.current
-      const panel = destPanelRef.current
-      if (!btn || !panel) return
-      if (btn.contains(e.target) || panel.contains(e.target)) return
-      setIsDestinationOpen(false)
-    }
-    const handleEsc = (e) => { if (e.key === 'Escape') setIsDestinationOpen(false) }
-    document.addEventListener('mousedown', handleClickOutside)
-    document.addEventListener('keydown', handleEsc)
+      const btn = destBtnRef.current;
+      const panel = destPanelRef.current;
+      if (!btn || !panel) return;
+      if (btn.contains(e.target) || panel.contains(e.target)) return;
+      setIsDestinationOpen(false);
+    };
+    const handleEsc = (e) => {
+      if (e.key === 'Escape') setIsDestinationOpen(false);
+    };
+    document.addEventListener('mousedown', handleClickOutside);
+    document.addEventListener('keydown', handleEsc);
     return () => {
-      document.removeEventListener('mousedown', handleClickOutside)
-      document.removeEventListener('keydown', handleEsc)
-    }
-  }, [isDestinationOpen])
+      document.removeEventListener('mousedown', handleClickOutside);
+      document.removeEventListener('keydown', handleEsc);
+    };
+  }, [isDestinationOpen]);
+
+  // 🔝 Always start new route at top
+  useEffect(() => {
+    window.scrollTo({ top: 0, left: 0, behavior: 'auto' });
+  }, [location.pathname, location.search]);
 
   // Animated (Level-Up) Hamburger
   const HamburgerButton = () => (
@@ -114,28 +134,30 @@ const Navbar = () => {
         `}
       />
     </button>
-  )
+  );
 
   return (
     <div
       ref={navRef}
-      className={`fixed top-0 left-0 w-full z-50 transition-all duration-300 ${isScrolled ? 'bg-white/95 backdrop-blur-md shadow-lg border-b border-white/20' : 'bg-transparent'
-        }`}
+      className={`fixed top-0 left-0 w-full z-50 transition-all duration-300 ${
+        isScrolled ? 'bg-white/95 backdrop-blur-md shadow-lg border-b border-white/20' : 'bg-transparent'
+      }`}
     >
-      <div className='container mx-auto flex justify-between items-center py-3 sm:py-4 px-3 sm:px-6 md:px-8 lg:px-16'>
+      <div className="container mx-auto flex justify-between items-center py-3 sm:py-4 px-3 sm:px-6 md:px-8 lg:px-16">
         {/* Logo */}
-        <NavLink to='/'>
-          <img src='logo.png' alt='The Surfer Logo' className='h-8 sm:h-10 md:h-12 w-auto transition-all duration-300' />
+        <NavLink to="/">
+          <img src="logo.png" alt="The Surfer Logo" className="h-8 sm:h-10 md:h-12 w-auto transition-all duration-300" />
         </NavLink>
 
         {/* Center nav (desktop) */}
-        <ul className='hidden md:flex gap-4 lg:gap-7 text-sm lg:text-base relative'>
+        <ul className="hidden md:flex gap-4 lg:gap-7 text-sm lg:text-base relative">
           <NavLink
-            to='/'
+            to="/"
             className={({ isActive }) =>
-              `cursor-pointer transition-all duration-300 hover:-translate-y-1 ${isActive
-                ? 'text-cyan-500 font-bold underline underline-offset-4'
-                : isScrolled ? 'text-gray-800 hover:text-cyan-600' : 'text-white hover:text-cyan-300'
+              `cursor-pointer transition-all duration-300 hover:-translate-y-1 ${
+                isActive
+                  ? 'text-cyan-500 font-bold underline underline-offset-4'
+                  : isScrolled ? 'text-gray-800 hover:text-cyan-600' : 'text-white hover:text-cyan-300'
               }`
             }
           >
@@ -145,63 +167,94 @@ const Navbar = () => {
           {/* DESTINATION (desktop click-to-open) */}
           <button
             ref={destBtnRef}
-            type='button'
-            onClick={() => setIsDestinationOpen(v => !v)}
-            aria-haspopup='true'
+            type="button"
+            onClick={() => setIsDestinationOpen((v) => !v)}
+            aria-haspopup="true"
             aria-expanded={isDestinationOpen}
-            className={`cursor-pointer transition-all duration-300 hover:-translate-y-1 ${isScrolled ? 'text-gray-800 hover:text-cyan-600' : 'text-white hover:text-cyan-300'
-              }`}
+            className={`cursor-pointer transition-all duration-300 hover:-translate-y-1 ${
+              isScrolled ? 'text-gray-800 hover:text-cyan-600' : 'text-white hover:text-cyan-300'
+            }`}
           >
             {t('navbar.destination', 'DESTINATION')}
           </button>
 
           {/* Other links */}
-          <NavLink to='/activities' className={({ isActive }) =>
-            `cursor-pointer transition-all duration-300 hover:-translate-y-1 ${isActive ? 'text-cyan-500 font-bold underline underline-offset-4'
-              : isScrolled ? 'text-gray-800 hover:text-cyan-600' : 'text-white hover:text-cyan-300'
-            }`}>{t('navbar.activities', 'ACTIVITIES')}</NavLink>
-          <NavLink to='/rates' className={({ isActive }) =>
-            `cursor-pointer transition-all duration-300 hover:-translate-y-1 ${isActive ? 'text-cyan-500 font-bold underline underline-offset-4'
-              : isScrolled ? 'text-gray-800 hover:text-cyan-600' : 'text-white hover:text-cyan-300'
-            }`}>{t('navbar.rates', 'RATES')}</NavLink>
-          <NavLink to='/faq' className={({ isActive }) =>
-            `cursor-pointer transition-all duration-300 hover:-translate-y-1 ${isActive ? 'text-cyan-500 font-bold underline underline-offset-4'
-              : isScrolled ? 'text-gray-800 hover:text-cyan-600' : 'text-white hover:text-cyan-300'
-            }`}>{t('navbar.faq', 'FAQ')}</NavLink>
-          <NavLink to='/blogs' className={({ isActive }) =>
-            `cursor-pointer transition-all duration-300 hover:-translate-y-1 ${isActive ? 'text-cyan-500 font-bold underline underline-offset-4'
-              : isScrolled ? 'text-gray-800 hover:text-cyan-600' : 'text-white hover:text-cyan-300'
-            }`}>{t('navbar.blogs', 'BLOGS')}</NavLink>
-          <NavLink to='/contact' className={({ isActive }) =>
-            `cursor-pointer transition-all duration-300 hover:-translate-y-1 ${isActive ? 'text-cyan-500 font-bold underline underline-offset-4'
-              : isScrolled ? 'text-gray-800 hover:text-cyan-600' : 'text-white hover:text-cyan-300'
-            }`}>{t('navbar.contact', 'CONTACT')}</NavLink>
+          <NavLink
+            to="/activities"
+            className={({ isActive }) =>
+              `cursor-pointer transition-all duration-300 hover:-translate-y-1 ${
+                isActive ? 'text-cyan-500 font-bold underline underline-offset-4' : isScrolled ? 'text-gray-800 hover:text-cyan-600' : 'text-white hover:text-cyan-300'
+              }`
+            }
+          >
+            {t('navbar.activities', 'ACTIVITIES')}
+          </NavLink>
+          <NavLink
+            to="/rates"
+            className={({ isActive }) =>
+              `cursor-pointer transition-all duration-300 hover:-translate-y-1 ${
+                isActive ? 'text-cyan-500 font-bold underline underline-offset-4' : isScrolled ? 'text-gray-800 hover:text-cyan-600' : 'text-white hover:text-cyan-300'
+              }`
+            }
+          >
+            {t('navbar.rates', 'RATES')}
+          </NavLink>
+          <NavLink
+            to="/faq"
+            className={({ isActive }) =>
+              `cursor-pointer transition-all duration-300 hover:-translate-y-1 ${
+                isActive ? 'text-cyan-500 font-bold underline underline-offset-4' : isScrolled ? 'text-gray-800 hover:text-cyan-600' : 'text-white hover:text-cyan-300'
+              }`
+            }
+          >
+            {t('navbar.faq', 'FAQ')}
+          </NavLink>
+          <NavLink
+            to="/blogs"
+            className={({ isActive }) =>
+              `cursor-pointer transition-all duration-300 hover:-translate-y-1 ${
+                isActive ? 'text-cyan-500 font-bold underline underline-offset-4' : isScrolled ? 'text-gray-800 hover:text-cyan-600' : 'text-white hover:text-cyan-300'
+              }`
+            }
+          >
+            {t('navbar.blogs', 'BLOGS')}
+          </NavLink>
+          <NavLink
+            to="/contact"
+            className={({ isActive }) =>
+              `cursor-pointer transition-all duration-300 hover:-translate-y-1 ${
+                isActive ? 'text-cyan-500 font-bold underline underline-offset-4' : isScrolled ? 'text-gray-800 hover:text-cyan-600' : 'text-white hover:text-cyan-300'
+              }`
+            }
+          >
+            {t('navbar.contact', 'CONTACT')}
+          </NavLink>
         </ul>
 
         {/* Desktop: language + book now */}
-        <div className='hidden md:flex items-center gap-3'>
-          <a
-            href='https://main.d7z80586kqd0r.amplifyapp.com/'
-            target='_blank'
-            rel='noreferrer'
-            className={`px-4 lg:px-8 py-2 text-sm lg:text-base rounded-full border transition-all duration-300 hover:scale-105 hover:shadow-lg transform ${isScrolled ? 'border-gray-800 text-gray-800 hover:bg-gray-800 hover:text-white'
-                : 'border-white text-white hover:bg-white hover:text-gray-800'
-              }`}
-          >
-            {t('navbar.bookNow', 'BOOK NOW')}
-          </a>
-
+        <div className="hidden md:flex items-center gap-3">
           <select
             onChange={(e) => changeLanguage(e.target.value)}
             value={i18n.language}
             className={`w-28 h-9 px-2 bg-transparent appearance-none outline-none border-0 rounded-none cursor-pointer transition-colors
               ${isScrolled ? 'text-gray-800 hover:text-cyan-600' : 'text-white hover:text-cyan-300'}
               [&>option]:text-black [&>option]:bg-white`}
-            aria-label='Select language'
+            aria-label="Select language"
           >
-            <option value='en'>English 🇬🇧</option>
-            <option value='de'>Deutsch 🇩🇪</option>
+            <option value="en">English en</option>
+            <option value="de">Deutsch de</option>
           </select>
+
+          <a
+            href="https://main.d7z80586kqd0r.amplifyapp.com/"
+            target="_blank"
+            rel="noreferrer"
+            className={`px-4 lg:px-8 py-2 text-sm lg:text-base rounded-full border transition-all duration-300 hover:scale-105 hover:shadow-lg transform ${
+              isScrolled ? 'border-gray-800 text-gray-800 hover:bg-gray-800 hover:text-white' : 'border-white text-white hover:bg-white hover:text-gray-800'
+            }`}
+          >
+            {t('navbar.bookNow', 'BOOK NOW')}
+          </a>
         </div>
 
         {/* Mobile animated hamburger */}
@@ -212,47 +265,56 @@ const Navbar = () => {
       {isDestinationOpen && (
         <div
           ref={destPanelRef}
-          className={`hidden md:block fixed left-0 right-0 z-50 transition-all duration-300 ${isScrolled ? 'bg-white/95 backdrop-blur-xl border-t border-gray-200'
-              : 'bg-white/10 backdrop-blur-xl border-t border-white/20'
-            }`}
+          className={`hidden md:block fixed left-0 right-0 z-50 transition-all duration-300 ${
+            isScrolled ? 'bg-white/95 backdrop-blur-xl border-t border-gray-200' : 'bg-white/10 backdrop-blur-xl border-t border-white/20'
+          }`}
           style={{ top: `${navHeight}px` }}
         >
-          {/* tiny spacer helps avoid accidental hover gaps */}
-          <div className='h-1 w-full pointer-events-none' />
-
-          <div className='flex h-96 shadow-2xl'>
+          <div className="h-1 w-full pointer-events-none" />
+          <div className="flex h-96 shadow-2xl">
             {/* Countries */}
-            <div className='w-1/3 p-6 border-r border-gray-200/20'>
+            <div className="w-1/3 p-6 border-r border-gray-200/20">
               <h3 className={`text-lg font-semibold mb-6 ${isScrolled ? 'text-gray-800' : 'text-white'}`}>
                 {t('navbar.countriesTitle', 'COUNTRIES')}
               </h3>
 
-              <div className='space-y-2'>
+              <div className="space-y-2">
                 {countries.map((country) => (
                   <div
                     key={country.id}
-                    className={`group cursor-pointer rounded-xl transition-all duration-300 hover:scale-[1.02] ${selectedCountry === country.id
+                    className={`group cursor-pointer rounded-xl transition-all duration-300 hover:scale-[1.02] ${
+                      selectedCountry === country.id
                         ? isScrolled ? 'bg-cyan-50 border border-cyan-200' : 'bg-white/20 border border-white/30'
                         : isScrolled ? 'hover:bg-gray-50 border border-transparent' : 'hover:bg-white/10 border border-transparent'
-                      }`}
+                    }`}
                     onMouseEnter={() => setSelectedCountry(country.id)}
                   >
                     <NavLink
                       to={country.link}
-                      className='text-sm font-medium transition-colors hover:text-cyan-500 block'
+                      className="text-sm font-medium transition-colors hover:text-cyan-500 block"
                       onClick={() => setIsDestinationOpen(false)}
                     >
-                      <div className='flex items-center p-3 gap-3'>
-                        <img src={country.image} alt={country.name} className='w-12 h-12 rounded-lg object-cover' />
-                        <div className='flex-1 flex items-center justify-between'>
-                          <h4 className={`text-sm font-medium transition-colors ${selectedCountry === country.id
-                              ? isScrolled ? 'text-cyan-700' : 'text-cyan-300'
-                              : isScrolled ? 'text-gray-800 group-hover:text-cyan-600' : 'text-white group-hover:text-cyan-300'
-                            }`}>{country.name}</h4>
-                          <span className={`text-lg transition-colors ${selectedCountry === country.id
-                              ? isScrolled ? 'text-cyan-600' : 'text-cyan-300'
-                              : isScrolled ? 'text-gray-400 group-hover:text-cyan-600' : 'text-white/60 group-hover:text-cyan-300'
-                            }`}>→</span>
+                      <div className="flex items-center p-3 gap-3">
+                        <img src={country.image} alt={country.name} className="w-12 h-12 rounded-lg object-cover" />
+                        <div className="flex-1 flex items-center justify-between">
+                          <h4
+                            className={`text-sm font-medium transition-colors ${
+                              selectedCountry === country.id
+                                ? isScrolled ? 'text-cyan-700' : 'text-cyan-300'
+                                : isScrolled ? 'text-gray-800 group-hover:text-cyan-600' : 'text-white group-hover:text-cyan-300'
+                            }`}
+                          >
+                            {country.name}
+                          </h4>
+                          <span
+                            className={`text-lg transition-colors ${
+                              selectedCountry === country.id
+                                ? isScrolled ? 'text-cyan-600' : 'text-cyan-300'
+                                : isScrolled ? 'text-gray-400 group-hover:text-cyan-600' : 'text-white/60 group-hover:text-cyan-300'
+                            }`}
+                          >
+                            →
+                          </span>
                         </div>
                       </div>
                     </NavLink>
@@ -262,15 +324,15 @@ const Navbar = () => {
             </div>
 
             {/* Camps */}
-            <div className='w-2/3 relative overflow-hidden'>
-              <div className='absolute inset-0 bg-cover bg-center bg-no-repeat opacity-20' style={{ backgroundImage: "url('/I9.JPG')" }} />
-              <div className='relative z-10 p-6'>
+            <div className="w-2/3 relative overflow-hidden">
+              <div className="absolute inset-0 bg-cover bg-center bg-no-repeat opacity-20" style={{ backgroundImage: "url('/I9.JPG')" }} />
+              <div className="relative z-10 p-6">
                 {surfCamps[selectedCountry]?.originals.length > 0 && (
                   <>
-                    <div className='flex items-center justify-between mb-6'>
-                      <div className='flex items-center gap-2'>
-                        <div className='w-6 h-6 bg-yellow-400 rounded-full flex items-center justify-center'>
-                          <span className='text-xs font-bold text-black'>★</span>
+                    <div className="flex items-center justify-between mb-6">
+                      <div className="flex items-center gap-2">
+                        <div className="w-6 h-6 bg-yellow-400 rounded-full flex items-center justify-center">
+                          <span className="text-xs font-bold text-black">★</span>
                         </div>
                         <h4 className={`text-sm font-semibold ${isScrolled ? 'text-gray-800' : 'text-white'}`}>
                           {t('navbar.originalsTitle', 'THE SURFER ORIGINAL CAMPS')}
@@ -278,7 +340,7 @@ const Navbar = () => {
                       </div>
                     </div>
 
-                    <div className='space-y-3 mb-6'>
+                    <div className="space-y-3 mb-6">
                       {surfCamps[selectedCountry]?.originals.map((camp, index) => (
                         <NavLink
                           key={index}
@@ -298,7 +360,7 @@ const Navbar = () => {
                     {t('navbar.partnersTitle', 'THE SURFER PARTNERED CAMP')}
                   </h4>
 
-                  <div className='space-y-2'>
+                  <div className="space-y-2">
                     {surfCamps[selectedCountry]?.partner.map((camp, index) => (
                       <NavLink
                         key={index}
@@ -319,127 +381,183 @@ const Navbar = () => {
 
       {/* ===== MOBILE MENU ===== */}
       <div className={`md:hidden transition-all duration-500 ease-in-out overflow-hidden ${isMenuOpen ? 'max-h-[80vh] opacity-100' : 'max-h-0 opacity-0'}`}>
-        <div className={`w-72 mx-auto rounded-3xl mt-0 transform transition-all duration-500 ease-in-out ${isScrolled ? 'bg-white/95 backdrop-blur-xl border border-gray-200 shadow-2xl'
-            : 'bg-white/10 backdrop-blur-xl border border-white/20 shadow-2xl'
-          }`}>
-          <div className='px-4 py-8 max-h-[75vh] overflow-y-auto'>
-            <ul className='flex flex-col gap-4 text-center'>
+        <div className={`w-72 mx-auto rounded-3xl mt-0 transform transition-all duration-500 ease-in-out ${
+          isScrolled ? 'bg-white/95 backdrop-blur-xl border border-gray-200 shadow-2xl'
+                     : 'bg-white/10 backdrop-blur-xl border border-white/20 shadow-2xl'
+        }`}>
+          <div className="px-4 py-8 max-h-[75vh] overflow-y-auto">
+            <ul className="flex flex-col gap-4 text-center">
               <NavLink
-                to='/'
-                className={`py-3 px-4 rounded-xl text-sm font-medium transition-all duration-300 ${isScrolled ? 'text-gray-800 hover:text-cyan-600 hover:bg-gray-100'
-                    : 'text-white hover:text-cyan-300 hover:bg-white/20'
-                  } ${location.pathname === '/' ? ' text-cyan-500 font-bold underline underline-offset-4' : ''}`}
+                to="/"
+                className={`py-3 px-4 rounded-xl text-sm font-medium transition-all duration-300 ${
+                  isScrolled ? 'text-gray-800 hover:text-cyan-600 hover:bg-gray-100'
+                             : 'text-white hover:text-cyan-300 hover:bg-white/20'
+                } ${location.pathname === '/' ? ' text-cyan-500 font-bold underline underline-offset-4' : ''}`}
                 onClick={() => setIsMenuOpen(false)}
               >
                 {t('navbar.home', 'HOME')}
               </NavLink>
 
               {/* Destination (mobile accordion) */}
-              <div className='w-full'>
+              <div className="w-full">
                 <button
-                  className={`w-full py-3 px-4 rounded-xl text-sm font-medium transition-all duration-300 ${isScrolled ? 'text-gray-800 hover:text-cyan-600 hover:bg-gray-100'
-                      : 'text-white hover:text-cyan-300 hover:bg-white/20'
-                    }`}
-                  onClick={() => setIsMobileDestinationOpen(v => !v)}
+                  className={`w-full py-3 px-4 rounded-xl text-sm font-medium transition-all duration-300 ${
+                    isScrolled ? 'text-gray-800 hover:text-cyan-600 hover:bg-gray-100'
+                               : 'text-white hover:text-cyan-300 hover:bg-white/20'
+                  }`}
+                  onClick={() => setIsMobileDestinationOpen((v) => !v)}
                 >
                   {t('navbar.destination', 'DESTINATION')}
                 </button>
 
                 {isMobileDestinationOpen && (
-                  <div className='ml-4 mt-2 space-y-2 text-left'>
+                  <div className="ml-4 mt-2 space-y-3 text-left">
                     {countries.map((country) => (
                       <div key={country.id}>
                         <NavLink
                           to={country.link}
-                          className={`block px-3 py-2 text-sm rounded-lg transition-all ${isScrolled ? 'text-gray-700 hover:bg-gray-100' : 'text-white hover:bg-white/20'
-                            } hover:text-blue-500`}
+                          className={({ isActive }) =>
+                            `block px-3 py-2 text-sm rounded-lg transition-all duration-200 ${
+                              isScrolled ? 'text-gray-700 hover:bg-gray-100' : 'text-white hover:bg-white/20'
+                            } hover:text-blue-500 ${isActive ? 'text-cyan-600' : ''}`
+                          }
                           onClick={() => setIsMenuOpen(false)}
                         >
                           {country.name}
                         </NavLink>
 
-                        {surfCamps[country.id]?.originals.map((camp, idx) => (
-                          <NavLink
-                            key={idx}
-                            to={camp.link}
-                            className={`block ml-4 px-3 py-1 text-xs rounded-lg transition-all ${isScrolled ? 'text-gray-500 hover:bg-gray-100' : 'text-white/70 hover:bg-white/10'
-                              } hover:text-blue-500`}
-                            onClick={() => setIsMenuOpen(false)}
-                          >
-                            - {camp.name}
-                          </NavLink>
-                        ))}
+                        {/* ORIGINAL CAMPS with star marker */}
+                        {surfCamps[country.id]?.originals.length > 0 && (
+                          <div className="ml-4 mt-1 space-y-1">
+                            <div className="flex items-center gap-1">
+                              <div className="w-4 h-4 bg-yellow-400 rounded-full flex items-center justify-center">
+                                <span className="text-[8px] font-bold text-black">★</span>
+                              </div>
+                              <span className={`text-[11px] font-semibold ${isScrolled ? 'text-gray-800' : 'text-white'}`}>
+                                {t('navbar.originalsTitle', 'THE SURFER ORIGINAL CAMPS')}
+                              </span>
+                            </div>
+                            {surfCamps[country.id]?.originals.map((camp, idx) => (
+                              <NavLink
+                                key={idx}
+                                to={camp.link}
+                                className={({ isActive }) =>
+                                  `block ml-4 pl-3 py-[3px] text-xs rounded-lg transition-all duration-200 ${
+                                    isScrolled ? 'text-gray-500 hover:bg-gray-100' : 'text-white/70 hover:bg-white/10'
+                                  } hover:text-blue-500 ${isActive ? 'text-cyan-600 font-semibold' : ''}`
+                                }
+                                onClick={() => setIsMenuOpen(false)}
+                              >
+                                {camp.name}
+                              </NavLink>
+                            ))}
+                          </div>
+                        )}
 
-                        {surfCamps[country.id]?.partner.map((camp, idx) => (
-                          <NavLink
-                            key={idx}
-                            to={camp.link}
-                            className={`block ml-4 px-3 py-1 text-xs rounded-lg transition-all ${isScrolled ? 'text-gray-500 hover:bg-gray-100' : 'text-white/70 hover:bg-white/10'
-                              } hover:text-blue-500`}
-                            onClick={() => setIsMenuOpen(false)}
-                          >
-                            - {camp.name}
-                          </NavLink>
-                        ))}
+                        {/* PARTNER CAMPS (hidden if none) */}
+                        {surfCamps[country.id]?.partner.length > 0 && (
+                          <div className="ml-4 mt-3 space-y-1">
+                            <div className="flex items-center gap-1">
+                              <span className={`text-[11px] font-semibold ${isScrolled ? 'text-gray-800' : 'text-white'}`}>
+                                {t('navbar.partnersTitle', 'THE SURFER PARTNERED CAMP')}
+                              </span>
+                            </div>
+                            {surfCamps[country.id]?.partner.map((camp, idx) => (
+                              <NavLink
+                                key={idx}
+                                to={camp.link}
+                                className={({ isActive }) =>
+                                  `block ml-4 pl-3 py-[3px] text-xs rounded-lg transition-all duration-200 ${
+                                    isScrolled ? 'text-gray-500 hover:bg-gray-100' : 'text-white/70 hover:bg-white/10'
+                                  } hover:text-blue-500 ${isActive ? 'text-cyan-600 font-semibold' : ''}`
+                                }
+                                onClick={() => setIsMenuOpen(false)}
+                              >
+                                {camp.name}
+                              </NavLink>
+                            ))}
+                          </div>
+                        )}
                       </div>
                     ))}
                   </div>
                 )}
               </div>
 
-              <NavLink to='/activities' className={`py-3 px-4 rounded-xl text-sm font-medium transition-all duration-300 ${isScrolled ? 'text-gray-800 hover:text-cyan-600 hover:bg-gray-100'
-                  : 'text-white hover:text-cyan-300 hover:bg-white/20'
-                } ${location.pathname === '/activities' ? ' text-cyan-500 font-bold underline underline-offset-4' : ''}`} onClick={() => setIsMenuOpen(false)}>
+              <NavLink
+                to="/activities"
+                className={`py-3 px-4 rounded-xl text-sm font-medium transition-all duration-300 ${
+                  isScrolled ? 'text-gray-800 hover:text-cyan-600 hover:bg-gray-100' : 'text-white hover:text-cyan-300 hover:bg-white/20'
+                } ${location.pathname === '/activities' ? ' text-cyan-500 font-bold underline underline-offset-4' : ''}`}
+                onClick={() => setIsMenuOpen(false)}
+              >
                 {t('navbar.activities', 'ACTIVITIES')}
               </NavLink>
 
-              <NavLink to='/rates' className={`py-3 px-4 rounded-xl text-sm font-medium transition-all duration-300 ${isScrolled ? 'text-gray-800 hover:text-cyan-600 hover:bg-gray-100'
-                  : 'text-white hover:text-cyan-300 hover:bg-white/20'
-                } ${location.pathname === '/rates' ? ' text-cyan-500 font-bold underline underline-offset-4' : ''}`} onClick={() => setIsMenuOpen(false)}>
+              <NavLink
+                to="/rates"
+                className={`py-3 px-4 rounded-xl text-sm font-medium transition-all duration-300 ${
+                  isScrolled ? 'text-gray-800 hover:text-cyan-600 hover:bg-gray-100' : 'text-white hover:text-cyan-300 hover:bg-white/20'
+                } ${location.pathname === '/rates' ? ' text-cyan-500 font-bold underline underline-offset-4' : ''}`}
+                onClick={() => setIsMenuOpen(false)}
+              >
                 {t('navbar.rates', 'RATES')}
               </NavLink>
 
-              <NavLink to='/faq' className={`py-3 px-4 rounded-xl text-sm font-medium transition-all duration-300 ${isScrolled ? 'text-gray-800 hover:text-cyan-600 hover:bg-gray-100'
-                  : 'text-white hover:text-cyan-300 hover:bg-white/20'
-                }`} onClick={() => setIsMenuOpen(false)}>
+              <NavLink
+                to="/faq"
+                className={`py-3 px-4 rounded-xl text-sm font-medium transition-all duration-300 ${
+                  isScrolled ? 'text-gray-800 hover:text-cyan-600 hover:bg-gray-100' : 'text-white hover:text-cyan-300 hover:bg-white/20'
+                }`}
+                onClick={() => setIsMenuOpen(false)}
+              >
                 {t('navbar.faq', 'FAQ')}
               </NavLink>
 
-              <NavLink to='/blogs' className={`py-3 px-4 rounded-xl text-sm font-medium transition-all duration-300 ${isScrolled ? 'text-gray-800 hover:text-cyan-600 hover:bg-gray-100'
-                  : 'text-white hover:text-cyan-300 hover:bg-white/20'
-                }`} onClick={() => setIsMenuOpen(false)}>
+              <NavLink
+                to="/blogs"
+                className={`py-3 px-4 rounded-xl text-sm font-medium transition-all duration-300 ${
+                  isScrolled ? 'text-gray-800 hover:text-cyan-600 hover:bg-gray-100' : 'text-white hover:text-cyan-300 hover:bg-white/20'
+                }`}
+                onClick={() => setIsMenuOpen(false)}
+              >
                 {t('navbar.blogs', 'BLOGS')}
               </NavLink>
 
-              <NavLink to='/contact' className={`py-3 px-4 rounded-xl text-sm font-medium transition-all duration-300 ${isScrolled ? 'text-gray-800 hover:text-cyan-600 hover:bg-gray-100'
-                  : 'text-white hover:text-cyan-300 hover:bg-white/20'
-                }`} onClick={() => setIsMenuOpen(false)}>
+              <NavLink
+                to="/contact"
+                className={`py-3 px-4 rounded-xl text-sm font-medium transition-all duration-300 ${
+                  isScrolled ? 'text-gray-800 hover:text-cyan-600 hover:bg-gray-100' : 'text-white hover:text-cyan-300 hover:bg-white/20'
+                }`}
+                onClick={() => setIsMenuOpen(false)}
+              >
                 {t('navbar.contact', 'CONTACT')}
               </NavLink>
 
               {/* Translation (mobile) above Book Now */}
-              <div className='mt-2'>
+              <div className="mt-2">
                 <select
                   onChange={(e) => changeLanguage(e.target.value)}
                   value={i18n.language}
                   style={{ colorScheme: 'light' }}
-                  className={`w-full px-3 py-2 rounded-lg text-sm cursor-pointer bg-white text-gray-900 border ${isScrolled ? 'border-gray-300' : 'border-white/60'
-                    } [&>option]:text-black [&>option]:bg-white`}
-                  aria-label='Select language'
+                  className={`w-full px-3 py-2 rounded-lg text-sm cursor-pointer bg-white text-gray-900 border ${
+                    isScrolled ? 'border-gray-300' : 'border-white/60'
+                  } [&>option]:text-black [&>option]:bg-white`}
+                  aria-label="Select language"
                 >
-                  <option value='en'>English 🇬🇧</option>
-                  <option value='de'>Deutsch 🇩🇪</option>
+                  <option value="en">English en</option>
+                  <option value="de">Deutsch de</option>
                 </select>
               </div>
 
               {/* Book Now */}
               <a
-                href='https://main.d7z80586kqd0r.amplifyapp.com/'
-                target='_blank'
-                rel='noreferrer'
-                className={`mt-2 mx-auto w-full max-w-xs px-4 sm:px-6 py-2 sm:py-3 rounded-full border transition-all duration-300 hover:scale-105 hover:shadow-lg transform text-xs sm:text-sm font-semibold text-center block ${isScrolled ? 'border-gray-800 text-gray-800 hover:bg-gray-800 hover:text-white'
-                    : 'border-white/50 text-white hover:bg-white hover:text-gray-800'
-                  }`}
+                href="https://main.d7z80586kqd0r.amplifyapp.com/"
+                target="_blank"
+                rel="noreferrer"
+                className={`mt-2 mx-auto w-full max-w-xs px-4 sm:px-6 py-2 sm:py-3 rounded-full border transition-all duration-300 hover:scale-105 hover:shadow-lg transform text-xs sm:text-sm font-semibold text-center block ${
+                  isScrolled ? 'border-gray-800 text-gray-800 hover:bg-gray-800 hover:text-white' : 'border-white/50 text-white hover:bg-white hover:text-gray-800'
+                }`}
                 onClick={() => setIsMenuOpen(false)}
               >
                 {t('navbar.bookNow', 'BOOK NOW')}
@@ -451,12 +569,12 @@ const Navbar = () => {
 
       {/* Bottom hairline when transparent */}
       {!isMenuOpen && !isScrolled && (
-        <div className='container mx-auto px-3 sm:px-6 md:px-8 lg:px-16'>
-          <div className='w-full h-0.5 bg-white/80' />
+        <div className="container mx-auto px-3 sm:px-6 md:px-8 lg:px-16">
+          <div className="w-full h-0.5 bg-white/80" />
         </div>
       )}
     </div>
-  )
-}
+  );
+};
 
-export default Navbar
+export default Navbar;
