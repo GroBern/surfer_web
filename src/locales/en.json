@@ -1070,7 +1070,7 @@
     }
   }
   
-},
+ },
 
   "comfortableStays1": {
     "title": "Rooms at TS2 Surf Camp",
@@ -1108,7 +1108,7 @@
       "p3": "Even though our camp is just a short walk from the beach, you’re never far from the action. We believe the best surf journeys happen when you balance ocean time with exploration, relaxation, and unforgettable cultural experiences."
     }
   }
-  },
+ },
   "moroccoHeader": {
     "title": "The Surfer Surf Camp Morocco"
   },
@@ -1374,5 +1374,135 @@
         "moderate": "90 € daily / 540 € weekly"
       }
     }
+  },
+  
+
+
+  "common4": {
+    "included": "included",
+    "notIncluded": "Not included"
+  },
+  "moroccoPackage1": {
+    "title": "BOOK YOUR SURF EXPERIENCE",
+    "subtitle": "FOLLOWING INCLUDED IN OUR SURF PACKAGES",
+    "columns": {
+      "yogaSurf": "Yoga & Surf in Tamraght",
+      "fullSurf": "Surf Coaching (Full Surf)",
+      "moderate": "Surf Guiding (Moderate)"
+    },
+    "rows": {
+      "surfLessons": {
+        "label": "Surf Lessons",
+        "yogaSurf": {
+          "line1": "6 days surf",
+          "line2": "1 lesson/day (1hour yoga + surf session)",
+          "line3": "Equipment included (Neoprene wetsuit & board)",
+          "line4": "Qualified local instructors",
+          "line5": "Daily transport to surf spots adapted to your level"
+        },
+        "fullSurf": {
+          "line1": "6 days surf",
+          "line2": "2 surf sessions/day",
+          "line3": "Equipment included (Neoprene wetsuit & board)",
+          "line4": "Qualified local instructors",
+          "line5": "Daily transport to surf spots adapted to your level"
+        },
+        "moderate": {
+          "line1": "6 days guiding",
+          "line2": "Professional and competent surf guides",
+          "line3": "Daily transport to surf spots adapted to your level"
+        }
+      },
+      "yoga": {
+        "label": "Yoga",
+        "yogaSurf": "Sunrise or sunset yoga every day (1 hour/session)"
+      },
+      "accommodation": "Accommodation",
+      "breakfast": "Breakfast Everyday",
+      "lunch": "Lunch Everyday",
+      "dinner": "Dinner Everyday",
+      "bbq": "BBQ Night - 1 per week outside",
+      "surfTheory": "Surf Theory Classes",
+      "videoAnalysis": "Video Analysis",
+      "wifi": "Free Wi-Fi",
+      "water": "Drinking Water",
+      "cleaning": "Daily Cleaning of Rooms",
+      "pickup": "Pick-up (from Agadir airport or bus station)",
+      "dayTrip": "Day Trip",
+      "dayTripNote1": "(1 day Imsouane Morocco magic bay trip)",
+      "dayTripNote2": "(1 day Imsouane magic bay trip)",
+      "dayTripNote3": "(1 day Imsouane magic bay trip)"
+    },
+    "prices": {
+      "perPersonPerWeek": "Per Person / Per Week",
+      "shared": {
+        "label": "Shared Room",
+        "yogaSurf": "99 € daily / 598 € weekly",
+        "fullSurf": "83 € daily / 510 € weekly",
+        "moderate": "80 € daily / 480 € weekly"
+      },
+      "double": {
+        "label": "Double Room",
+        "yogaSurf": "100 € daily / 600 € weekly",
+        "fullSurf": "85 € daily / 510 € weekly",
+        "moderate": "83 € daily / 490 € weekly"
+      },
+      "doubleTerrace": {
+        "label": "Double with Terrace",
+        "yogaSurf": "103 € daily / 618 € weekly",
+        "fullSurf": "87 € daily / 522 € weekly",
+        "moderate": "87 € daily / 522 € weekly"
+      },
+      "doubleSuite": {
+        "label": "Double Suite",
+        "yogaSurf": "106 € daily / 636 € weekly",
+        "fullSurf": "90 € daily / 540 € weekly",
+        "moderate": "90 € daily / 540 € weekly"
+      }
+    }
+  },
+
+  
+  "surfDays1": {
+    "title": "What Your Surf Days Look Like",
+    "sections": {
+      "morning": {
+        "title": "Sunrise to Soul – Energizing Mornings by the Ocean",
+        "body": "Start your day with the gentle sound of Atlantic waves and the golden Moroccan sunrise. Enjoy a fresh, healthy breakfast prepared to energize you for the adventures ahead. Some mornings begin with relaxing yoga or gentle stretching, awakening your body and mind before heading to the surf."
+      },
+      "lesson": {
+        "title": "Surf Lessons with Heart – Catch the Waves in Tamraght",
+        "body": "Fuelled and ready, step onto the warm sand and meet our experienced surf instructors. Each lesson is tailored to your skill level — whether you’re taking your very first lesson or refining advanced techniques. With patient guidance, local knowledge, and world-class surf spots, every session brings you closer to your surfing goals."
+      },
+      "freeTime": {
+        "title": "Free Time = Your Time – Explore Morocco or Unwind",
+        "body": "When the surf session ends, the rest of the day is yours. Relax on the terrace, sip mint tea by the ocean, or wander through Tamraght’s charming streets. Feeling adventurous?",
+        "activitiesLabel": "Join optional activities such as:",
+        "activities": [
+          "Surf spot explorations along Morocco’s coastline",
+          "Visits to local souks, villages, and cultural landmarks",
+          "Excursions to hidden beaches and scenic viewpoints",
+          "Authentic Moroccan cooking experiences"
+        ]
+      },
+      "evening": {
+        "title": "Food, Friends & Firelight – Evenings Under Moroccan Skies",
+        "body": "As night falls, our surf camp transforms into a hub of laughter and connection. Share stories over a delicious Moroccan dinner, enjoy BBQ nights, and join in lively games or music sessions. Under the glow of the stars, strangers become friends, and every evening feels unforgettable."
+      },
+      "sleep": {
+        "title": "Rest, Recharge & Repeat – Sleep by the Sea",
+        "body": "Drift off in a clean, comfortable room with the ocean breeze as your lullaby. Wake up refreshed and ready for another day of surfing, adventure, and unforgettable moments in Morocco."
+      }
+    }
+  },
+
+  "perfect": {
+    "title": "Why Morocco Is Perfect for Surfers",
+    "body": {
+      "p1": "Morocco is one of the most diverse surf destinations in the world, offering consistent Atlantic swells, warm hospitality, and rich cultural immersion. From world-class point breaks to beginner-friendly beach breaks, this coast is a playground for surfers of all levels.",
+      "p2": "Taghazout and its surrounding areas have become a surf haven thanks to perfect waves, laid-back lifestyle, and breathtaking desert-meets-ocean views. You’ll enjoy sunny skies, welcoming locals, vibrant souks, and that magical Moroccan energy that makes every surf session feel like an adventure.",
+      "p3": "Even though our camp is just a short walk from the beach, you’re never far from the action. We believe the best surf journeys happen when you balance ocean time with exploration, relaxation, and unforgettable cultural experiences."
+    }
   }
+
 }

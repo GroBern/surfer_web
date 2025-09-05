@@ -1,12 +1,14 @@
 import React from 'react'
 import { motion as Motion } from 'framer-motion'
+import { useTranslation } from 'react-i18next'
 
 const SurfDays = () => {
- 
+  const { t } = useTranslation();
+
   return (
     <Motion.div
       className='flex flex-col items-center justify-center container mx-auto w-full overflow-hidden my-16 px-4'
-      id='SurfDays'
+      id='SurfDays1'
       initial={{ opacity: 0, y: 30 }}
       whileInView={{ opacity: 1, y: 0 }}
       transition={{ duration: 0.4, ease: "easeOut" }}
@@ -19,11 +21,12 @@ const SurfDays = () => {
         transition={{ duration: 0.3, delay: 0.1, ease: "easeOut" }}
         viewport={{ once: true, amount: 0.3 }}
       >
-        What Your Surf Days Look Like
+        {t('surfDays1.title')}
       </Motion.h1>
 
       <div className='w-full max-w-7xl space-y-12'>
 
+        {/* Section 1 */}
         <Motion.div
           className='flex flex-col lg:flex-row items-center gap-8 lg:gap-12 lg:flex-row mb-22 mt-8'
           initial={{ opacity: 0, y: 30 }}
@@ -54,16 +57,15 @@ const SurfDays = () => {
             viewport={{ once: true, amount: 0.3 }}
           >
             <h2 className='text-lg sm:text-xl lg:text-2xl font-semibold text-neutral-700 mb-4'>
-              Sunrise to Soul – Energizing Mornings by the Ocean
+              {t('surfDays1.sections.morning.title')}
             </h2>
             <p className='text-xs sm:text-sm lg:text-base text-neutral-600 leading-relaxed text-justify lg:text-left'>
-              Start your day with the gentle sound of Atlantic waves and the golden Moroccan sunrise. Enjoy a fresh, 
-              healthy breakfast prepared to energize you for the adventures ahead. Some mornings begin with 
-              relaxing yoga or gentle stretching, awakening your body and mind before heading to the surf.
+              {t('surfDays1.sections.morning.body')}
             </p>
           </Motion.div>
         </Motion.div>
 
+        {/* Section 2 */}
         <Motion.div
           className='flex flex-col lg:flex-row items-center gap-8 lg:gap-12 lg:flex-row-reverse mb-22'
           initial={{ opacity: 0, y: 30 }}
@@ -94,17 +96,15 @@ const SurfDays = () => {
             viewport={{ once: true, amount: 0.3 }}
           >
             <h2 className='text-lg sm:text-xl lg:text-2xl font-semibold text-neutral-700 mb-4'>
-              Surf Lessons with Heart – Catch the Waves in Tamraght
+              {t('surfDays1.sections.lesson.title')}
             </h2>
             <p className='text-xs sm:text-sm lg:text-base text-neutral-600 leading-relaxed text-justify lg:text-left'>
-              Fuelled and ready, step onto the warm sand and meet our experienced surf instructors. Each lesson 
-              is tailored to your skill level — whether you’re taking your very first lesson or refining advanced 
-              techniques. With patient guidance, local knowledge, and world-class surf spots, every session 
-              brings you closer to your surfing goals.
+              {t('surfDays1.sections.lesson.body')}
             </p>
           </Motion.div>
         </Motion.div>
 
+        {/* Section 3 */}
         <Motion.div
           className='flex flex-col lg:flex-row items-center gap-8 lg:gap-12 lg:flex-row mb-22'
           initial={{ opacity: 0, y: 30 }}
@@ -135,23 +135,25 @@ const SurfDays = () => {
             viewport={{ once: true, amount: 0.3 }}
           >
             <h2 className='text-lg sm:text-xl lg:text-2xl font-semibold text-neutral-700 mb-4'>
-              Free Time = Your Time – Explore Morocco or Unwind
+              {t('surfDays1.sections.freeTime.title')}
             </h2>
             <p className='text-xs sm:text-sm lg:text-base text-neutral-600 leading-relaxed text-justify lg:text-left'>
-              When the surf session ends, the rest of the day is yours. Relax on the terrace, sip mint 
-              tea by the ocean, or wander through Tamraght’s charming streets. Feeling adventurous? 
-              <br /> <br />
-              <span className='font-semibold'>Join optional activities such as: </span>
-              <ul className='list-disc list-inside'>
-                <li>Surf spot explorations along Morocco’s coastline</li>
-                <li>Visits to local souks, villages, and cultural landmarks</li>
-                <li>Excursions to hidden beaches and scenic viewpoints</li>
-                <li>Authentic Moroccan cooking experiences</li>
-              </ul>
+              {t('surfDays1.sections.freeTime.body')}
             </p>
+            <br />
+            <span className='font-semibold'>
+              {t('surfDays1.sections.freeTime.activitiesLabel')}
+            </span>
+            <ul className='list-disc list-inside'>
+              <li>{t('surfDays1.sections.freeTime.activities.0')}</li>
+              <li>{t('surfDays1.sections.freeTime.activities.1')}</li>
+              <li>{t('surfDays1.sections.freeTime.activities.2')}</li>
+              <li>{t('surfDays1.sections.freeTime.activities.3')}</li>
+            </ul>
           </Motion.div>
         </Motion.div>
 
+        {/* Section 4 */}
         <Motion.div
           className='flex flex-col lg:flex-row items-center gap-8 lg:gap-12 lg:flex-row-reverse mb-22'
           initial={{ opacity: 0, y: 30 }}
@@ -182,16 +184,15 @@ const SurfDays = () => {
             viewport={{ once: true, amount: 0.3 }}
           >
             <h2 className='text-lg sm:text-xl lg:text-2xl font-semibold text-neutral-700 mb-4'>
-              Food, Friends & Firelight – Evenings Under Moroccan Skies
+              {t('surfDays1.sections.evening.title')}
             </h2>
             <p className='text-xs sm:text-sm lg:text-base text-neutral-600 leading-relaxed text-justify lg:text-left'>
-              As night falls, our surf camp transforms into a hub of laughter and connection. Share stories 
-              over a delicious Moroccan dinner, enjoy BBQ nights, and join in lively games or music sessions. 
-              Under the glow of the stars, strangers become friends, and every evening feels unforgettable.
+              {t('surfDays1.sections.evening.body')}
             </p>
           </Motion.div>
         </Motion.div>
 
+        {/* Section 5 */}
         <Motion.div
           className='flex flex-col lg:flex-row items-center gap-8 lg:gap-12 lg:flex-row'
           initial={{ opacity: 0, y: 30 }}
@@ -222,11 +223,10 @@ const SurfDays = () => {
             viewport={{ once: true, amount: 0.3 }}
           >
             <h2 className='text-lg sm:text-xl lg:text-2xl font-semibold text-neutral-700 mb-4'>
-              Rest, Recharge & Repeat – Sleep by the Sea
+              {t('surfDays1.sections.sleep.title')}
             </h2>
             <p className='text-xs sm:text-sm lg:text-base text-neutral-600 leading-relaxed text-justify lg:text-left'>
-              Drift off in a clean, comfortable room with the ocean breeze as your lullaby. Wake up 
-              refreshed and ready for another day of surfing, adventure, and unforgettable moments in Morocco.
+              {t('surfDays1.sections.sleep.body')}
             </p>
           </Motion.div>
         </Motion.div>

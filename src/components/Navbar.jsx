@@ -1,30 +1,24 @@
-import { link } from 'framer-motion/client'
-import React, { useState, useEffect } from 'react'
-import { useLocation } from 'react-router-dom';
-import { useTranslation } from 'react-i18next';
+import React, { useState, useEffect, useRef } from 'react'
+import { NavLink, useLocation } from 'react-router-dom'
+import { useTranslation } from 'react-i18next'
 
 const Navbar = () => {
-  const location = useLocation();
+  const location = useLocation()
   const [isMenuOpen, setIsMenuOpen] = useState(false)
   const [isScrolled, setIsScrolled] = useState(false)
-  const [isDestinationHovered, setIsDestinationHovered] = useState(false)
+  const [isDestinationOpen, setIsDestinationOpen] = useState(false) // desktop: click-to-open
   const [selectedCountry, setSelectedCountry] = useState('srilanka')
   const [isMobileDestinationOpen, setIsMobileDestinationOpen] = useState(false)
-  const { t, i18n } = useTranslation();
+  const [navHeight, setNavHeight] = useState(0)
+  const navRef = useRef(null)
+  const destBtnRef = useRef(null)
+  const destPanelRef = useRef(null)
+
+  const { t, i18n } = useTranslation()
 
   const countries = [
-    {
-      id: 'srilanka',
-      name: t('navbar.countries.srilanka', 'Surf Camps Sri Lanka'),
-      image: '/image.png',
-      link: '/srilanka'
-    },
-    {
-      id: 'morocco',
-      name: t('navbar.countries.morocco', 'Surf Camps Morocco'),
-      image: '/morocco.jpg',
-      link: '/morocco'
-    }
+    { id: 'srilanka', name: t('navbar.countries.srilanka', 'Surf Camps Sri Lanka'), image: '/image.png', link: '/srilanka' },
+    { id: 'morocco', name: t('navbar.countries.morocco', 'Surf Camps Morocco'), image: '/morocco.jpg', link: '/morocco' }
   ]
 
   const surfCamps = {
@@ -33,321 +27,359 @@ const Navbar = () => {
         { name: t('navbar.camps.beachCamp', 'The Surfer Beach Camp'), link: '/beach-camp' },
         { name: t('navbar.camps.ts2Camp', 'The Surfer TS2 Camp'), link: '/ts2-camp' },
       ],
-      partner: [
-        { name: t('navbar.camps.waveCampComing', 'Coming Soon: The Wave Surf Camp'), link: '#' },
-      ],
+      partner: [{ name: t('navbar.camps.waveCampComing', 'Coming Soon: The Wave Surf Camp'), link: '#' }],
     },
     morocco: {
       originals: [],
-      partner: [
-        { name: t('navbar.camps.styleCamp', 'The Surfer SurfStyle'), link: '/style-camp' },
-      ]
+      partner: [{ name: t('navbar.camps.styleCamp', 'The Surfer SurfStyle'), link: '/style-camp' }]
     }
   }
 
-  const changeLanguage = (lng) => {
-    i18n.changeLanguage(lng);
-  };
+  const changeLanguage = (lng) => i18n.changeLanguage(lng)
 
+  // Scroll state
   useEffect(() => {
-    const handleScroll = () => {
-      const scrollTop = window.scrollY
-      setIsScrolled(scrollTop > 50)
-    }
-
+    const handleScroll = () => setIsScrolled(window.scrollY > 50)
     window.addEventListener('scroll', handleScroll)
     return () => window.removeEventListener('scroll', handleScroll)
   }, [])
 
+  // Update top offset based on real navbar height
+  useEffect(() => {
+    if (navRef.current) setNavHeight(navRef.current.offsetHeight)
+  }, [isScrolled])
+
+  // Close DESTINATION on outside click / Esc (desktop)
+  useEffect(() => {
+    if (!isDestinationOpen) return
+    const handleClickOutside = (e) => {
+      const btn = destBtnRef.current
+      const panel = destPanelRef.current
+      if (!btn || !panel) return
+      if (btn.contains(e.target) || panel.contains(e.target)) return
+      setIsDestinationOpen(false)
+    }
+    const handleEsc = (e) => { if (e.key === 'Escape') setIsDestinationOpen(false) }
+    document.addEventListener('mousedown', handleClickOutside)
+    document.addEventListener('keydown', handleEsc)
+    return () => {
+      document.removeEventListener('mousedown', handleClickOutside)
+      document.removeEventListener('keydown', handleEsc)
+    }
+  }, [isDestinationOpen])
+
+  // Animated (Level-Up) Hamburger
+  const HamburgerButton = () => (
+    <button
+      onClick={() => setIsMenuOpen(!isMenuOpen)}
+      aria-label="Toggle menu"
+      aria-expanded={isMenuOpen}
+      className={`
+        md:hidden relative h-10 w-10 rounded-xl
+        flex items-center justify-center
+        transition-colors duration-200
+        ${isScrolled ? 'text-gray-800 hover:text-cyan-600' : 'text-white hover:text-cyan-300'}
+        focus:outline-none focus-visible:ring-2 focus-visible:ring-cyan-400/70
+        active:scale-95
+      `}
+    >
+      {/* top */}
+      <span
+        className={`
+          absolute block h-[2px] w-6 rounded-full
+          ${isScrolled ? 'bg-gray-800' : 'bg-white'}
+          transition-transform duration-300 ease-out
+          motion-reduce:transition-none
+          ${isMenuOpen ? 'translate-y-0 rotate-45' : '-translate-y-2 rotate-0'}
+        `}
+      />
+      {/* middle */}
+      <span
+        className={`
+          absolute block h-[2px] w-6 rounded-full
+          ${isScrolled ? 'bg-gray-800' : 'bg-white'}
+          transition-opacity duration-200 ease-out
+          motion-reduce:transition-none
+          ${isMenuOpen ? 'opacity-0' : 'opacity-100'}
+        `}
+      />
+      {/* bottom */}
+      <span
+        className={`
+          absolute block h-[2px] w-6 rounded-full
+          ${isScrolled ? 'bg-gray-800' : 'bg-white'}
+          transition-transform duration-300 ease-out
+          motion-reduce:transition-none
+          ${isMenuOpen ? 'translate-y-0 -rotate-45' : 'translate-y-2 rotate-0'}
+        `}
+      />
+    </button>
+  )
+
   return (
-    <div className={`fixed top-0 left-0 w-full z-50 transition-all duration-300 ${isScrolled
-      ? 'bg-white/95 backdrop-blur-md shadow-lg border-b border-white/20'
-      : 'bg-transparent'
-      }`}>
+    <div
+      ref={navRef}
+      className={`fixed top-0 left-0 w-full z-50 transition-all duration-300 ${isScrolled ? 'bg-white/95 backdrop-blur-md shadow-lg border-b border-white/20' : 'bg-transparent'
+        }`}
+    >
       <div className='container mx-auto flex justify-between items-center py-3 sm:py-4 px-3 sm:px-6 md:px-8 lg:px-16'>
-        <a href='/'>
-          <img
-            src="logo.png"
-            alt="The Surfer Logo"
-            className={`h-8 sm:h-10 md:h-12 w-auto transition-all duration-300 ${isScrolled ? 'brightness-100' : 'brightness-100'
-              }`}
-          />
-        </a>
+        {/* Logo */}
+        <NavLink to='/'>
+          <img src='logo.png' alt='The Surfer Logo' className='h-8 sm:h-10 md:h-12 w-auto transition-all duration-300' />
+        </NavLink>
+
+        {/* Center nav (desktop) */}
         <ul className='hidden md:flex gap-4 lg:gap-7 text-sm lg:text-base relative'>
-          <a href="/" className={`cursor-pointer transition-all duration-300 hover:transform hover:-translate-y-1 ${location.pathname === '/'
-            ? 'text-cyan-500 font-bold underline underline-offset-4'
-            : isScrolled
-              ? 'text-gray-800 hover:text-cyan-600 hover:drop-shadow-[0_4px_8px_rgba(8,145,178,0.4)]'
-              : 'text-white hover:text-cyan-300 hover:drop-shadow-[0_4px_8px_rgba(34,211,238,0.4)]'
-            }`}>{t('navbar.home', 'HOME')}</a>
-          <div
-            className="relative"
-            onClick={() => setIsDestinationHovered(!isDestinationHovered)}
+          <NavLink
+            to='/'
+            className={({ isActive }) =>
+              `cursor-pointer transition-all duration-300 hover:-translate-y-1 ${isActive
+                ? 'text-cyan-500 font-bold underline underline-offset-4'
+                : isScrolled ? 'text-gray-800 hover:text-cyan-600' : 'text-white hover:text-cyan-300'
+              }`
+            }
           >
-            <p className={`cursor-pointer transition-all duration-300 hover:transform hover:-translate-y-1 ${isScrolled
-              ? 'text-gray-800 hover:text-cyan-600 hover:drop-shadow-[0_4px_8px_rgba(8,145,178,0.4)]'
-              : 'text-white hover:text-cyan-300 hover:drop-shadow-[0_4px_8px_rgba(34,211,238,0.4)]'
-              }`}>{t('navbar.destination', 'DESTINATION')}</p>
+            {t('navbar.home', 'HOME')}
+          </NavLink>
 
-            {isDestinationHovered && (
-              <div
-                className="absolute top-full left-0 right-0 h-4 bg-transparent z-40"
-                onClick={() => setIsDestinationHovered(!isDestinationHovered)}
-              />
-            )}
+          {/* DESTINATION (desktop click-to-open) */}
+          <button
+            ref={destBtnRef}
+            type='button'
+            onClick={() => setIsDestinationOpen(v => !v)}
+            aria-haspopup='true'
+            aria-expanded={isDestinationOpen}
+            className={`cursor-pointer transition-all duration-300 hover:-translate-y-1 ${isScrolled ? 'text-gray-800 hover:text-cyan-600' : 'text-white hover:text-cyan-300'
+              }`}
+          >
+            {t('navbar.destination', 'DESTINATION')}
+          </button>
 
-            {isDestinationHovered && (
-              <div
-                className={`fixed left-0 right-0 shadow-2xl border z-50 transition-all duration-300 w-screen ${isScrolled
-                  ? 'bg-white/95 backdrop-blur-xl border-gray-200'
-                  : 'bg-white/10 backdrop-blur-xl border-white/20'
-                  }`}
-                style={{ top: isScrolled ? '80px' : '76px' }}
-                onMouseEnter={() => setIsDestinationHovered(true)}
-                onMouseLeave={() => setIsDestinationHovered(false)}
-              >
-                <div className="flex h-96">
-                  <div className="w-1/3 p-6 border-r border-gray-200/20">
-                    <h3 className={`text-lg font-semibold mb-6 ${isScrolled ? 'text-gray-800' : 'text-white'
-                      }`}>{t('navbar.countriesTitle', 'COUNTRIES')}</h3>
+          {/* Other links */}
+          <NavLink to='/activities' className={({ isActive }) =>
+            `cursor-pointer transition-all duration-300 hover:-translate-y-1 ${isActive ? 'text-cyan-500 font-bold underline underline-offset-4'
+              : isScrolled ? 'text-gray-800 hover:text-cyan-600' : 'text-white hover:text-cyan-300'
+            }`}>{t('navbar.activities', 'ACTIVITIES')}</NavLink>
+          <NavLink to='/rates' className={({ isActive }) =>
+            `cursor-pointer transition-all duration-300 hover:-translate-y-1 ${isActive ? 'text-cyan-500 font-bold underline underline-offset-4'
+              : isScrolled ? 'text-gray-800 hover:text-cyan-600' : 'text-white hover:text-cyan-300'
+            }`}>{t('navbar.rates', 'RATES')}</NavLink>
+          <NavLink to='/faq' className={({ isActive }) =>
+            `cursor-pointer transition-all duration-300 hover:-translate-y-1 ${isActive ? 'text-cyan-500 font-bold underline underline-offset-4'
+              : isScrolled ? 'text-gray-800 hover:text-cyan-600' : 'text-white hover:text-cyan-300'
+            }`}>{t('navbar.faq', 'FAQ')}</NavLink>
+          <NavLink to='/blogs' className={({ isActive }) =>
+            `cursor-pointer transition-all duration-300 hover:-translate-y-1 ${isActive ? 'text-cyan-500 font-bold underline underline-offset-4'
+              : isScrolled ? 'text-gray-800 hover:text-cyan-600' : 'text-white hover:text-cyan-300'
+            }`}>{t('navbar.blogs', 'BLOGS')}</NavLink>
+          <NavLink to='/contact' className={({ isActive }) =>
+            `cursor-pointer transition-all duration-300 hover:-translate-y-1 ${isActive ? 'text-cyan-500 font-bold underline underline-offset-4'
+              : isScrolled ? 'text-gray-800 hover:text-cyan-600' : 'text-white hover:text-cyan-300'
+            }`}>{t('navbar.contact', 'CONTACT')}</NavLink>
+        </ul>
 
-                    <div className="space-y-2">
-                      {countries.map((country) => (
-                        <div
-                          key={country.id}
-                          className={`group cursor-pointer rounded-xl transition-all duration-300 hover:scale-[1.02] ${selectedCountry === country.id
-                            ? isScrolled
-                              ? 'bg-cyan-50 border border-cyan-200'
-                              : 'bg-white/20 border border-white/30'
-                            : isScrolled
-                              ? 'hover:bg-gray-50'
-                              : 'hover:bg-white/10'
-                            }`}
-                          onMouseEnter={() => setSelectedCountry(country.id)}
-                        >
-                          <a href={country.link} className="text-sm font-medium transition-colors hover:text-cyan-500">
-                            <div className="flex items-center p-3 gap-3">
+        {/* Desktop: language + book now */}
+        <div className='hidden md:flex items-center gap-3'>
+          <a
+            href='https://main.d7z80586kqd0r.amplifyapp.com/'
+            target='_blank'
+            rel='noreferrer'
+            className={`px-4 lg:px-8 py-2 text-sm lg:text-base rounded-full border transition-all duration-300 hover:scale-105 hover:shadow-lg transform ${isScrolled ? 'border-gray-800 text-gray-800 hover:bg-gray-800 hover:text-white'
+                : 'border-white text-white hover:bg-white hover:text-gray-800'
+              }`}
+          >
+            {t('navbar.bookNow', 'BOOK NOW')}
+          </a>
 
-                              <img
-                                src={country.image}
-                                alt={country.name}
-                                className="w-12 h-12 rounded-lg object-cover"
-                              />
-                              <div className="flex-1 flex items-center justify-between">
+          <select
+            onChange={(e) => changeLanguage(e.target.value)}
+            value={i18n.language}
+            className={`w-28 h-9 px-2 bg-transparent appearance-none outline-none border-0 rounded-none cursor-pointer transition-colors
+              ${isScrolled ? 'text-gray-800 hover:text-cyan-600' : 'text-white hover:text-cyan-300'}
+              [&>option]:text-black [&>option]:bg-white`}
+            aria-label='Select language'
+          >
+            <option value='en'>English 🇬🇧</option>
+            <option value='de'>Deutsch 🇩🇪</option>
+          </select>
+        </div>
 
-                                <h4 className={`text-sm font-medium transition-colors ${selectedCountry === country.id
-                                  ? isScrolled
-                                    ? 'text-cyan-700'
-                                    : 'text-cyan-300'
-                                  : isScrolled
-                                    ? 'text-gray-800 group-hover:text-cyan-600'
-                                    : 'text-white group-hover:text-cyan-300'
-                                  }`}>
-                                  {country.name}
-                                </h4>
-                                <span className={`text-lg transition-colors ${selectedCountry === country.id
-                                  ? isScrolled
-                                    ? 'text-cyan-600'
-                                    : 'text-cyan-300'
-                                  : isScrolled
-                                    ? 'text-gray-400 group-hover:text-cyan-600'
-                                    : 'text-white/60 group-hover:text-cyan-300'
-                                  }`}>
-                                  →
-                                </span>
+        {/* Mobile animated hamburger */}
+        <HamburgerButton />
+      </div>
 
-                              </div>
+      {/* ===== DESKTOP DESTINATION PANEL (fixed full-width) ===== */}
+      {isDestinationOpen && (
+        <div
+          ref={destPanelRef}
+          className={`hidden md:block fixed left-0 right-0 z-50 transition-all duration-300 ${isScrolled ? 'bg-white/95 backdrop-blur-xl border-t border-gray-200'
+              : 'bg-white/10 backdrop-blur-xl border-t border-white/20'
+            }`}
+          style={{ top: `${navHeight}px` }}
+        >
+          {/* tiny spacer helps avoid accidental hover gaps */}
+          <div className='h-1 w-full pointer-events-none' />
 
-                            </div>
-                          </a>
-                        </div>
-                      ))}
-                    </div>
-                  </div>
+          <div className='flex h-96 shadow-2xl'>
+            {/* Countries */}
+            <div className='w-1/3 p-6 border-r border-gray-200/20'>
+              <h3 className={`text-lg font-semibold mb-6 ${isScrolled ? 'text-gray-800' : 'text-white'}`}>
+                {t('navbar.countriesTitle', 'COUNTRIES')}
+              </h3>
 
-                  <div className="w-2/3 relative overflow-hidden">
-                    <div
-                      className="absolute inset-0 bg-cover bg-center bg-no-repeat opacity-20"
-                      style={{ backgroundImage: "url('/I9.JPG')" }}
-                    ></div>
-
-                    <div className="relative z-10 p-6">
-                      {surfCamps[selectedCountry]?.originals.length > 0 && (
-                        <>
-                          <div className="flex items-center justify-between mb-6">
-                            <div className="flex items-center gap-2">
-                              <div className="w-6 h-6 bg-yellow-400 rounded-full flex items-center justify-center">
-                                <span className="text-xs font-bold text-black">★</span>
-                              </div>
-                              <h4 className={`text-sm font-semibold ${isScrolled ? 'text-gray-800' : 'text-white'
-                                }`}>{t('navbar.originalsTitle', 'THE SURFER ORIGINAL CAMPS')}</h4>
-                            </div>
-                          </div>
-
-                          <div className="space-y-3 mb-6">
-                            {surfCamps[selectedCountry]?.originals.map((camp, index) => (
-                              <p key={index} className={`text-sm cursor-pointer transition-colors hover:text-cyan-500 ${isScrolled ? 'text-gray-600' : 'text-white/80'
-                                }`}>
-                                <a href={camp.link}>
-                                  {camp.name}
-                                </a>
-                              </p>
-                            ))}
-                          </div>
-                        </>
-                      )}
-
-                      <div className={`${surfCamps[selectedCountry]?.originals.length > 0 ? 'border-t pt-4' : ''} ${isScrolled ? 'border-gray-200' : 'border-white/20'
-                        }`}>
-                        <h4 className={`text-sm font-semibold mb-3 ${isScrolled ? 'text-gray-800' : 'text-white'
-                          }`}>{t('navbar.partnersTitle', 'THE SURFER PARTNERED CAMP')}</h4>
-
-                        <div className="space-y-2">
-                          {surfCamps[selectedCountry]?.partner.map((camp, index) => (
-                            <p key={index} className={`text-sm cursor-pointer transition-colors hover:text-cyan-500 ${isScrolled ? 'text-gray-600' : 'text-white/80'
-                              }`}>
-                              <a href={camp.link}>
-                                {camp.name}
-                              </a>
-                            </p>
-                          ))}
+              <div className='space-y-2'>
+                {countries.map((country) => (
+                  <div
+                    key={country.id}
+                    className={`group cursor-pointer rounded-xl transition-all duration-300 hover:scale-[1.02] ${selectedCountry === country.id
+                        ? isScrolled ? 'bg-cyan-50 border border-cyan-200' : 'bg-white/20 border border-white/30'
+                        : isScrolled ? 'hover:bg-gray-50 border border-transparent' : 'hover:bg-white/10 border border-transparent'
+                      }`}
+                    onMouseEnter={() => setSelectedCountry(country.id)}
+                  >
+                    <NavLink
+                      to={country.link}
+                      className='text-sm font-medium transition-colors hover:text-cyan-500 block'
+                      onClick={() => setIsDestinationOpen(false)}
+                    >
+                      <div className='flex items-center p-3 gap-3'>
+                        <img src={country.image} alt={country.name} className='w-12 h-12 rounded-lg object-cover' />
+                        <div className='flex-1 flex items-center justify-between'>
+                          <h4 className={`text-sm font-medium transition-colors ${selectedCountry === country.id
+                              ? isScrolled ? 'text-cyan-700' : 'text-cyan-300'
+                              : isScrolled ? 'text-gray-800 group-hover:text-cyan-600' : 'text-white group-hover:text-cyan-300'
+                            }`}>{country.name}</h4>
+                          <span className={`text-lg transition-colors ${selectedCountry === country.id
+                              ? isScrolled ? 'text-cyan-600' : 'text-cyan-300'
+                              : isScrolled ? 'text-gray-400 group-hover:text-cyan-600' : 'text-white/60 group-hover:text-cyan-300'
+                            }`}>→</span>
                         </div>
                       </div>
+                    </NavLink>
+                  </div>
+                ))}
+              </div>
+            </div>
+
+            {/* Camps */}
+            <div className='w-2/3 relative overflow-hidden'>
+              <div className='absolute inset-0 bg-cover bg-center bg-no-repeat opacity-20' style={{ backgroundImage: "url('/I9.JPG')" }} />
+              <div className='relative z-10 p-6'>
+                {surfCamps[selectedCountry]?.originals.length > 0 && (
+                  <>
+                    <div className='flex items-center justify-between mb-6'>
+                      <div className='flex items-center gap-2'>
+                        <div className='w-6 h-6 bg-yellow-400 rounded-full flex items-center justify-center'>
+                          <span className='text-xs font-bold text-black'>★</span>
+                        </div>
+                        <h4 className={`text-sm font-semibold ${isScrolled ? 'text-gray-800' : 'text-white'}`}>
+                          {t('navbar.originalsTitle', 'THE SURFER ORIGINAL CAMPS')}
+                        </h4>
+                      </div>
                     </div>
+
+                    <div className='space-y-3 mb-6'>
+                      {surfCamps[selectedCountry]?.originals.map((camp, index) => (
+                        <NavLink
+                          key={index}
+                          to={camp.link}
+                          className={`block text-sm transition-colors hover:text-cyan-500 ${isScrolled ? 'text-gray-600' : 'text-white/80'}`}
+                          onClick={() => setIsDestinationOpen(false)}
+                        >
+                          {camp.name}
+                        </NavLink>
+                      ))}
+                    </div>
+                  </>
+                )}
+
+                <div className={`${surfCamps[selectedCountry]?.originals.length > 0 ? 'border-t pt-4' : ''} ${isScrolled ? 'border-gray-200' : 'border-white/20'}`}>
+                  <h4 className={`text-sm font-semibold mb-3 ${isScrolled ? 'text-gray-800' : 'text-white'}`}>
+                    {t('navbar.partnersTitle', 'THE SURFER PARTNERED CAMP')}
+                  </h4>
+
+                  <div className='space-y-2'>
+                    {surfCamps[selectedCountry]?.partner.map((camp, index) => (
+                      <NavLink
+                        key={index}
+                        to={camp.link}
+                        className={`block text-sm transition-colors hover:text-cyan-500 ${isScrolled ? 'text-gray-600' : 'text-white/80'}`}
+                        onClick={() => setIsDestinationOpen(false)}
+                      >
+                        {camp.name}
+                      </NavLink>
+                    ))}
                   </div>
                 </div>
               </div>
-            )}
+            </div>
           </div>
-
-          <a href="/activities" className={`cursor-pointer transition-all duration-300 hover:transform hover:-translate-y-1 ${location.pathname === '/activities'
-            ? 'text-cyan-500 font-bold underline underline-offset-4'
-            : isScrolled
-              ? 'text-gray-800 hover:text-cyan-600 hover:drop-shadow-[0_4px_8px_rgba(8,145,178,0.4)]'
-              : 'text-white hover:text-cyan-300 hover:drop-shadow-[0_4px_8px_rgba(34,211,238,0.4)]'
-            }`}>{t('navbar.activities', 'ACTIVITIES')}</a>
-          <a href="/rates" className={`cursor-pointer transition-all duration-300 hover:transform hover:-translate-y-1 ${location.pathname === '/rates'
-            ? 'text-cyan-500 font-bold underline underline-offset-4'
-            : isScrolled
-              ? 'text-gray-800 hover:text-cyan-600 hover:drop-shadow-[0_4px_8px_rgba(8,145,178,0.4)]'
-              : 'text-white hover:text-cyan-300 hover:drop-shadow-[0_4px_8px_rgba(34,211,238,0.4)]'
-            }`}>{t('navbar.rates', 'RATES')}</a>
-          <a href="/faq" className={`cursor-pointer transition-all duration-300 hover:transform hover:-translate-y-1 ${location.pathname === '/faq'
-            ? 'text-cyan-500 font-bold underline underline-offset-4'
-            : isScrolled
-              ? 'text-gray-800 hover:text-cyan-600 hover:drop-shadow-[0_4px_8px_rgba(8,145,178,0.4)]'
-              : 'text-white hover:text-cyan-300 hover:drop-shadow-[0_4px_8px_rgba(34,211,238,0.4)]'
-            }`}>{t('navbar.faq', 'FAQ')}</a>
-          <a href="/blogs" className={`cursor-pointer transition-all duration-300 hover:transform hover:-translate-y-1 ${location.pathname === '/blogs'
-            ? 'text-cyan-500 font-bold underline underline-offset-4'
-            : isScrolled
-              ? 'text-gray-800 hover:text-cyan-600 hover:drop-shadow-[0_4px_8px_rgba(8,145,178,0.4)]'
-              : 'text-white hover:text-cyan-300 hover:drop-shadow-[0_4px_8px_rgba(34,211,238,0.4)]'
-            }`}>{t('navbar.blogs', 'BLOGS')}</a>
-          <a href="/contact" className={`cursor-pointer transition-all duration-300 hover:transform hover:-translate-y-1 ${location.pathname === '/contact'
-            ? 'text-cyan-500 font-bold underline underline-offset-4'
-            : isScrolled
-              ? 'text-gray-800 hover:text-cyan-600 hover:drop-shadow-[0_4px_8px_rgba(8,145,178,0.4)]'
-              : 'text-white hover:text-cyan-300 hover:drop-shadow-[0_4px_8px_rgba(34,211,238,0.4)]'
-            }`}>{t('navbar.contact', 'CONTACT')}</a>
-        </ul>
-        
-        <button
-          className={`md:hidden text-2xl transition-all duration-300 ${isMenuOpen ? 'rotate-90' : 'rotate-0'
-            } ${isScrolled
-              ? 'text-gray-800 hover:text-cyan-600'
-              : 'text-white hover:text-cyan-300'
-            }`}
-          onClick={() => setIsMenuOpen(!isMenuOpen)}
-        >
-          ☰
-        </button>
-
-        <a href='https://main.d7z80586kqd0r.amplifyapp.com/' target='_blank'
-          className={`hidden md:block px-4 lg:px-8 py-2 text-sm lg:text-base rounded-full border transition-all duration-300 hover:scale-105 hover:shadow-lg transform ${isScrolled
-            ? 'border-gray-800 text-gray-800 hover:bg-gray-800 hover:text-white'
-            : 'border-white text-white hover:bg-white hover:text-gray-800'
-            }`}>
-          {t('navbar.bookNow', 'BOOK NOW')}
-        </a>
-
-        <div className={`hidden md:block`}>
-          <select onChange={(e) => changeLanguage(e.target.value)} value={i18n.language}>
-            <option value="en">English en</option>
-            <option value="de">Deutsch de</option>
-          </select>
         </div>
-      </div>
+      )}
 
-      {/* Mobile Menu with Animation */}
+      {/* ===== MOBILE MENU ===== */}
       <div className={`md:hidden transition-all duration-500 ease-in-out overflow-hidden ${isMenuOpen ? 'max-h-[80vh] opacity-100' : 'max-h-0 opacity-0'}`}>
-        <div className={`w-72 mx-auto rounded-3xl mt-0 transform transition-all duration-500 ease-in-out ${isScrolled
-          ? 'bg-white/95 backdrop-blur-xl border border-gray-200 shadow-2xl'
-          : 'bg-white/10 backdrop-blur-xl border border-white/20 shadow-2xl'
+        <div className={`w-72 mx-auto rounded-3xl mt-0 transform transition-all duration-500 ease-in-out ${isScrolled ? 'bg-white/95 backdrop-blur-xl border border-gray-200 shadow-2xl'
+            : 'bg-white/10 backdrop-blur-xl border border-white/20 shadow-2xl'
           }`}>
           <div className='px-4 py-8 max-h-[75vh] overflow-y-auto'>
             <ul className='flex flex-col gap-4 text-center'>
-              <a
-                href="/"
-                className={`py-3 px-4 cursor-pointer transition-all duration-300 hover:transform hover:-translate-y-1 rounded-xl text-sm font-medium ${isScrolled
-                  ? 'text-gray-800 hover:text-cyan-600 hover:drop-shadow-[0_4px_8px_rgba(8,145,178,0.4)] hover:bg-gray-100'
-                  : 'text-white hover:text-cyan-300 hover:drop-shadow-[0_4px_8px_rgba(34,211,238,0.4)] hover:bg-white/20'
-                  }${location.pathname === '/' ? ' text-cyan-500 font-bold underline underline-offset-4' : ''}`}
+              <NavLink
+                to='/'
+                className={`py-3 px-4 rounded-xl text-sm font-medium transition-all duration-300 ${isScrolled ? 'text-gray-800 hover:text-cyan-600 hover:bg-gray-100'
+                    : 'text-white hover:text-cyan-300 hover:bg-white/20'
+                  } ${location.pathname === '/' ? ' text-cyan-500 font-bold underline underline-offset-4' : ''}`}
                 onClick={() => setIsMenuOpen(false)}
               >
                 {t('navbar.home', 'HOME')}
-              </a>
+              </NavLink>
 
+              {/* Destination (mobile accordion) */}
               <div className='w-full'>
                 <button
-                  className={`w-full py-3 px-4 cursor-pointer transition-all duration-300 hover:transform hover:-translate-y-1 rounded-xl text-sm font-medium ${isScrolled
-                    ? 'text-gray-800 hover:text-cyan-600 hover:drop-shadow-[0_4px_8px_rgba(8,145,178,0.4)] hover:bg-gray-100'
-                    : 'text-white hover:text-cyan-300 hover:drop-shadow-[0_4px_8px_rgba(34,211,238,0.4)] hover:bg-white/20'
+                  className={`w-full py-3 px-4 rounded-xl text-sm font-medium transition-all duration-300 ${isScrolled ? 'text-gray-800 hover:text-cyan-600 hover:bg-gray-100'
+                      : 'text-white hover:text-cyan-300 hover:bg-white/20'
                     }`}
-                  onClick={() => setIsMobileDestinationOpen(!isMobileDestinationOpen)}
+                  onClick={() => setIsMobileDestinationOpen(v => !v)}
                 >
                   {t('navbar.destination', 'DESTINATION')}
                 </button>
 
                 {isMobileDestinationOpen && (
-                  <div className="ml-4 mt-2 space-y-2">
+                  <div className='ml-4 mt-2 space-y-2 text-left'>
                     {countries.map((country) => (
                       <div key={country.id}>
-                        <a
-                          href={country.link}
-                          className={`block px-3 py-2 text-sm rounded-lg transition-all ${isScrolled
-                            ? 'text-gray-700 hover:bg-gray-100'
-                            : 'text-white hover:bg-white/20'
+                        <NavLink
+                          to={country.link}
+                          className={`block px-3 py-2 text-sm rounded-lg transition-all ${isScrolled ? 'text-gray-700 hover:bg-gray-100' : 'text-white hover:bg-white/20'
                             } hover:text-blue-500`}
+                          onClick={() => setIsMenuOpen(false)}
                         >
                           {country.name}
-                        </a>
+                        </NavLink>
 
-                        {/* Optional: show surf camps if desired */}
                         {surfCamps[country.id]?.originals.map((camp, idx) => (
-                          <a
+                          <NavLink
                             key={idx}
-                            href={camp.link}
-                            className={`block ml-4 px-3 py-1 text-xs rounded-lg transition-all ${isScrolled
-                              ? 'text-gray-500 hover:bg-gray-100'
-                              : 'text-white/70 hover:bg-white/10'
+                            to={camp.link}
+                            className={`block ml-4 px-3 py-1 text-xs rounded-lg transition-all ${isScrolled ? 'text-gray-500 hover:bg-gray-100' : 'text-white/70 hover:bg-white/10'
                               } hover:text-blue-500`}
+                            onClick={() => setIsMenuOpen(false)}
                           >
                             - {camp.name}
-                          </a>
+                          </NavLink>
                         ))}
 
                         {surfCamps[country.id]?.partner.map((camp, idx) => (
-                          <a
+                          <NavLink
                             key={idx}
-                            href={camp.link}
-                            className={`block ml-4 px-3 py-1 text-xs rounded-lg transition-all ${isScrolled
-                              ? 'text-gray-500 hover:bg-gray-100'
-                              : 'text-white/70 hover:bg-white/10'
+                            to={camp.link}
+                            className={`block ml-4 px-3 py-1 text-xs rounded-lg transition-all ${isScrolled ? 'text-gray-500 hover:bg-gray-100' : 'text-white/70 hover:bg-white/10'
                               } hover:text-blue-500`}
+                            onClick={() => setIsMenuOpen(false)}
                           >
                             - {camp.name}
-                          </a>
+                          </NavLink>
                         ))}
                       </div>
                     ))}
@@ -355,65 +387,58 @@ const Navbar = () => {
                 )}
               </div>
 
-              <a
-                href="/activities"
-                className={`py-3 px-4 cursor-pointer transition-all duration-300 hover:transform hover:-translate-y-1 rounded-xl text-sm font-medium ${isScrolled
-                  ? 'text-gray-800 hover:text-cyan-600 hover:drop-shadow-[0_4px_8px_rgba(8,145,178,0.4)] hover:bg-gray-100'
-                  : 'text-white hover:text-cyan-300 hover:drop-shadow-[0_4px_8px_rgba(34,211,238,0.4)] hover:bg-white/20'
-                  }${location.pathname === '/activities' ? ' text-cyan-500 font-bold underline underline-offset-4' : ''}`}
-                onClick={() => setIsMenuOpen(false)}
-              >
+              <NavLink to='/activities' className={`py-3 px-4 rounded-xl text-sm font-medium transition-all duration-300 ${isScrolled ? 'text-gray-800 hover:text-cyan-600 hover:bg-gray-100'
+                  : 'text-white hover:text-cyan-300 hover:bg-white/20'
+                } ${location.pathname === '/activities' ? ' text-cyan-500 font-bold underline underline-offset-4' : ''}`} onClick={() => setIsMenuOpen(false)}>
                 {t('navbar.activities', 'ACTIVITIES')}
-              </a>
+              </NavLink>
 
-              <a
-                href="/rates"
-                className={`py-3 px-4 cursor-pointer transition-all duration-300 hover:transform hover:-translate-y-1 rounded-xl text-sm font-medium ${isScrolled
-                  ? 'text-gray-800 hover:text-cyan-600 hover:drop-shadow-[0_4px_8px_rgba(8,145,178,0.4)] hover:bg-gray-100'
-                  : 'text-white hover:text-cyan-300 hover:drop-shadow-[0_4px_8px_rgba(34,211,238,0.4)] hover:bg-white/20'
-                  }${location.pathname === '/rates' ? ' text-cyan-500 font-bold underline underline-offset-4' : ''}`}
-                onClick={() => setIsMenuOpen(false)}
-              >
+              <NavLink to='/rates' className={`py-3 px-4 rounded-xl text-sm font-medium transition-all duration-300 ${isScrolled ? 'text-gray-800 hover:text-cyan-600 hover:bg-gray-100'
+                  : 'text-white hover:text-cyan-300 hover:bg-white/20'
+                } ${location.pathname === '/rates' ? ' text-cyan-500 font-bold underline underline-offset-4' : ''}`} onClick={() => setIsMenuOpen(false)}>
                 {t('navbar.rates', 'RATES')}
-              </a>
+              </NavLink>
 
-              <a
-                href="/faq"
-                className={`py-3 px-4 cursor-pointer transition-all duration-300 hover:transform hover:-translate-y-1 rounded-xl text-sm font-medium ${isScrolled
-                  ? 'text-gray-800 hover:text-cyan-600 hover:drop-shadow-[0_4px_8px_rgba(8,145,178,0.4)] hover:bg-gray-100'
-                  : 'text-white hover:text-cyan-300 hover:drop-shadow-[0_4px_8px_rgba(34,211,238,0.4)] hover:bg-white/20'
-                  }`}
-                onClick={() => setIsMenuOpen(false)}
-              >
+              <NavLink to='/faq' className={`py-3 px-4 rounded-xl text-sm font-medium transition-all duration-300 ${isScrolled ? 'text-gray-800 hover:text-cyan-600 hover:bg-gray-100'
+                  : 'text-white hover:text-cyan-300 hover:bg-white/20'
+                }`} onClick={() => setIsMenuOpen(false)}>
                 {t('navbar.faq', 'FAQ')}
-              </a>
+              </NavLink>
 
-              <a
-                href="/blogs"
-                className={`py-3 px-4 cursor-pointer transition-all duration-300 hover:transform hover:-translate-y-1 rounded-xl text-sm font-medium ${isScrolled
-                  ? 'text-gray-800 hover:text-cyan-600 hover:drop-shadow-[0_4px_8px_rgba(8,145,178,0.4)] hover:bg-gray-100'
-                  : 'text-white hover:text-cyan-300 hover:drop-shadow-[0_4px_8px_rgba(34,211,238,0.4)] hover:bg-white/20'
-                  }`}
-                onClick={() => setIsMenuOpen(false)}
-              >
+              <NavLink to='/blogs' className={`py-3 px-4 rounded-xl text-sm font-medium transition-all duration-300 ${isScrolled ? 'text-gray-800 hover:text-cyan-600 hover:bg-gray-100'
+                  : 'text-white hover:text-cyan-300 hover:bg-white/20'
+                }`} onClick={() => setIsMenuOpen(false)}>
                 {t('navbar.blogs', 'BLOGS')}
-              </a>
+              </NavLink>
 
-              <a
-                href="/contact"
-                className={`py-3 px-4 cursor-pointer transition-all duration-300 hover:transform hover:-translate-y-1 rounded-xl text-sm font-medium ${isScrolled
-                  ? 'text-gray-800 hover:text-cyan-600 hover:drop-shadow-[0_4px_8px_rgba(8,145,178,0.4)] hover:bg-gray-100'
-                  : 'text-white hover:text-cyan-300 hover:drop-shadow-[0_4px_8px_rgba(34,211,238,0.4)] hover:bg-white/20'
-                  }`}
-                onClick={() => setIsMenuOpen(false)}
-              >
+              <NavLink to='/contact' className={`py-3 px-4 rounded-xl text-sm font-medium transition-all duration-300 ${isScrolled ? 'text-gray-800 hover:text-cyan-600 hover:bg-gray-100'
+                  : 'text-white hover:text-cyan-300 hover:bg-white/20'
+                }`} onClick={() => setIsMenuOpen(false)}>
                 {t('navbar.contact', 'CONTACT')}
-              </a>
+              </NavLink>
 
-              <a href='https://main.d7z80586kqd0r.amplifyapp.com/' target='_blank'
-                className={`mt-2 mx-auto w-full max-w-xs px-4 sm:px-6 py-2 sm:py-3 rounded-full border transition-all duration-300 hover:scale-105 hover:shadow-lg transform text-xs sm:text-sm font-semibold text-center block ${isScrolled
-                  ? 'border-gray-800 text-gray-800 hover:bg-gray-800 hover:text-white'
-                  : 'border-white/50 text-white hover:bg-white hover:text-gray-800'
+              {/* Translation (mobile) above Book Now */}
+              <div className='mt-2'>
+                <select
+                  onChange={(e) => changeLanguage(e.target.value)}
+                  value={i18n.language}
+                  style={{ colorScheme: 'light' }}
+                  className={`w-full px-3 py-2 rounded-lg text-sm cursor-pointer bg-white text-gray-900 border ${isScrolled ? 'border-gray-300' : 'border-white/60'
+                    } [&>option]:text-black [&>option]:bg-white`}
+                  aria-label='Select language'
+                >
+                  <option value='en'>English 🇬🇧</option>
+                  <option value='de'>Deutsch 🇩🇪</option>
+                </select>
+              </div>
+
+              {/* Book Now */}
+              <a
+                href='https://main.d7z80586kqd0r.amplifyapp.com/'
+                target='_blank'
+                rel='noreferrer'
+                className={`mt-2 mx-auto w-full max-w-xs px-4 sm:px-6 py-2 sm:py-3 rounded-full border transition-all duration-300 hover:scale-105 hover:shadow-lg transform text-xs sm:text-sm font-semibold text-center block ${isScrolled ? 'border-gray-800 text-gray-800 hover:bg-gray-800 hover:text-white'
+                    : 'border-white/50 text-white hover:bg-white hover:text-gray-800'
                   }`}
                 onClick={() => setIsMenuOpen(false)}
               >
@@ -424,9 +449,10 @@ const Navbar = () => {
         </div>
       </div>
 
-      {!isMenuOpen && !isScrolled && !isDestinationHovered && (
+      {/* Bottom hairline when transparent */}
+      {!isMenuOpen && !isScrolled && (
         <div className='container mx-auto px-3 sm:px-6 md:px-8 lg:px-16'>
-          <div className='w-full h-0.5 bg-white/80'></div>
+          <div className='w-full h-0.5 bg-white/80' />
         </div>
       )}
     </div>
