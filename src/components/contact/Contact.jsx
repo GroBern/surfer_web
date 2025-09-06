@@ -30,8 +30,16 @@ const IconCircle = ({ kind, aria }) => {
 
 const Contact = () => {
   const { t } = useTranslation();
-  const cards = t('contact.cards', { returnObjects: true });
-  const aria = t('contact.aria', { returnObjects: true });
+  const cards = t('contact.cards', { returnObjects: true }) || [];
+  const aria = t('contact.aria', { returnObjects: true }) || {};
+
+  // Skip any “empty” card coming from JSON (e.g., removed/coming soon)
+  const visibleCards = cards.filter((c) => {
+    const hasTitle = String(c?.title ?? '').trim().length > 0;
+    const hasLines = Array.isArray(c?.lines) && c.lines.some((l) => String(l ?? '').trim().length > 0);
+    const hasMailto = String(c?.mailto ?? '').trim().length > 0;
+    return hasTitle && (hasLines || hasMailto);
+  });
 
   return (
     <motion.div
@@ -41,14 +49,15 @@ const Contact = () => {
       transition={{ duration: 0.6, ease: "easeOut" }}
       viewport={{ once: true, amount: 0.3 }}
     >
+      {/* Use auto-fit grid so 4 cards center nicely; also center items */}
       <motion.div
-        className="grid grid-cols-1 md:grid-cols-5 gap-2 md:gap-8"
+        className="grid gap-3 md:gap-8 justify-items-center [grid-template-columns:repeat(auto-fit,minmax(220px,1fr))]"
         initial={{ opacity: 0 }}
         whileInView={{ opacity: 1 }}
         transition={{ duration: 0.4, delay: 0.2, ease: "easeOut" }}
         viewport={{ once: true, amount: 0.3 }}
       >
-        {cards.map((card, idx) => {
+        {visibleCards.map((card, idx) => {
           const titleLines = String(card.title || '').split('\n');
           const isEmail = card.icon === 'email';
           const email = card.mailto || (isEmail ? card.lines?.[0] : null);
@@ -56,7 +65,7 @@ const Contact = () => {
           return (
             <motion.div
               key={idx}
-              className="bg-white shadow-lg p-6 text-center hover:shadow-xl hover:transform hover:-translate-y-2 transition-all duration-300"
+              className="bg-white shadow-lg p-6 text-center hover:shadow-xl hover:transform hover:-translate-y-2 transition-all duration-300 rounded-xl w-full flex flex-col items-center min-h-[240px]"
               initial={{ opacity: 0, y: 50, scale: 0.9 }}
               whileInView={{ opacity: 1, y: 0, scale: 1 }}
               whileHover={{ y: -8, scale: 1.03 }}
@@ -64,7 +73,7 @@ const Contact = () => {
               viewport={{ once: true, amount: 0.3 }}
             >
               <motion.h3
-                className={`text-lg font-bold text-black ${isEmail ? 'mb-6' : 'mb-6'}`}
+                className="text-lg font-bold text-black mb-6"
                 initial={{ opacity: 0, y: 20 }}
                 whileInView={{ opacity: 1, y: 0 }}
                 transition={{ duration: 0.4, delay: 0.3, ease: "easeOut" }}
@@ -77,28 +86,33 @@ const Contact = () => {
                 ))}
               </motion.h3>
 
+              {/* Content area */}
               <motion.div
-                className={`text-sm text-black font-semibold leading-relaxed ${isEmail ? 'mb-20' : 'mb-6'}`}
+                className="text-sm text-black font-semibold leading-relaxed mb-6 w-full"
                 initial={{ opacity: 0, y: 15 }}
                 whileInView={{ opacity: 1, y: 0 }}
                 transition={{ duration: 0.3, delay: 0.4, ease: "easeOut" }}
                 viewport={{ once: true, amount: 0.5 }}
               >
-                {card.lines?.map((line, li) =>
+                {Array.isArray(card.lines) && card.lines.map((line, li) =>
                   isEmail && li === 0 ? (
-                    <p key={li}>
-                      <a href={`mailto:${email}`} className="underline hover:no-underline">
+                    <p key={li} className="w-full">
+                      <a
+                        href={`mailto:${email}`}
+                        className="block underline hover:no-underline text-center break-all"
+                      >
                         {line}
                       </a>
                     </p>
                   ) : (
-                    <p key={li}>{line}</p>
+                    <p key={li} className="text-center break-words">{line}</p>
                   )
                 )}
               </motion.div>
 
+              {/* Icon pinned at the bottom via flex layout */}
               <motion.div
-                className="flex justify-center"
+                className="mt-auto flex justify-center"
                 initial={{ opacity: 0, scale: 0.5 }}
                 whileInView={{ opacity: 1, scale: 1 }}
                 transition={{ duration: 0.4, delay: 0.5, ease: "backOut" }}
