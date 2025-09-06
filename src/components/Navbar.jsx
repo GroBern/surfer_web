@@ -31,16 +31,14 @@ const Navbar = () => {
     },
   ];
 
-  // ✅ Wave Surf Camp removed (partners for Sri Lanka now empty)
+  // Sri Lanka partners now empty (Wave Surf Camp removed)
   const surfCamps = {
     srilanka: {
       originals: [
         { name: t('navbar.camps.beachCamp', 'The Surfer Beach Camp'), link: '/beach-camp' },
         { name: t('navbar.camps.ts2Camp', 'The Surfer TS2 Camp'), link: '/ts2-camp' },
       ],
-      partner: [
-        // { name: t('navbar.camps.waveCampComing', 'Coming Soon: The Wave Surf Camp'), link: '#' },
-      ],
+      partner: [],
     },
     morocco: {
       originals: [],
@@ -57,12 +55,12 @@ const Navbar = () => {
     return () => window.removeEventListener('scroll', handleScroll);
   }, []);
 
-  // Update top offset based on real navbar height
+  // For desktop dropdown offset
   useEffect(() => {
     if (navRef.current) setNavHeight(navRef.current.offsetHeight);
   }, [isScrolled]);
 
-  // Close DESTINATION on outside click / Esc (desktop)
+  // Close desktop DESTINATION on outside click / Esc
   useEffect(() => {
     if (!isDestinationOpen) return;
     const handleClickOutside = (e) => {
@@ -83,53 +81,45 @@ const Navbar = () => {
     };
   }, [isDestinationOpen]);
 
-  // 🔝 Always start new route at top
+  // Always start new route at top
   useEffect(() => {
     window.scrollTo({ top: 0, left: 0, behavior: 'auto' });
   }, [location.pathname, location.search]);
 
-  // Animated (Level-Up) Hamburger
+  // Animated Hamburger
   const HamburgerButton = () => (
     <button
       onClick={() => setIsMenuOpen(!isMenuOpen)}
       aria-label="Toggle menu"
       aria-expanded={isMenuOpen}
       className={`
-        md:hidden relative h-10 w-10 rounded-xl
-        flex items-center justify-center
+        md:hidden relative h-10 w-10 rounded-xl flex items-center justify-center
         transition-colors duration-200
         ${isScrolled ? 'text-gray-800 hover:text-cyan-600' : 'text-white hover:text-cyan-300'}
-        focus:outline-none focus-visible:ring-2 focus-visible:ring-cyan-400/70
-        active:scale-95
+        focus:outline-none focus-visible:ring-2 focus-visible:ring-cyan-400/70 active:scale-95
       `}
     >
-      {/* top */}
       <span
         className={`
           absolute block h-[2px] w-6 rounded-full
           ${isScrolled ? 'bg-gray-800' : 'bg-white'}
           transition-transform duration-300 ease-out
-          motion-reduce:transition-none
           ${isMenuOpen ? 'translate-y-0 rotate-45' : '-translate-y-2 rotate-0'}
         `}
       />
-      {/* middle */}
       <span
         className={`
           absolute block h-[2px] w-6 rounded-full
           ${isScrolled ? 'bg-gray-800' : 'bg-white'}
           transition-opacity duration-200 ease-out
-          motion-reduce:transition-none
           ${isMenuOpen ? 'opacity-0' : 'opacity-100'}
         `}
       />
-      {/* bottom */}
       <span
         className={`
           absolute block h-[2px] w-6 rounded-full
           ${isScrolled ? 'bg-gray-800' : 'bg-white'}
           transition-transform duration-300 ease-out
-          motion-reduce:transition-none
           ${isMenuOpen ? 'translate-y-0 -rotate-45' : 'translate-y-2 rotate-0'}
         `}
       />
@@ -178,7 +168,6 @@ const Navbar = () => {
             {t('navbar.destination', 'DESTINATION')}
           </button>
 
-          {/* Other links */}
           <NavLink
             to="/activities"
             className={({ isActive }) =>
@@ -231,34 +220,50 @@ const Navbar = () => {
           </NavLink>
         </ul>
 
-        {/* Desktop: language + book now */}
-        <div className="hidden md:flex items-center gap-3">
-          <select
-            onChange={(e) => changeLanguage(e.target.value)}
-            value={i18n.language}
-            className={`w-28 h-9 px-2 bg-transparent appearance-none outline-none border-0 rounded-none cursor-pointer transition-colors
-              ${isScrolled ? 'text-gray-800 hover:text-cyan-600' : 'text-white hover:text-cyan-300'}
-              [&>option]:text-black [&>option]:bg-white`}
-            aria-label="Select language"
-          >
-            <option value="en">English en</option>
-            <option value="de">Deutsch de</option>
-          </select>
+        {/* Right cluster */}
+        <div className="flex items-center gap-2">
+          {/* Desktop: language + book now (unchanged) */}
+          <div className="hidden md:flex items-center gap-3">
+            <select
+              onChange={(e) => changeLanguage(e.target.value)}
+              value={i18n.language}
+              className={`w-28 h-9 px-2 bg-transparent appearance-none outline-none border-0 rounded-none cursor-pointer transition-colors
+                ${isScrolled ? 'text-gray-800 hover:text-cyan-600' : 'text-white hover:text-cyan-300'}
+                [&>option]:text-black [&>option]:bg-white`}
+              aria-label="Select language"
+            >
+              <option value="en">English en</option>
+              <option value="de">Deutsch de</option>
+            </select>
 
+            <a
+              href="https://main.d7z80586kqd0r.amplifyapp.com/"
+              target="_blank"
+              rel="noreferrer"
+              className={`px-4 lg:px-8 py-2 text-sm lg:text-base rounded-full border transition-all duration-300 hover:scale-105 hover:shadow-lg transform ${
+                isScrolled ? 'border-gray-800 text-gray-800 hover:bg-gray-800 hover:text-white' : 'border-white text-white hover:bg-white hover:text-gray-800'
+              }`}
+            >
+              {t('navbar.bookNow', 'BOOK NOW')}
+            </a>
+          </div>
+
+          {/* Mobile: Book Now moved to top bar (visible only on mobile) */}
           <a
             href="https://main.d7z80586kqd0r.amplifyapp.com/"
             target="_blank"
             rel="noreferrer"
-            className={`px-4 lg:px-8 py-2 text-sm lg:text-base rounded-full border transition-all duration-300 hover:scale-105 hover:shadow-lg transform ${
-              isScrolled ? 'border-gray-800 text-gray-800 hover:bg-gray-800 hover:text-white' : 'border-white text-white hover:bg-white hover:text-gray-800'
+            className={`md:hidden px-3 py-1.5 text-xs font-semibold rounded-full border transition-all duration-300 ${
+              isScrolled ? 'border-gray-800 text-gray-800 hover:bg-gray-800 hover:text-white'
+                         : 'border-white text-white hover:bg-white hover:text-gray-800'
             }`}
           >
             {t('navbar.bookNow', 'BOOK NOW')}
           </a>
-        </div>
 
-        {/* Mobile animated hamburger */}
-        <HamburgerButton />
+          {/* Mobile Hamburger */}
+          <HamburgerButton />
+        </div>
       </div>
 
       {/* ===== DESKTOP DESTINATION PANEL (fixed full-width) ===== */}
@@ -277,7 +282,6 @@ const Navbar = () => {
               <h3 className={`text-lg font-semibold mb-6 ${isScrolled ? 'text-gray-800' : 'text-white'}`}>
                 {t('navbar.countriesTitle', 'COUNTRIES')}
               </h3>
-
               <div className="space-y-2">
                 {countries.map((country) => (
                   <div
@@ -426,7 +430,7 @@ const Navbar = () => {
                           {country.name}
                         </NavLink>
 
-                        {/* ORIGINAL CAMPS with star marker */}
+                        {/* Original Camps */}
                         {surfCamps[country.id]?.originals.length > 0 && (
                           <div className="ml-4 mt-1 space-y-1">
                             <div className="flex items-center gap-1">
@@ -454,7 +458,7 @@ const Navbar = () => {
                           </div>
                         )}
 
-                        {/* PARTNER CAMPS (hidden if none) */}
+                        {/* Partner Camps (if any) */}
                         {surfCamps[country.id]?.partner.length > 0 && (
                           <div className="ml-4 mt-3 space-y-1">
                             <div className="flex items-center gap-1">
@@ -484,6 +488,7 @@ const Navbar = () => {
                 )}
               </div>
 
+              {/* Other mobile links */}
               <NavLink
                 to="/activities"
                 className={`py-3 px-4 rounded-xl text-sm font-medium transition-all duration-300 ${
@@ -534,7 +539,7 @@ const Navbar = () => {
                 {t('navbar.contact', 'CONTACT')}
               </NavLink>
 
-              {/* Translation (mobile) above Book Now */}
+              {/* Translation (mobile) */}
               <div className="mt-2">
                 <select
                   onChange={(e) => changeLanguage(e.target.value)}
@@ -550,18 +555,7 @@ const Navbar = () => {
                 </select>
               </div>
 
-              {/* Book Now */}
-              <a
-                href="https://main.d7z80586kqd0r.amplifyapp.com/"
-                target="_blank"
-                rel="noreferrer"
-                className={`mt-2 mx-auto w-full max-w-xs px-4 sm:px-6 py-2 sm:py-3 rounded-full border transition-all duration-300 hover:scale-105 hover:shadow-lg transform text-xs sm:text-sm font-semibold text-center block ${
-                  isScrolled ? 'border-gray-800 text-gray-800 hover:bg-gray-800 hover:text-white' : 'border-white/50 text-white hover:bg-white hover:text-gray-800'
-                }`}
-                onClick={() => setIsMenuOpen(false)}
-              >
-                {t('navbar.bookNow', 'BOOK NOW')}
-              </a>
+              {/* Book Now removed from inside the mobile menu */}
             </ul>
           </div>
         </div>

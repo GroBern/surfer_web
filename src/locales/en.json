@@ -503,11 +503,7 @@
         "icon": "location",
         "mapUrl": "https://maps.google.com/?q=Main%20Street%20Weligama%2081700"
       },
-      {
-        "title": "THE WAVE SURF CAMP",
-        "lines": ["Coming Soon"],
-        "icon": "location"
-      },
+      
       {
         "title": "THE SURFER STYLE - MOROCCO",
         "lines": ["Tamraght,", "Agadir 80023"],
