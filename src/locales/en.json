@@ -85,6 +85,7 @@
     "titlePage": "Blogs - The Surfer",
     "title": "Blogs",
     "headerImage": "/blog.jpg",
+    "headerImageMobile": "/blog-mobile.jpg",
     "readMore": "Read More",
     "items": [
       {
