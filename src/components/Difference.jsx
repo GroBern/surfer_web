@@ -44,7 +44,7 @@ const SurfingJourney = () => {
 
       <div className="flex justify-center w-full mt-2 mb-4">
         <motion.a
-          href="/beach-camp"
+          href="/rates"
           className="bg-blue-600 hover:bg-blue-700 text-white px-6 py-3 rounded-lg shadow-lg cursor-pointer transition-all duration-300 hover:scale-105 text-sm sm:text-base font-semibold"
           aria-label={t('ts2Diff.aria.cta')}
           initial={{ opacity: 0, y: 20 }}
