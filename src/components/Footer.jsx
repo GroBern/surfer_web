@@ -10,14 +10,14 @@ const FooterStats = () => {
     <div className="bg-sky-200 py-10 w-full">
       <div className="max-w-7xl mx-auto flex flex-col md:flex-row justify-center items-center gap-10 md:gap-0 md:divide-x divide-cyan-200">
         
-        <div className="flex-1 flex flex-col items-center px-8">
+        {/* <div className="flex-1 flex flex-col items-center px-8">
           <span className="text-4xl md:text-5xl font-thin text-gray-400 mb-2">
             10+
           </span>
           <span className="text-base md:text-lg text-gray-500 font-semibold text-center">
             {t("footer.stats.instructors")}
           </span>
-        </div>
+        </div> */}
 
         <div className="flex-1 flex flex-col items-center px-8">
           <span className="text-4xl md:text-5xl font-thin text-gray-400 mb-2">

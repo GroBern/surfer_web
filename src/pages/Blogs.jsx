@@ -6,9 +6,18 @@ import { useTranslation } from "react-i18next";
 
 const Blog = () => {
     const { t } = useTranslation();
+    const [isMobile, setIsMobile] = useState(false);
 
     useEffect(() => {
         document.title = t("blog.titlePage");
+
+        const handleResize = () => {
+            setIsMobile(window.innerWidth < 768);
+        };
+
+        handleResize(); // set initial
+        window.addEventListener("resize", handleResize);
+        return () => window.removeEventListener("resize", handleResize);
     }, [t]);
 
     const blogsData = t("blog.items", { returnObjects: true });
@@ -22,11 +31,17 @@ const Blog = () => {
 
     const paginate = (pageNumber) => setCurrentPage(pageNumber);
 
+    // Decide header image based on screen size
+    const headerImage = isMobile ? t("blog.headerImageMobile") : t("blog.headerImage");
+
     return (
         <div>
             {/* Header */}
-            <div className='min-h-screen mb-4 bg-cover bg-center flex items-center w-full overflow-hidden'
-                style={{ backgroundImage: `url(${t("blog.headerImage")})` }} id='Header'>
+            <div
+                className='min-h-screen mb-4 bg-cover bg-center flex items-center w-full overflow-hidden'
+                style={{ backgroundImage: `url(${headerImage})` }}
+                id='Header'
+            >
                 <Navbar />
                 <div className='container text-center mx-auto py-4 px-4 sm:px-6 md:px-20 lg:px-32 text-white'>
                     <h2 className='font-[montserrat] text-3xl sm:text-4xl md:text-5xl lg:text-6xl xl:text-[100px] inline-block max-w-full sm:max-w-3xl font-bold pt-18 mt-16 sm:mt-8 md:-mt-2'>
