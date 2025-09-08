@@ -237,7 +237,7 @@ const Navbar = () => {
             </select>
 
             <a
-              href="https://main.d7z80586kqd0r.amplifyapp.com/"
+              href="/camp"
               target="_blank"
               rel="noreferrer"
               className={`px-4 lg:px-8 py-2 text-sm lg:text-base rounded-full border transition-all duration-300 hover:scale-105 hover:shadow-lg transform ${
@@ -250,7 +250,7 @@ const Navbar = () => {
 
           {/* Mobile: Book Now moved to top bar (visible only on mobile) */}
           <a
-            href="https://main.d7z80586kqd0r.amplifyapp.com/"
+            href="/camp"
             target="_blank"
             rel="noreferrer"
             className={`md:hidden px-3 py-1.5 text-xs font-semibold rounded-full border transition-all duration-300 ${
