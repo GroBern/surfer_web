@@ -3,7 +3,6 @@ import Stepper from "react-stepper-horizontal";
 import { useLocation } from "react-router-dom";
 
 const BookingFooter = () => {
-
   const location = useLocation();
 
   let path;
@@ -39,30 +38,39 @@ const BookingFooter = () => {
       path = 0;
   }
 
+  // 20% smaller than previous: 55→44, 30→24, 12→10, 5→4
+  const size = 44;
+  const circleFontSize = 24;
+  const titleFontSize = 10;
+  const lineHeight = 4;
+
   return (
     <div className="footer">
-      <div className="footer-container" style={{color: '#00afef', borderTopWidth: '2px'}}>
-      <Stepper
-        steps={[
-          { title: "Camp" },
-          { title: "Date" },
-          { title: "Room" },
-          { title: "Package" },
-          { title: "Selection" },
-          { title: "Airport" },
-          { title: "Information" },
-        ]}
-        activeStep={path} // Set the active step dynamically based on progress
-        activeColor="#00afef" // Color for the active step
-        completeColor="#00afef" // Color for completed steps
-        defaultColor="#d3d3d3" // Color for upcoming steps
-        activeTitleColor="#00afef" // Title color for the active step
-        size={55} // Size of the step circles
-        circleFontSize={30} // Font size of the step numbers
-        titleFontSize={12} // Font size of the titles
-        barStyle="solid" // Solid bar between steps
-        lineHeight={5} // Height of the line between steps
-      />
+      <div
+        className="footer-container"
+        style={{ color: "#00afef", borderTopWidth: "2px" }}
+      >
+        <Stepper
+          steps={[
+            { title: "Camp" },
+            { title: "Date" },
+            { title: "Room" },
+            { title: "Package" },
+            { title: "Selection" },
+            { title: "Airport" },
+            { title: "Information" },
+          ]}
+          activeStep={path}
+          activeColor="#00afef"
+          completeColor="#00afef"
+          defaultColor="#d3d3d3"
+          activeTitleColor="#00afef"
+          size={size}
+          circleFontSize={circleFontSize}
+          titleFontSize={titleFontSize}
+          barStyle="solid"
+          lineHeight={lineHeight}
+        />
       </div>
     </div>
   );
