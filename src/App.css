@@ -1,3 +1,22 @@
+/* =========================
+   App.css — mobile-focused fixes
+   ========================= */
+
+/* Global guards */
+*, *::before, *::after { box-sizing: border-box; }
+html, body, #root { max-width: 100%; overflow-x: hidden; }
+
+/* Sizing vars */
+:root{
+  --footer-h: 90px;       /* used to pad content above fixed footer */
+  --nav-h: 76px;          /* approximate mobile navbar height */
+  --mob-gutter: 12px;     /* horizontal padding on small phones */
+  --camp-max: 330px;      /* max card width on small phones */
+  --camp-radius: 28px;    /* mobile card radius (will be overridden below) */
+}
+
+/* ---------------- existing styles (kept) ---------------- */
+
 .count-box {
   margin: 0px 10px;
   width: 40px;
@@ -14,7 +33,6 @@
   box-shadow: 0 0 20px 7px #0000001c;
   position: fixed;
   width: 90%;
-  /* top: 10%; */
   left: 4%;
   border-radius: 40px;
   background-color: #fff;
@@ -39,15 +57,9 @@
   border-radius: 50px;
 }
 
-.navbar-back-button:hover {
-  background-color: #0a67a9;
-}
+.navbar-back-button:hover { background-color: #0a67a9; }
 
-.navbar-logo {
-  width: 167px;
-  height: 80px;
-  object-fit: cover;
-}
+.navbar-logo { width: 167px; height: 80px; object-fit: cover; }
 
 .navbar-icon {
   font-size: 2rem;
@@ -57,15 +69,9 @@
   border-radius: 50px;
   background-color: #00afef;
 }
+.navbar-icon:hover { background-color: #0a67a9; }
 
-.navbar-icon:hover {
-  background-color: #0a67a9;
-}
-
-.disabled-link {
-  pointer-events: none;
-  text-decoration: none;
-}
+.disabled-link { pointer-events: none; text-decoration: none; }
 
 /* Home.css */
 .home-container {
@@ -138,10 +144,7 @@
   border-bottom-left-radius: 15px;
   border-bottom-right-radius: 15px;
 }
-
-.toggle-btn:hover {
-  background-color: #0a67a9;
-}
+.toggle-btn:hover { background-color: #0a67a9; }
 
 .camp-details {
   margin-top: 10px;
@@ -156,18 +159,12 @@
   margin-bottom: 40px;
 }
 
-.detail {
-  display: flex;
-  gap: 15px;
-  align-items: center;
-}
+.detail { display: flex; gap: 15px; align-items: center; }
 
 .detail-text {
   display: flex;
   flex: 3;
   align-items: center;
-  /* border: 1px solid black; */
-  /* padding: 15px; */
   border-radius: 10px;
   margin-bottom: 12px;
   background: rgba(255, 255, 255, 0.2);
@@ -200,10 +197,7 @@
   z-index: 2;
   transition: all 0.3s ease;
 }
-
-.carousel-btn:hover {
-  background: rgba(0, 0, 0, 0.8);
-}
+.carousel-btn:hover { background: rgba(0, 0, 0, 0.8); }
 
 .image-counter {
   position: absolute;
@@ -222,14 +216,12 @@
   display: flex;
   justify-content: center;
 }
-
 .map-image img {
   width: 100%;
   height: 100%;
   object-fit: cover;
   border-radius: 60px;
 }
-
 
 /* Package.css */
 .package-container,
@@ -253,25 +245,13 @@
   text-align: center;
   align-content: center;
 }
+.box:hover { background-color: #f8f8f8; cursor: pointer; }
 
-.box:hover {
-  background-color: #f8f8f8;
-  cursor: pointer;
-}
+.main-content { display: flex; justify-content: space-between; }
 
-.main-content {
-  display: flex;
-  justify-content: space-between;
-}
+.left-section { width: 70%; }
 
-.left-section {
-  width: 70%;
-}
-
-.package-header {
-  display: flex;
-  justify-content: space-between;
-}
+.package-header { display: flex; justify-content: space-between; }
 
 .package {
   display: grid;
@@ -282,20 +262,11 @@
   padding: 20px 0;
 }
 
-.package-box {
-  display: flex;
-  justify-content: space-between;
-  align-items: center;
-}
+.package-box { display: flex; justify-content: space-between; align-items: center; }
 
-.package-content {
-  margin-left: 20px;
-}
+.package-content { margin-left: 20px; }
 
-.package-title {
-  font-size: 1.2rem;
-  font-weight: bold;
-}
+.package-title { font-size: 1.2rem; font-weight: bold; }
 
 .package-buttons {
   display: flex;
@@ -314,9 +285,7 @@
   cursor: pointer;
 }
 
-.include-box {
-  margin: 20px 40px;
-}
+.include-box { margin: 20px 40px; }
 
 .include-button {
   background-color: white;
@@ -329,22 +298,10 @@
   font-weight: 600;
 }
 
-.right-section {
-  width: 25%;
-  display: grid;
-  gap: 25px;
-  height: fit-content;
-}
+.right-section { width: 25%; display: grid; gap: 25px; height: fit-content; }
 
-.summary-box {
-  border: 1px solid black;
-  display: grid;
-  padding: 15px 30px;
-}
-
-.summary-box p {
-  margin: 10px 0px;
-}
+.summary-box { border: 1px solid black; display: grid; padding: 15px 30px; }
+.summary-box p { margin: 10px 0px; }
 
 .next-button {
   background-color: #00afef;
@@ -358,12 +315,9 @@
   align-content: center;
   text-decoration: none;
 }
+.next-button:hover { background-color: #0a67a9; }
 
-.next-button:hover {
-  background-color: #0a67a9;
-}
-
-/* Date.css*/
+/* Date.css */
 .date-container {
   padding: 10% 20px;
   margin: 0 10% 10%;
@@ -385,10 +339,7 @@
   font-size: 1.4rem;
 }
 
-.date-box {
-  display: flex;
-  justify-content: space-between;
-}
+.date-box { display: flex; justify-content: space-between; }
 
 .reset-button {
   padding: 10px;
@@ -399,32 +350,26 @@
   color: white;
   cursor: pointer;
 }
+.reset-button:hover { background-color: rgb(219, 41, 41); }
 
-.reset-button:hover {
-  background-color: rgb(219, 41, 41);
-}
-
-/* Example CSS to better display the DatePicker */
+/* DatePicker look & feel */
 .date-picker {
   font-family: "Arial", sans-serif !important;
   border: 1px solid #ccc !important;
   border-radius: 8px !important;
   padding: 10px !important;
-  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1) !important;
+  box-shadow: 0 4px 8px rgba(0,0,0,0.1) !important;
 }
 
 .react-datepicker {
   border-radius: 10px !important;
   border: 1px solid #ddd !important;
-  box-shadow: 0px 4px 12px rgba(0, 0, 0, 0.2) !important;
-  /* height: 420px; */
+  box-shadow: 0px 4px 12px rgba(0,0,0,0.2) !important;
   width: 100%;
   font-size: inherit;
 }
 
-.react-datepicker__month-container {
-  width: 50%;
-}
+.react-datepicker__month-container { width: 50%; }
 
 .react-datepicker__month {
   margin: 1.4rem 0 !important;
@@ -432,11 +377,9 @@
   margin-left: 0px !important;
 }
 
-/* Target only the left month */
-.react-datepicker__month-container:nth-of-type(1) {
-  .react-datepicker__month {
-    border-right: 1px solid !important;
-  }
+/* Target only the left month (valid CSS, no nesting) */
+.react-datepicker__month-container:nth-of-type(1) .react-datepicker__month {
+  border-right: 1px solid #ddd !important;
 }
 
 .react-datepicker__day {
@@ -452,14 +395,8 @@
   border-radius: 10px 10px 0 0 !important;
 }
 
-.react-datepicker__day-names {
-  display: flex;
-  justify-content: space-evenly;
-}
-
-.react-datepicker__day-name {
-  color: white !important;
-}
+.react-datepicker__day-names { display: flex; justify-content: space-evenly; }
+.react-datepicker__day-name { color: white !important; }
 
 .react-datepicker__day--selected,
 .react-datepicker__day--keyboard-selected {
@@ -467,25 +404,10 @@
   color: white !important;
   border-radius: 10% !important;
 }
-
 .react-datepicker__day--in-range,
 .react-datepicker__day--range-start,
-.react-datepicker__day--range-end {
-  background-color: #cce5ff !important;
-  /* color: #0056b3 !important; */
-}
-
-.react-datepicker__day--highlighted {
-  background-color: #00afef !important;
-  /* width: 14% !important;
-  margin: 0 0px !important;
-  border-radius: 0% !important; */
-}
-
-/* .react-datepicker__day:hover {
-  background-color: #0056b3 !important;
-  color: white !important;
-} */
+.react-datepicker__day--range-end { background-color: #cce5ff !important; }
+.react-datepicker__day--highlighted { background-color: #00afef !important; }
 
 .react-datepicker__current-month {
   font-weight: bold !important;
@@ -505,26 +427,13 @@
   color: white !important;
 }
 
-/* Room css*/
-.room-container {
-  padding: 10% 20px;
-  margin: 0 10% 10%;
-}
+/* Room css */
+.room-container { padding: 10% 20px; margin: 0 10% 10%; }
 
-.package-selector {
-  margin-bottom: 40px;
-  text-align: center;
-}
+.package-selector { margin-bottom: 40px; text-align: center; }
+.package-selector label { font-size: 20px; font-weight: bold; }
 
-.package-selector label {
-  font-size: 20px;
-  font-weight: bold;
-}
-
-.room-box {
-  display: flex;
-  justify-content: space-between;
-}
+.room-box { display: flex; justify-content: space-between; }
 
 .room-list {
   display: grid;
@@ -536,80 +445,19 @@
   border: 1px solid #ddd;
   border-radius: 8px;
   padding: 10px;
-  box-shadow: 0px 2px 4px rgba(0, 0, 0, 0.1);
-  margin-bottom: "20px";
+  box-shadow: 0px 2px 4px rgba(0,0,0,0.1);
+  margin-bottom: 20px;
   width: 400px;
 }
 
-.room-image {
-  object-fit: cover;
-  width: 100%;
-}
+.room-image { object-fit: cover; width: 100%; }
 
-.room-details {
-  margin-top: 10px;
-  text-align: center;
-}
+.room-details { margin-top: 10px; text-align: center; }
 
-.room-actions {
-  display: flex;
-  justify-content: space-between;
-  align-items: center;
-}
+.room-actions { display: flex; justify-content: space-between; align-items: center; }
+.counter button { padding: 7px 10px; border-radius: 25px; border: none; }
 
-.counter button {
-  padding: 7px 10px;
-  border-radius: 25px;
-  border: none;
-}
-
-/* .room-carousel {
-  margin-top: 20px;
-  padding: 10px;
-  border: 1px solid #ddd;
-  border-radius: 8px;
-  box-shadow: 0px 2px 4px rgba(0, 0, 0, 0.1);
-  position: relative;
-  z-index: 10; 
-  width: calc(300px * 2 + 40px);
-}
-
-.room-count {
-  display: flex;
-  align-items: center;
-  margin-top: 10px;
-  gap: 10px;
-}
-
-.count-button {
-  width: 30px;
-  height: 30px;
-  border: none;
-  background-color: #00afef;
-  color: white;
-  border-radius: 20px;
-  cursor: pointer;
-  display: flex;
-  align-items: center;
-  justify-content: center;
-}
-
-.count-button:disabled {
-  background-color: grey;
-  cursor: not-allowed;
-}
-
-.view-room-button {
-  background-color: white;
-  margin-top: 10px;
-  color: black;
-  border: 1px solid black;
-  border-radius: 4px;
-  padding: 5px 10px;
-  cursor: pointer;
-} */
-
-/*Selection page*/
+/* Selection page */
 .selection-header {
   display: flex;
   gap: 30px;
@@ -625,11 +473,7 @@
   padding: 20px 0;
 }
 
-.room-title {
-  margin-bottom: 10px;
-  font-weight: bold;
-  padding: 5px 20px;
-}
+.room-title { margin-bottom: 10px; font-weight: bold; padding: 5px 20px; }
 
 .person-container {
   display: flex;
@@ -639,93 +483,42 @@
   padding: 20px 0px;
 }
 
-.name-container {
-  display: grid;
-  gap: 15px;
-}
+.name-container { display: grid; gap: 15px; }
 
-.person-container input {
+.person-container input,
+.person-container select {
   padding: 10px;
   border: 1px solid #ddd;
   border-radius: 5px;
   font-size: 1rem;
 }
-
-.person-container select {
-  padding: 10px;
-  border: 1px solid #ccc;
-  border-radius: 5px;
-  font-size: 1rem;
-  background-color: #fff;
-  cursor: pointer;
-}
+.person-container select { background-color: #fff; cursor: pointer; }
 
 /* Add on Details.css */
-.addon-container {
-  padding: 10% 20px;
-  margin: 0 10% 10%;
-}
+.addon-container { padding: 10% 20px; margin: 0 10% 10%; }
 
 .addon {
   display: grid;
   width: 100%;
-  /* background-color: #e0e0e0; */
   border: 1px solid black;
   margin-bottom: 40px;
   border-radius: 12px;
   padding: 20px 0;
 }
 
-.addon-box {
-  display: flex;
-  justify-content: space-between;
-  align-items: center;
-}
+.addon-box { display: flex; justify-content: space-between; align-items: center; }
 
-.term-box,
-.viewmore-box {
-  /* display: flex; */
-  /* justify-content: space-between; */
-  align-items: center;
-  padding: 0 20px;
-}
+.term-box, .viewmore-box { align-items: center; padding: 0 20px; }
 
-.addon-content {
-  margin-left: 20px;
-}
+.addon-content { margin-left: 20px; }
 
-.addon-title {
-  font-size: 1.2rem;
-  font-weight: bold;
-}
+.addon-title { font-size: 1.2rem; font-weight: bold; }
 
-.transfer-buttons {
-  display: flex;
-  justify-content: space-between;
-  margin-right: 20px;
-  align-items: baseline;
-}
+.transfer-buttons { display: flex; justify-content: space-between; margin-right: 20px; align-items: baseline; }
 
-.insurance-buttons {
-  display: flex;
-  justify-content: space-between;
-  width: 45%;
-  margin-right: 20px;
-  align-items: baseline;
-}
+.insurance-buttons { display: flex; justify-content: space-between; width: 45%; margin-right: 20px; align-items: baseline; }
 
-.viewmore-button {
-  background-color: white;
-  color: black;
-  border: 1px solid #00afef;
-  border-radius: 8px;
-  padding: 5px 10px;
-  cursor: pointer;
-  height: 35px;
-  font-weight: 600;
-  width: 125px;
-}
-
+.viewmore-button,
 .term-button {
   background-color: white;
   color: black;
@@ -735,11 +528,11 @@
   cursor: pointer;
   height: 35px;
   font-weight: 600;
-  width: 180px;
 }
+.viewmore-button { width: 125px; }
+.term-button { width: 180px; }
 
 .booking-button {
-  /* padding: 10px 30px; */
   cursor: pointer;
   background-color: white;
   border: 2px solid #0a67a9;
@@ -749,10 +542,7 @@
 }
 
 /* Information.css */
-.information-container {
-  padding: 10% 20px;
-  margin: 0 10% 10%;
-}
+.information-container { padding: 10% 20px; margin: 0 10% 10%; }
 
 .traveller-box {
   width: 65%;
@@ -770,10 +560,7 @@
   cursor: pointer;
   margin-top: 10px;
 }
-
-.submit-button:hover {
-  background-color: #0a67a9;
-}
+.submit-button:hover { background-color: #0a67a9; }
 
 .loader {
   border: 2px solid #f3f3f3;
@@ -784,63 +571,23 @@
   animation: spin 0.8s linear infinite;
   display: inline-block;
 }
+@keyframes spin { 0%{transform:rotate(0)} 100%{transform:rotate(360deg)} }
 
-@keyframes spin {
-  0% {
-    transform: rotate(0deg);
-  }
-
-  100% {
-    transform: rotate(360deg);
-  }
-}
-
-.left-section h2 {
-  font-size: 1.5rem;
-  margin-bottom: 20px;
-}
+.left-section h2 { font-size: 1.5rem; margin-bottom: 20px; }
 
 .traveller-form .form-group {
-  display: flex;
-  flex-wrap: wrap;
-  gap: 10px;
-  margin-bottom: 20px;
+  display: flex; flex-wrap: wrap; gap: 10px; margin-bottom: 20px;
 }
-
 .traveller-form input,
 .traveller-form select {
-  flex: 1;
-  min-width: 150px;
-  padding: 10px;
-  border: 1px solid #ddd;
-  border-radius: 5px;
-  font-size: 1rem;
+  flex: 1; min-width: 150px; padding: 10px; border: 1px solid #ddd; border-radius: 5px; font-size: 1rem;
 }
+.traveller-form select { background-color: #fff; }
+.traveller-form input::placeholder { color: #aaa; }
 
-.traveller-form select {
-  background-color: #fff;
-}
-
-.traveller-form input::placeholder {
-  color: #aaa;
-}
-
-.traveller-form .date-inputs {
-  display: flex;
-  gap: 10px;
-  flex: 1;
-}
-
-.traveller-box h2 {
-  margin-bottom: 30px;
-}
-
-.traveller-form p {
-  font-size: 0.9rem;
-  color: #666;
-  /* color: black; */
-  margin-bottom: 10px;
-}
+.traveller-form .date-inputs { display: flex; gap: 10px; flex: 1; }
+.traveller-box h2 { margin-bottom: 30px; }
+.traveller-form p { font-size: 0.9rem; color: #666; margin-bottom: 10px; }
 
 .verify-button {
   border-radius: 20px;
@@ -851,1603 +598,480 @@
   cursor: pointer;
 }
 
+/* Custom alert */
 .custom-alert-overlay {
-  position: fixed;
-  top: 0;
-  left: 0;
-  width: 100%;
-  height: 100%;
-  background: rgba(0, 0, 0, 0.5);
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  z-index: 9999;
+  position: fixed; top: 0; left: 0; width: 100%; height: 100%;
+  background: rgba(0,0,0,0.5); display: flex; align-items: center; justify-content: center; z-index: 9999;
 }
-
 .custom-alert-box {
-  background: white;
-  padding: 30px 40px;
-  border-radius: 10px;
-  text-align: center;
-  max-width: 400px;
-  box-shadow: 0 0 10px rgba(0, 0, 0, 0.3);
+  background: white; padding: 30px 40px; border-radius: 10px; text-align: center; max-width: 400px;
+  box-shadow: 0 0 10px rgba(0,0,0,0.3);
 }
-
-.custom-alert-box p {
-  margin-bottom: 20px;
-}
-
+.custom-alert-box p { margin-bottom: 20px; }
 .custom-alert-box button {
-  background-color: #00afef;
-  border: none;
-  padding: 10px 20px;
-  color: white;
-  border-radius: 5px;
-  cursor: pointer;
+  background-color: #00afef; border: none; padding: 10px 20px; color: white; border-radius: 5px; cursor: pointer;
 }
 
 /* PaymentRequest.css */
 .payment-request-container {
-  max-width: 600px;
-  margin: 60px auto;
-  padding: 30px;
-  background-color: #fff;
-  border-radius: 12px;
-  box-shadow: 0 8px 25px rgba(0, 0, 0, 0.08);
+  max-width: 600px; margin: 60px auto; padding: 30px; background-color: #fff;
+  border-radius: 12px; box-shadow: 0 8px 25px rgba(0,0,0,0.08);
   font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
 }
-
 .payment-request-container h2 {
-  text-align: center;
-  margin-bottom: 30px;
-  color: #0a67a9;
-  font-size: 28px;
+  text-align: center; margin-bottom: 30px; color: #0a67a9; font-size: 28px;
 }
-
-.summary-box {
-  background-color: #f9f9f9;
-  padding: 25px;
-  border-radius: 10px;
-  margin-bottom: 30px;
-  box-shadow: 0 0 8px rgba(0, 0, 0, 0.06);
+.payment-request-container .summary-box {
+  background-color: #f9f9f9; padding: 25px; border-radius: 10px; margin-bottom: 30px; box-shadow: 0 0 8px rgba(0,0,0,0.06);
 }
-
-.summary-box p {
-  margin: 10px 0;
-  color: #333;
-  font-size: 16px;
-  line-height: 1.5;
-}
-
-.summary-box strong {
-  color: #000;
-}
+.payment-request-container .summary-box p { margin: 10px 0; color: #333; font-size: 16px; line-height: 1.5; }
+.payment-request-container .summary-box strong { color: #000; }
 
 .submit-payment-btn {
-  background-color: #00afef;
-  color: white;
-  padding: 14px 30px;
-  font-size: 16px;
-  font-weight: 600;
-  border: none;
-  border-radius: 6px;
-  cursor: pointer;
-  width: 100%;
-  transition: background-color 0.3s ease;
+  background-color: #00afef; color: white; padding: 14px 30px; font-size: 16px; font-weight: 600;
+  border: none; border-radius: 6px; cursor: pointer; width: 100%; transition: background-color 0.3s ease;
 }
-
-.submit-payment-btn:hover {
-  background-color: #0a67a9;
-}
+.submit-payment-btn:hover { background-color: #0a67a9; }
 
 .status-message {
-  max-width: 500px;
-  margin: 100px auto;
-  padding: 40px 20px;
-  text-align: center;
-  background-color: #fdfdfd;
-  border-radius: 12px;
-  box-shadow: 0 4px 15px rgba(0, 0, 0, 0.08);
-  font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
-  font-size: 18px;
-  color: #333;
-  animation: fadeIn 0.3s ease-in-out;
+  max-width: 500px; margin: 100px auto; padding: 40px 20px; text-align: center;
+  background-color: #fdfdfd; border-radius: 12px; box-shadow: 0 4px 15px rgba(0,0,0,0.08);
+  font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif; font-size: 18px; color: #333; animation: fadeIn 0.3s ease-in-out;
 }
-
-.status-message.error {
-  color: #b00020;
-  background-color: #fff5f5;
-  border: 1px solid #ffcccc;
-}
-
-@keyframes fadeIn {
-  from { opacity: 0; transform: translateY(10px); }
-  to { opacity: 1; transform: translateY(0); }
-}
-
+.status-message.error { color: #b00020; background-color: #fff5f5; border: 1px solid #ffcccc; }
+@keyframes fadeIn { from{opacity:0; transform:translateY(10px)} to{opacity:1; transform:translateY(0)} }
 
 /* Checkout.css */
-
 .checkout-container {
-  max-width: 600px;
-  margin: 60px auto;
-  padding: 2rem 2.5rem;
-  background: #fff;
-  border-radius: 12px;
-  box-shadow: 0 4px 20px rgba(0, 0, 0, 0.06);
-  font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
-  animation: fadeIn 0.3s ease-in-out;
+  max-width: 600px; margin: 60px auto; padding: 2rem 2.5rem; background: #fff;
+  border-radius: 12px; box-shadow: 0 4px 20px rgba(0,0,0,0.06);
+  font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif; animation: fadeIn 0.3s ease-in-out;
 }
-
-.checkout-title {
-  text-align: center;
-  font-size: 1.8rem;
-  margin-bottom: 1.5rem;
-  color: #0a67a9;
-}
-
+.checkout-title { text-align: center; font-size: 1.8rem; margin-bottom: 1.5rem; color: #0a67a9; }
 .checkout-summary {
-  background-color: #f9f9f9;
-  border-left: 4px solid #00afef;
-  padding: 15px 20px;
-  margin-bottom: 2rem;
-  border-radius: 6px;
+  background-color: #f9f9f9; border-left: 4px solid #00afef; padding: 15px 20px; margin-bottom: 2rem; border-radius: 6px;
 }
+.checkout-summary p { margin: 5px 0; color: #333; font-size: 1rem; }
 
-.checkout-summary p {
-  margin: 5px 0;
-  color: #333;
-  font-size: 1rem;
+.checkout-form input, .checkout-form textarea {
+  display: block; width: 100%; padding: 12px; margin-bottom: 15px; border: 1px solid #ccc; border-radius: 6px; font-size: 15px; background-color: #fff;
 }
-
-.checkout-form input,
-.checkout-form textarea {
-  display: block;
-  width: 100%;
-  padding: 12px;
-  margin-bottom: 15px;
-  border: 1px solid #ccc;
-  border-radius: 6px;
-  font-size: 15px;
-  background-color: #fff;
+.checkout-form input:focus, .checkout-form textarea:focus {
+  outline: none; border-color: #00afef; box-shadow: 0 0 0 2px rgba(0,175,239,0.2);
 }
-
-.checkout-form input:focus,
-.checkout-form textarea:focus {
-  outline: none;
-  border-color: #00afef;
-  box-shadow: 0 0 0 2px rgba(0, 175, 239, 0.2);
-}
-
-.checkout-form textarea {
-  min-height: 100px;
-  resize: vertical;
-}
-
+.checkout-form textarea { min-height: 100px; resize: vertical; }
 .checkout-form button {
-  width: 100%;
-  padding: 14px;
-  background: #00afef;
-  color: white;
-  border: none;
-  border-radius: 6px;
-  font-size: 1rem;
-  font-weight: bold;
-  transition: background 0.3s;
-  cursor: pointer;
+  width: 100%; padding: 14px; background: #00afef; color: white; border: none; border-radius: 6px; font-size: 1rem; font-weight: bold; transition: background 0.3s; cursor: pointer;
 }
-
-.checkout-form button:hover {
-  background: #0a67a9;
-}
-
-.checkout-form .checkbox-container {
-  margin: 10px 0;
-  display: flex;
-  align-items: center;
-  gap: 8px;
-}
-
-.checkout-form .checkbox-container input {
-  width: auto;
-  margin-right: 8px;
-}
-
-.checkout-form p.error-message {
-  color: red;
-  margin: 0 0 10px;
-  font-size: 0.95rem;
-}
-
-@keyframes fadeIn {
-  from { opacity: 0; transform: translateY(10px); }
-  to { opacity: 1; transform: translateY(0); }
-}
-
-
+.checkout-form button:hover { background: #0a67a9; }
+.checkout-form .checkbox-container { margin: 10px 0; display: flex; align-items: center; gap: 8px; }
+.checkout-form .checkbox-container input { width: auto; margin-right: 8px; }
+.checkout-form p.error-message { color: red; margin: 0 0 10px; font-size: 0.95rem; }
 
 /* Footer.css */
 .footer {
   background-color: white;
-  color: "#00afef";
+  color: #00afef;
   padding: 10px 20px;
   border-top: 1px solid #ccc;
   box-shadow: 0 -3px 3px 0 #0000004d;
-  /* Top-only shadow */
   border-radius: 25px;
   position: fixed;
   bottom: 0px;
   width: 98%;
   z-index: 11;
 }
+.footer-container { margin: 0 4%; }
 
-.footer-container {
-  margin: 0 4%;
+/* ---------------- placement/stability tweaks (no design change) ---------------- */
+
+/* Center fixed navbar/footer safely to avoid subtle horizontal overflow */
+.navbar { left: 50%; transform: translateX(-50%); }
+.footer { left: 50%; transform: translateX(-50%); }
+
+/* Ensure content isn't covered by fixed footer */
+.home-container { padding-bottom: calc(var(--footer-h) + 40px); }
+.map-image { margin-bottom: calc(var(--footer-h) + 40px); }
+
+/* Keep carousel controls strictly inside cards */
+.camp { overflow: hidden; }
+.carousel-controls {
+  width: 100% !important;
+  padding: 0 12px !important;
+  box-sizing: border-box !important;
 }
 
-/* Responsive styles */
+/* Long lines won’t cause sideways wiggle */
+.detail-text { overflow-wrap: anywhere; word-break: break-word; }
 
-/* Extra Small Devices (Phones) - Up to 480px */
+/* Comparison heading readability without altering look */
+.home-container .camp-section + div h2 {
+  margin: 0 0 12px;
+  font-size: clamp(20px, 3vw, 28px);
+  font-weight: 800;
+  line-height: 1.2;
+}
+
+/* =========================
+   Responsive styles
+   ========================= */
+
+/* -------- Extra Small Devices (Phones) - Up to 480px -------- */
 @media (max-width: 480px) {
+  /* Navbar */
   .navbar {
-    padding: 10px 20px;
-    width: 80%;
+    top: 8px;
+    width: calc(100% - 24px);
+    padding: 8px 14px;
+    border-radius: 20px;
   }
+  .navbar-container { margin: 0; }
+  .navbar-back-button { font-size: 1.25rem; padding: 10px 14px; }
+  .navbar-icon { font-size: 1.25rem; padding: 10px 14px; }
+  .navbar-logo { width: 140px; height: 60px; object-fit: cover; }
 
-  .navbar-container {
-    display: flex;
-    justify-content: space-between;
-    align-items: center;
-    margin: 0px;
-  }
-
-  .navbar-back-button {
-    font-size: 1.5rem;
-    padding: 8px 16px;
-  }
-
-  .navbar-icon {
-    font-size: 1.5rem;
-    padding: 12px 17px;
-  }
-
-  .navbar-logo {
-    width: 150px;
-    height: 70px;
-    object-fit: cover;
-  }
-
-  /*home*/
+  /* Page container */
   .home-container {
-    padding: 45% 0px;
-    margin: 0 5% 5%;
+    padding: calc(var(--nav-h) + 16px) var(--mob-gutter) calc(var(--footer-h) + 24px);
+    margin: 0;
+    overflow-x: hidden;
   }
 
+  /* One-column stack, centered cards */
   .camp-section {
     display: grid;
-    margin-top: 50px;
+    grid-template-columns: 1fr;
+    justify-items: center;
+    gap: 24px;
+    margin-top: 12px;
   }
 
   .camp-wrapper {
-    width: 270px;
-  }
-
-  .camp {
-    width: 230px;
-    height: 230px;
-  }
-
-  /*date*/
-  .date-container {
-    padding: 50% 20px;
-    margin: 0px;
-  }
-
-  .date-box {
-    display: grid;
-  }
-
-  .left-section {
-    width: unset;
-  }
-
-  .react-datepicker__month-container {
-    width: 50% !important;
-  }
-
-  .react-datepicker__current-month {
-    font-weight: bold !important;
-    font-size: 1rem !important;
-    color: white !important;
-  }
-
-  .react-datepicker__month {
-    margin: 1.4rem 0 !important;
-    margin-left: 0px;
-    height: 200px !important;
-    margin-left: 0px !important;
-  }
-
-  .react-datepicker__day {
-    width: 0.7rem !important;
-    font-size: 11px;
-    margin: 0.4rem 0.2rem !important;
-    line-height: 1.3rem !important;
-  }
-
-  .right-section {
-    width: unset;
-    gap: 25px;
-    margin: 40px 0px;
-  }
-
-  /*room*/
-  .room-container {
-    padding: 50% 20px;
-    margin: 0px;
-  }
-
-  .room-list {
-    display: grid;
-    grid-template-columns: repeat(auto-fill, minmax(250px, 1fr));
-    gap: 40px;
-  }
-
-  .room-box {
-    display: grid;
-    justify-content: center;
-  }
-
-  .room-card {
-    width: 250px;
-  }
-
-  /*package*/
-  .package-container {
-    padding: 50% 20px;
-    margin: 0px;
-  }
-
-  .main-content {
-    display: block;
-  }
-
-  .package-box {
-    display: flex;
-    justify-content: space-between;
-    align-items: flex-start;
-  }
-
-  .package-content {
-    margin-left: 5px;
-  }
-
-  .package-title {
-    font-size: 13px;
-  }
-
-  .package-buttons {
-    width: 60%;
-    margin-right: 20px;
-    gap: 10px;
-  }
-
-  .include-button {
-    padding: 5px 10px;
-    height: unset;
-  }
-
-  .amount-button {
-    padding: 9px 11px;
-    align-content: flex-start;
-  }
-
-  /*selection*/
-  .selection-container {
-    padding: 50% 20px;
-    margin: 0px;
-  }
-
-  .person-container {
-    display: block;
-    border-top: 1px solid gray;
-    padding: 20px 0px;
-  }
-
-  .person-container select {
-    margin: 15px 0px;
     width: 100%;
+    max-width: var(--camp-max);
+    margin: 0 auto 10px;
+    justify-items: stretch;
   }
 
-  /*add-on*/
-  .addon-container {
-    padding: 50% 20px;
-    margin: 0px;
+  /* Card */
+  .camp {
+    width: 100%;
+    height: auto;
+    aspect-ratio: 1 / 1;
+    padding: 16px;
+    border-radius: var(--camp-radius);
   }
 
-  .addon-box {
-    display: block;
+  .camp-title { font-size: clamp(18px, 5.6vw, 22px); }
+
+  .carousel-controls { padding: 0 8px !important; }
+  .carousel-btn { width: 36px; height: 36px; }
+
+  .image-counter {
+    bottom: 12px;
+    right: 12px;
+    font-size: 12px;
+    padding: 4px 8px;
   }
 
-  .addon-title {
-    font-size: 15px;
+  /* ⬇️ Reduced to 50% width on mobile */
+  .toggle-btn {
+    width: 50%;                 /* reduced from 100% */
+    border-radius: 12px;
+    padding: 10px 14px;
+    margin: 10px auto 22px;     /* centered */
+    font-size: 0.95rem;
   }
 
-  .transfer-buttons {
-    display: flex;
-    justify-content: space-between;
-    width: unset;
-    margin: 10px;
-    align-items: baseline;
+  .camp-details {
+    max-width: var(--camp-max);
+    margin: 8px auto 22px;
+    padding: 12px;
   }
 
-  .viewmore-button {
-    padding: 5px 10px;
-    cursor: pointer;
-    height: 35px;
-    width: 110px;
+  /* Comparison block */
+  .home-container .camp-section + div h2 {
+    margin: 0 0 10px;
+    font-size: clamp(18px, 5vw, 22px);
   }
 
-  .insurance-buttons {
-    display: flex;
-    justify-content: space-between;
-    width: unset;
-    margin: 10px;
-    align-items: baseline;
+  /* Map block */
+  .map-image {
+    border-radius: 16px;
+    margin: 8px 0 120px;
+    padding: 0 var(--mob-gutter);
   }
+  .map-image img { border-radius: 16px; width: 100%; height: auto; }
 
-  .term-button {
-    padding: 5px 10px;
-    height: 70px;
-    width: 90px;
-  }
-
-  /*information*/
-  .information-container {
-    padding: 50% 20px;
-    margin: 0px;
-  }
-
-  .traveller-box {
-    width: unset;
-    border: 1px solid black;
-    border-radius: 20px;
-    padding: 25px;
-  }
-
+  /* Footer safe-area */
   .footer {
-    padding: 10px 5px;
-    border-radius: 25px;
-    position: fixed;
-    bottom: 0px;
-    width: 97%;
+    width: calc(100% - 8px);
+    padding-bottom: calc(10px + env(safe-area-inset-bottom));
   }
 
-  .footer-container {
-    margin: 0px;
+  /* Inner pages */
+  .date-container,
+  .room-container,
+  .package-container,
+  .selection-container,
+  .addon-container,
+  .information-container {
+    padding: calc(var(--nav-h) + 16px) var(--mob-gutter) calc(var(--footer-h) + 24px);
+    margin: 0;
   }
+
+  .room-list { grid-template-columns: 1fr; gap: 20px; }
+  .room-card { width: 100%; max-width: var(--camp-max); margin: 0 auto; }
 }
 
-/* Small Devices (Phones) - 481px to 767px */
+/* -------- Small Devices (Phones) - 481px to 767px -------- */
 @media (min-width: 481px) and (max-width: 767px) {
   .navbar {
-    padding: 10px 20px;
-    width: 85%;
+    top: 10px;
+    width: calc(100% - 32px);
+    border-radius: 22px;
   }
+  .navbar-container { margin: 0; }
+  .navbar-back-button { font-size: 1.5rem; padding: 8px 16px; }
+  .navbar-icon { font-size: 1.5rem; padding: 12px 17px; }
+  .navbar-logo { width: 166px; height: 80px; }
 
-  .navbar-container {
-    display: flex;
-    justify-content: space-between;
-    align-items: center;
-    margin: 0px;
-  }
-
-  .navbar-back-button {
-    font-size: 1.5rem;
-    padding: 8px 16px;
-  }
-
-  .navbar-icon {
-    font-size: 1.5rem;
-    padding: 12px 17px;
-  }
-
-  .navbar-logo {
-    width: 166px;
-    height: 80px;
-  }
-
-  /*home*/
   .home-container {
-    padding: 25% 0px;
-    margin: 0 5% 5%;
+    padding: calc(var(--nav-h) + 18px) 16px calc(var(--footer-h) + 28px);
+    margin: 0;
   }
 
   .camp-section {
     display: grid;
-    margin-top: 50px;
+    grid-template-columns: 1fr;
+    justify-items: center;
+    gap: 28px;
+    margin-top: 16px;
   }
 
-  .camp-wrapper {
-    width: 370px;
-  }
+  .camp-wrapper { width: 100%; max-width: 420px; }
+  .camp { width: 100%; aspect-ratio: 4 / 3; border-radius: 32px; padding: 18px; }
 
-  .camp {
-    width: 330px;
-    height: 280px;
-  }
+  .carousel-controls { padding: 0 10px !important; }
+  .carousel-btn { width: 40px; height: 40px; }
 
-  /*date*/
-  .date-container {
-    padding: 25% 20px;
-    margin: 0px;
-  }
+  .toggle-btn, .camp-details { max-width: 420px; }
 
-  .date-box {
-    display: grid;
-    justify-content: center;
-  }
+  /* ⬇️ Make the button half width on large phones, keep centered */
+  .toggle-btn { width: 50%; margin-left: auto; margin-right: auto; }
 
-  .left-section {
-    width: unset;
-  }
-
-  .react-datepicker__month-container {
-    width: 50% !important;
-  }
-
-  .react-datepicker__current-month {
-    font-weight: bold !important;
-    font-size: 1rem !important;
-    color: white !important;
-  }
-
-  .react-datepicker__month {
-    margin: 1.4rem 0 !important;
-    margin-left: 0px;
-    height: 200px !important;
-    margin-left: 0px !important;
-  }
-
-  .react-datepicker__day {
-    width: 1.5rem !important;
-    font-size: 12px;
-    margin: 0.4rem 0.3rem !important;
-    line-height: 1.5rem !important;
-  }
-
-  .right-section {
-    width: unset;
-    gap: 25px;
-    margin: 40px 0px;
-  }
-
-  /*room*/
-  .room-container {
-    padding: 25% 20px;
-    margin: 0px;
-  }
-
-  .room-list {
-    display: grid;
-    /* grid-template-columns: repeat(auto-fill, minmax(250px, 1fr)); */
-    gap: 40px;
-  }
-
-  .room-box {
-    display: grid;
-    justify-content: center;
-  }
-
-  .room-card {
-    width: 350px;
-  }
-
-  /*package*/
-  .package-container {
-    padding: 25% 20px;
-    margin: 0px;
-  }
-
-  .main-content {
-    display: grid;
-    justify-content: center;
-  }
-
-  .package-box {
-    display: flex;
-    justify-content: space-between;
-    align-items: flex-start;
-  }
-
-  .package-content {
-    margin-left: 5px;
-  }
-
-  .package-title {
-    font-size: 13px;
-  }
-
-  .package-buttons {
-    width: 60%;
-    margin-right: 20px;
-    gap: 10px;
-  }
-
-  .include-button {
-    padding: 5px 10px;
-    height: unset;
-  }
-
-  .amount-button {
-    padding: 9px 11px;
-    align-content: flex-start;
-  }
-
-  /*selection*/
-  .selection-container {
-    padding: 25% 20px;
-    margin: 0px;
-  }
-
-  .person-container {
-    display: block;
-    border-top: 1px solid gray;
-    padding: 20px 0px;
-  }
-
-  .person-container select {
-    margin: 15px 0px;
-    width: 100%;
-  }
-
-  /*add-on*/
-  .addon-container {
-    padding: 25% 20px;
-    margin: 0px;
-  }
-
-  .addon-box {
-    display: block;
-  }
-
-  .addon-title {
-    font-size: 15px;
-  }
-
-  .transfer-buttons {
-    display: flex;
-    justify-content: space-between;
-    width: unset;
-    margin: 10px;
-    align-items: baseline;
-  }
-
-  .viewmore-button {
-    padding: 5px 10px;
-    cursor: pointer;
-    height: 35px;
-    width: 110px;
-  }
-
-  .insurance-buttons {
-    display: flex;
-    justify-content: space-between;
-    width: unset;
-    margin: 10px;
-    align-items: baseline;
-  }
-
-  .term-button {
-    padding: 5px 10px;
-    height: 70px;
-    width: 90px;
-  }
-
-  /*information*/
-  .information-container {
-    padding: 25% 20px;
-    margin: 0px;
-  }
-
-  .traveller-box {
-    width: unset;
-    border: 1px solid black;
-    border-radius: 20px;
-    padding: 25px;
-  }
-
-  .footer {
-    padding: 10px 5px;
-    border-radius: 25px;
-    position: fixed;
-    bottom: 0px;
-    width: 99%;
-  }
-
-  .footer-container {
-    margin: 0px;
-  }
-
-  /*selection*/
-  .person-container {
-    display: grid;
-    gap: 10px;
-  }
+  .room-list { grid-template-columns: 1fr 1fr; gap: 24px; }
 }
 
-/* Medium Devices (Tablets) - 768px to 1023px */
+/* -------- Medium Devices (Tablets) - 768px to 1023px -------- */
 @media (min-width: 768px) and (max-width: 1023px) {
-  .navbar {
-    padding: 10px 20px;
-    width: 90%;
-  }
+  .navbar { padding: 10px 20px; width: 90%; }
+  .navbar-container { margin: 0px; }
+  .navbar-back-button { font-size: 1.5rem; padding: 8px 16px; }
+  .navbar-icon { font-size: 1.5rem; padding: 12px 17px; }
+  .navbar-logo { width: 166px; height: 80px; object-fit: cover; }
 
-  .navbar-container {
-    display: flex;
-    justify-content: space-between;
-    align-items: center;
-    margin: 0px;
-  }
+  .home-container { padding: 28% 0px; margin: 0 5% 5%; }
+  .camp-section { display: flex; margin-top: 50px; }
+  .camp-wrapper { width: 350px; }
+  .camp { width: 290px; height: 270px; }
 
-  .navbar-back-button {
-    font-size: 1.5rem;
-    padding: 8px 16px;
-  }
+  .date-container { padding: 28% 20px; margin: 0px; }
+  .date-box { display: flex; justify-content: space-around; }
+  .left-section { width: unset; }
+  .react-datepicker__month-container { width: 50% !important; }
+  .react-datepicker__current-month { font-weight: bold !important; font-size: 1rem !important; color: white !important; }
+  .react-datepicker__month { margin: 1.4rem 0 !important; height: 200px !important; margin-left: 0px !important; }
+  .react-datepicker__day { width: 1.5rem !important; font-size: 12px; margin: 0.4rem 0.3rem !important; line-height: 1.5rem !important; }
+  .right-section { width: unset; gap: 25px; margin: 40px 0px; }
 
-  .navbar-icon {
-    font-size: 1.5rem;
-    padding: 12px 17px;
-  }
+  .room-container { padding: 28% 20px; margin: 0px; }
+  .room-list { display: grid; gap: 40px; }
+  .room-box { display: grid; justify-content: center; }
+  .room-card { width: 450px; }
 
-  .navbar-logo {
-    width: 166px;
-    height: 80px;
-    object-fit: cover;
-  }
+  .package-container { padding: 28% 20px; margin: 0px; }
+  .main-content { display: block; margin: 0px 40px; }
+  .package-box { display: flex; justify-content: space-between; align-items: flex-start; }
+  .package-content { margin-left: 5px; }
+  .package-title { font-size: 13px; }
+  .package-buttons { width: 60%; margin-right: 20px; gap: 10px; }
+  .include-button { padding: 5px 10px; height: unset; }
+  .amount-button { padding: 9px 11px; align-content: flex-start; }
 
-  /*home*/
-  .home-container {
-    padding: 28% 0px;
-    margin: 0 5% 5%;
-  }
+  .selection-container { padding: 28% 20px; margin: 0px; }
+  .person-container { display: block; border-top: 1px solid gray; padding: 20px 0px; }
+  .person-container select { margin: 15px 0px; width: 100%; }
 
-  .camp-section {
-    display: flex;
-    margin-top: 50px;
-  }
+  .addon-container { padding: 28% 20px; margin: 0px; }
+  .addon-box { display: block; }
+  .addon-title { font-size: 1.2rem; }
+  .transfer-buttons { display: flex; justify-content: space-between; width: unset; margin: 10px; align-items: baseline; }
+  .viewmore-button { padding: 5px 10px; cursor: pointer; height: 35px; width: 110px; }
+  .insurance-buttons { display: flex; justify-content: space-between; width: unset; margin: 10px; align-items: baseline; }
+  .term-button { padding: 5px 10px; height: 60px; width: 140px; }
 
-  .camp-wrapper {
-    width: 350px;
-  }
+  .information-container { padding: 28% 20px; margin: 0px; }
+  .traveller-box { width: unset; border: 1px solid black; border-radius: 20px; padding: 25px; }
 
-  .camp {
-    width: 290px;
-    height: 270px;
-  }
-
-  /*date*/
-  .date-container {
-    padding: 28% 20px;
-    margin: 0px;
-  }
-
-  .date-box {
-    display: flex;
-    justify-content: space-around;
-  }
-
-  .left-section {
-    width: unset;
-  }
-
-  .react-datepicker__month-container {
-    width: 50% !important;
-  }
-
-  .react-datepicker__current-month {
-    font-weight: bold !important;
-    font-size: 1rem !important;
-    color: white !important;
-  }
-
-  .react-datepicker__month {
-    margin: 1.4rem 0 !important;
-    margin-left: 0px;
-    height: 200px !important;
-    margin-left: 0px !important;
-  }
-
-  .react-datepicker__day {
-    width: 1.5rem !important;
-    font-size: 12px;
-    margin: 0.4rem 0.3rem !important;
-    line-height: 1.5rem !important;
-  }
-
-  .right-section {
-    width: unset;
-    gap: 25px;
-    margin: 40px 0px;
-  }
-
-  /*room*/
-  .room-container {
-    padding: 28% 20px;
-    margin: 0px;
-  }
-
-  .room-list {
-    display: grid;
-    /* grid-template-columns: repeat(auto-fill, minmax(250px, 1fr)); */
-    gap: 40px;
-  }
-
-  .room-box {
-    display: grid;
-    justify-content: center;
-  }
-
-  .room-card {
-    width: 450px;
-  }
-
-  /*package*/
-  .package-container {
-    padding: 28% 20px;
-    margin: 0px;
-  }
-
-  .main-content {
-    display: block;
-    /* justify-content: center; */
-    margin: 0px 40px;
-  }
-
-  .package-box {
-    display: flex;
-    justify-content: space-between;
-    align-items: flex-start;
-  }
-
-  .package-content {
-    margin-left: 5px;
-  }
-
-  .package-title {
-    font-size: 13px;
-  }
-
-  .package-buttons {
-    width: 60%;
-    margin-right: 20px;
-    gap: 10px;
-  }
-
-  .include-button {
-    padding: 5px 10px;
-    height: unset;
-  }
-
-  .amount-button {
-    padding: 9px 11px;
-    align-content: flex-start;
-  }
-
-  /*selection*/
-  .selection-container {
-    padding: 28% 20px;
-    margin: 0px;
-  }
-
-  .person-container {
-    display: block;
-    border-top: 1px solid gray;
-    padding: 20px 0px;
-  }
-
-  .person-container select {
-    margin: 15px 0px;
-    width: 100%;
-  }
-
-  /*add-on*/
-  .addon-container {
-    padding: 28% 20px;
-    margin: 0px;
-  }
-
-  .addon-box {
-    display: block;
-  }
-
-  .addon-title {
-    font-size: 1.2rem;
-  }
-
-  .transfer-buttons {
-    display: flex;
-    justify-content: space-between;
-    width: unset;
-    margin: 10px;
-    align-items: baseline;
-  }
-
-  .viewmore-button {
-    padding: 5px 10px;
-    cursor: pointer;
-    height: 35px;
-    width: 110px;
-  }
-
-  .insurance-buttons {
-    display: flex;
-    justify-content: space-between;
-    width: unset;
-    margin: 10px;
-    align-items: baseline;
-  }
-
-  .term-button {
-    padding: 5px 10px;
-    height: 60px;
-    width: 140px;
-  }
-
-  /*information*/
-  .information-container {
-    padding: 28% 20px;
-    margin: 0px;
-  }
-
-  .traveller-box {
-    width: unset;
-    border: 1px solid black;
-    border-radius: 20px;
-    padding: 25px;
-  }
-
-  /*footer*/
-  .footer {
-    padding: 10px 5px;
-    border-radius: 25px;
-    position: fixed;
-    bottom: 0px;
-    width: 99%;
-  }
-
-  .footer-container {
-    margin: 0px;
-  }
+  .footer { padding: 10px 5px; border-radius: 25px; position: fixed; bottom: 0px; width: 99%; }
+  .footer-container { margin: 0px; }
 }
 
-/* Large Devices (Laptops) - 1024px to 1279px */
+/* -------- Large Devices (Laptops) - 1024px to 1279px -------- */
 @media (min-width: 1024px) and (max-width: 1279px) {
-  .navbar {
-    padding: 10px 20px;
-    width: 90%;
-  }
+  .navbar { padding: 10px 20px; width: 90%; }
+  .navbar-container { margin: 0px; }
+  .navbar-logo { width: 166px; height: 80px; object-fit: cover; }
 
-  .navbar-container {
-    display: flex;
-    justify-content: space-between;
-    align-items: center;
-    margin: 0px;
-  }
+  .home-container { padding: 15% 0px; margin: 0 5% 5%; }
+  .camp-section { display: flex; margin-top: 50px; }
+  .camp-wrapper { width: 370px; }
+  .camp { width: 320px; height: 300px; }
 
-  .navbar-back-button {
-    /* font-size: 3rem; */
-  }
+  .date-container { padding: 22% 20px; margin: 0px 20px; }
+  .date-box { display: flex; justify-content: space-between; }
+  .left-section { width: 60%; }
+  .react-datepicker__month-container { width: 50% !important; }
+  .react-datepicker__current-month { font-weight: bold !important; font-size: 1rem !important; color: white !important; }
+  .react-datepicker__month { margin: 1.4rem 0 !important; height: 250px !important; margin-left: 0px !important; }
+  .react-datepicker__day { width: 2rem !important; font-size: 15px; margin: 0.6rem 0.3rem !important; line-height: 1.7rem !important; }
+  .right-section { width: 30%; gap: 25px; margin: 40px 0px; }
 
-  .navbar-logo {
-    width: 166px;
-    height: 80px;
-    object-fit: cover;
-  }
+  .room-container { padding: 22% 20px; margin: 0px 20px; }
+  .room-list { display: grid; grid-template-columns: repeat(auto-fill, minmax(250px, 2fr)); gap: 40px; }
+  .room-box { display: flex; justify-content: space-between; }
+  .room-card { width: 260px; }
 
-  /*home*/
-  .home-container {
-    padding: 15% 0px;
-    margin: 0 5% 5%;
-  }
+  .package-container { padding: 22% 20px; margin: 0px 20px; }
+  .main-content { display: flex; justify-content: space-between; }
+  .package-box { display: flex; justify-content: space-between; align-items: flex-start; }
+  .package-content { margin-left: 5px; }
+  .package-title { font-size: 1rem; }
+  .package-buttons { width: 60%; margin-right: 20px; gap: 10px; }
+  .include-button { padding: 5px 10px; height: unset; }
+  .amount-button { padding: 9px 11px; align-content: flex-start; }
 
-  .camp-section {
-    display: flex;
-    margin-top: 50px;
-  }
+  .selection-container { padding: 22% 20px; margin: 0px 20px; }
+  .person-container { display: block; border-top: 1px solid gray; padding: 20px 20px; }
+  .person-container select { margin: 15px 0px; width: 100%; }
 
-  .camp-wrapper {
-    width: 370px;
-  }
+  .addon-container { padding: 22% 20px; margin: 0px 20px; }
+  .insurance-buttons { display: flex; justify-content: space-between; width: 45%; margin-right: 20px; align-items: unset; }
+  .term-button { padding: 5px 10px; height: 40px; width: 140px; }
 
-  .camp {
-    width: 320px;
-    height: 300px;
-  }
+  .information-container { padding: 22% 20px; margin: 0px 20px; }
+  .traveller-box { width: unset; border: 1px solid black; border-radius: 20px; padding: 25px; }
 
-  /*date*/
-  .date-container {
-    padding: 22% 20px;
-    margin: 0px 20px;
-  }
-
-  .date-box {
-    display: flex;
-    justify-content: space-between;
-  }
-
-  .left-section {
-    width: 60%;
-  }
-
-  .react-datepicker__month-container {
-    width: 50% !important;
-  }
-
-  .react-datepicker__current-month {
-    font-weight: bold !important;
-    font-size: 1rem !important;
-    color: white !important;
-  }
-
-  .react-datepicker__month {
-    margin: 1.4rem 0 !important;
-    margin-left: 0px;
-    height: 250px !important;
-    margin-left: 0px !important;
-  }
-
-  .react-datepicker__day {
-    width: 2rem !important;
-    font-size: 15px;
-    margin: 0.6rem 0.3rem !important;
-    line-height: 1.7rem !important;
-  }
-
-  .right-section {
-    width: 30%;
-    gap: 25px;
-    margin: 40px 0px;
-  }
-
-  /*room*/
-  .room-container {
-    padding: 22% 20px;
-    margin: 0px 20px;
-  }
-
-  .room-list {
-    display: grid;
-    grid-template-columns: repeat(auto-fill, minmax(250px, 2fr));
-    gap: 40px;
-  }
-
-  .room-box {
-    display: flex;
-    justify-content: space-between;
-  }
-
-  .room-card {
-    width: 260px;
-  }
-
-  /*package*/
-  .package-container {
-    padding: 22% 20px;
-    margin: 0px 20px;
-  }
-
-  .main-content {
-    display: flex;
-    justify-content: space-between;
-  }
-
-  .package-box {
-    display: flex;
-    justify-content: space-between;
-    align-items: flex-start;
-  }
-
-  .package-content {
-    margin-left: 5px;
-  }
-
-  .package-title {
-    font-size: 1rem;
-  }
-
-  .package-buttons {
-    width: 60%;
-    margin-right: 20px;
-    gap: 10px;
-  }
-
-  .include-button {
-    padding: 5px 10px;
-    height: unset;
-  }
-
-  .amount-button {
-    padding: 9px 11px;
-    align-content: flex-start;
-  }
-
-  /*selection*/
-  .selection-container {
-    padding: 22% 20px;
-    margin: 0px 20px;
-  }
-
-  .person-container {
-    display: block;
-    border-top: 1px solid gray;
-    padding: 20px 20px;
-  }
-
-  .person-container select {
-    margin: 15px 0px;
-    width: 100%;
-  }
-
-  /*add-on*/
-  .addon-container {
-    padding: 22% 20px;
-    margin: 0px 20px;
-  }
-
-  .insurance-buttons {
-    display: flex;
-    justify-content: space-between;
-    width: 45%;
-    margin-right: 20px;
-    align-items: unset;
-  }
-
-  .term-button {
-    padding: 5px 10px;
-    height: 40px;
-    width: 140px;
-  }
-
-  /*information*/
-  .information-container {
-    padding: 22% 20px;
-    margin: 0px 20px;
-  }
-
-  .traveller-box {
-    width: unset;
-    border: 1px solid black;
-    border-radius: 20px;
-    padding: 25px;
-  }
-
-  .footer {
-    padding: 10px 5px;
-    border-radius: 25px;
-    position: fixed;
-    bottom: 0px;
-    width: 99%;
-  }
-
-  .footer-container {
-    margin: 0px;
-  }
+  .footer { padding: 10px 5px; border-radius: 25px; position: fixed; bottom: 0px; width: 99%; }
+  .footer-container { margin: 0px; }
 }
 
-/* Extra Large Devices (Desktops) - 1280px to 1599px */
+/* -------- Extra Large Devices (Desktops) - 1280px to 1599px -------- */
 @media (min-width: 1280px) and (max-width: 1600px) {
-  .navbar {
-    padding: 10px 20px;
-    width: 90%;
-  }
+  .navbar { padding: 10px 20px; width: 90%; }
+  .navbar-container { margin: 0px; }
+  .navbar-logo { width: 166px; height: 80px; object-fit: cover; }
 
-  .navbar-container {
-    display: flex;
-    justify-content: space-between;
-    align-items: center;
-    margin: 0px;
-  }
+  .home-container { padding: 15% 0px; margin: 0px 5%; }
+  .camp-section { display: flex; margin-top: 50px; }
+  .camp-wrapper { width: 370px; }
+  .camp { width: 320px; height: 300px; }
 
-  .navbar-back-button {
-    /* font-size: 3rem; */
-  }
+  .date-container { padding: 15% 20px; margin: 0px 5%; }
+  .date-box { display: flex; justify-content: space-between; }
+  .left-section { width: 60%; }
+  .react-datepicker__month-container { width: 50% !important; }
+  .react-datepicker__current-month { font-weight: bold !important; font-size: 1rem !important; color: white !important; }
+  .react-datepicker__month { margin: 1.4rem 0 !important; height: 320px !important; margin-left: 0px !important; }
+  .react-datepicker__day { width: 2.5rem !important; font-size: 1.1rem; margin: 0.5rem 0.3rem !important; line-height: 3rem; }
+  .right-section { width: 30%; gap: 25px; margin: 40px 0px; }
 
-  .navbar-logo {
-    width: 166px;
-    height: 80px;
-    object-fit: cover;
-  }
+  .room-container { padding: 15% 20px; margin: 0px 5%; }
+  .room-list { display: grid; grid-template-columns: repeat(auto-fill, minmax(300px, 2fr)); gap: 40px; }
+  .room-box { display: flex; justify-content: space-between; }
+  .room-card { width: 350px; }
 
-  /*home*/
-  .home-container {
-    padding: 15% 0px;
-    margin: 0px 5%;
-  }
+  .package-container { padding: 15% 20px; margin: 0px 5%; }
+  .main-content { display: flex; justify-content: space-between; }
+  .package-box { display: flex; justify-content: space-between; align-items: flex-start; }
+  .package-content { margin-left: 5px; }
+  .package-title { font-size: 1.2rem; }
+  .package-buttons { width: 50%; margin-right: 20px; }
+  .include-button { padding: 5px 10px; height: unset; }
+  .amount-button { padding: 9px 11px; align-content: flex-start; }
 
-  .camp-section {
-    display: flex;
-    margin-top: 50px;
-  }
+  .selection-container { padding: 15% 20px; margin: 0px 5%; }
 
-  .camp-wrapper {
-    width: 370px;
-  }
+  .addon-container { padding: 15% 20px; margin: 0px 5%; }
+  .insurance-buttons { display: flex; justify-content: space-between; width: 45%; margin-right: 20px; align-items: unset; }
+  .term-button { padding: 5px 10px; height: 40px; width: 140px; }
 
-  .camp {
-    width: 320px;
-    height: 300px;
-  }
+  .information-container { padding: 15% 20px; margin: 0px 5%; }
+  .traveller-box { width: unset; border: 1px solid black; border-radius: 20px; padding: 25px; }
 
-  /*date*/
-  .date-container {
-    padding: 15% 20px;
-    margin: 0px 5%;
-  }
-
-  .date-box {
-    display: flex;
-    justify-content: space-between;
-  }
-
-  .left-section {
-    width: 60%;
-  }
-
-  .react-datepicker__month-container {
-    width: 50% !important;
-  }
-
-  .react-datepicker__current-month {
-    font-weight: bold !important;
-    font-size: 1rem !important;
-    color: white !important;
-  }
-
-  .react-datepicker__month {
-    margin: 1.4rem 0 !important;
-    margin-left: 0px;
-    height: 320px !important;
-    margin-left: 0px !important;
-  }
-
-  .react-datepicker__day {
-    width: 2.5rem !important;
-    font-size: 1.1rem;
-    margin: 0.5rem 0.3rem !important;
-    line-height: 3rem;
-  }
-
-  .right-section {
-    width: 30%;
-    gap: 25px;
-    margin: 40px 0px;
-  }
-
-  /*room*/
-  .room-container {
-    padding: 15% 20px;
-    margin: 0px 5%;
-  }
-
-  .room-list {
-    display: grid;
-    grid-template-columns: repeat(auto-fill, minmax(300px, 2fr));
-    gap: 40px;
-  }
-
-  .room-box {
-    display: flex;
-    justify-content: space-between;
-  }
-
-  .room-card {
-    width: 350px;
-  }
-
-  /*package*/
-  .package-container {
-    padding: 15% 20px;
-    margin: 0px 5%;
-  }
-
-  .main-content {
-    display: flex;
-    justify-content: space-between;
-  }
-
-  .package-box {
-    display: flex;
-    justify-content: space-between;
-    align-items: flex-start;
-  }
-
-  .package-content {
-    margin-left: 5px;
-  }
-
-  .package-title {
-    font-size: 1.2rem;
-  }
-
-  .package-buttons {
-    width: 50%;
-    margin-right: 20px;
-    /* gap: 10px; */
-  }
-
-  .include-button {
-    padding: 5px 10px;
-    height: unset;
-  }
-
-  .amount-button {
-    padding: 9px 11px;
-    align-content: flex-start;
-  }
-
-  /*selection*/
-  .selection-container {
-    padding: 15% 20px;
-    margin: 0px 5%;
-  }
-
-  /*add-on*/
-  .addon-container {
-    padding: 15% 20px;
-    margin: 0px 5%;
-  }
-
-  .insurance-buttons {
-    display: flex;
-    justify-content: space-between;
-    width: 45%;
-    margin-right: 20px;
-    align-items: unset;
-  }
-
-  .term-button {
-    padding: 5px 10px;
-    height: 40px;
-    width: 140px;
-  }
-
-  /*information*/
-  .information-container {
-    padding: 15% 20px;
-    margin: 0px 5%;
-  }
-
-  .traveller-box {
-    width: unset;
-    border: 1px solid black;
-    border-radius: 20px;
-    padding: 25px;
-  }
-
-  .footer {
-    padding: 10px 5px;
-    border-radius: 25px;
-    position: fixed;
-    bottom: 0px;
-    width: 99%;
-  }
-
-  .footer-container {
-    margin: 0px;
-  }
+  .footer { padding: 10px 5px; border-radius: 25px; position: fixed; bottom: 0px; width: 99%; }
+  .footer-container { margin: 0px; }
 }
 
-/* Very Large Desktops */
+/* -------- Very Large Desktops -------- */
 @media (min-width: 1921px) and (max-width: 2700px) {
-  .navbar {
-    padding: 10px 20px;
-    width: 90%;
-  }
+  .navbar { padding: 10px 20px; width: 90%; }
+  .navbar-container { display: flex; justify-content: space-around; align-items: center; margin: 0px; }
+  .navbar-back-button { font-size: 2.5rem; padding: 8px 20px; }
+  .navbar-icon { font-size: 2.5rem; padding: 15px 22px; }
+  .navbar-logo { width: 166px; height: 80px; object-fit: cover; }
+  .navbar-icon { font-size: 2rem; padding: 10px 14px; }
 
-  .navbar-container {
-    display: flex;
-    justify-content: space-around;
-    align-items: center;
-    margin: 0px;
-  }
+  .home-container { padding: 15% 20px; margin: 0 10% 10%; }
+  .camp-section { display: flex; margin-top: 50px; }
+  .camp-wrapper { width: 650px; }
+  .camp { width: 600px; height: 550px; }
 
-  .navbar-back-button {
-    font-size: 2.5rem;
-    padding: 8px 20px;
-  }
+  .date-container { padding: 15% 20px; margin: 0 10% 10%; }
+  .date-box { display: flex; justify-content: space-between; }
+  .left-section { width: 60%; }
+  .react-datepicker__month-container { width: 50% !important; }
+  .react-datepicker__current-month { font-weight: bold !important; font-size: 1rem !important; color: white !important; }
+  .react-datepicker__month { margin: 1.4rem 0 !important; height: 320px !important; margin-left: 0px !important; }
+  .react-datepicker__day { width: 2.5rem !important; font-size: 1.1rem; margin: 0.5rem 0.3rem !important; line-height: 3rem; }
+  .right-section { width: 30%; gap: 25px; margin: 40px 0px; }
 
-  .navbar-icon {
-    font-size: 2.5rem;
-    padding: 15px 22px;
-  }
+  .room-container { padding: 15% 20px; margin: 0 10% 10%; }
+  .room-list { display: grid; grid-template-columns: repeat(auto-fill, minmax(400px, 2fr)); gap: 40px; }
+  .room-box { display: flex; justify-content: space-between; }
+  .room-card { width: 400px; }
 
-  .navbar-logo {
-    width: 166px;
-    height: 80px;
-    object-fit: cover;
-  }
+  .package-container { padding: 15% 20px; margin: 0 10% 10%; }
+  .main-content { display: flex; justify-content: space-between; }
+  .package-box { display: flex; justify-content: space-between; align-items: flex-start; }
+  .package-content { margin-left: 5px; }
+  .package-title { font-size: 1.2rem; }
+  .package-buttons { width: 50%; margin-right: 20px; }
+  .include-button { padding: 5px 10px; height: unset; }
+  .amount-button { padding: 9px 11px; align-content: flex-start; }
 
-  .navbar-icon {
-    font-size: 2rem;
-    padding: 10px 14px;
-  }
+  .selection-container { padding: 15% 20px; margin: 0 10% 10%; }
 
-  /*home*/
-  .home-container {
-    padding: 15% 20px;
-    margin: 0 10% 10%;
-  }
+  .addon-container { padding: 15% 20px; margin: 0 10% 10%; }
+  .insurance-buttons { display: flex; justify-content: space-between; width: 45%; margin-right: 20px; align-items: unset; }
+  .term-button { padding: 5px 10px; height: 40px; width: 140px; }
 
-  .camp-section {
-    display: flex;
-    margin-top: 50px;
-  }
+  .information-container { padding: 15% 20px; margin: 0 10% 10%; }
+  .traveller-box { width: 60%; border: 1px solid black; border-radius: 20px; padding: 25px; }
 
-  .camp-wrapper {
-    width: 650px;
-  }
+  .footer { padding: 50px 5px; border-radius: 25px; position: fixed; bottom: 0px; width: 99%; }
+  .footer-container { margin: 0px; }
+}
 
-  .camp {
-    width: 600px;
-    height: 550px;
-  }
-
-  /*date*/
-  .date-container {
-    padding: 15% 20px;
-    margin: 0 10% 10%;
-  }
-
-  .date-box {
-    display: flex;
-    justify-content: space-between;
-  }
-
-  .left-section {
-    width: 60%;
-  }
-
-  .react-datepicker__month-container {
-    width: 50% !important;
-  }
-
-  .react-datepicker__current-month {
-    font-weight: bold !important;
-    font-size: 1rem !important;
-    color: white !important;
-  }
-
-  .react-datepicker__month {
-    margin: 1.4rem 0 !important;
-    margin-left: 0px;
-    height: 320px !important;
-    margin-left: 0px !important;
-  }
-
-  .react-datepicker__day {
-    width: 2.5rem !important;
-    font-size: 1.1rem;
-    margin: 0.5rem 0.3rem !important;
-    line-height: 3rem;
-  }
-
-  .right-section {
-    width: 30%;
-    gap: 25px;
-    margin: 40px 0px;
-  }
-
-  /*room*/
-  .room-container {
-    padding: 15% 20px;
-    margin: 0 10% 10%;
-  }
-
-  .room-list {
-    display: grid;
-    grid-template-columns: repeat(auto-fill, minmax(400px, 2fr));
-    gap: 40px;
-  }
-
-  .room-box {
-    display: flex;
-    justify-content: space-between;
-  }
-
-  .room-card {
-    width: 400px;
-  }
-
-  /*package*/
-  .package-container {
-    padding: 15% 20px;
-    margin: 0 10% 10%;
-  }
-
-  .main-content {
-    display: flex;
-    justify-content: space-between;
-  }
-
-  .package-box {
-    display: flex;
-    justify-content: space-between;
-    align-items: flex-start;
-  }
-
-  .package-content {
-    margin-left: 5px;
-  }
-
-  .package-title {
-    font-size: 1.2rem;
-  }
-
-  .package-buttons {
-    width: 50%;
-    margin-right: 20px;
-    /* gap: 10px; */
-  }
-
-  .include-button {
-    padding: 5px 10px;
-    height: unset;
-  }
-
-  .amount-button {
-    padding: 9px 11px;
-    align-content: flex-start;
-  }
-
-  /*selection*/
-  .selection-container {
-    padding: 15% 20px;
-    margin: 0 10% 10%;
-  }
-
-  /*add-on*/
-  .addon-container {
-    padding: 15% 20px;
-    margin: 0 10% 10%;
-  }
-
-  .insurance-buttons {
-    display: flex;
-    justify-content: space-between;
-    width: 45%;
-    margin-right: 20px;
-    align-items: unset;
-  }
-
-  .term-button {
-    padding: 5px 10px;
-    height: 40px;
-    width: 140px;
-  }
-
-  /*information*/
-  .information-container {
-    padding: 15% 20px;
-    margin: 0 10% 10%;
-  }
-
-  .traveller-box {
-    width: 60%;
-    border: 1px solid black;
-    border-radius: 20px;
-    padding: 25px;
-  }
-
-  .footer {
-    padding: 50px 5px;
-    border-radius: 25px;
-    position: fixed;
-    bottom: 0px;
-    width: 99%;
-  }
-
-  .footer-container {
-    margin: 0px;
-  }
+/* === Mobile: keep same border radius as desktop for key boxes === */
+@media (max-width: 480px) {
+  .camp { border-radius: 60px !important; }
+  .map-image,
+  .map-image img { border-radius: 60px !important; }
+}
+@media (min-width: 481px) and (max-width: 767px) {
+  .camp { border-radius: 60px !important; }
+  .map-image,
+  .map-image img { border-radius: 60px !important; }
 }
