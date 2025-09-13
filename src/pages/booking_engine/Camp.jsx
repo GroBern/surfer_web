@@ -1,4 +1,3 @@
-// Camp.jsx
 import React, { useState, useEffect } from "react";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import {
@@ -115,170 +114,122 @@ const Camp = () => {
     <>
       <BookingNavbar />
 
-      {/* keep desktop look; only make the comparison H2 heavier on mobile */}
-      <style>{`
-        .home-container { overflow-x: hidden; }
-        .home-container .camp-section + div h2 {
-          margin: 0 0 12px;
-          font-size: clamp(20px, 3vw, 28px);
-          font-weight: 800; /* desktop/base */
-          line-height: 1.2;
-        }
-        @media (max-width: 767px) {
-          .home-container .camp-section + div h2 { font-weight: 900; }
-        }
-      `}</style>
-
-      <div className="home-container">
-        <div className="camp-section">
-          {/* Beach Camp */}
-          <div className="camp-wrapper beach-camp">
+      <div className="overflow-x-hidden px-5 py-[10%] mx-[10%] mb-[10%]">
+        {/* Camp Section */}
+        <div className="flex flex-wrap justify-around mt-12 gap-5">
+          {packageData.map((pkg) => (
             <div
-              className="camp"
-              role="button"
-              tabIndex={0}
-              aria-label={`Select ${packageData[0].title}`}
-              style={{
-                backgroundImage: `url(${
-                  packageData[0].images[currentImageIndex["1"] ?? 0]
-                })`,
-              }}
-              onClick={() => handleCampSelection(packageData[0].title)}
-              onKeyDown={(e) => handleCampKeyDown(e, packageData[0].title)}
+              key={pkg.id}
+              className="grid text-left mb-2.5 w-[500px] justify-items-center h-fit"
             >
-              <div className="carousel-controls" aria-hidden="true">
-                <button
-                  className="carousel-btn prev"
-                  onClick={(e) => prevImage("1", e)}
-                  aria-label="Previous image"
+              <div
+                className="relative w-[450px] h-[350px] text-white shadow-[0_0_20px_7px_rgba(0,0,0,0.11)] cursor-pointer p-5 rounded-[60px] transition duration-300 overflow-hidden bg-cover bg-center"
+                role="button"
+                tabIndex={0}
+                aria-label={`Select ${pkg.title}`}
+                style={{
+                  backgroundImage: `url(${
+                    pkg.images[currentImageIndex[pkg.id] ?? 0]
+                  })`,
+                }}
+                onClick={() => handleCampSelection(pkg.title)}
+                onKeyDown={(e) => handleCampKeyDown(e, pkg.title)}
+              >
+                {/* Carousel Controls */}
+                <div
+                  className="absolute w-[90%] h-full top-0 left-0 flex justify-between items-center px-5"
+                  aria-hidden="true"
                 >
-                  <FontAwesomeIcon icon={faChevronLeft} />
-                </button>
-                <button
-                  className="carousel-btn next"
-                  onClick={(e) => nextImage("1", e)}
-                  aria-label="Next image"
-                >
-                  <FontAwesomeIcon icon={faChevronRight} />
-                </button>
+                  <button
+                    className="bg-black/50 hover:bg-black/80 text-white w-10 h-10 rounded-full flex items-center justify-center cursor-pointer z-10 transition"
+                    onClick={(e) => prevImage(pkg.id, e)}
+                    aria-label="Previous image"
+                  >
+                    <FontAwesomeIcon icon={faChevronLeft} />
+                  </button>
+                  <button
+                    className="bg-black/50 hover:bg-black/80 text-white w-10 h-10 rounded-full flex items-center justify-center cursor-pointer z-10 transition"
+                    onClick={(e) => nextImage(pkg.id, e)}
+                    aria-label="Next image"
+                  >
+                    <FontAwesomeIcon icon={faChevronRight} />
+                  </button>
+                </div>
+
+                {/* Image Counter */}
+                <div className="absolute bottom-5 right-5 bg-black/50 text-white px-2.5 py-1 rounded-2xl text-xs z-10">
+                  {(currentImageIndex[pkg.id] ?? 0) + 1} / {pkg.images.length}
+                </div>
+
+                {/* Title */}
+                <h3 className="text-xl font-bold mb-1.5 text-center relative z-10 drop-shadow-[1px_1px_3px_rgba(0,0,0,0.8)]">
+                  {pkg.title}
+                </h3>
               </div>
 
-              <div className="image-counter" aria-live="polite">
-                {(currentImageIndex["1"] ?? 0) + 1} / {packageData[0].images.length}
-              </div>
+              {/* Toggle Button */}
+              <button
+                className="block mx-auto mb-10 px-4 py-1.5 text-sm text-white bg-[#00afef] hover:bg-[#0a67a9] rounded-b-[15px] transition"
+                onClick={() => toggleExpand(pkg.id)}
+                aria-expanded={expanded === pkg.id}
+                aria-controls={`camp-${pkg.id}-details`}
+              >
+                Camp Details{" "}
+                {expanded === pkg.id ? (
+                  <FontAwesomeIcon icon={faAngleUp} />
+                ) : (
+                  <FontAwesomeIcon icon={faAngleDown} />
+                )}
+              </button>
 
-              <h3 className="camp-title">{packageData[0].title}</h3>
-            </div>
-
-            <button
-              className="toggle-btn"
-              onClick={() => toggleExpand("1")}
-              aria-expanded={expanded === "1"}
-              aria-controls="camp-1-details"
-            >
-              Camp Details{" "}
-              {expanded === "1" ? (
-                <FontAwesomeIcon icon={faAngleUp} />
-              ) : (
-                <FontAwesomeIcon icon={faAngleDown} />
+              {/* Expanded Details */}
+              {expanded === pkg.id && (
+                <div
+                  id={`camp-${pkg.id}-details`}
+                  className="mt-2.5 gap-2.5 justify-center p-2.5 rounded-lg bg-white/20 backdrop-blur-md shadow-md mb-10"
+                >
+                  {pkg.includes.map((item, index) => (
+                    <div key={index} className="flex gap-3.5 items-center">
+                      <span className="flex flex-3 items-center rounded-lg mb-3 bg-white/20 backdrop-blur-sm p-2">
+                        {item}
+                      </span>
+                    </div>
+                  ))}
+                </div>
               )}
-            </button>
-
-            {expanded === "1" && (
-              <div className="camp-details" id="camp-1-details">
-                {packageData[0].includes.map((item, index) => (
-                  <div className="detail" key={index}>
-                    <span className="detail-text">{item}</span>
-                  </div>
-                ))}
-              </div>
-            )}
-          </div>
-
-          {/* TS2 Camp */}
-          <div className="camp-wrapper ts2-camp">
-            <div
-              className="camp"
-              role="button"
-              tabIndex={0}
-              aria-label={`Select ${packageData[1].title}`}
-              style={{
-                backgroundImage: `url(${
-                  packageData[1].images[currentImageIndex["2"] ?? 0]
-                })`,
-              }}
-              onClick={() => handleCampSelection(packageData[1].title)}
-              onKeyDown={(e) => handleCampKeyDown(e, packageData[1].title)}
-            >
-              <div className="carousel-controls" aria-hidden="true">
-                <button
-                  className="carousel-btn prev"
-                  onClick={(e) => prevImage("2", e)}
-                  aria-label="Previous image"
-                >
-                  <FontAwesomeIcon icon={faChevronLeft} />
-                </button>
-                <button
-                  className="carousel-btn next"
-                  onClick={(e) => nextImage("2", e)}
-                  aria-label="Next image"
-                >
-                  <FontAwesomeIcon icon={faChevronRight} />
-                </button>
-              </div>
-
-              <div className="image-counter" aria-live="polite">
-                {(currentImageIndex["2"] ?? 0) + 1} / {packageData[1].images.length}
-              </div>
-
-              <h3 className="camp-title">{packageData[1].title}</h3>
             </div>
-
-            <button
-              className="toggle-btn"
-              onClick={() => toggleExpand("2")}
-              aria-expanded={expanded === "2"}
-              aria-controls="camp-2-details"
-            >
-              Camp Details{" "}
-              {expanded === "2" ? (
-                <FontAwesomeIcon icon={faAngleUp} />
-              ) : (
-                <FontAwesomeIcon icon={faAngleDown} />
-              )}
-            </button>
-
-            {expanded === "2" && (
-              <div className="camp-details" id="camp-2-details">
-                {packageData[1].includes.map((item, index) => (
-                  <div className="detail" key={index}>
-                    <span className="detail-text">{item}</span>
-                  </div>
-                ))}
-              </div>
-            )}
-          </div>
+          ))}
         </div>
 
-        <div style={{ textAlign: "center", margin: "24px 0" }}>
-          <h2>Beach Camp vs. TS2 Camp: What's the Difference?</h2>
+        {/* Comparison Section */}
+        <div className="text-center my-6">
+          <h2 className="mb-3 text-[clamp(20px,3vw,28px)] font-extrabold leading-tight md:font-extrabold sm:font-black">
+            Beach Camp vs. TS2 Camp: What's the Difference?
+          </h2>
           <p>
             Main difference is the location and the room standard!
             <br />
-            Beach camp located right next to the beach with swim pool, TS2 camp rooms are
-            with Basic standard simple private rooms with Fan and hot water ensuite
-            bathroom Beach camp rooms are Standard private rooms with air conditioning,
-            ensuite bathroom and hot water! TS2 camp located 05 minutes ride away from
-            the beach camp, even though you book TS2 Weligama , all your surf lessons,
-            Yoga, dinner and all events will be taken place at the beach camp! 1000 rupees
-            per day will be paid per room and per dormitory as a transport compensation to
-            travel between the camps! You can basically spend all ur day at the beach camp
-            and just go for sleep at TS2 camp!
+            Beach camp located right next to the beach with swim pool, TS2 camp
+            rooms are with Basic standard simple private rooms with Fan and hot
+            water ensuite bathroom Beach camp rooms are Standard private rooms
+            with air conditioning, ensuite bathroom and hot water! TS2 camp
+            located 05 minutes ride away from the beach camp, even though you
+            book TS2 Weligama , all your surf lessons, Yoga, dinner and all
+            events will be taken place at the beach camp! 1000 rupees per day
+            will be paid per room and per dormitory as a transport compensation
+            to travel between the camps! You can basically spend all ur day at
+            the beach camp and just go for sleep at TS2 camp!
           </p>
         </div>
 
-        <div className="map-image">
-          <img src="booking_engine/map.jpg" alt="camp map" loading="lazy" />
+        {/* Map Image */}
+        <div className="flex justify-center rounded-[60px] overflow-hidden">
+          <img
+            src="booking_engine/map.jpg"
+            alt="camp map"
+            loading="lazy"
+            className="w-full h-full object-cover rounded-[60px]"
+          />
         </div>
       </div>
 

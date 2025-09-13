@@ -224,7 +224,7 @@ const Package = () => {
             ))}
           </div>
 
-          <div className="right-section" style={{ marginTop: "8%" }}>
+          <div className="w-full lg:w-1/3">
             <Summary
               dateRange={dateRange}
               selectedRooms={selectedRooms}
@@ -232,16 +232,16 @@ const Package = () => {
             />
             <Link
               to="/selection"
-              className={!isSelectionValid() ? "disabled-link" : "next-button"}
-            >
+              className={`block mt-6 ${isSelectionValid() ? "" : "pointer-events-none"}`}
+                          >
               <div
-                className="next-button"
-                style={{
-                  backgroundColor: !isSelectionValid() ? "gainsboro" : "#00afef",
-                  cursor: !isSelectionValid() ? "not-allowed" : "pointer",
-                }}
+                className={`text-center py-3 rounded-lg font-semibold flex justify-center items-center space-x-2 ${isSelectionValid()
+                    ? "bg-[#00afef] text-white hover:bg-[#0a67a9]"
+                    : "bg-gray-300 text-gray-600"
+                  }`}
               >
-                Selection Matching <FontAwesomeIcon icon={faArrowRight} />
+                <span>Selection Matching</span>
+                <FontAwesomeIcon icon={faArrowRight} />
               </div>
             </Link>
           </div>

@@ -10,47 +10,49 @@ const BookingNavbar = () => {
     return stored ? JSON.parse(stored) : false;
   });
 
-  // 20% scale (same idea as footer shrink)
   const SCALE = 0.8;
 
   return (
-    <div className="navbar">
-      <div className="navbar-container">
+    <div className="fixed left-[4%] w-[90%] z-[11] bg-white border-b border-gray-300 shadow-[0_0_20px_7px_rgba(0,0,0,0.11)] rounded-[40px] px-5 py-2.5">
+      <div className="flex items-center justify-between mx-[10%]">
+        {/* Back button */}
         <button
-          className="navbar-back-button"
-          disabled={isSubmitted}
+          className={`rounded-full border-none text-white transition-colors ${
+            isSubmitted
+              ? "bg-gray-400 cursor-not-allowed"
+              : "bg-[#00afef] hover:bg-[#0a67a9] cursor-pointer"
+          }`}
           style={{
-            // shrink only size-related bits; keep colors/hover from CSS
-            fontSize: `${2 * SCALE}rem`,               // 2rem → 1.6rem
-            padding: `${8 * SCALE}px ${18 * SCALE}px`,  // 8x18 → 6x14.4
-            backgroundColor: isSubmitted ? "#ccc" : "",
-            cursor: isSubmitted ? "not-allowed" : "pointer",
+            fontSize: `${2 * SCALE}rem`,
+            padding: `${8 * SCALE}px ${18 * SCALE}px`,
           }}
           onClick={() => navigate(-1)}
           aria-label="Go back"
           title="Back"
+          disabled={isSubmitted}
         >
           <FontAwesomeIcon icon={faAngleLeft} />
         </button>
 
+        {/* Logo */}
         <a href="/camp" aria-label="Go to Camp">
           <img
             src="/logo.png"
             alt="The Surfer Sri Lanka"
-            className="navbar-logo"
+            className="object-cover"
             style={{
-              width: `${167 * SCALE}px`,  // 167 → ~134
-              height: `${80 * SCALE}px`,  // 80  → 64
-              objectFit: "cover",
+              width: `${167 * SCALE}px`,
+              height: `${80 * SCALE}px`,
             }}
           />
         </a>
 
+        {/* Currency icon */}
         <div
-          className="navbar-icon"
+          className="rounded-full bg-[#00afef] text-white cursor-pointer transition-colors hover:bg-[#0a67a9]"
           style={{
-            fontSize: `${2 * SCALE}rem`,               // 2rem → 1.6rem
-            padding: `${15 * SCALE}px ${22 * SCALE}px` // 15x22 → 12x17.6
+            fontSize: `${2 * SCALE}rem`,
+            padding: `${15 * SCALE}px ${22 * SCALE}px`,
           }}
           title="Currency"
         >

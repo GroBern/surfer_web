@@ -1,15 +1,11 @@
 import React, { useEffect, useState } from "react";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
-import {
-  faArrowRight,
-  faAngleUp,
-  faAngleDown,
-} from "@fortawesome/free-solid-svg-icons";
+import { faArrowRight } from "@fortawesome/free-solid-svg-icons";
 import { Link } from "react-router-dom";
 import Summary from "../../components/booking_engine/Summary";
-import TimePicker from 'react-time-picker';
-import BookingNavbar from '../../components/booking_engine/BookingNavbar';
-import BookingFooter from '../../components/booking_engine/BookingFooter';
+import TimePicker from "react-time-picker";
+import BookingNavbar from "../../components/booking_engine/BookingNavbar";
+import BookingFooter from "../../components/booking_engine/BookingFooter";
 
 const Addon = () => {
   const [dateRange, setDateRange] = useState(() => {
@@ -31,10 +27,8 @@ const Addon = () => {
     const storedInfo = localStorage.getItem("travellerInfo");
     return storedInfo ? JSON.parse(storedInfo) : [{}];
   });
-  const [showArrivalForm, setShowArrivalForm] = useState(false);
-  const [showDepartureForm, setShowDepartureForm] = useState(false);
 
-  // Load initial data from localStorage
+  // Load initial data
   useEffect(() => {
     const storedRooms = localStorage.getItem("selectedRooms");
     if (storedRooms) setSelectedRooms(JSON.parse(storedRooms));
@@ -54,18 +48,16 @@ const Addon = () => {
   const isAddonActive = (title) =>
     selectedAddons.some((addon) => addon.title === title);
 
-  // Handle flight information changes
   const handleFlightInfoChange = (e) => {
     const { name, value } = e.target;
-    setTravellerInfo(prev => {
-      const updatedInfo = [...prev];
-      if (updatedInfo.length === 0) updatedInfo.push({});
-      updatedInfo[0] = { ...updatedInfo[0], [name]: value };
-      return updatedInfo;
+    setTravellerInfo((prev) => {
+      const updated = [...prev];
+      if (updated.length === 0) updated.push({});
+      updated[0] = { ...updated[0], [name]: value };
+      return updated;
     });
   };
 
-  // Save to localStorage whenever data changes
   useEffect(() => {
     localStorage.setItem("addons", JSON.stringify(selectedAddons));
     localStorage.setItem("totalPrice", JSON.stringify(totalPrice));
@@ -74,69 +66,51 @@ const Addon = () => {
 
   const handleArrivalFee = () => {
     const isActive = isAddonActive("Airport Pick-up");
-
+    const price = totalSelectedPackages >= 4 ? 100 : 75;
     if (isActive) {
-      // Remove addon
-      setSelectedAddons(prev => prev.filter(addon => addon.title !== "Airport Pick-up"));
-      setTotalPrice(prev => prev - (totalSelectedPackages >= 4 ? 100 : 75));
-      setShowArrivalForm(false);
+      setSelectedAddons((prev) =>
+        prev.filter((addon) => addon.title !== "Airport Pick-up")
+      );
+      setTotalPrice((prev) => prev - price);
     } else {
-      // Add addon
-      setSelectedAddons(prev => [
+      setSelectedAddons((prev) => [
         ...prev,
-        {
-          title: "Airport Pick-up",
-          amount: 1,
-          price: totalSelectedPackages >= 4 ? 100 : 75
-        }
+        { title: "Airport Pick-up", amount: 1, price },
       ]);
-      setTotalPrice(prev => prev + (totalSelectedPackages >= 4 ? 100 : 75));
-      setShowArrivalForm(true);
+      setTotalPrice((prev) => prev + price);
     }
   };
 
   const handleDepartureFee = () => {
     const isActive = isAddonActive("Airport Drop");
-
+    const price = totalSelectedPackages >= 4 ? 100 : 65;
     if (isActive) {
-      // Remove addon
-      setSelectedAddons(prev => prev.filter(addon => addon.title !== "Airport Drop"));
-      setTotalPrice(prev => prev - (totalSelectedPackages >= 4 ? 100 : 65));
-      setShowDepartureForm(false);
+      setSelectedAddons((prev) =>
+        prev.filter((addon) => addon.title !== "Airport Drop")
+      );
+      setTotalPrice((prev) => prev - price);
     } else {
-      // Add addon
-      setSelectedAddons(prev => [
+      setSelectedAddons((prev) => [
         ...prev,
-        {
-          title: "Airport Drop",
-          amount: 1,
-          price: totalSelectedPackages >= 4 ? 100 : 65
-        }
+        { title: "Airport Drop", amount: 1, price },
       ]);
-      setTotalPrice(prev => prev + (totalSelectedPackages >= 4 ? 100 : 65));
-      setShowDepartureForm(true);
+      setTotalPrice((prev) => prev + price);
     }
   };
 
   const isArrivalInfoValid = () => {
     const info = travellerInfo[0];
     return (
-      !isAddonActive("Airport Pick-up") || (
-        info?.arrivalFlightNumber &&
-        info?.arrivalFlightDate &&
-        info?.arrivalFlightTime
-      )
+      !isAddonActive("Airport Pick-up") ||
+      (info?.arrivalFlightNumber && info?.arrivalFlightDate && info?.arrivalFlightTime)
     );
   };
 
   const isDepartureInfoValid = () => {
     const info = travellerInfo[0];
     return (
-      !isAddonActive("Airport Drop") || (
-        info?.departureFlightNumber &&
-        info?.departureFlightDate &&
-        info?.departureFlightTime
-      )
+      !isAddonActive("Airport Drop") ||
+      (info?.departureFlightNumber && info?.departureFlightDate && info?.departureFlightTime)
     );
   };
 
@@ -145,182 +119,189 @@ const Addon = () => {
   return (
     <>
       <BookingNavbar />
-      <div className="addon-container">
-        <h3>Select Airport Details</h3>
-        <div className="main-content">
-          <div className="left-section">
-            {/* Add-on 1 */}
-            <div className="addon">
-              <div className="addon-box">
-                <div className="addon-content">
-                  <div className="addon-title">
-                    Airport Pick-up {totalSelectedPackages <= 3 ? "(Up to 3 People)" : "(More than 4 People)"}
+      <div className="px-5 md:px-[10%] py-[10%] mb-[10%]">
+        <h3 className="text-xl font-semibold mb-6">Select Airport Details</h3>
+        <div className="flex flex-col lg:flex-row gap-8">
+          {/* Left section */}
+          <div className="flex-1">
+            {/* Airport Pick-up */}
+            <div className="border border-black rounded-xl p-5 mb-10">
+              <div className="flex justify-between items-center">
+                <div>
+                  <div className="text-lg font-bold">
+                    Airport Pick-up{" "}
+                    {totalSelectedPackages <= 3
+                      ? "(Up to 3 People)"
+                      : "(More than 4 People)"}
                   </div>
-                  <div className="addon-price">EUR {totalSelectedPackages >= 4 ? 100 : 75}</div>
+                  <div className="text-gray-700 font-medium">
+                    EUR {totalSelectedPackages >= 4 ? 100 : 75}
+                  </div>
                 </div>
-
-                {/* Surfboard checkbox */}
-                <div className="checkbox-container">
-                  <input
-                    type="checkbox"
-                    id="surfboard-checkbox"
-                    name="surfboard-checkbox"
-                    checked={travellerInfo[0]?.hasSurfboard || false}
-                    onChange={(e) => {
-                      setTravellerInfo(prev => {
-                        const updatedInfo = [...prev];
-                        if (updatedInfo.length === 0) updatedInfo.push({});
-                        updatedInfo[0] = { ...updatedInfo[0], hasSurfboard: e.target.checked };
-                        return updatedInfo;
-                      });
-                    }}
-                  />
-                  <label htmlFor="surfboard-checkbox" style={{ marginLeft: "5px" }}>
-                    Will you bring a surfboard?
-                  </label>
-                </div>
-
-                <div className="transfer-buttons">
-                  <button
-                    className="booking-button"
-                    onClick={handleArrivalFee}
-                    style={
-                      isAddonActive("Airport Pick-up")
-                        ? { backgroundColor: "#0a67a9", color: "#fff" }
-                        : {}
-                    }
-                  >
-                    {isAddonActive("Airport Pick-up") ? "Remove" : "Add"}
-                  </button>
-                </div>
+                <button
+                  onClick={handleArrivalFee}
+                  className={`w-28 h-10 border-2 rounded-md ${
+                    isAddonActive("Airport Pick-up")
+                      ? "bg-[#0a67a9] text-white border-[#0a67a9]"
+                      : "bg-white border-[#0a67a9]"
+                  }`}
+                >
+                  {isAddonActive("Airport Pick-up") ? "Remove" : "Add"}
+                </button>
               </div>
 
-              <div className="viewmore-box">
-                <p>
-                  Transfer from Bandaranaike International Airport to the Surf Camp.
-                  Price for up to 3 pax: €75. Price for 4 pax or more: €100.
-                </p>
+              <p className="mt-3 text-sm text-gray-600">
+                Transfer from Bandaranaike International Airport to the Surf
+                Camp. Price up to 3 pax: €75. Price for 4 pax or more: €100.
+              </p>
 
-                {/* Arrival Information Form */}
-                {selectedAddons.some((addon) => addon.title === "Airport Pick-up") && (
-                  <div className="flight-info-form traveller-form">
-                    <h4>Arrival Information</h4>
-                    <div className="form-group">
-                      <div style={{ display: "flex", flexDirection: "column", width: "100%" }}>
-                        <label htmlFor="arrivalFlightNumber">Arrival Flight Number</label>
-                        <input
-                          type="text"
-                          placeholder="Enter your arrival flight number"
-                          name="arrivalFlightNumber"
-                          value={travellerInfo[0]?.arrivalFlightNumber || ""}
-                          onChange={handleFlightInfoChange}
-                          required
-                        />
-                      </div>
-                      <div style={{ display: "flex", flexDirection: "column", width: "100%" }}>
-                        <label htmlFor="arrivalFlightDate">Arrival Flight Date</label>
-                        <input
-                          type="date"
-                          name="arrivalFlightDate"
-                          value={travellerInfo[0]?.arrivalFlightDate || ""}
-                          onChange={handleFlightInfoChange}
-                          required
-                          min={new Date().toISOString().split("T")[0]}
-                        />
-                      </div>
-                      <div style={{ display: "flex", flexDirection: "column", width: "100%" }}>
-                        <label htmlFor="arrivalFlightTime">Arrival Flight Time</label>
-                        <TimePicker
-                          name="arrivalFlightTime"
-                          onChange={(value) => handleFlightInfoChange({ target: { name: "arrivalFlightTime", value } })}
-                          value={travellerInfo[0]?.arrivalFlightTime || ""}
-                          format="h:m a"
-                          disableClock={true}
-                          clearIcon={null}
-                        />
-                      </div>
+              {isAddonActive("Airport Pick-up") && (
+                <div className="mt-4 space-y-4">
+                  <h4 className="font-semibold">Arrival Information</h4>
+                  <div className="grid gap-4">
+                    <div className="flex flex-col">
+                      <label>Arrival Flight Number</label>
+                      <input
+                        type="text"
+                        name="arrivalFlightNumber"
+                        placeholder="Enter flight number"
+                        value={travellerInfo[0]?.arrivalFlightNumber || ""}
+                        onChange={handleFlightInfoChange}
+                        className="border rounded p-2"
+                      />
+                    </div>
+                    <div className="flex flex-col">
+                      <label>Arrival Flight Date</label>
+                      <input
+                        type="date"
+                        name="arrivalFlightDate"
+                        min={new Date().toISOString().split("T")[0]}
+                        value={travellerInfo[0]?.arrivalFlightDate || ""}
+                        onChange={handleFlightInfoChange}
+                        className="border rounded p-2"
+                      />
+                    </div>
+                    <div className="flex flex-col">
+                      <label>Arrival Flight Time</label>
+                      <TimePicker
+                        name="arrivalFlightTime"
+                        onChange={(value) =>
+                          handleFlightInfoChange({
+                            target: { name: "arrivalFlightTime", value },
+                          })
+                        }
+                        value={travellerInfo[0]?.arrivalFlightTime || ""}
+                        format="h:m a"
+                        disableClock={true}
+                        clearIcon={null}
+                      />
+                    </div>
+                    <div className="flex items-center">
+                      <input
+                        type="checkbox"
+                        id="surfboard"
+                        checked={travellerInfo[0]?.hasSurfboard || false}
+                        onChange={(e) =>
+                          setTravellerInfo((prev) => {
+                            const updated = [...prev];
+                            if (updated.length === 0) updated.push({});
+                            updated[0] = {
+                              ...updated[0],
+                              hasSurfboard: e.target.checked,
+                            };
+                            return updated;
+                          })
+                        }
+                      />
+                      <label htmlFor="surfboard" className="ml-2">
+                        Will you bring a surfboard?
+                      </label>
                     </div>
                   </div>
-                )}
-              </div>
+                </div>
+              )}
             </div>
 
-            {/* Add-on 2 */}
-            <div className="addon">
-              <div className="addon-box">
-                <div className="addon-content">
-                  <div className="addon-title">
-                    Airport Drop {totalSelectedPackages <= 3 ? "(up to 3 people)" : "(more than 4 people)"}
+            {/* Airport Drop */}
+            <div className="border border-black rounded-xl p-5 mb-10">
+              <div className="flex justify-between items-center">
+                <div>
+                  <div className="text-lg font-bold">
+                    Airport Drop{" "}
+                    {totalSelectedPackages <= 3
+                      ? "(Up to 3 People)"
+                      : "(More than 4 People)"}
                   </div>
-                  <div className="addon-price">EUR {totalSelectedPackages >= 4 ? 100 : 65}</div>
+                  <div className="text-gray-700 font-medium">
+                    EUR {totalSelectedPackages >= 4 ? 100 : 65}
+                  </div>
                 </div>
-                <div className="transfer-buttons">
-                  <button
-                    className="booking-button"
-                    onClick={handleDepartureFee}
-                    style={
-                      isAddonActive("Airport Drop")
-                        ? { backgroundColor: "#0a67a9", color: "#fff" }
-                        : {}
-                    }
-                  >
-                    {isAddonActive("Airport Drop") ? "Remove" : "Add"}
-                  </button>
-                </div>
+                <button
+                  onClick={handleDepartureFee}
+                  className={`w-28 h-10 border-2 rounded-md ${
+                    isAddonActive("Airport Drop")
+                      ? "bg-[#0a67a9] text-white border-[#0a67a9]"
+                      : "bg-white border-[#0a67a9]"
+                  }`}
+                >
+                  {isAddonActive("Airport Drop") ? "Remove" : "Add"}
+                </button>
               </div>
 
-              <div className="viewmore-box">
-                <p>
-                  Transfer from the Surf Camp to Bandaranaike International Airport.
-                  Price for up to 3 pax: €65. Price for 4 pax or more: €100.
-                </p>
+              <p className="mt-3 text-sm text-gray-600">
+                Transfer from Surf Camp to Bandaranaike International Airport.
+                Price up to 3 pax: €65. Price for 4 pax or more: €100.
+              </p>
 
-                {/* Departure Information Form */}
-                {selectedAddons.some((addon) => addon.title === "Airport Drop") && (
-                  <div className="flight-info-form traveller-form">
-                    <h4>Departure Information</h4>
-                    <div className="form-group">
-                      <div style={{ display: "flex", flexDirection: "column", width: "100%" }}>
-                        <label htmlFor="departureFlightNumber">Departure Flight Number</label>
-                        <input
-                          type="text"
-                          placeholder="Enter your departure flight number"
-                          name="departureFlightNumber"
-                          value={travellerInfo[0]?.departureFlightNumber || ""}
-                          onChange={handleFlightInfoChange}
-                          required
-                        />
-                      </div>
-                      <div style={{ display: "flex", flexDirection: "column", width: "100%" }}>
-                        <label htmlFor="departureFlightDate">Departure Flight Date</label>
-                        <input
-                          type="date"
-                          name="departureFlightDate"
-                          value={travellerInfo[0]?.departureFlightDate || ""}
-                          onChange={handleFlightInfoChange}
-                          required
-                          min={new Date().toISOString().split("T")[0]}
-                        />
-                      </div>
-                      <div style={{ display: "flex", flexDirection: "column", width: "100%" }}>
-                        <label htmlFor="departureFlightTime">Departure Flight Time</label>
-                        <TimePicker
-                          name="departureFlightTime"
-                          onChange={(value) => handleFlightInfoChange({ target: { name: "departureFlightTime", value } })}
-                          value={travellerInfo[0]?.departureFlightTime || ""}
-                          format="h:m a"
-                          disableClock={true}
-                          clearIcon={null}
-                        />
-                      </div>
+              {isAddonActive("Airport Drop") && (
+                <div className="mt-4 space-y-4">
+                  <h4 className="font-semibold">Departure Information</h4>
+                  <div className="grid gap-4">
+                    <div className="flex flex-col">
+                      <label>Departure Flight Number</label>
+                      <input
+                        type="text"
+                        name="departureFlightNumber"
+                        placeholder="Enter flight number"
+                        value={travellerInfo[0]?.departureFlightNumber || ""}
+                        onChange={handleFlightInfoChange}
+                        className="border rounded p-2"
+                      />
+                    </div>
+                    <div className="flex flex-col">
+                      <label>Departure Flight Date</label>
+                      <input
+                        type="date"
+                        name="departureFlightDate"
+                        min={new Date().toISOString().split("T")[0]}
+                        value={travellerInfo[0]?.departureFlightDate || ""}
+                        onChange={handleFlightInfoChange}
+                        className="border rounded p-2"
+                      />
+                    </div>
+                    <div className="flex flex-col">
+                      <label>Departure Flight Time</label>
+                      <TimePicker
+                        name="departureFlightTime"
+                        onChange={(value) =>
+                          handleFlightInfoChange({
+                            target: { name: "departureFlightTime", value },
+                          })
+                        }
+                        value={travellerInfo[0]?.departureFlightTime || ""}
+                        format="h:m a"
+                        disableClock={true}
+                        clearIcon={null}
+                      />
                     </div>
                   </div>
-                )}
-              </div>
+                </div>
+              )}
             </div>
           </div>
 
-          <div className="right-section">
+          {/* Right section */}
+          <div className="w-full lg:w-1/3">
             <Summary
               dateRange={dateRange}
               selectedPackages={selectedPackages}
@@ -330,16 +311,23 @@ const Addon = () => {
             />
             <Link
               to={isFormValid ? "/information" : "#"}
-              className={`next-button ${!isFormValid ? "disabled-link" : ""}`}
               onClick={(e) => {
                 if (!isFormValid) {
                   e.preventDefault();
-                  alert("Please fill in all required arrival and/or departure flight information.");
+                  alert("Please fill in all required flight information.");
                 }
               }}
+              className={`block mt-6`}
             >
-              <div className="next-button" style={!isFormValid ? { backgroundColor: "gainsboro" } : {}}>
-                Traveller Details <FontAwesomeIcon icon={faArrowRight} />
+              <div
+                className={`text-center py-3 rounded-lg font-semibold flex justify-center items-center space-x-2 ${
+                  isFormValid
+                    ? "bg-[#00afef] text-white hover:bg-[#0a67a9]"
+                    : "bg-gray-300 text-gray-600 pointer-events-none"
+                }`}
+              >
+                <span>Traveller Details</span>
+                <FontAwesomeIcon icon={faArrowRight} />
               </div>
             </Link>
           </div>

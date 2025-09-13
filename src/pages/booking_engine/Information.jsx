@@ -539,18 +539,18 @@ const Information = () => {
     };
 
     try {
-      const response = await axios.post(`${API_BASE_URL}/bookings`, bookingData);
+      // const response = await axios.post(`${API_BASE_URL}/bookings`, bookingData);
 
-      if (response.status === 201) {
-        await axios.post(`${API_BASE_URL}/bookings/send-confirmation`, {
-          selectedCamp,
-          dateRange,
-          selectedPackages,
-          selectedRooms,
-          addons: selectedAddons,
-          totalPrice,
-          travellerInfo: formData,
-        });
+      if (true) {
+        // await axios.post(`${API_BASE_URL}/bookings/send-confirmation`, {
+        //   selectedCamp,
+        //   dateRange,
+        //   selectedPackages,
+        //   selectedRooms,
+        //   addons: selectedAddons,
+        //   totalPrice,
+        //   travellerInfo: formData,
+        // });
 
         localStorage.setItem("travellerInfo", JSON.stringify(formData));
         setTravellerInfo(true);
@@ -575,23 +575,41 @@ const Information = () => {
   return (
     <>
       <BookingNavbar />
-      <div className="information-container">
-        <div className="main-content">
-          <div className="traveller-box">
-            <h2>Contact Person Information</h2>
+       <div className="px-5 md:px-[10%] py-[10%] mb-[10%]">
+        <div className="flex flex-col md:flex-row gap-10">
+          {/* Left Section: Traveller Form */}
+          <div className="w-full md:w-2/3 border border-black rounded-2xl p-6 md:p-10">
+            <h2 className="text-2xl font-semibold mb-6">Contact Person Information</h2>
 
-            <form className="traveller-form" onSubmit={handleSubmit}>
+            <form onSubmit={handleSubmit} className="space-y-6">
               {formData.length > 0 && formData.map((traveller, index) => (
-
-                <div key={index} className="traveller-section">
+                <div key={index}>
                   {index === 0 && (
                     <>
-                      <div className="form-group">
-                        <input type="text" placeholder="First name" name="firstName" value={traveller.firstName} onChange={(e) => handleChange(index, e)} required />
-                        <input type="text" placeholder="Last name" name="lastName" value={traveller.lastName} onChange={(e) => handleChange(index, e)} required />
+                      {/* Name Inputs */}
+                      <div className="flex flex-wrap gap-4 mb-4">
+                        <input
+                          type="text"
+                          placeholder="First name"
+                          name="firstName"
+                          value={traveller.firstName}
+                          onChange={(e) => handleChange(index, e)}
+                          required
+                          className="flex-1 min-w-[150px] p-2 border border-gray-300 rounded-md text-base"
+                        />
+                        <input
+                          type="text"
+                          placeholder="Last name"
+                          name="lastName"
+                          value={traveller.lastName}
+                          onChange={(e) => handleChange(index, e)}
+                          required
+                          className="flex-1 min-w-[150px] p-2 border border-gray-300 rounded-md text-base"
+                        />
                       </div>
 
-                      <div className="form-group">
+                      {/* Email Inputs */}
+                      <div className="flex flex-wrap gap-4 mb-4">
                         <input
                           type="email"
                           placeholder="E-mail"
@@ -599,8 +617,8 @@ const Information = () => {
                           value={traveller.email}
                           onChange={(e) => handleChange(index, e)}
                           required
+                          className="flex-1 min-w-[150px] p-2 border border-gray-300 rounded-md text-base"
                         />
-
                         <input
                           type="email"
                           placeholder="Confirm E-mail"
@@ -608,128 +626,178 @@ const Information = () => {
                           value={traveller.confirmedEmail}
                           onChange={(e) => handleChange(index, e)}
                           required
-                          onPaste={(e) => e.preventDefault()} // Prevent Copy-Paste
-                          onDrop={(e) => e.preventDefault()}  // Prevent Drag-Drop
+                          onPaste={(e) => e.preventDefault()}
+                          onDrop={(e) => e.preventDefault()}
+                          className="flex-1 min-w-[150px] p-2 border border-gray-300 rounded-md text-base"
                         />
-
-                        {traveller.confirmedEmail && traveller.email !== traveller.confirmedEmail && (
-                          <p style={{ color: "red" }}>Emails do not match!</p>
-                        )}
                       </div>
+                      {traveller.confirmedEmail && traveller.email !== traveller.confirmedEmail && (
+                        <p className="text-red-500 text-sm mb-2">Emails do not match!</p>
+                      )}
 
-                      {/* <h4>Country Information</h4> */}
-                      <div className="form-group">
-                        {/* Country Dropdown */}
-                        <select name="country" value={traveller.country}
-                          onChange={(e) => {
-                            const selectedCountry = e.target.value;
-                            // const countryCode = countries.find((c) => c.name === selectedCountry)?.code;
-
-                            // Update both country and countryCode
-                            handleChange(index, { target: { name: "country", value: selectedCountry } });
-                          }}
+                      {/* Country & Phone */}
+                      <div className="flex flex-wrap gap-4 mb-4">
+                        <select
+                          name="country"
+                          value={traveller.country}
+                          onChange={(e) =>
+                            handleChange(index, { target: { name: "country", value: e.target.value } })
+                          }
                           required
-                          style={{ flex: "6 0" }}
+                          className="flex-[6] p-2 border border-gray-300 rounded-md bg-white"
                         >
                           <option value="">Country</option>
                           {countries.map((country) => (
-                            <option key={country.name} value={country.name}>
-                              {country.name}
-                            </option>
+                            <option key={country.name} value={country.name}>{country.name}</option>
                           ))}
                         </select>
-                        {/* Country Code Dropdown */}
-                        <select name="countryCode" value={traveller.countryCode}
-                          onChange={(e) => {
-                            const selectedCode = e.target.value;
-                            // const countryName = countries.find((c) => c.code === selectedCode)?.name;
 
-                            // Update both countryCode and country
-                            handleChange(index, { target: { name: "countryCode", value: selectedCode } });
-                          }}
+                        <select
+                          name="countryCode"
+                          value={traveller.countryCode}
+                          onChange={(e) =>
+                            handleChange(index, { target: { name: "countryCode", value: e.target.value } })
+                          }
                           required
-                          style={{ flex: "1 1" }}
+                          className="flex-1 p-2 border border-gray-300 rounded-md bg-white"
                         >
                           <option value="">Code</option>
                           {codes.map((code) => (
-                            <option key={code.code} value={code.code}>
-                              {code.code}
-                            </option>
+                            <option key={code.code} value={code.code}>{code.code}</option>
                           ))}
                         </select>
-                        <input type="tel" placeholder="Mobile Phone" name="phone" value={traveller.phone} onChange={(e) => handleChange(index, e)} required style={{ flex: "3 1" }} />
+
+                        <input
+                          type="tel"
+                          placeholder="Mobile Phone"
+                          name="phone"
+                          value={traveller.phone}
+                          onChange={(e) => handleChange(index, e)}
+                          required
+                          className="flex-[3] p-2 border border-gray-300 rounded-md text-base"
+                        />
                       </div>
 
-                      {/* <h4>Surf Package</h4> */}
-                      <div className="form-group">
-                        <input type="text" placeholder="Surf Package" name="package" value={traveller.package} readOnly />
-                        <input type="text" placeholder="Room" name="room" value={traveller.room} readOnly />
+                      {/* Package & Room */}
+                      <div className="flex flex-wrap gap-4 mb-4">
+                        <input
+                          type="text"
+                          placeholder="Surf Package"
+                          name="package"
+                          value={traveller.package}
+                          readOnly
+                          className="flex-1 p-2 border border-gray-300 rounded-md bg-gray-100"
+                        />
+                        <input
+                          type="text"
+                          placeholder="Room"
+                          name="room"
+                          value={traveller.room}
+                          readOnly
+                          className="flex-1 p-2 border border-gray-300 rounded-md bg-gray-100"
+                        />
                       </div>
 
-                      {/*only display id addon title == "Airport Pick-up"*/}
-                      {selectedAddons.length > 0 && selectedAddons.map((addon) => (
+                      {/* Arrival & Departure Info */}
+                      {selectedAddons.map((addon) => (
                         addon.title === "Airport Pick-up" && (
-                          <>
-                            <h4>Arrival Information</h4>
-                            <div className="form-group">
-                              <input type="text" placeholder="Arrival Flight Number" name="arrivalFlightNumber" value={traveller.arrivalFlightNumber} onChange={(e) => handleChange(index, e)} disabled />
-                              <input type="date" name="arrivalFlightDate" value={traveller.arrivalFlightDate} onChange={(e) => handleChange(index, e)} readOnly min={new Date().toISOString().split("T")[0]} />
-                              <input type="time" name="arrivalFlightTime" value={traveller.arrivalFlightTime} onChange={(e) => handleChange(index, e)} readOnly />
+                          <div key="arrival">
+                            <h4 className="text-lg font-semibold mb-2">Arrival Information</h4>
+                            <div className="flex flex-wrap gap-4 mb-4">
+                              <input
+                                type="text"
+                                placeholder="Arrival Flight Number"
+                                name="arrivalFlightNumber"
+                                value={traveller.arrivalFlightNumber}
+                                onChange={(e) => handleChange(index, e)}
+                                disabled
+                                className="flex-1 p-2 border border-gray-300 rounded-md bg-gray-100"
+                              />
+                              <input
+                                type="date"
+                                name="arrivalFlightDate"
+                                value={traveller.arrivalFlightDate}
+                                onChange={(e) => handleChange(index, e)}
+                                readOnly
+                                min={new Date().toISOString().split("T")[0]}
+                                className="flex-1 p-2 border border-gray-300 rounded-md bg-gray-100"
+                              />
+                              <input
+                                type="time"
+                                name="arrivalFlightTime"
+                                value={traveller.arrivalFlightTime}
+                                onChange={(e) => handleChange(index, e)}
+                                readOnly
+                                className="flex-1 p-2 border border-gray-300 rounded-md bg-gray-100"
+                              />
                             </div>
-                          </>
+                          </div>
                         )
                       ))}
 
-                      {selectedAddons.length > 0 && selectedAddons.map((addon) => (
+                      {selectedAddons.map((addon) => (
                         addon.title === "Airport Drop" && (
-                          <>
-                            <h4>Departure Information</h4>
-                            <div className="form-group">
-                              <input type="text" placeholder="Departure Flight Number" name="departureFlightNumber" value={traveller.departureFlightNumber} onChange={(e) => handleChange(index, e)} disabled />
-                              <input type="date" name="departureFlightDate" value={traveller.departureFlightDate} onChange={(e) => handleChange(index, e)} readOnly min={new Date().toISOString().split('T')[0]} />
-                              <input type="time" name="departureFlightTime" value={traveller.departureFlightTime} onChange={(e) => handleChange(index, e)} readOnly />
+                          <div key="departure">
+                            <h4 className="text-lg font-semibold mb-2">Departure Information</h4>
+                            <div className="flex flex-wrap gap-4 mb-4">
+                              <input
+                                type="text"
+                                placeholder="Departure Flight Number"
+                                name="departureFlightNumber"
+                                value={traveller.departureFlightNumber}
+                                onChange={(e) => handleChange(index, e)}
+                                disabled
+                                className="flex-1 p-2 border border-gray-300 rounded-md bg-gray-100"
+                              />
+                              <input
+                                type="date"
+                                name="departureFlightDate"
+                                value={traveller.departureFlightDate}
+                                onChange={(e) => handleChange(index, e)}
+                                readOnly
+                                min={new Date().toISOString().split('T')[0]}
+                                className="flex-1 p-2 border border-gray-300 rounded-md bg-gray-100"
+                              />
+                              <input
+                                type="time"
+                                name="departureFlightTime"
+                                value={traveller.departureFlightTime}
+                                onChange={(e) => handleChange(index, e)}
+                                readOnly
+                                className="flex-1 p-2 border border-gray-300 rounded-md bg-gray-100"
+                              />
                             </div>
-                          </>
+                          </div>
                         )
                       ))}
-                      <hr />
+
+                      <hr className="my-4 border-gray-300" />
                     </>
                   )}
                 </div>
               ))}
+
               <button
                 type="submit"
-                className="submit-button"
                 disabled={isSubmitted || isLoading}
-                style={{
-                  backgroundColor: isSubmitted ? "#ccc" : "",
-                  cursor: isSubmitted || isLoading ? "not-allowed" : "pointer",
-                }}
+                className={`px-5 py-2 rounded-md text-white flex items-center gap-2
+                  ${isSubmitted ? 'bg-gray-400 cursor-not-allowed' : 'bg-blue-500 hover:bg-blue-700'}
+                  ${isLoading ? 'cursor-wait' : ''}`}
               >
-                {isLoading ? (
-                  <>
-                    Submitting...
-                    <span className="loader" style={{ marginLeft: "10px" }}></span>
-                  </>
-                ) : (
-                  <>
-                    {isSubmitted ? "Booking Request Submitted" : "Submit Booking Request"}
-                    <FontAwesomeIcon icon={faSave} style={{ marginLeft: "10px" }} />
-                  </>
-                )}
+                {isLoading ? 'Submitting...' : isSubmitted ? 'Booking Request Submitted' : 'Submit Booking Request'}
+                <FontAwesomeIcon icon={faSave} />
               </button>
 
               {showAlert && (
-                <div className="custom-alert-overlay">
-                  <div className="custom-alert-box">
-                    <p>{alertMessage}</p>
+                <div className="fixed inset-0 flex items-center justify-center bg-black/40 z-1000">
+                  <div className="bg-white p-6 rounded-lg shadow-lg text-center">
+                    <p className="mb-4">{alertMessage}</p>
                     <button
                       onClick={() => {
                         setShowAlert(false);
-                        if (shouldReload) {
-                          window.location.reload(); // Reload only if flagged
-                        }
+                        if (shouldReload) window.location.reload();
                       }}
+                      className="px-4 py-2 bg-blue-500 text-white rounded hover:bg-blue-700"
                     >
                       OK
                     </button>
@@ -738,12 +806,20 @@ const Information = () => {
               )}
 
             </form>
-            <p style={{ marginTop: "20px", marginBottom: "0px", color: "#0a67a9" }}>Once your booking request is submitted, we will verify availability and send</p>
-            <p style={{ margin: "0px", color: "#0a67a9" }}>you a payment link within 24 hours to confirm your reservation.</p>
+
+            <p className="mt-5 text-blue-700">Once your booking request is submitted, we will verify availability and send</p>
+            <p className="text-blue-700">you a payment link within 24 hours to confirm your reservation.</p>
           </div>
 
-          <div className="right-section">
-            <Summary dateRange={dateRange} selectedPackages={selectedPackages} selectedRooms={selectedRooms} totalPrice={totalPrice} addons={selectedAddons} />
+          {/* Right Section: Summary */}
+          <div className="w-full md:w-1/3">
+            <Summary
+              dateRange={dateRange}
+              selectedPackages={selectedPackages}
+              selectedRooms={selectedRooms}
+              totalPrice={totalPrice}
+              addons={selectedAddons}
+            />
           </div>
         </div>
       </div>

@@ -126,11 +126,17 @@ const DatePage = () => {
               highlightDates={highlightedDates}
             />
           </div>
-          <div className="right-section">
+          <div className="w-full lg:w-1/3">
             <Summary dateRange={dateRange} />
-            <Link to="/room" className={startDate && endDate ? `next-button` : `disabled-link`}>
-              <div className="next-button" style={startDate && endDate ? {} : { backgroundColor: "gainsboro" }}>
-                Room Selection <FontAwesomeIcon icon={faArrowRight} />
+            <Link to="/room" className={`block mt-6 ${startDate && endDate ? "" : "pointer-events-none"}`}>
+              <div
+                className={`text-center py-3 rounded-lg font-semibold flex justify-center items-center space-x-2 ${startDate && endDate
+                    ? "bg-[#00afef] text-white hover:bg-[#0a67a9]"
+                    : "bg-gray-300 text-gray-600"
+                  }`}
+              >
+                <span>Room Selection</span>
+                <FontAwesomeIcon icon={faArrowRight} />
               </div>
             </Link>
           </div>
