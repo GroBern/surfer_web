@@ -3,8 +3,8 @@ import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import { faArrowRight } from "@fortawesome/free-solid-svg-icons";
 import { Link } from "react-router-dom";
 import Summary from "../../components/booking_engine/Summary";
-import BookingNavbar from '../../components/booking_engine/BookingNavbar';
-import BookingFooter from '../../components/booking_engine/BookingFooter';
+import BookingNavbar from "../../components/booking_engine/BookingNavbar";
+import BookingFooter from "../../components/booking_engine/BookingFooter";
 
 const packagePrices = {
   "The Surfer Beach Camp": {
@@ -51,109 +51,117 @@ const packagePrices = {
 
 const Selection = () => {
   const [selectedCamp, setSelectedCamp] = useState("");
-  const [dateRange, setDateRange] = useState(() => {
+  const [dateRange] = useState(() => {
     const storedDateRange = localStorage.getItem("dateRange");
-    return storedDateRange ? JSON.parse(storedDateRange) : null;
+    try { return storedDateRange ? JSON.parse(storedDateRange) : null; } catch { return null; }
   });
   const [startDate, setStartDate] = useState("");
   const [endDate, setEndDate] = useState("");
-  const [selectedPackages, setSelectedPackages] = useState(() => {
+
+  const [selectedPackages] = useState(() => {
     const storedPackages = localStorage.getItem("selectedPackages");
-    return storedPackages ? JSON.parse(storedPackages) : [];
+    try { return storedPackages ? JSON.parse(storedPackages) : []; } catch { return []; }
   });
-  const [selectedRooms, setSelectedRooms] = useState(() => {
+  const [selectedRooms] = useState(() => {
     const stored = localStorage.getItem("selectedRooms");
-    return stored ? JSON.parse(stored) : [];
+    try { return stored ? JSON.parse(stored) : []; } catch { return []; }
   });
+
   const [totalPrice, setTotalPrice] = useState(() => {
     const storedPrice = localStorage.getItem("totalPrice");
-    return storedPrice ? JSON.parse(storedPrice) : 0;
+    try { return storedPrice ? JSON.parse(storedPrice) : 0; } catch { return 0; }
   });
+
   const [travellerInfo, setTravellerInfo] = useState(() => {
     const storedInfo = localStorage.getItem("travellerInfo");
-    return storedInfo ? JSON.parse(storedInfo) : [];
+    try { return storedInfo ? JSON.parse(storedInfo) : []; } catch { return []; }
   });
-  const [peakCharge, setPeakCharge] = useState(() => {
+
+  const [peakCharge] = useState(() => {
     const stored = localStorage.getItem("peakCharge");
-    return stored ? JSON.parse(stored) : false;
+    try { return stored ? JSON.parse(stored) : false; } catch { return false; }
   });
+
   const [availablePackages, setAvailablePackages] = useState([]);
 
   useEffect(() => {
     const storedCamp = localStorage.getItem("selectedCamp");
     if (storedCamp) setSelectedCamp(storedCamp);
-
-    const storedStartDate = localStorage.getItem("selectedStartDate");
-    if (storedStartDate) setStartDate(storedStartDate);
-    const storedEndDate = localStorage.getItem("selectedEndDate");
-    if (storedEndDate) setEndDate(storedEndDate);
+    const s = localStorage.getItem("selectedStartDate");
+    const e = localStorage.getItem("selectedEndDate");
+    if (s) setStartDate(s);
+    if (e) setEndDate(e);
   }, []);
 
-  // Initialize all data including travellerInfo
+  // Initialize traveller info from selections (or reuse valid saved data)
   useEffect(() => {
     localStorage.removeItem("addons");
+
     if (selectedPackages.length > 0 && selectedRooms.length > 0) {
-      // Check if we have existing travellerInfo in localStorage
       const storedInfo = localStorage.getItem("travellerInfo");
       if (storedInfo) {
         try {
-          const parsedInfo = JSON.parse(storedInfo);
-
-          // Validate the stored travellerInfo structure
-          if (Array.isArray(parsedInfo)) {
-            const isValid = parsedInfo.every(item =>
-              item &&
-              typeof item === 'object' &&
-              'room' in item &&
-              'package' in item &&
-              'firstName' in item &&
-              'lastName' in item
+          const parsed = JSON.parse(storedInfo);
+          const valid =
+            Array.isArray(parsed) &&
+            parsed.every(
+              (p) =>
+                p &&
+                typeof p === "object" &&
+                "room" in p &&
+                "package" in p &&
+                "firstName" in p &&
+                "lastName" in p
             );
-
-            if (isValid) {
-              setTravellerInfo(parsedInfo);
-              return;
-            }
+          if (valid) {
+            setTravellerInfo(parsed);
+            // also rebuild availability from selectedPackages in case of reload
+            setAvailablePackages(buildAvailablePackageArray(selectedPackages));
+            return;
           }
-        } catch (e) {
-          console.error("Error parsing travellerInfo from localStorage", e);
-        }
+        } catch {}
       }
-
-      // If no valid stored info, initialize fresh
       initializeTravellerInfo();
     }
+    // eslint-disable-next-line react-hooks/exhaustive-deps
   }, [selectedPackages, selectedRooms]);
 
-  const initializeTravellerInfo = () => {
-    // Create available packages array with counts
-    const packageCounts = {};
-    selectedPackages.forEach((pkgStr) => {
-      const [count, ...pkgTitleParts] = pkgStr.split(" x ");
-      const pkgTitle = pkgTitleParts.join(" x ");
-      packageCounts[pkgTitle] = (packageCounts[pkgTitle] || 0) + parseInt(count);
+  const buildAvailablePackageArray = (packagesList) => {
+    const counts = {};
+    packagesList.forEach((pkgStr) => {
+      const [countStr, ...titleParts] = pkgStr.split(" x ");
+      const title = titleParts.join(" x ");
+      const count = parseInt(countStr, 10) || 0;
+      counts[title] = (counts[title] || 0) + count;
     });
+    return Object.entries(counts).flatMap(([pkg, count]) => Array(count).fill(pkg));
+  };
 
-    // Initialize fresh travellerInfo with individual persons
-    const newTravellerInfo = selectedRooms.flatMap(roomStr => {
-      const [roomCount, ...roomParts] = roomStr.split(" x ");
+  const initializeTravellerInfo = () => {
+    const newAvailable = buildAvailablePackageArray(selectedPackages);
+    setAvailablePackages(newAvailable);
+
+    const newTravellerInfo = selectedRooms.flatMap((roomStr) => {
+      const [roomCountStr, ...roomParts] = roomStr.split(" x ");
       const roomType = roomParts.join(" x ");
       const capacity = getRoomCapacity(roomType);
+      const roomCount = parseInt(roomCountStr, 10) || 0;
 
-      return Array(parseInt(roomCount)).fill().flatMap(() =>
-        Array(capacity).fill().map(() => ({
-          room: roomType,
-          package: "",
-          firstName: "",
-          lastName: ""
-        }))
-      );
+      return Array(roomCount)
+        .fill()
+        .flatMap(() =>
+          Array(capacity)
+            .fill()
+            .map(() => ({
+              room: roomType,
+              package: "",
+              firstName: "",
+              lastName: "",
+            }))
+        );
     });
 
     setTravellerInfo(newTravellerInfo);
-    setAvailablePackages(Object.entries(packageCounts).flatMap(([pkg, count]) =>
-      Array(count).fill(pkg)
-    ))
   };
 
   const getRoomCapacity = (roomType) => {
@@ -163,43 +171,38 @@ const Selection = () => {
   };
 
   const handleNameChange = (index, field, value) => {
-    const updatedInfo = [...travellerInfo];
-    updatedInfo[index][field] = value;
-    setTravellerInfo(updatedInfo);
+    setTravellerInfo((prev) => {
+      const next = [...prev];
+      next[index][field] = value;
+      return next;
+    });
   };
 
-  // Update total price when camp or traveller info changes
+  // Price calculation (re-run when inputs that affect price change)
   useEffect(() => {
-    if (selectedCamp && travellerInfo.length > 0) {
-      let newTotal = 0;
-      travellerInfo.forEach((person) => {
-        if (person.package) {
-          const basePrice = packagePrices[selectedCamp]?.[person.package]?.[person.room] || 0;
-          let peakFee = 0;
+    if (!selectedCamp || travellerInfo.length === 0 || !startDate || !endDate) return;
 
-          // 🔼 Add peak fee if applicable
-          if (peakCharge) {
-            if (person.room.includes("Dorm")) {
-              peakFee = 100;
-            } else {
-              peakFee = 150;
-            }
-          }
+    let subtotal = 0;
+    travellerInfo.forEach((person) => {
+      if (person.package) {
+        const base = packagePrices[selectedCamp]?.[person.package]?.[person.room] || 0;
+        const peakFee =
+          peakCharge ? (person.room.includes("Dorm") ? 100 : 150) : 0;
+        subtotal += base + peakFee;
+      }
+    });
 
-          newTotal += basePrice + peakFee;
-        }
-      });
+    const nights = Math.max(
+      1,
+      Math.ceil((new Date(endDate) - new Date(startDate)) / (1000 * 60 * 60 * 24))
+    );
 
-      // multiply total price by number of selected days
-      const days = Math.ceil((new Date(endDate) - new Date(startDate)) / (1000 * 60 * 60 * 24));
-      console.log("Days selected:", days);
-      newTotal = newTotal * days;
-      setTotalPrice(newTotal);
-      localStorage.setItem("totalPrice", JSON.stringify(newTotal));
-    }
-  }, [selectedCamp, travellerInfo, peakCharge]);
+    const total = subtotal * nights;
+    setTotalPrice(total);
+    localStorage.setItem("totalPrice", JSON.stringify(total));
+  }, [selectedCamp, travellerInfo, peakCharge, startDate, endDate]);
 
-  // Save traveller info to localStorage when it changes
+  // Persist traveller info
   useEffect(() => {
     if (travellerInfo.length > 0) {
       localStorage.setItem("travellerInfo", JSON.stringify(travellerInfo));
@@ -207,57 +210,48 @@ const Selection = () => {
   }, [travellerInfo]);
 
   const handlePackageChange = (index, pkg) => {
-    const updatedInfo = [...travellerInfo];
-    const previousPkg = updatedInfo[index].package;
+    setTravellerInfo((prev) => {
+      const next = [...prev];
+      const previousPkg = next[index].package;
+      next[index].package = pkg;
 
-    // Update the person's package
-    updatedInfo[index].package = pkg;
-    setTravellerInfo(updatedInfo);
+      setAvailablePackages((availPrev) => {
+        const availNext = [...availPrev];
+        if (previousPkg) availNext.push(previousPkg);
+        const i = availNext.indexOf(pkg);
+        if (i !== -1) availNext.splice(i, 1);
+        return availNext;
+      });
 
-    // Update available packages
-    setAvailablePackages(prev => {
-      const newAvailable = [...prev];
-      if (previousPkg) {
-        // Add back the previously selected package
-        newAvailable.push(previousPkg);
-      }
-      // Remove the newly selected package
-      const pkgIndex = newAvailable.indexOf(pkg);
-      if (pkgIndex !== -1) {
-        newAvailable.splice(pkgIndex, 1);
-      }
-      return newAvailable;
+      return next;
     });
   };
 
-  // Get unique available packages for dropdown
-  const getAvailablePackageOptions = (currentSelection) => {
+  const getAvailablePackageOptions = (current) => {
     const counts = {};
-    availablePackages.forEach(pkg => {
-      counts[pkg] = (counts[pkg] || 0) + 1;
-    });
-
-    // If current selection exists, include it even if count is 0
-    if (currentSelection) {
-      counts[currentSelection] = (counts[currentSelection] || 0) + 1;
-    }
+    availablePackages.forEach((p) => (counts[p] = (counts[p] || 0) + 1));
+    if (current) counts[current] = (counts[current] || 0) + 1;
 
     return Object.entries(counts).map(([pkg, count]) => ({
       pkg,
       count,
-      disabled: count <= 0 && pkg !== currentSelection
+      disabled: count <= 0 && pkg !== current,
     }));
   };
 
-  const allFieldsFilled = travellerInfo.every(person =>
-    person.package && person.firstName && person.lastName
+  const allFieldsFilled = travellerInfo.every(
+    (p) => p.package && p.firstName && p.lastName
   );
 
-  // Group travellers by room for display
+  // Group travellers by room (to show per-room cards)
   const groupedTravellers = travellerInfo.reduce((acc, person) => {
-    const lastGroup = acc[acc.length - 1];
-    if (lastGroup && lastGroup[0].room === person.room && lastGroup.length < getRoomCapacity(person.room)) {
-      lastGroup.push(person);
+    const last = acc[acc.length - 1];
+    if (
+      last &&
+      last[0].room === person.room &&
+      last.length < getRoomCapacity(person.room)
+    ) {
+      last.push(person);
     } else {
       acc.push([person]);
     }
@@ -267,95 +261,154 @@ const Selection = () => {
   return (
     <>
       <BookingNavbar />
-      <div className="selection-container">
-        <div className="main-content">
-          <div className="left-section">
-            <h3>Match Packages to Rooms</h3>
-            <div className="selection-header">
-              <div>Room Type</div>
-              <div>Package</div>
-              <div>Name</div>
+
+      <div className="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8 pt-28 pb-28">
+        <h3 className="text-2xl font-semibold tracking-tight text-gray-900">
+          Match Packages to Rooms
+        </h3>
+
+        <div className="mt-1 text-sm text-gray-600">
+          Assign a package and names to each person in every room.
+        </div>
+
+        <div className="mt-6 grid gap-6 lg:grid-cols-3">
+          {/* Left: assignments */}
+          <div className="lg:col-span-2">
+            {/* Table headers (hidden on mobile) */}
+            <div className="hidden sm:grid grid-cols-12 gap-3 px-2 py-2 text-xs font-semibold text-gray-600">
+              <div className="col-span-4">Room / Person</div>
+              <div className="col-span-4">Package</div>
+              <div className="col-span-4">Name</div>
             </div>
 
-
-            {groupedTravellers.map((roomGroup, groupIndex) => (
-              <div
-                key={groupIndex}
-                className="selection-box"
-              >
-                <div className="room-title">
-                  {roomGroup[0].room.replace(" Per Person", "")} (Capacity: {getRoomCapacity(roomGroup[0].room)})
-                </div>
-
-                {roomGroup.map((person, personIndex) => {
-                  const globalIndex = travellerInfo.indexOf(person);
-                  return (
-                    <div
-                      key={personIndex}
-                      className="person-container"
-                    >
-                      <div>Person {personIndex + 1}</div>
-
-                      <select
-                        value={person.package}
-                        onChange={(e) => handlePackageChange(globalIndex, e.target.value)}
-                      >
-                        <option value="">Select Package</option>
-                        {getAvailablePackageOptions(person.package).map((option, i) => (
-                          <option
-                            key={i}
-                            value={option.pkg}
-                            disabled={option.disabled}
-                          >
-                            {option.pkg} {option.count > 0 && `(${option.count} available)`}
-                          </option>
-                        ))}
-                      </select>
-
-                      <div className="name-container">
-                        <input
-                          type="text"
-                          value={person.firstName}
-                          onChange={(e) => handleNameChange(globalIndex, "firstName", e.target.value)}
-                          placeholder="First Name"
-                        />
-
-                        <input
-                          type="text"
-                          value={person.lastName}
-                          onChange={(e) => handleNameChange(globalIndex, "lastName", e.target.value)}
-                          placeholder="Last Name"
-                        />
-                      </div>
+            <div className="space-y-5">
+              {groupedTravellers.map((roomGroup, groupIndex) => (
+                <div
+                  key={groupIndex}
+                  className="rounded-xl border border-gray-200 bg-white shadow-sm"
+                >
+                  <div className="px-4 py-3 border-b border-gray-100">
+                    <div className="text-sm font-semibold text-gray-900">
+                      {roomGroup[0].room.replace(" Per Person", "")}
                     </div>
-                  );
-                })}
-              </div>
-            ))}
+                    <div className="text-xs text-gray-500">
+                      Capacity: {getRoomCapacity(roomGroup[0].room)}
+                    </div>
+                  </div>
+
+                  <div className="divide-y divide-gray-100">
+                    {roomGroup.map((person, personIndex) => {
+                      const globalIndex = travellerInfo.indexOf(person);
+                      const pkgOptions = getAvailablePackageOptions(person.package);
+
+                      return (
+                        <div
+                          key={personIndex}
+                          className="p-4 grid grid-cols-1 sm:grid-cols-12 gap-3"
+                        >
+                          {/* Person label */}
+                          <div className="sm:col-span-4">
+                            <div className="text-xs text-gray-500 sm:hidden mb-1">
+                              Room / Person
+                            </div>
+                            <div className="inline-flex h-8 items-center rounded-full bg-gray-100 px-3 text-sm font-medium text-gray-700">
+                              Person {personIndex + 1}
+                            </div>
+                          </div>
+
+                          {/* Package select */}
+                          <div className="sm:col-span-4">
+                            <div className="text-xs text-gray-500 sm:hidden mb-1">
+                              Package
+                            </div>
+                            <select
+                              value={person.package}
+                              onChange={(e) =>
+                                handlePackageChange(globalIndex, e.target.value)
+                              }
+                              className="block w-full rounded-md border border-gray-300 bg-white px-3 py-2 text-sm shadow-sm focus:outline-none focus:ring-2 focus:ring-sky-500"
+                            >
+                              <option value="">Select Package</option>
+                              {pkgOptions.map((opt, i) => (
+                                <option
+                                  key={i}
+                                  value={opt.pkg}
+                                  disabled={opt.disabled}
+                                >
+                                  {opt.pkg}
+                                  {opt.count > 0 ? ` (${opt.count} available)` : ""}
+                                </option>
+                              ))}
+                            </select>
+                          </div>
+
+                          {/* Names */}
+                          <div className="sm:col-span-4">
+                            <div className="text-xs text-gray-500 sm:hidden mb-1">
+                              Name
+                            </div>
+                            <div className="grid grid-cols-1 sm:grid-cols-2 gap-2">
+                              <input
+                                type="text"
+                                value={person.firstName}
+                                onChange={(e) =>
+                                  handleNameChange(globalIndex, "firstName", e.target.value)
+                                }
+                                placeholder="First Name"
+                                className="w-full rounded-md border border-gray-300 px-3 py-2 text-sm shadow-sm focus:outline-none focus:ring-2 focus:ring-sky-500"
+                              />
+                              <input
+                                type="text"
+                                value={person.lastName}
+                                onChange={(e) =>
+                                  handleNameChange(globalIndex, "lastName", e.target.value)
+                                }
+                                placeholder="Last Name"
+                                className="w-full rounded-md border border-gray-300 px-3 py-2 text-sm shadow-sm focus:outline-none focus:ring-2 focus:ring-sky-500"
+                              />
+                            </div>
+                          </div>
+                        </div>
+                      );
+                    })}
+                  </div>
+                </div>
+              ))}
+            </div>
           </div>
 
-          <div className="right-section" style={{ marginTop: "8%" }}>
-            <Summary
-              dateRange={dateRange}
-              selectedPackages={selectedPackages}
-              selectedRooms={selectedRooms}
-              totalPrice={totalPrice}
-            />
+          {/* Right: summary + CTA */}
+          <aside className="space-y-4 sm:space-y-6 lg:sticky lg:top-28">
+            <div className="rounded-lg border border-gray-200 bg-white p-4 sm:p-5 shadow-sm">
+              <Summary
+                dateRange={dateRange}
+                selectedPackages={selectedPackages}
+                selectedRooms={selectedRooms}
+                totalPrice={totalPrice}
+              />
+            </div>
+
             <Link
-              to="/air-port"
-              className={!allFieldsFilled ? `disabled-link` : `next-button`}
+              to={allFieldsFilled ? "/air-port" : "#"}
+              onClick={(e) => { if (!allFieldsFilled) e.preventDefault(); }}
+              className="block"
+              aria-disabled={!allFieldsFilled}
             >
               <div
-                className="next-button"
-                style={!allFieldsFilled ? { backgroundColor: "gainsboro" } : {}}
+                className={[
+                  "grid h-12 sm:h-14 w-full place-items-center rounded-lg text-base font-semibold transition",
+                  allFieldsFilled
+                    ? "bg-sky-500 text-white hover:bg-sky-600 active:bg-sky-700"
+                    : "cursor-not-allowed bg-gray-300 text-gray-600"
+                ].join(" ")}
               >
-                Add-on Selection
-                <FontAwesomeIcon icon={faArrowRight} />
+                Add-on Selection <FontAwesomeIcon className="ml-2" icon={faArrowRight} />
               </div>
             </Link>
-          </div>
+          </aside>
         </div>
       </div>
+
       <BookingFooter />
     </>
   );

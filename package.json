@@ -10,10 +10,16 @@
     "preview": "vite preview"
   },
   "dependencies": {
+    "@emotion/react": "^11.14.0",
+    "@emotion/styled": "^11.14.1",
     "@fortawesome/free-solid-svg-icons": "^7.0.1",
     "@fortawesome/react-fontawesome": "^3.0.2",
+    "@mui/icons-material": "^7.3.2",
+    "@mui/material": "^7.3.2",
+    "@mui/x-date-pickers": "^8.11.2",
     "@tailwindcss/vite": "^4.1.11",
     "axios": "^1.11.0",
+    "dayjs": "^1.11.18",
     "framer-motion": "^12.23.11",
     "html2canvas": "^1.4.1",
     "i18n": "^0.15.1",

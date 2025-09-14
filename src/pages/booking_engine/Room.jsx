@@ -1,52 +1,44 @@
 import React, { useState, useEffect } from "react";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
-import {
-  faArrowRight,
-  faPlus,
-  faMinus,
-} from "@fortawesome/free-solid-svg-icons";
+import { faArrowRight, faPlus, faMinus } from "@fortawesome/free-solid-svg-icons";
 import Summary from "../../components/booking_engine/Summary";
 import { Link } from "react-router-dom";
-import BookingNavbar from '../../components/booking_engine/BookingNavbar';
-import BookingFooter from '../../components/booking_engine/BookingFooter';
+import BookingNavbar from "../../components/booking_engine/BookingNavbar";
+import BookingFooter from "../../components/booking_engine/BookingFooter";
 
 const roomsData = [
   { id: 1, title: "Dorm Bed", people: 1, image: "booking_engine/dorm.jpg", images: ["booking_engine/room1.jpg"], details: "A bed in a mixed dormitory. Shared room, maximum 5 people." },
   { id: 2, title: "Private Single Room", people: 1, image: "booking_engine/single.jpg", images: ["booking_engine/room4.jpg"], details: "Private single room with private bathroom." },
-  { id: 3, title: "Private Double Room Per Person", people: 2, image: "booking_engine/double.jpg", images: ["booking_engine/room2.jpg"], details: "Private double room with private bathroom. Price will be shown for 2 people" },
-  { id: 4, title: "Private Triple Room Per Person", people: 3, image: "booking_engine/triple.jpg", images: ["booking_engine/room3.jpg"], details: "Private triple room with private bathroom. Price will be shown for 3 people" },
+  { id: 3, title: "Private Double Room Per Person", people: 2, image: "booking_engine/double.jpg", images: ["booking_engine/room2.jpg"], details: "Private double room with private bathroom. Price will be shown for 2 people" },
+  { id: 4, title: "Private Triple Room Per Person", people: 3, image: "booking_engine/triple.jpg", images: ["booking_engine/room3.jpg"], details: "Private triple room with private bathroom. Price will be shown for 3 people" },
 ];
 
 const RoomPage = () => {
   const [peopleCount, setPeopleCount] = useState(() => {
-    const storedCount = localStorage.getItem("peopleCount");
-    return storedCount ? parseInt(storedCount) : 0;
-  });
-  const [viewRoomId, setViewRoomId] = useState(null);
-  const [peakCharge, setPeakCharge] = useState(() => {
-    const stored = localStorage.getItem("peakCharge");
-    return stored ? JSON.parse(stored) : false;
+    const stored = localStorage.getItem("peopleCount");
+    return stored ? parseInt(stored) : 0;
   });
   const [selectedRooms, setSelectedRooms] = useState(() => {
     const stored = localStorage.getItem("selectedRooms");
     if (!stored) return [];
-
     try {
       const roomStrings = JSON.parse(stored);
-      return roomStrings.map((entry) => {
-        const [countStr, ...titleParts] = entry.split(" x ");
-        const title = titleParts.join(" x ");
-        const room = roomsData.find((r) => r.title === title.trim());
-        return room ? { id: room.id, count: parseInt(countStr) } : null;
-      }).filter(Boolean);
-    } catch (err) {
-      console.error("Error parsing selected rooms from localStorage:", err);
+      return roomStrings
+        .map((entry) => {
+          const [countStr, ...titleParts] = entry.split(" x ");
+          const title = titleParts.join(" x ");
+          const room = roomsData.find((r) => r.title === title.trim());
+          return room ? { id: room.id, count: parseInt(countStr) } : null;
+        })
+        .filter(Boolean);
+    } catch {
       return [];
     }
   });
 
+  // persist people & room selection in a readable way
   useEffect(() => {
-    localStorage.setItem("peopleCount", peopleCount.toString());
+    localStorage.setItem("peopleCount", String(peopleCount));
     const readableRooms = selectedRooms.map((r) => {
       const room = roomsData.find((room) => room.id === r.id);
       return `${r.count} x ${room.title}`;
@@ -54,48 +46,38 @@ const RoomPage = () => {
     localStorage.setItem("selectedRooms", JSON.stringify(readableRooms));
   }, [peopleCount, selectedRooms]);
 
-  const handlePeopleCountChange = (increment) => {
-    const newCount = increment ? peopleCount + 1 : Math.max(0, peopleCount - 1);
-    setPeopleCount(newCount);
-    if (newCount === 0) {
-      setSelectedRooms([]);
-    } else if (getRoomCount() > newCount) {
-      setSelectedRooms([]);
-    }
-  };
-
-
-  const toggleRoomDetails = (roomId) => {
-    setViewRoomId((prevId) => (prevId === roomId ? null : roomId));
-  };
-
-  const getRoomCount = () => {
-    return selectedRooms.reduce((total, r) => {
-      const room = roomsData.find(room => room.id === r.id);
-      return total + r.count * (room?.people || 0);
+  const getFilledCapacity = () =>
+    selectedRooms.reduce((acc, r) => {
+      const room = roomsData.find((x) => x.id === r.id);
+      return acc + r.count * (room?.people || 0);
     }, 0);
+
+  const handlePeopleCountChange = (inc) => {
+    const next = inc ? peopleCount + 1 : Math.max(0, peopleCount - 1);
+    setPeopleCount(next);
+    if (next === 0 || getFilledCapacity() > next) setSelectedRooms([]);
   };
 
-  const updateRoomCount = (roomId, increment) => {
+  const updateRoomCount = (roomId, inc) => {
     const updated = [...selectedRooms];
-    const room = roomsData.find(r => r.id === roomId);
-    const idx = updated.findIndex((r) => r.id === roomId);
-    const currentCount = idx !== -1 ? updated[idx].count : 0;
-    const newCount = increment ? currentCount + 1 : currentCount - 1;
+    const room = roomsData.find((r) => r.id === roomId);
+    const ix = updated.findIndex((r) => r.id === roomId);
+    const cur = ix !== -1 ? updated[ix].count : 0;
+    const next = inc ? cur + 1 : cur - 1;
 
-    if (increment && getRoomCount() + room.people > peopleCount) return;
+    // prevent exceeding headcount
+    if (inc && getFilledCapacity() + (room?.people || 0) > peopleCount) return;
 
-    if (idx !== -1) {
-      if (newCount <= 0) updated.splice(idx, 1);
-      else updated[idx].count = newCount;
-    } else {
+    if (ix !== -1) {
+      if (next <= 0) updated.splice(ix, 1);
+      else updated[ix].count = next;
+    } else if (inc) {
       updated.push({ id: roomId, count: 1 });
     }
-
     setSelectedRooms(updated);
   };
 
-  const canIncrement = (room) => getRoomCount() + room.people <= peopleCount;
+  const canIncrement = (room) => getFilledCapacity() + room.people <= peopleCount;
 
   const displayedRooms = roomsData.filter((room) => {
     if (peopleCount === 0) return false;
@@ -104,122 +86,125 @@ const RoomPage = () => {
     return true;
   });
 
-  // Check if user has selected the exact number of rooms needed
-  const hasSelectedCorrectRooms = getRoomCount() === peopleCount && peopleCount > 0;
+  const selectionComplete = peopleCount > 0 && getFilledCapacity() === peopleCount;
+
+  // parse dateRange so Summary won’t show quotes
+  const parsedDateRange = (() => {
+    const raw = localStorage.getItem("dateRange");
+    try {
+      return raw ? JSON.parse(raw) : "";
+    } catch {
+      return raw || "";
+    }
+  })();
 
   return (
     <>
       <BookingNavbar />
-      <div className="room-container">
-        <div className="package-selector">
-          <label>
-            Number of People:{" "}
-          </label>
-          <div style={{ marginTop: "15px" }}>
-            <button
-              onClick={() => handlePeopleCountChange(false)}
-              disabled={peopleCount <= 0}
-              className="amount-button"
-              style={{
-                backgroundColor: peopleCount <= 0 ? "gainsboro" : "#00afef",
-                color: peopleCount <= 0 ? "black" : "white",
-                cursor: peopleCount <= 0 ? "not-allowed" : "pointer"
-              }}
-            >
-              <FontAwesomeIcon icon={faMinus} />
-            </button>
-            <input
-              type="number"
-              className="count-box"
-              min="0"
-              value={peopleCount}
-              onChange={(e) => {
-                const newCount = Number(e.target.value);
-                setPeopleCount(newCount);
-                if (newCount === 0) {
-                  setSelectedRooms([]);
-                } else if (getRoomCount() > newCount) {
-                  setSelectedRooms([]);
-                }
-              }}
-            />
-            <button
-              onClick={() => handlePeopleCountChange(true)}
-              className="amount-button"
-            >
-              <FontAwesomeIcon icon={faPlus} />
-            </button>
+
+      <div className="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8 pt-28 pb-28">
+        {/* People selector */}
+        <h3 className="text-center text-xl font-semibold mb-1">Number of People:</h3>
+        <div className="flex items-center justify-center gap-4">
+          <button
+            onClick={() => handlePeopleCountChange(false)}
+            disabled={peopleCount <= 0}
+            aria-label="Decrease people"
+            className={[
+              "grid h-10 w-10 place-items-center rounded-full text-base font-semibold transition",
+              peopleCount <= 0
+                ? "bg-gray-200 text-gray-600 cursor-not-allowed"
+                : "bg-sky-500 text-white hover:bg-sky-600 active:bg-sky-700",
+            ].join(" ")}
+          >
+            <FontAwesomeIcon icon={faMinus} />
+          </button>
+
+          <div className="min-w-[60px] h-10 px-3 grid place-items-center rounded-xl border-2 border-sky-500 text-base font-semibold">
+            {peopleCount}
           </div>
+
+          <button
+            onClick={() => handlePeopleCountChange(true)}
+            aria-label="Increase people"
+            className="grid h-10 w-10 place-items-center rounded-full bg-sky-500 text-white text-base font-semibold transition hover:bg-sky-600 active:bg-sky-700"
+          >
+            <FontAwesomeIcon icon={faPlus} />
+          </button>
         </div>
 
         {peopleCount > 0 && (
-          <>
-            <h3>Select Your Room Type</h3>
-            <p>Choose room combinations based on your group size.</p>
-          </>
+          <div className="mt-6">
+            <h4 className="text-lg font-semibold">Select Your Room Type</h4>
+            <p className="text-sm text-gray-600">Choose room combinations based on your group size.</p>
+          </div>
         )}
 
-        <div className="room-box">
-          <div className="left-section">
-            <div className="room-list">
+        {/* Main layout */}
+        <div className="mt-5 grid gap-6 lg:grid-cols-3">
+          {/* Rooms list */}
+          <div className="lg:col-span-2">
+            <div className="grid gap-5 sm:grid-cols-2">
               {displayedRooms.map((room) => {
-                const selected = selectedRooms.find((r) => r.id === room.id);
-                const count = selected ? selected.count : 0;
+                const sel = selectedRooms.find((r) => r.id === room.id);
+                const count = sel?.count || 0;
                 const isSelected = count > 0;
-                const shouldGrayOut = hasSelectedCorrectRooms && !isSelected;
+                const shouldGray = selectionComplete && !isSelected;
 
                 return (
-                  <div key={room.id}>
-                    <div
-                      className="room-card"
-                      style={{
-                        filter: shouldGrayOut ? "grayscale(100%)" : "none",
-                        opacity: shouldGrayOut ? 0.7 : 1,
-                        transition: "all 0.3s ease"
-                      }}
-                    >
-                      <img
-                        className="room-image"
-                        src={room.image}
-                        alt={room.title}
-                        style={{
-                          filter: shouldGrayOut ? "grayscale(100%)" : "none"
-                        }}
-                      />
-                      <div className="room-details">
-                        <h4>{room.title}</h4>
-                        <p>{room.details}</p>
-                        {room.notice && <p style={{ color: "red" }}>{room.notice}</p>}
-                        <div className="room-actions">
-                          <p>Capacity: {room.people} people</p>
-                          <div className="counter">
-                            <button
-                              onClick={() => updateRoomCount(room.id, false)}
-                              disabled={count === 0}
-                              style={{
-                                marginRight: "10px",
-                                backgroundColor: count === 0 ? "gainsboro" : "#00afef",
-                                cursor: count === 0 ? "auto" : "pointer",
-                                color: count === 0 ? "black" : "white",
-                              }}
-                            >
-                              <FontAwesomeIcon icon={faMinus} />
-                            </button>
-                            {count}
-                            <button
-                              onClick={() => updateRoomCount(room.id, true)}
-                              disabled={!canIncrement(room) || shouldGrayOut}
-                              style={{
-                                marginLeft: "10px",
-                                backgroundColor: canIncrement(room) && !shouldGrayOut ? "#00afef" : "gainsboro",
-                                cursor: canIncrement(room) && !shouldGrayOut ? "pointer" : "auto",
-                                color: canIncrement(room) && !shouldGrayOut ? "white" : "black",
-                              }}
-                            >
-                              <FontAwesomeIcon icon={faPlus} />
-                            </button>
-                          </div>
-                        </div>
+                  <div
+                    key={room.id}
+                    className={[
+                      "rounded-xl border border-gray-200 bg-white shadow-sm p-3 transition",
+                      shouldGray ? "grayscale opacity-70" : "",
+                    ].join(" ")}
+                  >
+                    <img
+                      src={room.image}
+                      alt={room.title}
+                      className="w-full aspect-[4/3] object-cover rounded-lg"
+                    />
+
+                    <div className="mt-3 text-center">
+                      <h5 className="text-base font-semibold">{room.title}</h5>
+                      <p className="mt-1 text-sm text-gray-700">{room.details}</p>
+                    </div>
+
+                    <div className="mt-3 flex items-center justify-between">
+                      <p className="text-sm text-gray-700">Capacity: {room.people} people</p>
+
+                      <div className="flex items-center gap-3">
+                        <button
+                          onClick={() => updateRoomCount(room.id, false)}
+                          disabled={count === 0}
+                          aria-label={`Remove ${room.title}`}
+                          className={[
+                            "grid h-9 w-9 place-items-center rounded-full text-sm font-semibold transition",
+                            count === 0
+                              ? "bg-gray-200 text-gray-600 cursor-not-allowed"
+                              : "bg-sky-500 text-white hover:bg-sky-600 active:bg-sky-700",
+                          ].join(" ")}
+                        >
+                          <FontAwesomeIcon icon={faMinus} />
+                        </button>
+
+                        <span className="min-w-[1.25rem] text-base font-semibold text-gray-900 text-center">
+                          {count}
+                        </span>
+
+                        <button
+                          onClick={() => updateRoomCount(room.id, true)}
+                          disabled={!canIncrement(room) || shouldGray}
+                          aria-label={`Add ${room.title}`}
+                          className={[
+                            "grid h-9 w-9 place-items-center rounded-full text-sm font-semibold transition",
+                            !canIncrement(room) || shouldGray
+                              ? "bg-gray-200 text-gray-600 cursor-not-allowed"
+                              : "bg-sky-500 text-white hover:bg-sky-600 active:bg-sky-700",
+                          ].join(" ")}
+                        >
+                          <FontAwesomeIcon icon={faPlus} />
+                        </button>
                       </div>
                     </div>
                   </div>
@@ -228,28 +213,39 @@ const RoomPage = () => {
             </div>
           </div>
 
-          <div className="right-section">
-            <Summary
-              dateRange={localStorage.getItem("dateRange")}
-              selectedRooms={selectedRooms.map(r => {
-                const room = roomsData.find(room => room.id === r.id);
-                return `${r.count} x ${room.title}`;
-              })}
-            />
-            <Link
-              to="/package"
-              className={hasSelectedCorrectRooms ? `next-button` : `disabled-link`}
-            >
+          {/* Summary + CTA */}
+          <aside className="space-y-4 sm:space-y-6 lg:sticky lg:top-28">
+            <div className="rounded-lg border border-gray-200 bg-white p-4 sm:p-5 shadow-sm">
+              <Summary
+                dateRange={parsedDateRange}
+                selectedRooms={selectedRooms.map((r) => {
+                  const room = roomsData.find((x) => x.id === r.id);
+                  return `${r.count} x ${room.title}`;
+                })}
+              />
+            </div>
+
+            {selectionComplete ? (
+              <Link to="/package" className="block">
+                <div className="grid h-12 sm:h-14 w-full place-items-center rounded-lg bg-sky-500 text-white text-base font-semibold transition hover:bg-sky-600 active:bg-sky-700">
+                  Package Selection <FontAwesomeIcon className="ml-2" icon={faArrowRight} />
+                </div>
+              </Link>
+            ) : (
               <div
-                className="next-button"
-                style={hasSelectedCorrectRooms ? {} : { backgroundColor: "gainsboro" }}
+                className="grid h-12 sm:h-14 w-full place-items-center rounded-lg bg-gray-300 text-gray-600 text-base font-semibold cursor-not-allowed"
+                role="button"
+                aria-disabled="true"
+                tabIndex={-1}
+                title="Add rooms to match the number of people"
               >
-                Package Selection <FontAwesomeIcon icon={faArrowRight} />
+                Package Selection <FontAwesomeIcon className="ml-2" icon={faArrowRight} />
               </div>
-            </Link>
-          </div>
+            )}
+          </aside>
         </div>
       </div>
+
       <BookingFooter />
     </>
   );
