@@ -1,4 +1,3 @@
-
 import React, { useEffect, useMemo, useState } from "react";
 import dayjs from "dayjs";
 import { LocalizationProvider } from "@mui/x-date-pickers/LocalizationProvider";
@@ -11,12 +10,10 @@ import {
   FormControlLabel,
   useMediaQuery,
 } from "@mui/material";
-
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import { faArrowRight } from "@fortawesome/free-solid-svg-icons";
 import { Link } from "react-router-dom";
 import Summary from "../../components/booking_engine/Summary";
-
 import BookingNavbar from "../../components/booking_engine/BookingNavbar";
 import BookingFooter from "../../components/booking_engine/BookingFooter";
 
@@ -42,9 +39,7 @@ const Addon = () => {
     catch { return [{}]; }
   });
 
-
   // ---- load selections
-
   useEffect(() => {
     const rooms = localStorage.getItem("selectedRooms");
     if (rooms) setSelectedRooms(JSON.parse(rooms));
@@ -61,9 +56,7 @@ const Addon = () => {
     }
   }, []);
 
-
   // ---- persist
-
   useEffect(() => {
     localStorage.setItem("addons", JSON.stringify(selectedAddons));
     localStorage.setItem("totalPrice", JSON.stringify(totalPrice));
@@ -118,7 +111,6 @@ const Addon = () => {
     } else {
       setSelectedAddons((prev) => [...prev, { title: "Airport Pick-up", amount: 1, price }]);
       setTotalPrice((p) => p + price);
-
     }
   };
 
@@ -131,7 +123,6 @@ const Addon = () => {
     } else {
       setSelectedAddons((prev) => [...prev, { title: "Airport Drop", amount: 1, price }]);
       setTotalPrice((p) => p + price);
-
     }
   };
 
@@ -140,13 +131,11 @@ const Addon = () => {
     if (!isAddonActive("Airport Pick-up")) return true;
     const info = travellerInfo[0] || {};
     return info.arrivalFlightNumber && info.arrivalFlightDate && info.arrivalFlightTime;
-
   };
   const isDepartureInfoValid = () => {
     if (!isAddonActive("Airport Drop")) return true;
     const info = travellerInfo[0] || {};
     return info.departureFlightNumber && info.departureFlightDate && info.departureFlightTime;
-
   };
   const isFormValid = isArrivalInfoValid() && isDepartureInfoValid();
 
@@ -163,7 +152,7 @@ const Addon = () => {
       `}</style>
 
       <LocalizationProvider dateAdapter={AdapterDayjs}>
-        <div className="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8 pt-28 pb-28">
+         <div className="px-5 md:px-[6%] py-[10%] mb-[5%]">
           <h3 className="text-2xl font-semibold tracking-tight text-gray-900">
             Select Airport Details
           </h3>
@@ -371,11 +360,10 @@ const Addon = () => {
                           />
                         </div>
                       </div>
-
                     </div>
                   </div>
-                </div>
-              )}
+                )}
+              </div>
             </div>
 
             {/* RIGHT column */}
@@ -388,7 +376,6 @@ const Addon = () => {
                   totalPrice={totalPrice}
                   addons={selectedAddons}
                 />
-
               </div>
 
               <Link

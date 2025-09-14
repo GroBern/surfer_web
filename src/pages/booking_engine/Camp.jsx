@@ -114,7 +114,7 @@ const Camp = () => {
     <>
       <BookingNavbar />
 
-      <div className="overflow-x-hidden px-5 py-[10%] mx-[10%] mb-[10%]">
+      <div className="overflow-x-hidden px-5 py-[6%] mx-[10%] mb-[5%]">
         {/* Camp Section */}
         <div className="flex flex-wrap justify-around mt-12 gap-5">
           {packageData.map((pkg) => (

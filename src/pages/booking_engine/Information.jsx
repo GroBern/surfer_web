@@ -391,7 +391,7 @@ const Information = () => {
     };
 
     try {
-      // const response = await axios.post(`${API_BASE_URL}/bookings`, bookingData);
+      const response = await axios.post(`${API_BASE_URL}/bookings`, bookingData);
 
       if (response.status === 201) {
         await axios.post(`${API_BASE_URL}/bookings/send-confirmation`, bookingData);
@@ -438,7 +438,7 @@ const Information = () => {
     <>
       <BookingNavbar />
 
-      <div className="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8 pt-28 pb-28">
+       <div className="px-5 md:px-[6%] py-[10%] mb-[5%]">
         <div className="grid gap-6 lg:grid-cols-3">
           {/* Left: Form */}
           <div className="lg:col-span-2">

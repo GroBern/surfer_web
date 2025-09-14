@@ -116,7 +116,7 @@ const DatePage = () => {
         }
       `}</style>
 
-      <div className="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8 pt-28 pb-28">
+      <div className="px-5 md:px-[6%] py-[10%] mb-[5%]">
         {localStorage.getItem("peakCharge") && (
           <div role="status" aria-live="polite" className="mb-6 rounded-lg bg-sky-500 text-white shadow-md">
             <div className="px-4 py-3 sm:px-6">
@@ -176,7 +176,7 @@ const DatePage = () => {
                     : "cursor-not-allowed bg-gray-300 text-gray-600"
                 ].join(" ")}
               >
-                Room Selection <FontAwesomeIcon className="ml-2" icon={faArrowRight} />
+                <span> Room Selection </span> <FontAwesomeIcon className="ml-2" icon={faArrowRight} />
               </div>
             </Link>
           </aside>

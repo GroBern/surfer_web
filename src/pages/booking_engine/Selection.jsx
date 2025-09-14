@@ -278,7 +278,7 @@ const Selection = () => {
     <>
       <BookingNavbar />
 
-      <div className="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8 pt-28 pb-28">
+       <div className="px-5 md:px-[6%] py-[10%] mb-[5%]">
         <h3 className="text-2xl font-semibold tracking-tight text-gray-900">
           Match Packages to Rooms
         </h3>
