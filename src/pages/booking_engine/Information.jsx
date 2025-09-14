@@ -391,7 +391,7 @@ const Information = () => {
     };
 
     try {
-      const response = await axios.post(`${API_BASE_URL}/bookings`, bookingData);
+      // const response = await axios.post(`${API_BASE_URL}/bookings`, bookingData);
 
       if (response.status === 201) {
         await axios.post(`${API_BASE_URL}/bookings/send-confirmation`, bookingData);
@@ -749,6 +749,8 @@ const Information = () => {
                     <>
                       Submit Booking Request
                       <FontAwesomeIcon icon={faSave} className="ml-2" />
+
+      
                     </>
                   )}
                 </button>
@@ -794,6 +796,7 @@ const Information = () => {
                 OK
               </button>
             </div>
+              
           </div>
         </div>
       )}

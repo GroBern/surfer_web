@@ -93,7 +93,9 @@ const Selection = () => {
     if (e) setEndDate(e);
   }, []);
 
+
   // Initialize traveller info from selections (or reuse valid saved data)
+
   useEffect(() => {
     localStorage.removeItem("addons");
 
@@ -101,6 +103,7 @@ const Selection = () => {
       const storedInfo = localStorage.getItem("travellerInfo");
       if (storedInfo) {
         try {
+
           const parsed = JSON.parse(storedInfo);
           const valid =
             Array.isArray(parsed) &&
@@ -120,11 +123,13 @@ const Selection = () => {
             return;
           }
         } catch {}
+
       }
       initializeTravellerInfo();
     }
     // eslint-disable-next-line react-hooks/exhaustive-deps
   }, [selectedPackages, selectedRooms]);
+
 
   const buildAvailablePackageArray = (packagesList) => {
     const counts = {};
@@ -133,6 +138,8 @@ const Selection = () => {
       const title = titleParts.join(" x ");
       const count = parseInt(countStr, 10) || 0;
       counts[title] = (counts[title] || 0) + count;
+
+  
     });
     return Object.entries(counts).flatMap(([pkg, count]) => Array(count).fill(pkg));
   };
@@ -142,12 +149,14 @@ const Selection = () => {
     setAvailablePackages(newAvailable);
 
     const newTravellerInfo = selectedRooms.flatMap((roomStr) => {
+
       const [roomCountStr, ...roomParts] = roomStr.split(" x ");
       const roomType = roomParts.join(" x ");
       const capacity = getRoomCapacity(roomType);
       const roomCount = parseInt(roomCountStr, 10) || 0;
 
       return Array(roomCount)
+
         .fill()
         .flatMap(() =>
           Array(capacity)
@@ -162,12 +171,13 @@ const Selection = () => {
     });
 
     setTravellerInfo(newTravellerInfo);
+
   };
 
   const getRoomCapacity = (roomType) => {
     if (roomType.includes("Triple")) return 3;
     if (roomType.includes("Double")) return 2;
-    return 1; // Single or Dorm
+    return 1;
   };
 
   const handleNameChange = (index, field, value) => {
@@ -177,6 +187,7 @@ const Selection = () => {
       return next;
     });
   };
+
 
   // Price calculation (re-run when inputs that affect price change)
   useEffect(() => {
@@ -203,6 +214,7 @@ const Selection = () => {
   }, [selectedCamp, travellerInfo, peakCharge, startDate, endDate]);
 
   // Persist traveller info
+
   useEffect(() => {
     if (travellerInfo.length > 0) {
       localStorage.setItem("travellerInfo", JSON.stringify(travellerInfo));
@@ -210,6 +222,7 @@ const Selection = () => {
   }, [travellerInfo]);
 
   const handlePackageChange = (index, pkg) => {
+
     setTravellerInfo((prev) => {
       const next = [...prev];
       const previousPkg = next[index].package;
@@ -236,10 +249,12 @@ const Selection = () => {
       pkg,
       count,
       disabled: count <= 0 && pkg !== current,
+
     }));
   };
 
   const allFieldsFilled = travellerInfo.every(
+
     (p) => p.package && p.firstName && p.lastName
   );
 
@@ -252,6 +267,7 @@ const Selection = () => {
       last.length < getRoomCapacity(person.room)
     ) {
       last.push(person);
+
     } else {
       acc.push([person]);
     }
@@ -290,6 +306,7 @@ const Selection = () => {
                   <div className="px-4 py-3 border-b border-gray-100">
                     <div className="text-sm font-semibold text-gray-900">
                       {roomGroup[0].room.replace(" Per Person", "")}
+
                     </div>
                     <div className="text-xs text-gray-500">
                       Capacity: {getRoomCapacity(roomGroup[0].room)}
@@ -403,6 +420,7 @@ const Selection = () => {
                 ].join(" ")}
               >
                 Add-on Selection <FontAwesomeIcon className="ml-2" icon={faArrowRight} />
+
               </div>
             </Link>
           </aside>

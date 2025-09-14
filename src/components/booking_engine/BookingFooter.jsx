@@ -38,18 +38,15 @@ const BookingFooter = () => {
       path = 0;
   }
 
-  // 20% smaller than previous: 55→44, 30→24, 12→10, 5→4
-  const size = 44;
+  // scaled values
+  const size = 50;
   const circleFontSize = 24;
-  const titleFontSize = 10;
+  const titleFontSize = 13;
   const lineHeight = 4;
 
   return (
-    <div className="footer">
-      <div
-        className="footer-container"
-        style={{ color: "#00afef", borderTopWidth: "2px" }}
-      >
+    <div className="fixed bottom-0 z-[11] w-full bg-white text-[#00afef] shadow-[0_-3px_3px_0_rgba(0,0,0,0.3)] rounded-[25px] px-5 py-2.5 border-t border-gray-300">
+      <div className="mx-[4%]">
         <Stepper
           steps={[
             { title: "Camp" },

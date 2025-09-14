@@ -308,6 +308,7 @@ const Package = () => {
                 title="Select packages to match the number of people"
               >
                 Selection Matching <FontAwesomeIcon className="ml-2" icon={faArrowRight} />
+          
               </div>
             )}
           </aside>

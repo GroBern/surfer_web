@@ -31,7 +31,9 @@ const RoomPage = () => {
           return room ? { id: room.id, count: parseInt(countStr) } : null;
         })
         .filter(Boolean);
+
     } catch {
+
       return [];
     }
   });
@@ -50,6 +52,7 @@ const RoomPage = () => {
     selectedRooms.reduce((acc, r) => {
       const room = roomsData.find((x) => x.id === r.id);
       return acc + r.count * (room?.people || 0);
+
     }, 0);
 
   const handlePeopleCountChange = (inc) => {
@@ -61,6 +64,7 @@ const RoomPage = () => {
   const updateRoomCount = (roomId, inc) => {
     const updated = [...selectedRooms];
     const room = roomsData.find((r) => r.id === roomId);
+
     const ix = updated.findIndex((r) => r.id === roomId);
     const cur = ix !== -1 ? updated[ix].count : 0;
     const next = inc ? cur + 1 : cur - 1;
@@ -72,6 +76,7 @@ const RoomPage = () => {
       if (next <= 0) updated.splice(ix, 1);
       else updated[ix].count = next;
     } else if (inc) {
+
       updated.push({ id: roomId, count: 1 });
     }
     setSelectedRooms(updated);
@@ -98,6 +103,7 @@ const RoomPage = () => {
     }
   })();
 
+
   return (
     <>
       <BookingNavbar />
@@ -122,6 +128,7 @@ const RoomPage = () => {
 
           <div className="min-w-[60px] h-10 px-3 grid place-items-center rounded-xl border-2 border-sky-500 text-base font-semibold">
             {peopleCount}
+
           </div>
 
           <button
@@ -202,15 +209,16 @@ const RoomPage = () => {
                               ? "bg-gray-200 text-gray-600 cursor-not-allowed"
                               : "bg-sky-500 text-white hover:bg-sky-600 active:bg-sky-700",
                           ].join(" ")}
+
                         >
                           <FontAwesomeIcon icon={faPlus} />
                         </button>
                       </div>
                     </div>
                   </div>
-                );
-              })}
-            </div>
+                </div>
+              );
+            })}
           </div>
 
           {/* Summary + CTA */}
@@ -240,6 +248,7 @@ const RoomPage = () => {
                 title="Add rooms to match the number of people"
               >
                 Package Selection <FontAwesomeIcon className="ml-2" icon={faArrowRight} />
+         
               </div>
             )}
           </aside>
