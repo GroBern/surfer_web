@@ -102,7 +102,7 @@ const RoomPage = () => {
     <>
       <BookingNavbar />
 
-      <div className="px-5 md:px-[6%] py-[10%] mb-[5%]">
+       <div className="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8 pt-28 pb-28">
         {/* People selector */}
         <h3 className="text-center text-xl font-semibold mb-1">Number of People:</h3>
         <div className="flex items-center justify-center gap-4">
