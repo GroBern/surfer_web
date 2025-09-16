@@ -114,12 +114,12 @@ const DatePage = () => {
   return (
     <>
       <BookingNavbar />
-
       <div className="date-container">
         {peakCharge && (
           <div className="date-notice" role="status" aria-live="polite">
             Following high peak charge will be applicable for the period 23rd December to 05th January. <br />
             Per Week Per Room Additional 150 € • Per Week Per Dorm Additional 100 €
+
           </div>
         )}
 

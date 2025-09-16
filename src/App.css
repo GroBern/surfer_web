@@ -452,6 +452,7 @@ html, body, #root { max-width: 100%; overflow-x: hidden; }
 
 .room-image { object-fit: cover; width: 100%; }
 
+
 .room-details { margin-top: 10px; text-align: center; }
 
 .room-actions { display: flex; justify-content: space-between; align-items: center; }
@@ -532,6 +533,7 @@ html, body, #root { max-width: 100%; overflow-x: hidden; }
 .viewmore-button { width: 125px; }
 .term-button { width: 180px; }
 
+
 .booking-button {
   cursor: pointer;
   background-color: white;
@@ -597,6 +599,7 @@ html, body, #root { max-width: 100%; overflow-x: hidden; }
   width: 100px;
   cursor: pointer;
 }
+
 
 /* Custom alert */
 .custom-alert-overlay {
@@ -1216,3 +1219,4 @@ html, body, #root { max-width: 100%; overflow-x: hidden; }
     }
   }
 }
+
