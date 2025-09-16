@@ -116,7 +116,7 @@ const DatePage = () => {
         }
       `}</style>
 
-      <div className="px-5 md:px-[6%] py-[10%] mb-[5%]">
+       <div className="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8 pt-28 pb-28">
         {localStorage.getItem("peakCharge") && (
           <div role="status" aria-live="polite" className="mb-6 rounded-lg bg-sky-500 text-white shadow-md">
             <div className="px-4 py-3 sm:px-6">
