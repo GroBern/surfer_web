@@ -4,7 +4,7 @@
     "header": "Aktivitäten",
     "boatParty": {
       "title": "BOOTSPARTY",
-      "desc": "#BOOTSPARTY! Wenn du jemals an unserer legendären Bootsparty teilgenommen hast, wirst du sie niemals vergessen!"
+      "desc": "#BOOTSPARTY! Wenn du jemals an unserer legendären Bootsparty teilgenommen hast, wirst du sie nie vergessen!"
     },
     "videoSection": {
       "boatPartyVideo": "Bootsparty-Video"
@@ -52,7 +52,7 @@
     "items": [
       {
         "question": "01) Lohnt es sich, ein Surfcamp auszuprobieren?",
-        "answer": "Auf der Suche nach einem epischen Abenteuer? Dann bist du im Surf Camp Sri Lanka genau richtig! Diese Erfahrung lohnt sich auf jeden Fall. Du verbesserst nicht nur deine Surfskills mit Videoanalyse und professionellem Coaching, sondern triffst auch viele gleichgesinnte Reisende. Außerdem musst du dir um nichts kümmern – das Camp übernimmt alles, von Essen bis Surfen, Yoga bis Sicherheit. Ob alleine unterwegs oder auf der Suche nach einer neuen Herausforderung: Das Surfcamp ist die perfekte Wahl. Verpasse nicht die Gelegenheit, die besten Wellen zu erwischen und neue Freunde zu finden!"
+        "answer": "Auf der Suche nach einem epischen Abenteuer? Dann bist du im Surf Camp Sri Lanka genau richtig! Diese Erfahrung lohnt sich auf jeden Fall. Du verbesserst nicht nur deine Surfskills mit Videoanalyse und professionellem Coaching, sondern triffst auch viele gleichgesinnte Reisende. Außerdem musst du dich um nichts kümmern – das Camp übernimmt alles, von Essen bis Surfen, Yoga bis Sicherheit. Ob alleine unterwegs oder auf der Suche nach einer neuen Herausforderung: Das Surfcamp ist die perfekte Wahl. Verpasse nicht die Gelegenheit, die besten Wellen zu erwischen und neue Freunde zu finden!"
       },
       {
         "question": "02) Hat Sri Lanka gutes Surfen?",
@@ -64,11 +64,11 @@
       },
       {
         "question": "04) Sind die Surfspots in Sri Lanka überfüllt?",
-        "answer": "Suchst du einen entspannten Surfurlaub ohne Massen? Dann komm nach Sri Lanka! Unser Surfcamp in Weligama wird von einem Local betrieben, der alle besten Spots kennt. Das Beste: Wir bringen dich zu versteckten Juwelen, die kaum jemand kennt. Keine Sorge um überfüllte Wellen oder Konkurrenz – einfach entspannen, surfen und die Natur genießen."
+        "answer": "Suchst du einen entspannten Surfurlaub ohne Massen? Dann komm nach Sri Lanka! Unser Surfcamp in Weligama wird von einem Einheimische betrieben, der die besten Spots kennt. Das Beste: Wir bringen dich zu versteckten Juwelen, die kaum jemand kennt. Keine Sorge um überfüllte Wellen oder Konkurrenz – einfach entspannen, surfen und die Natur genießen."
       },
       {
         "question": "05) Bist du zu alt, um surfen zu lernen?",
-        "answer": "Alter ist nur eine Zahl! Ob 26 oder 66 – du kannst immer noch Wellen reiten und Spaß haben. Unsere anfängerfreundlichen Boards helfen dir, schnell Fortschritte zu machen. Worauf wartest du noch? Es ist nie zu spät, etwas Neues zu lernen. Buche eine Reise in unser Surfcamp Sri Lanka – inklusive Yoga-Retreat und Frühstück!"
+        "answer": "Alter ist nur eine Zahl! Ob 26 oder 66 – du kannst immer noch Wellen reiten und Spaß haben. Unsere anfängerfreundlichen Boards helfen dir, schnell Fortschritte zu machen. Worauf wartest du noch? Es ist nie zu spät, etwas Neues zu lernen. Buche eine Reise in unserem Surfcamp in Sri Lanka – inklusive Yoga-Retreat und Frühstück!"
       },
       {
         "question": "06) Welche Monate sind am besten für Surfen an der Südwestküste?",
@@ -240,7 +240,7 @@
     "sections": {
       "sriLankaCardTitle": "Sri Lanka",
       "moroccoCardTitle": "Marokko",
-      "styleCampNote": "Unser vertrauenswürdiges Partnercamp in Tamraght bietet die perfekte Mischung aus konstanten Wellen, entspanntem marokkanischem Lebensstil und freundlicher Community. Gäste genießen von Experten geleitete Surfsessions, optionales Yoga, gemütliche Unterkünfte in Strandnähe und eine warme, einladende Atmosphäre. Egal, ob du deine erste Welle jagst oder deine Skills verfeinerst – das The Surfer Style Camp liefert ein unvergessliches Surferlebnis – mit der gleichen Qualität und Leidenschaft, die du von The Surfer kennst."
+      "styleCampNote": "Unser vertrauenswürdiges Partnercamp in Tamraght bietet die perfekte Mischung aus konstanten Wellen, entspanntem marokkanischem Lebensstil und freundlicher Community. Gäste genießen von Experten geleitete Surfsessions, optionales Yoga, gemütliche Unterkünfte in Strandnähe und eine warme, einladende Atmosphäre. Egal, ob du deine erste Welle jagst oder deine Skills verfeinerst – Das Surfer Style Camp bietet ein unvergessliches Surferlebnis – mit der gleichen Qualität und Leidenschaft, die du von The Surfer kennst."
     },
 
     "cta": {
@@ -560,7 +560,7 @@
     "items": [
       { "text": "Wir melden uns innerhalb von 24 Stunden auf alle Anfragen." },
       { "text": "Teile uns gern besondere Wünsche für deinen Aufenthalt mit." },
-      { "text": "Zur Bestätigung deiner Reservierung ist eine Anzahlung von 25 % (nicht erstattungsfähig) erforderlich.", "second": "Um bei uns zu übernachten!" }
+      { "text": "Zur Bestätigung deiner Reservierung ist eine Anzahlung von 25 % (nicht erstattungsfähig) erforderlich, um bei uns zu übernachten." }
     ]
   },
   "map": {
@@ -815,11 +815,11 @@
     "subheading": "Vier Säulen, auf die wir stolz sind:",
     "pillars": [
       {
-        "title": "Prämiert & am meisten bewertet",
+        "title": "Ausgezeichnet und am besten bewertet",
         "description": "8. Travellers’ Choice Award in Folge bei Tripadvisor. Das Surfcamp mit den meisten Bewertungen auf Google."
       },
       {
-        "title": "International zertifizierte ISA-Instructors",
+        "title": "International zertifizierte ISA‑Instruktoren",
         "description": "Erfahrene lokale und internationale Coaches, die die Wellen besser kennen als jeder andere."
       },
       {
@@ -843,7 +843,7 @@
       "Beach Camp: direkt am Meer mit Pool. Standard-Privatzimmer mit Klimaanlage und eigenem Bad mit Warmwasser.",
       "TS2 Camp: ca. 5 Minuten Fahrt vom Beach Camp. Schlichte Privatzimmer mit Ventilator und eigenem Bad mit Warmwasser.",
       "Alle Surfkurse, Yoga-Sessions, Abendessen und Events finden im Beach Camp statt. Ihr könnt den Tag dort verbringen und im TS2 übernachten.",
-      "Wir erstatten 1.000 LKR pro Zimmer oder Bett im Schlafsaal und Tag als Transportausgleich zwischen den Camps."
+      "Wir erstatten 1.000 LKR pro Zimmer oder Bett im Schlafsaal pro Tag als Transportausgleich zwischen den Camps."
     ],
     "cta": "Pakete & Preise ansehen",
     "aria": {
