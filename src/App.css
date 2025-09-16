@@ -452,6 +452,7 @@ html, body, #root { max-width: 100%; overflow-x: hidden; }
 
 .room-image { object-fit: cover; width: 100%; }
 
+
 .room-details { margin-top: 10px; text-align: center; }
 
 .room-actions { display: flex; justify-content: space-between; align-items: center; }
@@ -532,6 +533,7 @@ html, body, #root { max-width: 100%; overflow-x: hidden; }
 .viewmore-button { width: 125px; }
 .term-button { width: 180px; }
 
+
 .booking-button {
   cursor: pointer;
   background-color: white;
@@ -597,6 +599,7 @@ html, body, #root { max-width: 100%; overflow-x: hidden; }
   width: 100px;
   cursor: pointer;
 }
+
 
 /* Custom alert */
 .custom-alert-overlay {
@@ -1075,3 +1078,145 @@ html, body, #root { max-width: 100%; overflow-x: hidden; }
   .map-image,
   .map-image img { border-radius: 60px !important; }
 }
+
+/* ============================================================
+   MOBILE DATE PAGE — RESPONSIVE FIXES (append-only overrides)
+   ============================================================ */
+
+/* Phones up to 480px */
+@media (max-width: 480px) {
+  /* Stack columns and give both full width */
+  .date-container .date-box {
+    display: block !important;
+  }
+  .date-container .left-section,
+  .date-container .right-section {
+    width: 100% !important;
+    margin: 0 !important;
+  }
+  .date-container .right-section > * {
+    width: 100%;
+  }
+
+  /* React Datepicker: show a single month, fit the viewport, enlarge tap targets */
+  .date-container .react-datepicker {
+    display: block !important;
+    width: 100% !important;
+    max-width: 100% !important;
+    overflow: hidden !important;
+  }
+  /* Hide the second month when monthsShown=2 */
+  .date-container .react-datepicker__month-container:nth-of-type(2) {
+    display: none !important;
+  }
+  /* Make the visible month take full width */
+  .date-container .react-datepicker__month-container {
+    width: 100% !important;
+    min-width: 0 !important;
+    padding: 8px !important;
+  }
+  /* Remove fixed heights so weeks can reflow naturally */
+  .date-container .react-datepicker__month {
+    height: auto !important;
+    margin: 0.75rem 0 !important;
+  }
+
+  /* Comfortable touch size but guaranteed to fit 7 columns */
+  :root { --rp-day: clamp(34px, 10vw, 42px); }
+  .date-container .react-datepicker__day-name,
+  .date-container .react-datepicker__day {
+    width: var(--rp-day) !important;
+    line-height: var(--rp-day) !important;
+    margin: 2px !important;
+    font-size: clamp(12px, 3.5vw, 15px) !important;
+  }
+  /* Keep week rows tight so the card doesn't overflow */
+  .date-container .react-datepicker__week {
+    display: flex !important;
+    justify-content: space-between !important;
+  }
+
+  /* Larger nav buttons for thumbs */
+  .date-container .react-datepicker__navigation {
+    width: 34px !important;
+    height: 34px !important;
+    top: 8px !important;
+  }
+  .date-container .react-datepicker__current-month {
+    font-size: 1rem !important;
+  }
+
+  /* Summary card spacing under the calendar */
+  .date-container .right-section {
+    margin-top: 16px !important;
+    gap: 16px !important;
+  }
+}
+
+/* Large phones (481px–767px) */
+@media (min-width: 481px) and (max-width: 767px) {
+  .date-container .date-box {
+    display: block !important;
+  }
+  .date-container .left-section,
+  .date-container .right-section {
+    width: 100% !important;
+    margin: 0 !important;
+  }
+
+  .date-container .react-datepicker {
+    display: block !important;
+    width: 100% !important;
+    max-width: 100% !important;
+  }
+  .date-container .react-datepicker__month-container:nth-of-type(2) {
+    display: none !important; /* hide second month on mobile */
+  }
+  .date-container .react-datepicker__month-container {
+    width: 100% !important;
+    min-width: 0 !important;
+    padding: 10px !important;
+  }
+  .date-container .react-datepicker__month {
+    height: auto !important;
+    margin: 1rem 0 !important;
+  }
+
+  :root { --rp-day-md: clamp(36px, 8.8vw, 46px); }
+  .date-container .react-datepicker__day-name,
+  .date-container .react-datepicker__day {
+    width: var(--rp-day-md) !important;
+    line-height: var(--rp-day-md) !important;
+    margin: 3px !important;
+    font-size: clamp(12px, 2.9vw, 16px) !important;
+  }
+  .date-container .react-datepicker__week {
+    display: flex !important;
+    justify-content: space-between !important;
+  }
+
+  .date-container .react-datepicker__navigation {
+    width: 36px !important;
+    height: 36px !important;
+    top: 8px !important;
+  }
+  .date-container .react-datepicker__current-month {
+    font-size: 1.05rem !important;
+  }
+
+  .date-container .right-section {
+    margin-top: 18px !important;
+    gap: 18px !important;
+  }
+}
+
+/* Small safe-area boost for devices with notches */
+@supports (padding: max(0px)) {
+  @media (max-width: 767px) {
+    .date-container {
+      padding-left: max(12px, env(safe-area-inset-left));
+      padding-right: max(12px, env(safe-area-inset-right));
+    }
+  }
+}
+
