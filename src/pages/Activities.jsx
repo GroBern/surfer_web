@@ -61,7 +61,7 @@ const Activities = () => {
                 <button
                     onClick={() =>
                         window.location.replace(
-                            "/camp"
+                            "/booking"
                         )
                     }
                     className="bg-[#0a67b3] hover:bg-[#095a99] text-white font-semibold px-6 py-3 rounded-full shadow-md transition duration-300"

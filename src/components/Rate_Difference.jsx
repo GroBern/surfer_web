@@ -41,7 +41,7 @@ const SurfingJourney = () => {
       <div className='flex justify-center w-full mt-3 mb-2'> 
         <a
           className="px-2 py-1 text-sm font-medium border border-black rounded-full text-black hover:bg-gray-100 hover:scale-105 transition-transform duration-300" 
-          href="/camp" 
+          href="/booking" 
           target="_blank"
           rel="noreferrer"
         > 

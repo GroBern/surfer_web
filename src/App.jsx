@@ -53,7 +53,7 @@ const App = () => {
         <Route path='/policy' element={<Policy />} />
         <Route path='/rates' element={<Rates />} />
 
-        <Route path="/camp" element={<Camp />} />
+        <Route path="/booking" element={<Camp />} />
         <Route path="/date" element={<Date />} />
         <Route path="/room" element={<Room />} />
         <Route path="/package" element={<Package />} />

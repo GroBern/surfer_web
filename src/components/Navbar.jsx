@@ -136,7 +136,7 @@ const Navbar = () => {
       <div className="container mx-auto flex justify-between items-center py-3 sm:py-4 px-3 sm:px-6 md:px-8 lg:px-16">
         {/* Logo */}
         <NavLink to="/">
-          <img src="logo.png" alt="The Surfer Logo" className="h-8 sm:h-10 md:h-12 w-auto transition-all duration-300" />
+          <img src="/logo.png" alt="The Surfer Logo" className="h-8 sm:h-10 md:h-12 w-auto transition-all duration-300" />
         </NavLink>
 
         {/* Center nav (desktop) */}
@@ -237,7 +237,7 @@ const Navbar = () => {
             </select>
 
             <a
-              href="/camp"
+              href="/booking"
               target="_blank"
               rel="noreferrer"
               className={`px-4 lg:px-8 py-2 text-sm lg:text-base rounded-full border transition-all duration-300 hover:scale-105 hover:shadow-lg transform ${
@@ -250,7 +250,7 @@ const Navbar = () => {
 
           {/* Mobile: Book Now moved to top bar (visible only on mobile) */}
           <a
-            href="/camp"
+            href="/booking"
             target="_blank"
             rel="noreferrer"
             className={`md:hidden px-3 py-1.5 text-xs font-semibold rounded-full border transition-all duration-300 ${
