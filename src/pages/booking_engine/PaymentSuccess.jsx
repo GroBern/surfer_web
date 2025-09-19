@@ -240,7 +240,7 @@ const PaymentSuccess = () => {
                 }}>
                     <div>
                         <img 
-                            src="https://main.d7z80586kqd0r.amplifyapp.com/logo.png" 
+                            src="https://main.d23o0upbt32ihk.amplifyapp.com/logo.png" 
                             alt="The Surfer Logo" 
                             style={{ 
                                 maxWidth: "180px",
