@@ -35,7 +35,7 @@ const BookingNavbar = () => {
         </button>
 
         {/* Logo */}
-        <a href="/camp" aria-label="Go to Camp">
+        <a href="/booking" aria-label="Go to Camp">
           <img
             src="/logo.png"
             alt="The Surfer Sri Lanka"
