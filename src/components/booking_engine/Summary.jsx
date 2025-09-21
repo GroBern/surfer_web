@@ -10,7 +10,8 @@ const Summary = ({ dateRange, selectedRooms, selectedPackages, addons, totalPric
         <>
           <div className="space-y-2">
             <strong>Dates</strong>
-            <p className="my-2">{dateRange}</p>
+            <p>Check-in: {dateRange.split(" - ")[0]}</p>
+            <p>Check-out: {dateRange.split(" - ")[1]}</p>
           </div>
           <hr className="w-full my-2 border-gray-300" />
         </>

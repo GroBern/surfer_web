@@ -44,7 +44,7 @@ const Whatsapp = () => {
           />
           <input
             type="text"
-            placeholder="Enter your WhatsApp number"
+            placeholder="WhatsApp number with country code"
             className="w-full p-2 border border-gray-300 rounded text-sm text-black"
             required
           />

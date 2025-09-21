@@ -187,7 +187,7 @@
     "packages": {
       "surfAndYoga": "Surf And Yoga Package",
       "fullSurf": "Full Surf Package",
-      "moderateSurf": "Moderate Surf Package"
+      "moderateSurf": "Moderate Surf / Guiding"
     },
     "features": [
       { "name": "Surf Lessons", "surfAndYoga": "06 Lessons / Week", "fullSurf": "11 Lessons", "moderateSurf": "06 Lessons / Week" },
@@ -211,7 +211,7 @@
     "packages": {
       "surfAndYoga": "Surf And Yoga Package",
       "fullSurf": "Full Surf Package",
-      "moderateSurf": "Moderate Surf Package"
+      "moderateSurf": "Moderate Surf / Guiding"
     },
     "features": [
       { "name": "Surf Lessons", "surfAndYoga": "06 Lessons / Week", "fullSurf": "11 Lessons", "moderateSurf": "06 Lessons / Week" },
@@ -671,7 +671,7 @@
         "06 surf lessons or guiding sessions",
         "Surf Theory",
         "Everyday Breakfast",
-        "06 Dinners Including Special Buffet Dinners",
+        "Dinner - Everyday except Sunday",
         "02 Complimentary Yoga Sessions",
         "Free Transport To Different Surf Spots",
         "Free Use Of Surf Boards During Surf Sessions",
@@ -689,7 +689,7 @@
         "11 surf lessons or guiding sessions",
         "Surf Theory",
         "Everyday Breakfast",
-        "06 Dinners Including Special Buffet Dinners",
+        "Dinner - Everyday except Sunday",
         "02 Complimentary Yoga Sessions",
         "Free Transport To Different Surf Spots",
         "Free Use Of Surf Boards During Surf Sessions",
@@ -708,7 +708,7 @@
         "06 surf lessons or guiding sessions",
         "Surf Theory",
         "Everyday Breakfast",
-        "06 Dinners Including Special Buffet Dinners",
+        "Dinner - Everyday except Sunday",
         "Free Transport To Different Surf Spots",
         "Free Use Of Surf Boards During Surf Sessions",
         "Small Groups Surf Teaching (max 6 people per group)",
@@ -1025,7 +1025,7 @@
     "headers": {
       "surfAndYoga": "Surf And Yoga Package",
       "fullSurf": "Full Surf Package",
-      "moderateSurf": "Moderate Surf Package"
+      "moderateSurf": "Moderate Surf / Guiding"
     },
     "rows": {
       "surfLessons": {
@@ -1200,7 +1200,7 @@
           "06 surf lessons or guiding sessions",
           "Surf Theory",
           "Everyday Breakfast",
-          "06 Dinners Including Special Buffet Dinners",
+          "Dinner - Everyday except Sunday",
           "02 Complimentary Yoga Sessions",
           "Free Transport To Different Surf Spots",
           "Free Use Of Surf Boards During Surf Sessions",
@@ -1217,7 +1217,7 @@
           "11 surf lessons or guiding sessions",
           "Surf Theory",
           "Everyday Breakfast",
-          "06 Dinners Including Special Buffet Dinners",
+          "Dinner - Everyday except Sunday",
           "02 Complimentary Yoga Sessions",
           "Free Transport To Different Surf Spots",
           "Free Use Of Surf Boards During Surf Sessions",
@@ -1235,7 +1235,7 @@
           "06 surf lessons or guiding sessions",
           "Surf Theory",
           "Everyday Breakfast",
-          "06 Dinners Including Special Buffet Dinners",
+          "Dinner - Everyday except Sunday",
           "Free Transport To Different Surf Spots",
           "Free Use Of Surf Boards During Surf Sessions",
           "Small Groups Surf Teaching 6ppl Max per Group",
@@ -1508,7 +1508,7 @@
     "headers": {
       "surfAndYoga": "Surf And Yoga Package",
       "fullSurf": "Full Surf Package",
-      "moderateSurf": "Moderate Surf Package"
+      "moderateSurf": "Moderate Surf / Guiding"
     },
     "rows": {
       "surfLessons": {

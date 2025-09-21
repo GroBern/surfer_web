@@ -186,7 +186,7 @@
     "packages": {
       "surfAndYoga": "Surf- und Yoga-Paket",
       "fullSurf": "Vollständiges Surf-Paket",
-      "moderateSurf": "Moderat Surf-Paket"
+      "moderateSurf": "Moderat Surfen / Guiding"
     },
     "features": [
       { "name": "Surf-Unterricht", "surfAndYoga": "06 Lektionen / Woche", "fullSurf": "11 Lektionen", "moderateSurf": "06 Lektionen / Woche" },
