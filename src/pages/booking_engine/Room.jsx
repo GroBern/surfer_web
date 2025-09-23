@@ -1,4 +1,4 @@
-import React, { useState, useEffect } from "react";
+import React, { useState, useEffect, useMemo } from "react";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import { faArrowRight, faPlus, faMinus } from "@fortawesome/free-solid-svg-icons";
 import Summary from "../../components/booking_engine/Summary";
@@ -6,18 +6,42 @@ import { Link } from "react-router-dom";
 import BookingNavbar from "../../components/booking_engine/BookingNavbar";
 import BookingFooter from "../../components/booking_engine/BookingFooter";
 
-const roomsData = [
-  { id: 1, title: "Dorm Bed", people: 1, image: "booking_engine/dorm.jpg", images: ["booking_engine/room1.jpg"], details: "A bed in a mixed dormitory. Shared room, maximum 5 people." },
-  { id: 2, title: "Private Single Room", people: 1, image: "booking_engine/single.jpg", images: ["booking_engine/room4.jpg"], details: "Private single room with private bathroom." },
-  { id: 3, title: "Private Double Room Per Person", people: 2, image: "booking_engine/double.jpg", images: ["booking_engine/room2.jpg"], details: "Private double room with private bathroom. Price will be shown for 2 people" },
-  { id: 4, title: "Private Triple Room Per Person", people: 3, image: "booking_engine/triple.jpg", images: ["booking_engine/room3.jpg"], details: "Private triple room with private bathroom. Price will be shown for 3 people" },
-];
-
 const RoomPage = () => {
+  const selectedCamp = localStorage.getItem("selectedCamp");
+
+  const roomsData = useMemo(() => {
+    if (selectedCamp === "TS2 Surf Camp") {
+      return [
+        { id: 1, title: "Dorm Bed", people: 1, image: "ts2_camp/dorm.jpg", details: "A bed in a mixed dormitory. Shared room, maximum 5 people." },
+        { id: 2, title: "Private Single Room", people: 1, image: "ts2_camp/singleroom.jpg", details: "Private single room with private bathroom." },
+        { id: 3, title: "Private Double Room Per Person", people: 2, image: "ts2_camp/doubleroom.jpg", details: "Private double room with private bathroom. Price will be shown for 2 people" },
+        { id: 4, title: "Private Triple Room Per Person", people: 3, image: "ts2_camp/tripleroom.jpg", details: "Private triple room with private bathroom. Price will be shown for 3 people" },
+      ];
+    }
+
+    if (selectedCamp === "The Surfer SurfStyle Camp") {
+      return [
+        { id: 1, title: "3 Bed Shared Room", people: 3, image: "morocco/3-bed-1.jpg", details: "Shared room for 3 people with bathroom access." },
+        { id: 2, title: "2 Bed Shared Room", people: 2, image: "morocco/2-bed-1.jpg", details: "Shared room for 2 people with bathroom access." },
+        { id: 3, title: "Private Double Room", people: 2, image: "morocco/private-double-1.jpg", details: "Private double room with bathroom." },
+        { id: 4, title: "Private Double Room With Balcony", people: 2, image: "morocco/balcony-1.jpg", details: "Private double room with balcony and bathroom." },
+      ];
+    }
+
+    // Default: The Surfer Beach Camp
+    return [
+      { id: 1, title: "Dorm Bed", people: 1, image: "booking_engine/dorm.jpg", details: "A bed in a mixed dormitory. Shared room, maximum 5 people." },
+      { id: 2, title: "Private Single Room", people: 1, image: "booking_engine/single.jpg", details: "Private single room with private bathroom." },
+      { id: 3, title: "Private Double Room Per Person", people: 2, image: "booking_engine/double.jpg", details: "Private double room with private bathroom. Price will be shown for 2 people" },
+      { id: 4, title: "Private Triple Room Per Person", people: 3, image: "booking_engine/triple.jpg", details: "Private triple room with private bathroom. Price will be shown for 3 people" },
+    ];
+  }, [selectedCamp]);
+
   const [peopleCount, setPeopleCount] = useState(() => {
     const stored = localStorage.getItem("peopleCount");
     return stored ? parseInt(stored) : 0;
   });
+
   const [selectedRooms, setSelectedRooms] = useState(() => {
     const stored = localStorage.getItem("selectedRooms");
     if (!stored) return [];
@@ -36,7 +60,6 @@ const RoomPage = () => {
     }
   });
 
-  // persist people & room selection in a readable way
   useEffect(() => {
     localStorage.setItem("peopleCount", String(peopleCount));
     const readableRooms = selectedRooms.map((r) => {
@@ -44,7 +67,7 @@ const RoomPage = () => {
       return `${r.count} x ${room.title}`;
     });
     localStorage.setItem("selectedRooms", JSON.stringify(readableRooms));
-  }, [peopleCount, selectedRooms]);
+  }, [peopleCount, selectedRooms, roomsData]);
 
   const getFilledCapacity = () =>
     selectedRooms.reduce((acc, r) => {
@@ -65,7 +88,6 @@ const RoomPage = () => {
     const cur = ix !== -1 ? updated[ix].count : 0;
     const next = inc ? cur + 1 : cur - 1;
 
-    // prevent exceeding headcount
     if (inc && getFilledCapacity() + (room?.people || 0) > peopleCount) return;
 
     if (ix !== -1) {
@@ -88,7 +110,6 @@ const RoomPage = () => {
 
   const selectionComplete = peopleCount > 0 && getFilledCapacity() === peopleCount;
 
-  // parse dateRange so Summary won’t show quotes
   const parsedDateRange = (() => {
     const raw = localStorage.getItem("dateRange");
     try {
@@ -102,8 +123,7 @@ const RoomPage = () => {
     <>
       <BookingNavbar />
 
-       <div className="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8 pt-28 pb-28">
-        {/* People selector */}
+      <div className="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8 pt-28 pb-28">
         <h3 className="text-center text-xl font-semibold mb-1">Number of People:</h3>
         <div className="flex items-center justify-center gap-4">
           <button
@@ -140,9 +160,7 @@ const RoomPage = () => {
           </div>
         )}
 
-        {/* Main layout */}
         <div className="mt-5 grid gap-6 lg:grid-cols-3">
-          {/* Rooms list */}
           <div className="lg:col-span-2">
             <div className="grid gap-5 sm:grid-cols-2">
               {displayedRooms.map((room) => {
@@ -213,7 +231,6 @@ const RoomPage = () => {
             </div>
           </div>
 
-          {/* Summary + CTA */}
           <aside className="space-y-4 sm:space-y-6 lg:sticky lg:top-28">
             <div className="rounded-lg border border-gray-200 bg-white p-4 sm:p-5 shadow-sm">
               <Summary

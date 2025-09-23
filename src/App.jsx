@@ -30,6 +30,7 @@ import PaymentRequest from './pages/booking_engine/PaymentRequest';
 import CheckoutPage from './pages/booking_engine/CheckoutPage';
 import ScrollToTop from "./components/booking_engine/ScrollToTop";
 import PaymentSuccess from './pages/booking_engine/PaymentSuccess';
+import Country from './pages/booking_engine/Country';
 
 const App = () => {
   return (
@@ -53,7 +54,8 @@ const App = () => {
         <Route path='/policy' element={<Policy />} />
         <Route path='/rates' element={<Rates />} />
 
-        <Route path="/booking" element={<Camp />} />
+        <Route path="/booking" element={<Country />} />
+        <Route path="/camp" element={<Camp />} />
         <Route path="/date" element={<Date />} />
         <Route path="/room" element={<Room />} />
         <Route path="/package" element={<Package />} />
