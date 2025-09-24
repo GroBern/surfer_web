@@ -29,7 +29,7 @@ const Whatsapp = () => {
 
       const data = await res.json();
       if (data.success) {
-        alert("Message sent successfully!");
+        alert("We will get back to you within few hours!");
         setFormData({ name: "", email: "", country: "", whatsapp: "", message: "" });
         setIsOpen(false);
         setSubmitting(false);
