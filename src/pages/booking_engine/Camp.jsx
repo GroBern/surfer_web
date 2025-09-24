@@ -1,3 +1,4 @@
+// src/pages/booking_engine/Camp.jsx
 import React, { useState, useEffect } from "react";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import {
@@ -52,11 +53,7 @@ const Camp = () => {
     {
       id: "3",
       title: "The Surfer SurfStyle Camp",
-      images: [
-        "/morocco/moro-1.jpg",
-        "/morocco/moro-2.jpg",
-        "/morocco/moro-3.jpg",
-      ],
+      images: ["/morocco/moro-1.jpg", "/morocco/moro-2.jpg", "/morocco/moro-3.jpg"],
       includes: [
         "THE SURFER SURFSTYLE – Surf Camp in Taghazout, Morocco",
         "Our SurfStyle camp is located in the heart of Taghazout, Morocco’s premier surf destination, known for its consistent waves and vibrant surf culture.",
@@ -92,6 +89,7 @@ const Camp = () => {
     const initial = {};
     packageData.forEach((pkg) => (initial[pkg.id] = 0));
     setCurrentImageIndex(initial);
+    // eslint-disable-next-line react-hooks/exhaustive-deps
   }, []);
 
   const toggleExpand = (id) => setExpanded(expanded === id ? null : id);
@@ -138,6 +136,7 @@ const Camp = () => {
         aria-label={`Select ${pkg.title}`}
         style={{
           backgroundImage: `url(${pkg.images[currentImageIndex[pkg.id] ?? 0]})`,
+          borderRadius: "18px",
         }}
         onClick={() => handleCampSelection(pkg.title)}
         onKeyDown={(e) => handleCampKeyDown(e, pkg.title)}
@@ -159,7 +158,12 @@ const Camp = () => {
       </div>
 
       <button className="toggle-btn" onClick={() => toggleExpand(pkg.id)}>
-        Camp Details {expanded === pkg.id ? <FontAwesomeIcon icon={faAngleUp} /> : <FontAwesomeIcon icon={faAngleDown} />}
+        Camp Details{" "}
+        {expanded === pkg.id ? (
+          <FontAwesomeIcon icon={faAngleUp} />
+        ) : (
+          <FontAwesomeIcon icon={faAngleDown} />
+        )}
       </button>
 
       {expanded === pkg.id && (
@@ -178,29 +182,116 @@ const Camp = () => {
     <>
       <BookingNavbar />
 
-      <div className="home-container">
+      {/* Header (same placement pattern as Country page; left-aligned) */}
+      <div className="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8" style={{ marginTop: "110px" }}>
+        <h1
+          className="text-2xl font-semibold tracking-tight text-gray-900"
+          style={{ marginBottom: "6px" }}
+        >
+          Choose Your Camp
+        </h1>
+        <p className="text-sm text-gray-600" style={{ marginBottom: "18px" }}>
+          Pick a camp based on location and vibe. You can compare the two Sri Lanka options below.
+        </p>
+      </div>
+
+      <div className="home-container" style={{ paddingTop: 0 }}>
         <div className="camp-section">
-          {selectedCountry === "Morocco"
-            ? renderCamp(packageData[2])
-            : (
-              <>
-                {renderCamp(packageData[0])}
-                {renderCamp(packageData[1])}
-              </>
-            )}
+          {selectedCountry === "Morocco" ? (
+            renderCamp(packageData[2])
+          ) : (
+            <>
+              {renderCamp(packageData[0])}
+              {renderCamp(packageData[1])}
+            </>
+          )}
         </div>
 
         {selectedCountry !== "Morocco" && (
           <>
-            <div style={{ textAlign: "center", margin: "24px 0" }}>
-              <h2>Beach Camp vs. TS2 Camp: What's the Difference?</h2>
-              <p>
-                Main difference is the location and the room standard!
-                <br />
-                Beach camp located right next to the beach with swim pool, TS2 camp rooms are with Basic standard simple private rooms with Fan and hot water ensuite bathroom Beach camp rooms are Standard private rooms with air conditioning, ensuite bathroom and hot water! TS2 camp located 05 minutes ride away from the beach camp, even though you book TS2 Weligama , all your surf lessons, Yoga, dinner and all events will be taken place at the beach camp! 1000 rupees per day will be paid per room and per dormitory as a transport compensation to travel between the camps! You can basically spend all ur day at the beach camp and just go for sleep at TS2 camp!
+            {/* Centered comparison section */}
+            <section
+              aria-labelledby="camp-compare-title"
+              className="mx-auto max-w-5xl text-center"
+              style={{ marginTop: "8px", marginBottom: "24px" }}
+            >
+              <h2
+                id="camp-compare-title"
+                className="text-xl sm:text-2xl font-bold text-gray-900"
+                style={{ marginBottom: "8px" }}
+              >
+                Beach Camp vs. TS2 Camp: What's the Difference?
+              </h2>
+              <p className="text-gray-600 text-sm sm:text-base">
+                Here’s a clear, side-by-side breakdown to help you pick the right place.
               </p>
-            </div>
 
+              <div className="mt-6 grid grid-cols-1 md:grid-cols-2 gap-6 justify-items-center">
+                {/* Beach Camp */}
+                <article className="rounded-xl border border-gray-200 bg-white shadow-sm p-5 w-full max-w-md text-left">
+                  <header className="mb-2">
+                    <h3 className="text-lg font-semibold text-gray-900">Beach Camp (Weligama)</h3>
+                    <p className="text-sm text-gray-600">
+                      Closest to the beach with more comfort and amenities.
+                    </p>
+                  </header>
+                  <ul className="mt-3 space-y-2 text-sm text-gray-800 list-disc ml-5">
+                    <li>
+                      <strong>Location:</strong> Right next to Weligama beach.
+                    </li>
+                    <li>
+                      <strong>Rooms:</strong> Standard private rooms with{" "}
+                      <em>air-conditioning</em>, <em>ensuite bathroom</em>, and <em>hot water</em>.
+                    </li>
+                    <li>
+                      <strong>Facilities:</strong> Swimming pool, restaurant, and a dedicated yoga
+                      area.
+                    </li>
+                    <li>
+                      <strong>Lessons & events:</strong> All surf lessons, yoga, dinners, and events
+                      happen here.
+                    </li>
+                    <li>
+                      <strong>Best for:</strong> Guests who want to stay where everything happens.
+                    </li>
+                  </ul>
+                </article>
+
+                {/* TS2 Camp */}
+                <article className="rounded-xl border border-gray-200 bg-white shadow-sm p-5 w-full max-w-md text-left">
+                  <header className="mb-2">
+                    <h3 className="text-lg font-semibold text-gray-900">TS2 Camp (Weligama)</h3>
+                    <p className="text-sm text-gray-600">Great value in a quiet, green setting.</p>
+                  </header>
+                  <ul className="mt-3 space-y-2 text-sm text-gray-800 list-disc ml-5">
+                    <li>
+                      <strong>Location:</strong> About <em>5 Minutes Ride</em> from Beach Camp.
+                    </li>
+                    <li>
+                      <strong>Rooms:</strong> Basic private rooms with <em>fan</em> and{" "}
+                      <em>hot-water ensuite</em>.
+                    </li>
+                    <li>
+                      <strong>Facilities:</strong> You’ll use Beach Camp amenities during the day.
+                    </li>
+                    <li>
+                      <strong>Lessons & events:</strong> All sessions run at Beach Camp (you’ll join
+                      there).
+                    </li>
+                    <li>
+                      <strong>Transport compensation:</strong>{" "}
+                      <em>LKR 1,000 per room/dorm per day</em> to travel between camps.
+                    </li>
+                    <li>
+                      <strong>Best for:</strong> Budget-friendly stays — sleep at TS2, hang out at
+                      Beach Camp.
+                    </li>
+                  </ul>
+                </article>
+              </div>
+            </section>
+
+            {/* Map (unchanged) */}
             <div className="map-image">
               <img src="booking_engine/map.jpg" alt="camp map" loading="lazy" />
             </div>

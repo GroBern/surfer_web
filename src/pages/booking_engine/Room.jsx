@@ -1,3 +1,4 @@
+// src/pages/booking_engine/RoomPage.jsx
 import React, { useState, useEffect, useMemo } from "react";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import { faArrowRight, faPlus, faMinus } from "@fortawesome/free-solid-svg-icons";
@@ -123,7 +124,50 @@ const RoomPage = () => {
     <>
       <BookingNavbar />
 
-      <div className="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8 pt-28 pb-28">
+      {/* Scoped, page-only CSS for a visible, beautiful CTA on mobile */}
+      <style>{`
+        .room-page .cta-button {
+          display: grid;
+          place-items: center;
+          height: 56px;
+          border-radius: 9999px;
+          font-weight: 700;
+          letter-spacing: .2px;
+          color: #fff;
+          background: linear-gradient(90deg, #00afef, #0a67a9);
+          box-shadow:
+            0 12px 24px rgba(2, 132, 199, 0.28),
+            0 4px 10px rgba(2, 132, 199, 0.20);
+          transition: transform .15s ease, box-shadow .2s ease, filter .2s ease;
+        }
+        .room-page .cta-button:hover {
+          transform: translateY(-1px);
+          box-shadow:
+            0 14px 28px rgba(2, 132, 199, 0.34),
+            0 6px 12px rgba(2, 132, 199, 0.22);
+          filter: saturate(1.05);
+        }
+        .room-page .cta-button.is-disabled {
+          background: #e5e7eb !important;
+          color: #6b7280 !important;
+          box-shadow: none !important;
+          cursor: not-allowed !important;
+        }
+        @media (max-width: 640px) {
+          .room-page { padding-bottom: calc(var(--footer-h, 90px) + 88px); }
+          .room-page .cta-sticky {
+            position: sticky;
+            bottom: calc(12px + env(safe-area-inset-bottom));
+            z-index: 10;
+            padding: 6px 0;
+            background: linear-gradient(to top, rgba(255,255,255,0.96), rgba(255,255,255,0.84));
+            backdrop-filter: blur(4px);
+            -webkit-backdrop-filter: blur(4px);
+          }
+        }
+      `}</style>
+
+      <div className="room-page mx-auto max-w-7xl px-4 sm:px-6 lg:px-8 pt-28 pb-28">
         <h3 className="text-center text-xl font-semibold mb-1">Number of People:</h3>
         <div className="flex items-center justify-center gap-4">
           <button
@@ -242,23 +286,28 @@ const RoomPage = () => {
               />
             </div>
 
-            {selectionComplete ? (
-              <Link to="/package" className="block">
-                <div className="grid h-12 sm:h-14 w-full place-items-center rounded-lg bg-sky-500 text-white text-base font-semibold transition hover:bg-sky-600 active:bg-sky-700">
-                  Package Selection <FontAwesomeIcon className="ml-2" icon={faArrowRight} />
+            {/* Mobile-visible sticky CTA wrapper (doesn't affect desktop) */}
+            <div className="cta-sticky">
+              {selectionComplete ? (
+                <Link to="/package" className="block">
+                  <div className="cta-button">
+                    Package Selection <FontAwesomeIcon className="ml-2" icon={faArrowRight} />
+                  </div>
+                </Link>
+              ) : (
+                <div
+                  role="button"
+                  aria-disabled="true"
+                  tabIndex={-1}
+                  className="block"
+                  title="Add rooms to match the number of people"
+                >
+                  <div className="cta-button is-disabled">
+                    Package Selection <FontAwesomeIcon className="ml-2" icon={faArrowRight} />
+                  </div>
                 </div>
-              </Link>
-            ) : (
-              <div
-                className="grid h-12 sm:h-14 w-full place-items-center rounded-lg bg-gray-300 text-gray-600 text-base font-semibold cursor-not-allowed"
-                role="button"
-                aria-disabled="true"
-                tabIndex={-1}
-                title="Add rooms to match the number of people"
-              >
-                Package Selection <FontAwesomeIcon className="ml-2" icon={faArrowRight} />
-              </div>
-            )}
+              )}
+            </div>
           </aside>
         </div>
       </div>
