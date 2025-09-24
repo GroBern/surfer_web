@@ -1,50 +1,87 @@
-import React, { useState } from 'react';
-import { motion } from 'framer-motion'; // eslint-disable-line no-unused-vars
-import { useTranslation } from 'react-i18next';
+import React, { useState } from "react";
+import { motion } from "framer-motion";
+import { useTranslation } from "react-i18next";
+import { API_BASE_URL } from "../../config/api";
 
 const Form = () => {
   const { t } = useTranslation();
 
   const [formData, setFormData] = useState({
-    inquiryReason: '',
-    firstName: '',
-    lastName: '',
-    email: '',
-    confirmEmail: '',
-    phone: '',
-    country: '',
-    message: '',
+    inquiryReason: "",
+    firstName: "",
+    lastName: "",
+    email: "",
+    confirmEmail: "",
+    phone: "",
+    country: "",
+    message: "",
   });
 
   const [errors, setErrors] = useState({ emailMismatch: false });
+  const [status, setStatus] = useState({ loading: false, success: null, error: null });
 
   const handleChange = (e) => {
     const { name, value } = e.target;
     setFormData((s) => ({ ...s, [name]: value }));
-    if (name === 'email' || name === 'confirmEmail') {
-      // live-clear mismatch error
+    if (name === "email" || name === "confirmEmail") {
       setErrors((e) => ({
         ...e,
         emailMismatch:
-          name === 'confirmEmail'
+          name === "confirmEmail"
             ? value !== formData.email
             : formData.confirmEmail !== value,
       }));
     }
   };
 
-  const handleSubmit = (e) => {
+  const handleSubmit = async (e) => {
     e.preventDefault();
     if (formData.email !== formData.confirmEmail) {
       setErrors((e) => ({ ...e, emailMismatch: true }));
       return;
     }
+
     setErrors({ emailMismatch: false });
-    console.log('Form submitted:', formData);
-    // TODO: send to your backend / email service
+    setStatus({ loading: true, success: null, error: null });
+
+    try {
+      const res = await fetch(`${API_BASE_URL}/bookings/send-contact-form`, {
+        method: "POST",
+        headers: { "Content-Type": "application/json" },
+        body: JSON.stringify({
+          inquiryReason: formData.inquiryReason,
+          firstName: formData.firstName,
+          lastName: formData.lastName,
+          email: formData.email,
+          phone: formData.phone,
+          country: formData.country,
+          message: formData.message,
+        }),
+      });
+
+      const data = await res.json();
+
+      if (data.success) {
+        setStatus({ loading: false, success: t("form.success"), error: null });
+        setFormData({
+          inquiryReason: "",
+          firstName: "",
+          lastName: "",
+          email: "",
+          confirmEmail: "",
+          phone: "",
+          country: "",
+          message: "",
+        });
+      } else {
+        setStatus({ loading: false, success: null, error: t("form.error") });
+      }
+    } catch (err) {
+      setStatus({ loading: false, success: null, error: t("form.error") });
+    }
   };
 
-  const reasons = t('form.select.options', { returnObjects: true });
+  const reasons = t("form.select.options", { returnObjects: true });
 
   return (
     <div className="max-w-4xl mx-auto p-5">
@@ -52,13 +89,15 @@ const Form = () => {
         className="text-xl sm:text-2xl md:text-3xl lg:text-4xl font-bold text-center mb-6 sm:mb-8 text-neutral-400"
         initial={{ opacity: 0, y: 30 }}
         whileInView={{ opacity: 1, y: 0 }}
-        transition={{ duration: 0.4, delay: 0.2, ease: 'easeOut' }}
+        transition={{ duration: 0.4, delay: 0.2, ease: "easeOut" }}
         viewport={{ once: true, amount: 0.5 }}
       >
-        {t('form.title')}
+        {t("form.title")}
       </motion.h2>
 
       <form onSubmit={handleSubmit} className="space-y-6" noValidate>
+        {/* All your inputs here (unchanged)... */}
+
         <div className="w-full">
           <select
             name="inquiryReason"
@@ -176,13 +215,21 @@ const Form = () => {
         <div>
           <button
             type="submit"
-            className="bg-blue-600 text-white border-none py-3 px-6 text-base cursor-pointer transition-all duration-300 font-semibold shadow-md hover:bg-blue-700 active:transform active:translate-y-0.5"
-            aria-label={t('form.button')}
+            disabled={status.loading}
+            className="bg-blue-600 text-white border-none py-3 px-6 text-base cursor-pointer transition-all duration-300 font-semibold shadow-md hover:bg-blue-700 active:transform active:translate-y-0.5 disabled:opacity-50"
+            aria-label={t("form.button")}
           >
-            {t('form.button')}
+            {status.loading ? t("form.sending") : t("form.button")}
           </button>
         </div>
       </form>
+
+      {status.success && (
+        <p className="mt-4 text-green-600 text-sm">{status.success}</p>
+      )}
+      {status.error && (
+        <p className="mt-4 text-red-600 text-sm">{status.error}</p>
+      )}
     </div>
   );
 };
