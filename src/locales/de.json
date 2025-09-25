@@ -487,39 +487,37 @@
     ]
   },
   "contact": {
-    "aria": {
-      "locationIcon": "Standort",
-      "emailIcon": "E-Mail"
-    },
     "cards": [
       {
         "title": "THE SURFER\nBEACH CAMP",
-        "lines": ["NO 65, Wadana Watta,", "Pelena, Weligama", "Sri Lanka. 81700"],
         "icon": "location",
-        "mapUrl": "https://maps.google.com/?q=NO%2065%20Wadana%20Watta%20Pelena%20Weligama%2081700"
+        "lines": ["NO 65, Wadana Watta,", "Pelena, Weligama", "Sri Lanka. 81700"],
+        "mapHref": "https://maps.app.goo.gl/bZZ3HPyEMXUor9GJA"
       },
       {
         "title": "TS2 SURF CAMP",
+        "icon": "location",
         "lines": ["NO 176/12, 3rd Lane,", "Main Street, Weligama", "Sri Lanka. 81700"],
-        "icon": "location",
-        "mapUrl": "https://maps.google.com/?q=Main%20Street%20Weligama%2081700"
+        "mapHref": "https://maps.app.goo.gl/r9FZ5MZQE2ki6t2J8"
       },
       {
-
-        "title": "THE SURFER STYLE - MOROCCO",
-
+        "title": "THE SURFER SURFSTYLE -\nMOROCCO",
+        "icon": "location",
         "lines": ["Tamraght,", "Agadir 80023"],
-        "icon": "location",
-        "mapUrl": "https://maps.google.com/?q=Tamraght%20Agadir%2080023"
+        "mapHref": "https://maps.app.goo.gl/iGKEYJzm7qrozzy68"
       },
       {
-        "title": "E-MAIL",
-        "lines": ["info@thesurferweligama.com"],
+        "title": "EMAIL",
         "icon": "email",
+        "lines": ["info@thesurferweligama.com"],
         "mailto": "info@thesurferweligama.com",
         "badge": "1"
       }
-    ]
+    ],
+    "aria": {
+      "emailIcon": "Open email",
+      "locationIcon": "Open location in Google Maps"
+    }
   },
   "form": {
     "title": "Sende deine Anfragen / Buchungen",

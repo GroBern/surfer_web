@@ -33,12 +33,12 @@ const Contact = () => {
   const cards = t('contact.cards', { returnObjects: true }) || [];
   const aria = t('contact.aria', { returnObjects: true }) || {};
 
-  // Skip any “empty” card coming from JSON (e.g., removed/coming soon)
   const visibleCards = cards.filter((c) => {
     const hasTitle = String(c?.title ?? '').trim().length > 0;
     const hasLines = Array.isArray(c?.lines) && c.lines.some((l) => String(l ?? '').trim().length > 0);
     const hasMailto = String(c?.mailto ?? '').trim().length > 0;
-    return hasTitle && (hasLines || hasMailto);
+    const hasMap = String(c?.mapHref ?? '').trim().length > 0;
+    return hasTitle && (hasLines || hasMailto || hasMap);
   });
 
   return (
@@ -49,7 +49,6 @@ const Contact = () => {
       transition={{ duration: 0.6, ease: "easeOut" }}
       viewport={{ once: true, amount: 0.3 }}
     >
-      {/* Use auto-fit grid so 4 cards center nicely; also center items */}
       <motion.div
         className="grid gap-3 md:gap-8 justify-items-center [grid-template-columns:repeat(auto-fit,minmax(220px,1fr))]"
         initial={{ opacity: 0 }}
@@ -61,6 +60,7 @@ const Contact = () => {
           const titleLines = String(card.title || '').split('\n');
           const isEmail = card.icon === 'email';
           const email = card.mailto || (isEmail ? card.lines?.[0] : null);
+          const mapHref = card.mapHref || null;
 
           return (
             <motion.div
@@ -86,7 +86,6 @@ const Contact = () => {
                 ))}
               </motion.h3>
 
-              {/* Content area */}
               <motion.div
                 className="text-sm text-black font-semibold leading-relaxed mb-6 w-full"
                 initial={{ opacity: 0, y: 15 }}
@@ -110,7 +109,6 @@ const Contact = () => {
                 )}
               </motion.div>
 
-              {/* Icon pinned at the bottom via flex layout */}
               <motion.div
                 className="mt-auto flex justify-center"
                 initial={{ opacity: 0, scale: 0.5 }}
@@ -123,7 +121,28 @@ const Contact = () => {
                   whileHover={{ scale: 1.1, rotate: 5 }}
                   transition={{ duration: 0.2 }}
                 >
-                  <IconCircle kind={isEmail ? 'email' : 'location'} aria={aria} />
+                  {isEmail && email ? (
+                    <a
+                      href={`mailto:${email}`}
+                      aria-label={aria.emailIcon}
+                      className="focus:outline-none focus:ring-2 focus:ring-black rounded-full"
+                    >
+                      <IconCircle kind="email" aria={aria} />
+                    </a>
+                  ) : mapHref ? (
+                    <a
+                      href={mapHref}
+                      target="_blank"
+                      rel="noopener noreferrer"
+                      aria-label={aria.locationIcon}
+                      className="focus:outline-none focus:ring-2 focus:ring-black rounded-full"
+                    >
+                      <IconCircle kind="location" aria={aria} />
+                    </a>
+                  ) : (
+                    <IconCircle kind="location" aria={aria} />
+                  )}
+
                   {card.badge && (
                     <motion.div
                       className="absolute -top-1 -right-1 w-5 h-5 bg-black text-white text-xs rounded-full flex items-center justify-center font-bold"
