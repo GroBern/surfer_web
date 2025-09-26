@@ -1468,6 +1468,38 @@
         "note": "Pro Person / pro Woche"
       }
     }
+  },
+  "faqRate": {
+    "title": "FAQ — Preise & Camps",
+    "items": [
+      {
+        "question": "WAS UNTERSCHEIDET THE SURFER VON DEN ANDEREN SURF CAMPS?",
+        "answer": "Es ist eigentlich ganz einfach: Sowohl das Beach Camp als auch das TS2 Weligama Surf Camp auf Sri Lanka liegen direkt in Weligama an zwei wirklich anfängerfreundlichen Spots. Nebenan gibt es noch mehr Surfspots, die man genießen kann, und auch einige geheime Spots, an denen man in Ruhe surfen kann. Unser Team aus erfahrenen Surflehrern nimmt für jede Surfstunde nur maximal fünf Personen pro Gruppe auf, wodurch du individuelles Feedback und Tipps von uns bekommst.\n\nDer Besitzer und das Management des Hotels ist Lahiru, ein einheimischer Sri Lankaner, der sich in der lokalen Szene auskennt und ein lizenzierter, qualifizierter ISA/ISL-Surflehrer ist."
+      },
+      {
+        "question": "WAS IST DER UNTERSCHIED ZWISCHEN DEM THE SURFER BEACH CAMP UND DEM TS2 WELIGAMA SURF CAMP?",
+        "answer": "Unsere Surf- und Yoga-Camps auf Sri Lanka unterscheiden sich im Wesentlichen durch die Lage. Das Beach Camp liegt in unmittelbarer Strandnähe und hat einen Swimmingpool.\n\nDas TS2 Camp befindet sich 5 Minuten Fahrt vom Beach Camp entfernt. Auch wenn du das TS2 Weligama buchst, finden alle deine Surfstunden, Yoga-Sessions, Abendessen und alle Veranstaltungen im Beach Camp statt! Der Transport wird von uns bezahlt. Du kannst im Prinzip den ganzen Tag im Beach Camp verbringen und zum Schlafen ins TS2 Camp gehen. Unsere Surf Camps auf Sri Lanka bieten dir ein unvergessliches Erlebnis!"
+      },
+      {
+        "question": "WANN BEGINNT DIE SAISON UND WIE SIND DIE WETTERBEDINGUNGEN UND DIE WASSERTEMPERATUR?",
+        "answer": "Zum Surfen auf Sri Lanka gibt es zwei Küstenlinien:\n• Ostküste: Saison von Mai bis Oktober\n• Südküste: Saison von Oktober bis April (hier befinden sich unsere Camps, mit der längsten Surfsaison und vielen Spots).\n\nVon Oktober bis April herrschen an der Südküste trockene und sonnige Bedingungen. Die Wassertemperaturen liegen bei etwa 27°C–30°C – ein Neoprenanzug ist nicht nötig. Die Kombination aus glasklaren kopfhohen Wellen, längeren Perioden und Offshore-Winden sorgt für perfekte Bedingungen für Anfänger bis Fortgeschrittene.\n\nMai bis September ist an der Südküste Nebensaison fürs Surfen, aber weiterhin mit angenehmen Temperaturen für andere Reisende. Die sogenannte Monsunzeit bringt meist nur nachts Regen; tagsüber ist das Wetter oft sehr gut."
+      },
+      {
+        "question": "WELCHE ART VON AUSBILDERN WERDEN UNS IM SURFUNTERRICHT UNTERRICHTEN?",
+        "answer": "Unsere Ausbilder sind allesamt erfahrene Surfer und sprechen fließend Englisch. Es sind einheimische Sri Lanker sowie Coaches aus Deutschland, den Niederlanden, Skandinavien oder Großbritannien. Alle kennen die lokalen Gebiete und Surfspots sehr gut."
+      },
+      {
+        "question": "WAS KOSTET DER FLUG?",
+        "answer": "Mit etwas Planung findest du oft sehr gute Rückflugpreise aus ganz Europa. Nach unserer Erfahrung bieten Qatar Airways und Emirates eine hervorragende Kombination aus Preis und Qualität."
+      },
+      {
+        "question": "WIE KOMME ICH VOM FLUGHAFEN ZUM CAMP?",
+        "answer": "Ganz unkompliziert: Teile uns deine Flugdaten mit, und wir organisieren einen Airport-Transfer. Die Fahrt dauert etwa zwei Stunden. Der Fahrer holt dich direkt am Flughafen ab – das spart Zeit und Stress. Der Transfer kostet insgesamt 75 € für bis zu vier Personen inklusive Gepäck & Surfboards. Sehr gutes Preis-Leistungs-Verhältnis – klare Empfehlung."
+      },
+      {
+        "question": "WIE IST DAS GEBIET UND WAS GIBT ES ZU TUN?",
+        "answer": "Beide Camps liegen in Weligama, einer gemütlichen Strandstadt mit kompletter Infrastruktur: Ärzte, Apotheke, Restaurants, Lebensmittel- & Einkaufszentren, Bank & Geldautomat. Fortbewegen ist einfach mit Scooter oder Tuk-Tuk. Viele Sehenswürdigkeiten erreichst du innerhalb einer Stunde. In Mirissa (nur 10 Minuten entlang der Küste per Tuk-Tuk) gibt es lebendige Bars und gute Restaurants. Du hast Ruhe, wenn du willst – und Nightlife, wenn du willst. Als Bonus liegen beide Camps direkt vor dem besten Surfspot für Anfänger und Fortgeschrittene in Weligama."
+      }
+    ]
   }
-
 }

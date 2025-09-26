@@ -48,6 +48,7 @@
       "privacy": "Privacy policy"
     }
   },
+
   "faq": {
     "items": [
       {
@@ -1547,6 +1548,38 @@
         "note": "Per Person / Per Week"
       }
     }
+  },
+  "faqRate": {
+    "title": "FAQs — Rates & Camps",
+    "items": [
+      {
+        "question": "WHAT MAKES THE SURFER STAND OUT FROM THE REST ?",
+        "answer": "It is actually pretty simple. Both the Beach Camp and the TS2 Weligama Surf Camps in Sri Lanka are just off the surf break in Weligama at two really beginner-friendly spots. Our best surf camps in Sri Lanka are next to more surf spots to enjoy and also some secret spots where you can surf peacefully. Our team of seasoned and experienced surf instructors only take six people maximum per instructor for each surf lesson.\n\nThe owner and management of the hotel is Lahiru, a local Sri Lankan who knows all about the local scene and a licensed, qualified ISA/ISL surf instructor."
+      },
+      {
+        "question": "WHAT IS THE DIFFERENCE BETWEEN THE SURFER BEACH CAMP AND TS2 WELIGAMA SURF CAMP ?",
+        "answer": "Our surf and yoga camps in Sri Lanka: the main difference is the location. The Beach Camp is located right next to the beach with a swimming pool.\n\nTS2 Camp is located 5 minutes’ ride away from the Beach Camp. Even if you book TS2 Weligama, all your surf lessons, yoga, dinner and events will take place at the Beach Camp! Transport will be paid by us. You can basically spend all your day at the Beach Camp and go to TS2 Camp to sleep. Our best surf camps in Sri Lanka will give you an unforgettable experience!"
+      },
+      {
+        "question": "WHEN DOES THE SEASON START AND WHAT ARE THE WEATHER CONDITIONS AND WATER TEMPERATURE LIKE ?",
+        "answer": "For surfing in Sri Lanka there are two coastlines:\n• East coast: May – October\n• South coast: October – April (this is where our camps are, with the longest surf season and many points).\n\nOctober to April brings dry and sunny weather to the south coast. Water temperatures are around 27°C–30°C, so no wetsuit needed. Head-high glassy waves, longer periods and offshore winds create perfect conditions for beginners to advanced surfers.\n\nMay to September is the off-season for surfing in the south, but temperatures remain great for other travel. The monsoon typically brings night rains, with plenty of good daytime weather."
+      },
+      {
+        "question": "WHAT KIND OF INSTRUCTORS ARE GOING TO TEACH US DURING SURF LESSONS?",
+        "answer": "Our instructors are experienced surfers and speak English fluently. They’re native Lankan, German, Dutch, Scandinavian or British coaches. All know the local areas and surf spots very well."
+      },
+      {
+        "question": "WHAT DOES THE FLIGHT COST ?",
+        "answer": "If you plan a bit, you can often find very good return fares from Europe. From our experience, Qatar Airways and Emirates offer an excellent balance of price and quality."
+      },
+      {
+        "question": "HOW DO I GET THERE FROM THE AIRPORT?",
+        "answer": "Easy. Share your flight details and we’ll arrange an airport pick-up. The drive is around two hours. The driver meets you at arrivals. The total is 75 € for up to four people plus luggage & surfboards. It’s great value and saves time and hassle."
+      },
+      {
+        "question": "HOW IS THE AREA AND WHAT IS THERE TO DO?",
+        "answer": "Both camps are in Weligama, a cozy beach city with all comforts: doctors, pharmacy, restaurants, convenience stores, shopping centers, bank & ATM. Getting around is easy by scooter or tuk-tuk. There’s lots of sightseeing within a one-hour radius. Mirissa nightlife—with good restaurants and lively bars—is only 10 minutes away by tuk-tuk. You get quiet when you want it, vibes when you want it—and both camps are right in front of the best beginner/intermediate surf point in Weligama."
+      }
+    ]
   }
-
 }

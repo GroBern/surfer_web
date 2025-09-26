@@ -6,6 +6,8 @@ import { useTranslation } from "react-i18next";
 import Difference from "../components/Difference";
 import { motion as Motion } from 'framer-motion';
 import Rate_Difference from "../components/Rate_Difference";
+import FAQRate from "../components/faq-rate";
+
 
 const PackageSection = () => {
   const { t } = useTranslation();
@@ -203,6 +205,8 @@ const SurfLessonPackages = () => {
     <div className="mt-15"> {/* mt-5 = 20px (5 × 4px) */}
       <Rate_Difference />
     </div>
+
+    <FAQRate />
 
 
 

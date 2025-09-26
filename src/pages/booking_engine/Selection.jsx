@@ -6,45 +6,90 @@ import Summary from "../../components/booking_engine/Summary";
 import BookingNavbar from "../../components/booking_engine/BookingNavbar";
 import BookingFooter from "../../components/booking_engine/BookingFooter";
 
+/** PER-DAY rates (from your sheet) */
 const packagePrices = {
   "The Surfer Beach Camp": {
-    "Moderate Surf Lesson Package": {
-      "Dorm Bed": 56,
-      "Private Double Room Per Person": 70,
-      "Private Triple Room Per Person": 65,
-      "Private Single Room": 99,
-    },
     "Full Surf Lesson Package": {
-      "Dorm Bed": 70,
-      "Private Double Room Per Person": 85,
-      "Private Triple Room Per Person": 79,
-      "Private Single Room": 113,
+      "Dorm Bed": 70.0,
+      "Private Single Room": 112.86,
+      "Private Double Room Per Person": 84.29,
+      "Private Triple Room Per Person": 78.57,
+    },
+    "Moderate Surf Lesson Package": {
+      "Dorm Bed": 55.71,
+      "Private Single Room": 98.57,
+      "Private Double Room Per Person": 70.0,
+      "Private Triple Room Per Person": 64.29,
     },
     "Surf & Yoga Package": {
-      "Dorm Bed": 65,
-      "Private Double Room Per Person": 79,
-      "Private Triple Room Per Person": 72,
-      "Private Single Room": 108,
+      "Dorm Bed": 64.29,
+      "Private Single Room": 107.14,
+      "Private Double Room Per Person": 78.57,
+      "Private Triple Room Per Person": 71.43,
     },
   },
   "TS2 Surf Camp": {
-    "Moderate Surf Lesson Package": {
-      "Dorm Bed": 42,
-      "Private Double Room Per Person": 42,
-      "Private Triple Room Per Person": 42,
-      "Private Single Room": 56,
-    },
     "Full Surf Lesson Package": {
-      "Dorm Bed": 56,
-      "Private Double Room Per Person": 56,
-      "Private Triple Room Per Person": 56,
-      "Private Single Room": 70,
+      "Dorm Bed": 55.71,
+      "Private Single Room": 70.0,
+      "Private Double Room Per Person": 55.71,
+      "Private Triple Room Per Person": 55.71,
+    },
+    "Moderate Surf Lesson Package": {
+      "Dorm Bed": 41.43,
+      "Private Single Room": 55.71,
+      "Private Double Room Per Person": 41.43,
+      "Private Triple Room Per Person": 41.43,
     },
     "Surf & Yoga Package": {
-      "Dorm Bed": 50,
-      "Private Double Room Per Person": 50,
-      "Private Triple Room Per Person": 50,
-      "Private Single Room": 65,
+      "Dorm Bed": 50.0,
+      "Private Single Room": 64.29,
+      "Private Double Room Per Person": 50.0,
+      "Private Triple Room Per Person": 50.0,
+    },
+  },
+};
+
+/** PER-WEEK (per person) rates (from your sheet) */
+const weeklyPrices = {
+  "The Surfer Beach Camp": {
+    "Full Surf Lesson Package": {
+      "Dorm Bed": 490,
+      "Private Single Room": 790,
+      "Private Double Room Per Person": 590,
+      "Private Triple Room Per Person": 550,
+    },
+    "Moderate Surf Lesson Package": {
+      "Dorm Bed": 390,
+      "Private Single Room": 690,
+      "Private Double Room Per Person": 490,
+      "Private Triple Room Per Person": 450,
+    },
+    "Surf & Yoga Package": {
+      "Dorm Bed": 450,
+      "Private Single Room": 750,
+      "Private Double Room Per Person": 550,
+      "Private Triple Room Per Person": 500,
+    },
+  },
+  "TS2 Surf Camp": {
+    "Full Surf Lesson Package": {
+      "Dorm Bed": 390,
+      "Private Single Room": 490,
+      "Private Double Room Per Person": 390,
+      "Private Triple Room Per Person": 390,
+    },
+    "Moderate Surf Lesson Package": {
+      "Dorm Bed": 290,
+      "Private Single Room": 390,
+      "Private Double Room Per Person": 290,
+      "Private Triple Room Per Person": 290,
+    },
+    "Surf & Yoga Package": {
+      "Dorm Bed": 350,
+      "Private Single Room": 450,
+      "Private Double Room Per Person": 350,
+      "Private Triple Room Per Person": 350,
     },
   },
 };
@@ -84,6 +129,13 @@ const Selection = () => {
 
   const [availablePackages, setAvailablePackages] = useState([]);
 
+  // Optional: exact weeks the user explicitly picked earlier
+  const [weeksSelected] = useState(() => {
+    const raw = localStorage.getItem("selectedWeeks");
+    const n = parseInt(raw, 10);
+    return Number.isFinite(n) && n > 0 ? n : null;
+  });
+
   useEffect(() => {
     const storedCamp = localStorage.getItem("selectedCamp");
     if (storedCamp) setSelectedCamp(storedCamp);
@@ -93,9 +145,7 @@ const Selection = () => {
     if (e) setEndDate(e);
   }, []);
 
-
   // Initialize traveller info from selections (or reuse valid saved data)
-
   useEffect(() => {
     localStorage.removeItem("addons");
 
@@ -103,7 +153,6 @@ const Selection = () => {
       const storedInfo = localStorage.getItem("travellerInfo");
       if (storedInfo) {
         try {
-
           const parsed = JSON.parse(storedInfo);
           const valid =
             Array.isArray(parsed) &&
@@ -118,18 +167,15 @@ const Selection = () => {
             );
           if (valid) {
             setTravellerInfo(parsed);
-            // also rebuild availability from selectedPackages in case of reload
             setAvailablePackages(buildAvailablePackageArray(selectedPackages));
             return;
           }
         } catch {}
-
       }
       initializeTravellerInfo();
     }
     // eslint-disable-next-line react-hooks/exhaustive-deps
   }, [selectedPackages, selectedRooms]);
-
 
   const buildAvailablePackageArray = (packagesList) => {
     const counts = {};
@@ -138,8 +184,6 @@ const Selection = () => {
       const title = titleParts.join(" x ");
       const count = parseInt(countStr, 10) || 0;
       counts[title] = (counts[title] || 0) + count;
-
-  
     });
     return Object.entries(counts).flatMap(([pkg, count]) => Array(count).fill(pkg));
   };
@@ -149,14 +193,12 @@ const Selection = () => {
     setAvailablePackages(newAvailable);
 
     const newTravellerInfo = selectedRooms.flatMap((roomStr) => {
-
       const [roomCountStr, ...roomParts] = roomStr.split(" x ");
       const roomType = roomParts.join(" x ");
       const capacity = getRoomCapacity(roomType);
       const roomCount = parseInt(roomCountStr, 10) || 0;
 
       return Array(roomCount)
-
         .fill()
         .flatMap(() =>
           Array(capacity)
@@ -171,7 +213,6 @@ const Selection = () => {
     });
 
     setTravellerInfo(newTravellerInfo);
-
   };
 
   const getRoomCapacity = (roomType) => {
@@ -188,33 +229,70 @@ const Selection = () => {
     });
   };
 
+  /** Helper: compute DAYS and whether the range is whole weeks (7,14,…) */
+  const getDaysAndWeeksFromDates = (start, end) => {
+    if (!start || !end) return { days: null, weeksFromDates: null };
+    const a = new Date(start);
+    const b = new Date(end);
+    // normalize to noon to avoid DST/midnight issues
+    a.setHours(12, 0, 0, 0);
+    b.setHours(12, 0, 0, 0);
+    const MS = 1000 * 60 * 60 * 24;
+    const nights = Math.max(1, Math.round((b - a) / MS));
+    const days = nights + 1; // pricing uses DAYS, and 7 days = 1 week
+    const weeksFromDates = days % 7 === 0 ? days / 7 : null;
+    return { days, weeksFromDates };
+  };
 
-  // Price calculation (re-run when inputs that affect price change)
+  // Price calculation (weekly when exact weeks; otherwise per-day) + ROUND UP for non-week mode
   useEffect(() => {
-    if (!selectedCamp || travellerInfo.length === 0 || !startDate || !endDate) return;
+    if (!selectedCamp || travellerInfo.length === 0) return;
 
-    let subtotal = 0;
+    let basePerDayTotal = 0;   // per-day prices (sheet)
+    let basePerWeekTotal = 0;  // per-week prices (sheet)
+    let peakPerDayTotal = 0;   // peak per day
+
     travellerInfo.forEach((person) => {
-      if (person.package) {
-        const base = packagePrices[selectedCamp]?.[person.package]?.[person.room] || 0;
-        const peakFee =
-          peakCharge ? (person.room.includes("Dorm") ? 100 : 150) : 0;
-        subtotal += base + peakFee;
-      }
+      if (!person.package) return;
+
+      const dayBase =
+        packagePrices[selectedCamp]?.[person.package]?.[person.room] || 0;
+
+      const weekBase =
+        weeklyPrices[selectedCamp]?.[person.package]?.[person.room] ??
+        dayBase * 7;
+
+      const peakFeePerDay =
+        peakCharge ? (person.room.includes("Dorm") ? 100 : 150) : 0;
+
+      basePerDayTotal += dayBase;
+      basePerWeekTotal += weekBase;
+      peakPerDayTotal += peakFeePerDay;
     });
 
-    const nights = Math.max(
-      1,
-      Math.ceil((new Date(endDate) - new Date(startDate)) / (1000 * 60 * 60 * 24))
-    );
+    const { days, weeksFromDates } = getDaysAndWeeksFromDates(startDate, endDate);
+    const effectiveWeeks = weeksSelected ?? weeksFromDates;
 
-    const total = subtotal * nights;
+    let total = 0;
+
+    if (effectiveWeeks) {
+      const daysInWeeks = effectiveWeeks * 7;
+      // exact whole weeks → weekly price × weeks + peak per day × days
+      total = basePerWeekTotal * effectiveWeeks + peakPerDayTotal * daysInWeeks;
+      // weekly totals are already whole numbers; no rounding needed
+    } else {
+      if (!days) return;
+      // non-exact weeks → per-day price × days + peak per day × days
+      total = (basePerDayTotal + peakPerDayTotal) * days;
+      // BUSINESS RULE: always round up (ceil) for non-week stays
+      total = Math.ceil(total);
+    }
+
     setTotalPrice(total);
     localStorage.setItem("totalPrice", JSON.stringify(total));
-  }, [selectedCamp, travellerInfo, peakCharge, startDate, endDate]);
+  }, [selectedCamp, travellerInfo, peakCharge, startDate, endDate, weeksSelected]);
 
   // Persist traveller info
-
   useEffect(() => {
     if (travellerInfo.length > 0) {
       localStorage.setItem("travellerInfo", JSON.stringify(travellerInfo));
@@ -222,7 +300,6 @@ const Selection = () => {
   }, [travellerInfo]);
 
   const handlePackageChange = (index, pkg) => {
-
     setTravellerInfo((prev) => {
       const next = [...prev];
       const previousPkg = next[index].package;
@@ -249,12 +326,10 @@ const Selection = () => {
       pkg,
       count,
       disabled: count <= 0 && pkg !== current,
-
     }));
   };
 
   const allFieldsFilled = travellerInfo.every(
-
     (p) => p.package && p.firstName && p.lastName
   );
 
@@ -264,10 +339,9 @@ const Selection = () => {
     if (
       last &&
       last[0].room === person.room &&
-      last.length < getRoomCapacity(person.room)
+      last.length < getRoomCapacity(last[0].room)
     ) {
       last.push(person);
-
     } else {
       acc.push([person]);
     }
@@ -278,7 +352,7 @@ const Selection = () => {
     <>
       <BookingNavbar />
 
-        <div className="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8 pt-28 pb-28">
+      <div className="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8 pt-28 pb-28">
         <h3 className="text-2xl font-semibold tracking-tight text-gray-900">
           Match Packages to Rooms
         </h3>
@@ -306,7 +380,6 @@ const Selection = () => {
                   <div className="px-4 py-3 border-b border-gray-100">
                     <div className="text-sm font-semibold text-gray-900">
                       {roomGroup[0].room.replace(" Per Person", "")}
-
                     </div>
                     <div className="text-xs text-gray-500">
                       Capacity: {getRoomCapacity(roomGroup[0].room)}
@@ -420,7 +493,6 @@ const Selection = () => {
                 ].join(" ")}
               >
                 Add-on Selection <FontAwesomeIcon className="ml-2" icon={faArrowRight} />
-
               </div>
             </Link>
           </aside>
