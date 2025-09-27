@@ -1444,17 +1444,11 @@
         "fullSurf": "85 € daily / 510 € weekly",
         "moderate": "83 € daily / 490 € weekly"
       },
-      "doubleTerrace": {
-        "label": "Double with Terrace",
-        "yogaSurf": "103 € daily / 618 € weekly",
-        "fullSurf": "87 € daily / 522 € weekly",
-        "moderate": "87 € daily / 522 € weekly"
-      },
-      "doubleSuite": {
-        "label": "Double Suite",
-        "yogaSurf": "106 € daily / 636 € weekly",
-        "fullSurf": "90 € daily / 540 € weekly",
-        "moderate": "90 € daily / 540 € weekly"
+      "single": {
+        "label": "Single Room",
+        "yogaSurf": "115 € daily / 800 € weekly",
+        "fullSurf": "108 € daily / 750 € weekly",
+        "moderate": "100 € daily / 700 € weekly"
       }
     }
   },

@@ -11,14 +11,38 @@ const Whatsapp = () => {
     whatsapp: "",
     message: "",
   });
+  const [errors, setErrors] = useState({});
   const [submitting, setSubmitting] = useState(false);
 
   const handleChange = (e) => {
     setFormData({ ...formData, [e.target.name]: e.target.value });
+    setErrors({ ...errors, [e.target.name]: "" }); // clear error on change
+  };
+
+  const validate = () => {
+    const newErrors = {};
+    if (!formData.name.trim()) newErrors.name = "Name is required";
+    if (!formData.email.trim()) {
+      newErrors.email = "Email is required";
+    } else if (!/\S+@\S+\.\S+/.test(formData.email)) {
+      newErrors.email = "Email is invalid";
+    }
+    if (!formData.country.trim()) newErrors.country = "Country is required";
+    if (!formData.whatsapp.trim()) {
+      newErrors.whatsapp = "WhatsApp number is required";
+    } else if (!/^\+\d{7,15}$/.test(formData.whatsapp)) {
+      newErrors.whatsapp = "Enter a valid number with country code";
+    }
+    if (!formData.message.trim()) newErrors.message = "Message is required";
+
+    setErrors(newErrors);
+    return Object.keys(newErrors).length === 0;
   };
 
   const handleSubmit = async (e) => {
     e.preventDefault();
+    if (!validate()) return;
+
     setSubmitting(true);
     try {
       const res = await fetch(`${API_BASE_URL}/bookings/whatsapp-inquiry`, {
@@ -32,13 +56,14 @@ const Whatsapp = () => {
         alert("We will get back to you within few hours!");
         setFormData({ name: "", email: "", country: "", whatsapp: "", message: "" });
         setIsOpen(false);
-        setSubmitting(false);
       } else {
         alert("Failed to send message. Try again.");
       }
     } catch (err) {
       console.error(err);
       alert("Error sending message.");
+    } finally {
+      setSubmitting(false);
     }
   };
 
@@ -62,53 +87,70 @@ const Whatsapp = () => {
           WhatsApp Inquiry
         </h3>
         <form className="flex flex-col gap-2" onSubmit={handleSubmit}>
-          <input
-            type="text"
-            name="name"
-            placeholder="Enter your name"
-            value={formData.name}
-            onChange={handleChange}
-            className="w-full p-2 border border-gray-300 rounded text-sm text-black"
-            required
-          />
-          <input
-            type="email"
-            name="email"
-            placeholder="Enter your email"
-            value={formData.email}
-            onChange={handleChange}
-            className="w-full p-2 border border-gray-300 rounded text-sm text-black"
-            required
-          />
-          <input
-            type="text"
-            name="country"
-            placeholder="Enter your country"
-            value={formData.country}
-            onChange={handleChange}
-            className="w-full p-2 border border-gray-300 rounded text-sm text-black"
-            required
-          />
-          <input
-            type="text"
-            name="whatsapp"
-            placeholder="WhatsApp number with country code"
-            value={formData.whatsapp}
-            onChange={handleChange}
-            className="w-full p-2 border border-gray-300 rounded text-sm text-black"
-            required
-          />
-          <textarea
-            name="message"
-            placeholder="Enter your message"
-            value={formData.message}
-            onChange={handleChange}
-            className="w-full p-2 border border-gray-300 rounded text-sm text-black h-20 resize-none"
-            required
-          ></textarea>
+          <div>
+            <input
+              type="text"
+              name="name"
+              placeholder="Enter your name"
+              value={formData.name}
+              onChange={handleChange}
+              className={`w-full p-2 border rounded text-sm ${errors.name ? "border-red-500" : "border-gray-300"} text-black`}
+            />
+            {errors.name && <p className="text-red-500 text-xs mt-1">{errors.name}</p>}
+          </div>
+
+          <div>
+            <input
+              type="email"
+              name="email"
+              placeholder="Enter your email"
+              value={formData.email}
+              onChange={handleChange}
+              className={`w-full p-2 border rounded text-sm ${errors.email ? "border-red-500" : "border-gray-300"} text-black`}
+            />
+            {errors.email && <p className="text-red-500 text-xs mt-1">{errors.email}</p>}
+          </div>
+
+          <div>
+            <input
+              type="text"
+              name="country"
+              placeholder="Enter your country"
+              value={formData.country}
+              onChange={handleChange}
+              className={`w-full p-2 border rounded text-sm ${errors.country ? "border-red-500" : "border-gray-300"} text-black`}
+            />
+            {errors.country && <p className="text-red-500 text-xs mt-1">{errors.country}</p>}
+          </div>
+
+          <div>
+            <input
+              type="text"
+              name="whatsapp"
+              placeholder="WhatsApp number with country code"
+              value={formData.whatsapp}
+              onChange={handleChange}
+              className={`w-full p-2 border rounded text-sm ${errors.whatsapp ? "border-red-500" : "border-gray-300"} text-black`}
+            />
+            {errors.whatsapp && <p className="text-red-500 text-xs mt-1">{errors.whatsapp}</p>}
+          </div>
+
+          <div>
+            <textarea
+              name="message"
+              placeholder="Enter your message"
+              value={formData.message}
+              onChange={handleChange}
+              className={`w-full p-2 border rounded text-sm h-20 resize-none ${errors.message ? "border-red-500" : "border-gray-300"} text-black`}
+            ></textarea>
+            {errors.message && <p className="text-red-500 text-xs mt-1">{errors.message}</p>}
+          </div>
+
           <button
             type="submit"
-            className={`w-full py-2 bg-[#25D366] text-white rounded font-semibold text-sm hover:bg-[#1ebe57] transition-all ${submitting ? "opacity-50 cursor-not-allowed" : "cursor-pointer"}`}
+            className={`w-full py-2 bg-[#25D366] text-white rounded font-semibold text-sm hover:bg-[#1ebe57] transition-all ${
+              submitting ? "opacity-50 cursor-not-allowed" : "cursor-pointer"
+            }`}
             disabled={submitting}
           >
             {submitting ? "Sending..." : "Send"}

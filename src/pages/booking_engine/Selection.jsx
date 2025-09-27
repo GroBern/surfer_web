@@ -48,6 +48,26 @@ const packagePrices = {
       "Private Triple Room Per Person": 50.0,
     },
   },
+  "The Surfer SurfStyle Camp": {
+    "Full Surf Lesson Package": {
+      "Shared Room": 83.0,
+      "Single Room": 108.0,
+      "Double Room": 85.0,
+      // "Private Double Room With Balcony": 90.0, // not available
+    },
+    "Moderate Surf Lesson Package": {
+      "Shared Room": 80.0,
+      "Single Room": 100.0,
+      "Double Room": 83.0,
+      // "Private Double Room With Balcony": 75.0, // not available
+    },
+    "Surf & Yoga Package": {
+      "Shared Room": 99.0,
+      "Single Room": 115.0,
+      "Double Room": 100.0,
+      // "Private Double Room With Balcony": 85.0, // not available
+    },
+  },
 };
 
 /** PER-WEEK (per person) rates (from your sheet) */
@@ -90,6 +110,26 @@ const weeklyPrices = {
       "Private Single Room": 450,
       "Private Double Room Per Person": 350,
       "Private Triple Room Per Person": 350,
+    },
+  },
+  "The Surfer SurfStyle Camp": {
+    "Full Surf Lesson Package": {
+      "Shared Room": 510.0,
+      "Single Room": 750.0,
+      "Double Room": 510.0,
+      // "Private Double Room With Balcony": 90.0, // not available
+    },
+    "Moderate Surf Lesson Package": {
+      "Shared Room": 480.0,
+      "Single Room": 700.0,
+      "Double Room": 490.0,
+      // "Private Double Room With Balcony": 75.0, // not available
+    },
+    "Surf & Yoga Package": {
+      "Shared Room": 598.0,
+      "Single Room": 800.0,
+      "Double Room": 600.0,
+      // "Private Double Room With Balcony": 85.0, // not available
     },
   },
 };
@@ -229,9 +269,9 @@ const Selection = () => {
     });
   };
 
-  /** Helper: compute DAYS and whether the range is whole weeks (7,14,…) */
-  const getDaysAndWeeksFromDates = (start, end) => {
-    if (!start || !end) return { days: null, weeksFromDates: null };
+  /** Helper: compute NIGHTS and whether the range is whole weeks (7,14,…) */
+  const getNightsAndWeeksFromDates = (start, end) => {
+    if (!start || !end) return { nights: null, weeksFromDates: null };
     const a = new Date(start);
     const b = new Date(end);
     // normalize to noon to avoid DST/midnight issues
@@ -239,18 +279,18 @@ const Selection = () => {
     b.setHours(12, 0, 0, 0);
     const MS = 1000 * 60 * 60 * 24;
     const nights = Math.max(1, Math.round((b - a) / MS));
-    const days = nights + 1; // pricing uses DAYS, and 7 days = 1 week
-    const weeksFromDates = days % 7 === 0 ? days / 7 : null;
-    return { days, weeksFromDates };
+    // pricing now uses NIGHTS, and 7 nights = 1 week
+    const weeksFromDates = nights % 7 === 0 ? nights / 7 : null;
+    return { nights, weeksFromDates };
   };
 
-  // Price calculation (weekly when exact weeks; otherwise per-day) + ROUND UP for non-week mode
+  // Price calculation (weekly when exact weeks; otherwise per-night) + ROUND UP for non-week mode
   useEffect(() => {
     if (!selectedCamp || travellerInfo.length === 0) return;
 
-    let basePerDayTotal = 0;   // per-day prices (sheet)
+    let basePerDayTotal = 0;   // per-night prices (sheet)
     let basePerWeekTotal = 0;  // per-week prices (sheet)
-    let peakPerDayTotal = 0;   // peak per day
+    let peakPerDayTotal = 0;   // peak per night
 
     travellerInfo.forEach((person) => {
       if (!person.package) return;
@@ -270,20 +310,20 @@ const Selection = () => {
       peakPerDayTotal += peakFeePerDay;
     });
 
-    const { days, weeksFromDates } = getDaysAndWeeksFromDates(startDate, endDate);
+    const { nights, weeksFromDates } = getNightsAndWeeksFromDates(startDate, endDate);
     const effectiveWeeks = weeksSelected ?? weeksFromDates;
 
     let total = 0;
 
     if (effectiveWeeks) {
-      const daysInWeeks = effectiveWeeks * 7;
-      // exact whole weeks → weekly price × weeks + peak per day × days
-      total = basePerWeekTotal * effectiveWeeks + peakPerDayTotal * daysInWeeks;
+      const nightsInWeeks = effectiveWeeks * 7;
+      // exact whole weeks → weekly price × weeks + peak per night × nights
+      total = basePerWeekTotal * effectiveWeeks + peakPerDayTotal * nightsInWeeks;
       // weekly totals are already whole numbers; no rounding needed
     } else {
-      if (!days) return;
-      // non-exact weeks → per-day price × days + peak per day × days
-      total = (basePerDayTotal + peakPerDayTotal) * days;
+      if (!nights) return;
+      // non-exact weeks → per-night price × nights + peak per night × nights
+      total = (basePerDayTotal + peakPerDayTotal) * nights;
       // BUSINESS RULE: always round up (ceil) for non-week stays
       total = Math.ceil(total);
     }

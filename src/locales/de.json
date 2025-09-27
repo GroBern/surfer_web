@@ -1363,17 +1363,11 @@
         "fullSurf": "85 € täglich / 510 € wöchentlich",
         "moderate": "83 € täglich / 490 € wöchentlich"
       },
-      "doubleTerrace": {
-        "label": "Doppelzimmer mit Terrasse",
-        "yogaSurf": "103 € täglich / 618 € wöchentlich",
-        "fullSurf": "87 € täglich / 522 € wöchentlich",
-        "moderate": "87 € täglich / 522 € wöchentlich"
-      },
-      "doubleSuite": {
-        "label": "Doppelsuite",
-        "yogaSurf": "106 € täglich / 636 € wöchentlich",
-        "fullSurf": "90 € täglich / 540 € wöchentlich",
-        "moderate": "90 € täglich / 540 € wöchentlich"
+      "single": {
+        "label": "Einzelzimmer",
+        "yogaSurf": "115 € täglich / 800 € wöchentlich",
+        "fullSurf": "108 € täglich / 750 € wöchentlich",
+        "moderate": "100 € täglich / 700 € wöchentlich"
       }
     }
   },

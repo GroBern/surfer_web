@@ -201,21 +201,12 @@ const Package = () => {
               </tr>
               <tr className="border-b border-gray-300">
                 <td className="px-6 py-4 text-sm text-gray-900 font-medium">
-                  {t('moroccoPackage1.prices.doubleTerrace.label')}
+                  {t('moroccoPackage1.prices.single.label')}
                   <div className="text-xs text-gray-500">{t('moroccoPackage1.prices.perPersonPerWeek')}</div>
                 </td>
-                <td className="px-6 py-4 text-center text-sm font-semibold text-blue-600">{t('moroccoPackage1.prices.doubleTerrace.yogaSurf')}</td>
-                <td className="px-6 py-4 text-center text-sm font-semibold text-blue-600">{t('moroccoPackage1.prices.doubleTerrace.fullSurf')}</td>
-                <td className="px-6 py-4 text-center text-sm font-semibold text-blue-600">{t('moroccoPackage1.prices.doubleTerrace.moderate')}</td>
-              </tr>
-              <tr>
-                <td className="px-6 py-4 text-sm text-gray-900 font-medium">
-                  {t('moroccoPackage1.prices.doubleSuite.label')}
-                  <div className="text-xs text-gray-500">{t('moroccoPackage1.prices.perPersonPerWeek')}</div>
-                </td>
-                <td className="px-6 py-4 text-center text-sm font-semibold text-blue-600">{t('moroccoPackage1.prices.doubleSuite.yogaSurf')}</td>
-                <td className="px-6 py-4 text-center text-sm font-semibold text-blue-600">{t('moroccoPackage1.prices.doubleSuite.fullSurf')}</td>
-                <td className="px-6 py-4 text-center text-sm font-semibold text-blue-600">{t('moroccoPackage1.prices.doubleSuite.moderate')}</td>
+                <td className="px-6 py-4 text-center text-sm font-semibold text-blue-600">{t('moroccoPackage1.prices.single.yogaSurf')}</td>
+                <td className="px-6 py-4 text-center text-sm font-semibold text-blue-600">{t('moroccoPackage1.prices.single.fullSurf')}</td>
+                <td className="px-6 py-4 text-center text-sm font-semibold text-blue-600">{t('moroccoPackage1.prices.single.moderate')}</td>
               </tr>
             </tbody>
           </table>

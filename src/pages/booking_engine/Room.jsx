@@ -22,10 +22,10 @@ const RoomPage = () => {
 
     if (selectedCamp === "The Surfer SurfStyle Camp") {
       return [
-        { id: 1, title: "3 Bed Shared Room", people: 3, image: "morocco/3-bed-1.jpg", details: "Shared room for 3 people with bathroom access." },
-        { id: 2, title: "2 Bed Shared Room", people: 2, image: "morocco/2-bed-1.jpg", details: "Shared room for 2 people with bathroom access." },
-        { id: 3, title: "Private Double Room", people: 2, image: "morocco/private-double-1.jpg", details: "Private double room with bathroom." },
-        { id: 4, title: "Private Double Room With Balcony", people: 2, image: "morocco/balcony-1.jpg", details: "Private double room with balcony and bathroom." },
+        { id: 1, title: "Shared Room", people: 1, image: "morocco/3-bed-1.jpg", details: "Shared room for 2 people with bathroom access." },
+        { id: 2, title: "Single Room", people: 1, image: "morocco/2-bed-1.jpg", details: "Private single room with bathroom." },
+        { id: 3, title: "Double Room", people: 2, image: "morocco/private-double-1.jpg", details: "Private double room with bathroom." },
+        // { id: 4, title: "Private Double Room With Balcony", people: 2, image: "morocco/balcony-1.jpg", details: "Private double room with balcony and bathroom." },
       ];
     }
 

@@ -44,12 +44,13 @@ const Activities = () => {
             {/* Boat Party Video */}
             <div className="max-w-7xl mx-auto px-4 pb-10">
                 <div className="w-full h-72 md:h-96 overflow-hidden shadow-md">
-                    <video
-                        src="/videos/boat-party.mp4"
-                        controls
-                        className="w-full h-full object-cover"
-                        aria-label={t("activities.videoSection.boatPartyVideo")}
-                    />
+                    <iframe
+                        src="https://www.youtube.com/embed/AcTKzSIc9T0"
+                        title="Boat Party Video"
+                        className="w-full h-full"
+                        allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
+                        allowFullScreen
+                    ></iframe>
                 </div>
             </div>
 
